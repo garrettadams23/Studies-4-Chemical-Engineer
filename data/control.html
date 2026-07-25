@@ -113,3 +113,42 @@ LCV-310  = Level Control Valve, loop 310</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: SECOND-ORDER DYNAMICS ─────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">〰️</span>
+    <span class="topic-name">Second-Order Dynamics &amp; Response</span>
+    <span class="topic-badge">DYNAMICS</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Overshoot &amp; Oscillation</div>
+      <div class="concept-title">The damping ratio shapes the response</div>
+      <div class="concept-desc">
+        Add inertia (or two first-order lags) and a process becomes second order — capable of
+        overshoot and ringing. The <strong class="text-purple">damping ratio ζ</strong>
+        decides how it settles.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ STANDARD SECOND-ORDER FORM</div>
+        <pre class="code-block">G(s) = K / (τ²s² + 2ζτs + 1)
+
+τ = natural period      ζ = damping ratio
+Overshoot &amp; decay ratio depend only on ζ.</pre>
+        <div class="dt">▸ RESPONSE REGIMES</div>
+        <table class="ref-table">
+          <tr><th>ζ</th><th>Behavior</th></tr>
+          <tr><td style="color: var(--red)">ζ &lt; 1</td><td>Underdamped — overshoots, oscillates</td></tr>
+          <tr><td style="color: var(--green)">ζ = 1</td><td>Critically damped — fastest, no overshoot</td></tr>
+          <tr><td style="color: var(--cyan)">ζ &gt; 1</td><td>Overdamped — sluggish, no overshoot</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🎛️ Tuning a loop too aggressively drops ζ toward 0 — the system rings and can go
+        unstable. Most loops target ζ ≈ 0.4–0.7 for a fast, damped response.
+      </div>
+    </div>
+  </div>
+</div>

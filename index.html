@@ -6,6 +6,31 @@
 <title>
 Chemical Engineering Reference — Concepts, Cycles, Diagrams &amp; Equations
 </title>
+<meta
+name="description"
+content="A free, offline-first, interactive chemical-engineering reference: material &amp; energy balances, thermodynamics, fluid mechanics, heat &amp; mass transfer, reaction engineering, process control, biochemical engineering (incl. DNA), transport phenomena, unit operations, process safety, materials, chemistry, plant design, and engineering math."
+/>
+<meta name="author" content="Chemical Engineering Reference" />
+<meta name="theme-color" media="(prefers-color-scheme: dark)" content="#070c18" />
+<meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+<link rel="canonical" href="https://garrettstudies4chemicalengineer.netlify.app/" />
+<!-- Open Graph / social -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Chemical Engineering Reference" />
+<meta property="og:title" content="Chemical Engineering Reference — 2026 Edition" />
+<meta
+property="og:description"
+content="Interactive, offline-first study reference spanning the entire chemical-engineering curriculum and the FE/PE exams."
+/>
+<meta property="og:url" content="https://garrettstudies4chemicalengineer.netlify.app/" />
+<meta property="og:image" content="https://garrettstudies4chemicalengineer.netlify.app/Img/Studying-Tips.png" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Chemical Engineering Reference — 2026 Edition" />
+<meta
+name="twitter:description"
+content="Interactive, offline-first study reference spanning the entire chemical-engineering curriculum and the FE/PE exams."
+/>
+<meta name="twitter:image" content="https://garrettstudies4chemicalengineer.netlify.app/Img/Studying-Tips.png" />
 <!-- Self-hosted fonts (works offline / over file://; no third-party calls) -->
 <link rel="stylesheet" href="Img/fonts.css" />
 <link rel="stylesheet" href="style.css" />
@@ -86,11 +111,10 @@ id="search-input"
 class="search-input"
 type="search"
 placeholder="Search topics, concepts, equations…"
-oninput="onSearchInput(this.value)"
 autocomplete="off"
 spellcheck="false"
 />
-<button class="search-clear" id="search-clear" onclick="clearSearch()" title="Clear search">✕</button>
+<button class="search-clear" id="search-clear" title="Clear search">✕</button>
 <span class="search-count" id="search-count"></span>
 </div>
 </div>
@@ -222,6 +246,86 @@ DOF < 0  → overspecified (possible inconsistency)</pre>
 </div>
 <div class="info-bar ib-muted">
 🎯 Atom balances (C, H, O, N) are the workhorse of combustion problems — one equation per element.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: UNITS, DIMENSIONS & CONVERSION ────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">📏</span>
+<span class="topic-name">Units, Dimensions &amp; Unit Conversion</span>
+<span class="topic-badge">FOUNDATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Get the Units Right First</div>
+<div class="concept-title">Dimensional homogeneity is non-negotiable</div>
+<div class="concept-desc">
+Every valid equation is <strong class="text-blue">dimensionally homogeneous</strong> —
+both sides carry the same units. More exam points are lost to unit slips than to any
+concept. Carry units through every step.
+</div>
+<div class="dw">
+<div class="dt">▸ BASE DIMENSIONS &amp; SI UNITS</div>
+<table class="ref-table">
+<tr><th>Dimension</th><th>SI unit</th><th>USCS</th></tr>
+<tr><td style="color: var(--cyan)">Mass M</td><td>kg</td><td>lbm</td></tr>
+<tr><td style="color: var(--green)">Length L</td><td>m</td><td>ft</td></tr>
+<tr><td style="color: var(--amber)">Time T</td><td>s</td><td>s / h</td></tr>
+<tr><td style="color: var(--purple)">Temperature Θ</td><td>K</td><td>°R</td></tr>
+<tr><td style="color: var(--red)">Amount N</td><td>mol</td><td>lbmol</td></tr>
+</table>
+<div class="dt">▸ THE gc CONVERSION FACTOR (USCS)</div>
+<pre class="code-block">F = m·a / gc
+
+gc = 32.174 lbm·ft / (lbf·s²)   = 1 kg·m/(N·s²) in SI
+
+Force in lbf needs gc; in SI, 1 N ≡ 1 kg·m/s² (gc = 1).</pre>
+</div>
+<div class="info-bar ib-muted">
+💡 Convert by multiplying by unity ratios (e.g. 1 = 2.54 cm / 1 in). Weight = m·g;
+mass ≠ weight — keep lbm and lbf distinct.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: REACTIVE BALANCES — EXTENT OF REACTION ────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧮</span>
+<span class="topic-name">Reactive Balances — Extent of Reaction</span>
+<span class="topic-badge">METHOD</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">One Variable Ties a Reaction Together</div>
+<div class="concept-title">The extent ξ bookkeeps every species at once</div>
+<div class="concept-desc">
+For a single reaction, the <strong class="text-purple">extent of reaction ξ</strong>
+links the change in every species through its stoichiometric coefficient — collapsing
+many unknowns into one.
+</div>
+<div class="dw">
+<div class="dt">▸ THE EXTENT RELATION</div>
+<pre class="code-block">n_i = n_i0 + ν_i · ξ
+
+ν_i < 0 for reactants, > 0 for products.
+Molar flow version:  ṅ_i = ṅ_i0 + ν_i · ξ̇</pre>
+<div class="dt">▸ CONVERSION, YIELD &amp; SELECTIVITY</div>
+<table class="ref-table">
+<tr><th>Metric</th><th>Definition</th></tr>
+<tr><td style="color: var(--cyan)">Limiting reactant</td><td>Runs out first (smallest feed/ν ratio)</td></tr>
+<tr><td style="color: var(--green)">Conversion X</td><td>(reacted) / (fed) of limiting reactant</td></tr>
+<tr><td style="color: var(--amber)">Yield</td><td>(desired product formed) / (theoretical max)</td></tr>
+<tr><td style="color: var(--purple)">Selectivity</td><td>(desired) / (undesired) product</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🎯 Atom balances need no ξ and are often faster; extent shines when rate/equilibrium
+data pin ξ directly.
 </div>
 </div>
 </div>
@@ -360,6 +464,85 @@ distillation — you need pressure-swing, extractive, or azeotropic distillation
 </div>
 </div>
 </div>
+<!-- ── TOPIC: REAL GASES — COMPRESSIBILITY FACTOR ───────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🎈</span>
+<span class="topic-name">Real Gases — the Compressibility Factor Z</span>
+<span class="topic-badge">PVT</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">When PV = nRT Fails</div>
+<div class="concept-title">Z measures the departure from ideality</div>
+<div class="concept-desc">
+At high pressure or near condensation the ideal-gas law breaks down. The
+<strong class="text-blue">compressibility factor Z</strong> corrects it, and the
+principle of corresponding states makes Z nearly universal in reduced coordinates.
+</div>
+<div class="dw">
+<div class="dt">▸ DEFINITION &amp; REDUCED PROPERTIES</div>
+<pre class="code-block">PV = Z n R T          Z = PV / nRT
+
+Reduced:  Tr = T/Tc      Pr = P/Pc
+Generalized (Nelson-Obert / Pitzer) charts: Z = Z(Tr, Pr, ω)</pre>
+<div class="dt">▸ READING Z</div>
+<table class="ref-table">
+<tr><th>Z value</th><th>Meaning</th></tr>
+<tr><td style="color: var(--green)">Z = 1</td><td>Ideal-gas behavior</td></tr>
+<tr><td style="color: var(--cyan)">Z &lt; 1</td><td>Attractions dominate (near condensation)</td></tr>
+<tr><td style="color: var(--red)">Z &gt; 1</td><td>Repulsions dominate (very high P)</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🌡️ The acentric factor ω captures molecular non-sphericity and feeds both the
+generalized charts and cubic EOS (SRK, Peng-Robinson).
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: THERMOCHEMISTRY ───────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔥</span>
+<span class="topic-name">Thermochemistry — Heats of Reaction &amp; Formation</span>
+<span class="topic-badge">ENERGY BALANCE</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Energy Released or Absorbed</div>
+<div class="concept-title">Hess's law turns tabulated data into any ΔH</div>
+<div class="concept-desc">
+Reactor energy balances need the heat of reaction. Because enthalpy is a state
+function, <strong class="text-purple">Hess's law</strong> lets you build any ΔH from
+tabulated enthalpies of formation.
+</div>
+<div class="dw">
+<div class="dt">▸ CORE RELATIONS</div>
+<pre class="code-block">ΔH°rxn = Σ ν_i ΔH°f (products) − Σ ν_i ΔH°f (reactants)
+
+ΔH < 0  → exothermic (releases heat)
+ΔH > 0  → endothermic (absorbs heat)
+
+Adiabatic flame temp: all ΔHrxn heats the products (Q = 0).</pre>
+<div class="dt">▸ KEY QUANTITIES</div>
+<table class="ref-table">
+<tr><th>Term</th><th>Meaning</th></tr>
+<tr><td style="color: var(--cyan)">ΔH°f</td><td>Formation from elements (elements = 0)</td></tr>
+<tr><td style="color: var(--amber)">ΔH°c</td><td>Combustion to CO₂ + H₂O</td></tr>
+<tr><td style="color: var(--green)">Sensible heat</td><td>∫ Cp dT — heating/cooling without reaction</td></tr>
+<tr><td style="color: var(--red)">Latent heat</td><td>ΔHvap, ΔHfus — phase change at constant T</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+♨️ Choose a reference state, compute ΔH along a convenient path (state function!), and
+the answer is path-independent — the heart of every reactor energy balance.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-fluids" data-domain="fluids">
@@ -489,6 +672,40 @@ pump failure in the field.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: FLUID STATICS & MANOMETRY ─────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🌡️</span>
+<span class="topic-name">Fluid Statics &amp; Manometry</span>
+<span class="topic-badge">PRESSURE</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Pressure in a Fluid at Rest</div>
+<div class="concept-title">Depth sets the pressure; manometers read it</div>
+<div class="concept-desc">
+A static fluid's pressure rises linearly with depth. This one idea underlies
+manometers, barometers, buoyancy and the loads on tanks and dams.
+</div>
+<div class="dw">
+<div class="dt">▸ HYDROSTATIC LAW &amp; MANOMETRY</div>
+<pre class="code-block">P = P₀ + ρ g h            (pressure grows with depth h)
+
+Manometer:  ΔP = (ρ_manometer − ρ_fluid) g Δh
+Gauge vs absolute:  P_abs = P_gauge + P_atm</pre>
+<div class="dt">▸ BUOYANCY (ARCHIMEDES)</div>
+<pre class="code-block">F_buoyancy = ρ_fluid · g · V_displaced
+
+Floats if ρ_body < ρ_fluid; the displaced weight = body weight.</pre>
+</div>
+<div class="info-bar ib-muted">
+💧 Pressure at a given depth is the same in all directions and independent of container
+shape — Pascal's principle.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-heat" data-domain="heat">
@@ -577,6 +794,42 @@ F = correction factor (1.0 for true counter-current)</pre>
 <div class="info-bar ib-muted">
 🧼 <strong class="text-red">Fouling</strong> adds a resistance R_f that degrades U over
 time — designers add a fouling allowance and schedule cleaning.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: TRANSIENT CONDUCTION — LUMPED CAPACITANCE ─────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">⏱️</span>
+<span class="topic-name">Transient Conduction — Lumped Capacitance &amp; Biot</span>
+<span class="topic-badge">UNSTEADY</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">How Fast Does It Heat/Cool?</div>
+<div class="concept-title">When a body has one uniform temperature</div>
+<div class="concept-desc">
+If internal conduction is much faster than surface convection, a body heats or cools
+<em>uniformly</em> — the <strong class="text-blue">lumped-capacitance</strong> model,
+valid when the Biot number is small.
+</div>
+<div class="dw">
+<div class="dt">▸ BIOT NUMBER — THE VALIDITY TEST</div>
+<pre class="code-block">Bi = h L_c / k          L_c = V / A_surface
+
+Bi < 0.1  → lumped model OK (uniform internal T)
+Bi > 0.1  → gradients matter → use Heisler charts / PDE</pre>
+<div class="dt">▸ LUMPED TEMPERATURE RESPONSE</div>
+<pre class="code-block">(T − T_∞)/(T₀ − T_∞) = exp(−t / τ)
+
+τ = ρ V c_p / (h A)     (thermal time constant)
+Fourier number  Fo = α t / L_c²   (dimensionless time)</pre>
+</div>
+<div class="info-bar ib-muted">
+🔥 Small Bi means the surface film — not the solid — is the bottleneck. A thin metal
+part in slow-moving air is the classic lumped case.
 </div>
 </div>
 </div>
@@ -703,6 +956,43 @@ H = Henry's constant  (↑ H ⇒ less soluble)</pre>
 <div class="info-bar ib-muted">
 🧬 Membrane separations (ultrafiltration, RO, chromatography) are central to
 downstream <em>bioprocessing</em> — see the Biochemical domain.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: TWO-FILM THEORY & OVERALL COEFFICIENTS ────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🎞️</span>
+<span class="topic-name">Two-Film Theory &amp; Overall Coefficients</span>
+<span class="topic-badge">INTERPHASE</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Resistances in Series</div>
+<div class="concept-title">Where does the mass-transfer resistance live?</div>
+<div class="concept-desc">
+At a gas-liquid interface, two stagnant films resist transfer. The
+<strong class="text-blue">two-film theory</strong> adds them like resistors in series,
+giving an overall coefficient — the mass-transfer analog of the U-value.
+</div>
+<div class="dw">
+<div class="dt">▸ OVERALL vs INDIVIDUAL COEFFICIENTS</div>
+<pre class="code-block">1/K_y = 1/k_y + m/k_x        (gas-phase overall)
+1/K_x = 1/(m·k_y) + 1/k_x    (liquid-phase overall)
+
+m = slope of the equilibrium line (Henry's constant form).</pre>
+<div class="dt">▸ WHICH FILM CONTROLS?</div>
+<table class="ref-table">
+<tr><th>Condition</th><th>Controlling resistance</th></tr>
+<tr><td style="color: var(--cyan)">Very soluble gas (small m)</td><td>Gas film controls</td></tr>
+<tr><td style="color: var(--amber)">Sparingly soluble gas (large m)</td><td>Liquid film controls</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🎯 Design effort should target the <em>controlling</em> film — improving the other one
+barely moves the overall rate.
 </div>
 </div>
 </div>
@@ -834,6 +1124,46 @@ Yield        = (desired formed)/(A fed)</pre>
 </div>
 </div>
 </div>
+<!-- ── TOPIC: RESIDENCE-TIME DISTRIBUTION ───────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">⏳</span>
+<span class="topic-name">Residence-Time Distribution (RTD)</span>
+<span class="topic-badge">NON-IDEAL</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Real Reactors Aren't Ideal</div>
+<div class="concept-title">A tracer test reveals the flow pattern</div>
+<div class="concept-desc">
+Real vessels channel, short-circuit and have dead zones. The
+<strong class="text-blue">residence-time distribution E(t)</strong>, measured by a
+tracer test, quantifies how long fluid elements actually stay — bridging ideal models
+and reality.
+</div>
+<div class="dw">
+<div class="dt">▸ THE RTD FUNCTION</div>
+<pre class="code-block">E(t) dt = fraction of exit stream with age t → t+dt
+∫₀^∞ E(t) dt = 1        mean residence time  t̄ = ∫ t E(t) dt
+
+Pulse (δ) tracer → E(t) directly
+Step tracer      → F(t), and E = dF/dt</pre>
+<div class="dt">▸ IDEAL SIGNATURES</div>
+<table class="ref-table">
+<tr><th>Reactor</th><th>RTD signature</th></tr>
+<tr><td style="color: var(--amber)">PFR</td><td>Sharp spike at t = τ (no spread)</td></tr>
+<tr><td style="color: var(--green)">CSTR</td><td>Exponential decay E = e^(−t/τ)/τ</td></tr>
+<tr><td style="color: var(--cyan)">Real vessel</td><td>Between the two; models: tanks-in-series, dispersion</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🔬 RTD fixes the flow pattern but not conversion alone — for non-first-order kinetics
+you also need the micromixing (segregation) model.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-control" data-domain="control">
@@ -957,6 +1287,44 @@ LCV-310  = Level Control Valve, loop 310</pre>
 <div class="info-bar ib-muted">
 🏭 A PFD shows the big picture (major equipment &amp; streams); a P&amp;ID shows every
 valve, tag and line — see the Process Design domain.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: SECOND-ORDER DYNAMICS ─────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">〰️</span>
+<span class="topic-name">Second-Order Dynamics &amp; Response</span>
+<span class="topic-badge">DYNAMICS</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Overshoot &amp; Oscillation</div>
+<div class="concept-title">The damping ratio shapes the response</div>
+<div class="concept-desc">
+Add inertia (or two first-order lags) and a process becomes second order — capable of
+overshoot and ringing. The <strong class="text-purple">damping ratio ζ</strong>
+decides how it settles.
+</div>
+<div class="dw">
+<div class="dt">▸ STANDARD SECOND-ORDER FORM</div>
+<pre class="code-block">G(s) = K / (τ²s² + 2ζτs + 1)
+
+τ = natural period      ζ = damping ratio
+Overshoot &amp; decay ratio depend only on ζ.</pre>
+<div class="dt">▸ RESPONSE REGIMES</div>
+<table class="ref-table">
+<tr><th>ζ</th><th>Behavior</th></tr>
+<tr><td style="color: var(--red)">ζ &lt; 1</td><td>Underdamped — overshoots, oscillates</td></tr>
+<tr><td style="color: var(--green)">ζ = 1</td><td>Critically damped — fastest, no overshoot</td></tr>
+<tr><td style="color: var(--cyan)">ζ &gt; 1</td><td>Overdamped — sluggish, no overshoot</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🎛️ Tuning a loop too aggressively drops ζ toward 0 — the system rings and can go
+unstable. Most loops target ζ ≈ 0.4–0.7 for a fast, damped response.
 </div>
 </div>
 </div>
@@ -1458,6 +1826,51 @@ reviewed for new hazards. Skipping it caused Flixborough.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: PSM — THE 14 ELEMENTS ─────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">📋</span>
+<span class="topic-name">Process Safety Management — The 14 Elements</span>
+<span class="topic-badge">OSHA 1910.119</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">The Regulatory Backbone</div>
+<div class="concept-title">A management system for highly hazardous chemicals</div>
+<div class="concept-desc">
+US OSHA's <strong class="text-blue">Process Safety Management</strong> standard (29 CFR
+1910.119) defines 14 interlocking elements that together prevent catastrophic releases.
+Weakness in any one has caused real disasters.
+</div>
+<div class="dw">
+<div class="dt">▸ THE 14 ELEMENTS</div>
+<table class="ref-table">
+<tr><th>#</th><th>Element</th></tr>
+<tr><td style="color: var(--cyan)">1</td><td>Employee participation</td></tr>
+<tr><td style="color: var(--cyan)">2</td><td>Process safety information (PSI)</td></tr>
+<tr><td style="color: var(--green)">3</td><td>Process hazard analysis (PHA)</td></tr>
+<tr><td style="color: var(--green)">4</td><td>Operating procedures</td></tr>
+<tr><td style="color: var(--amber)">5</td><td>Training</td></tr>
+<tr><td style="color: var(--amber)">6</td><td>Contractors</td></tr>
+<tr><td style="color: var(--purple)">7</td><td>Pre-startup safety review (PSSR)</td></tr>
+<tr><td style="color: var(--purple)">8</td><td>Mechanical integrity</td></tr>
+<tr><td style="color: var(--red)">9</td><td>Hot-work permits</td></tr>
+<tr><td style="color: var(--red)">10</td><td>Management of change (MOC)</td></tr>
+<tr><td style="color: var(--cyan)">11</td><td>Incident investigation</td></tr>
+<tr><td style="color: var(--green)">12</td><td>Emergency planning &amp; response</td></tr>
+<tr><td style="color: var(--amber)">13</td><td>Compliance audits</td></tr>
+<tr><td style="color: var(--purple)">14</td><td>Trade secrets</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🔧 <strong class="text-red">Management of Change</strong> and
+<strong class="text-red">Mechanical Integrity</strong> are the most frequently cited in
+incident root causes — Flixborough was an uncontrolled change.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-materials" data-domain="materials">
@@ -1943,7 +2356,7 @@ grouping variables into dimensionless numbers — see Transport Phenomena.
 </div>
 <script src="script.js"></script>
 <!-- NOTEPAD: slide tab -->
-<button id="notepad-tab" class="notepad-tab" onclick="toggleNotepad()" title="Open notepad">
+<button id="notepad-tab" class="notepad-tab" title="Open notepad">
 <span class="notepad-tab-icon">📋</span>
 <span class="notepad-tab-label">NOTEPAD</span>
 </button>

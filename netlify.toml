@@ -1,0 +1,49 @@
+# Netlify build & serve config for the Chemical Engineering Reference.
+# The site is a static build: build.py (Python stdlib only) assembles index.html
+# from index-shell.html + data/*. Netlify runs that build and publishes the root.
+
+[build]
+  command = "python3 build.py"
+  publish = "."
+
+[build.environment]
+  PYTHON_VERSION = "3.12"
+
+# ── Security headers ────────────────────────────────────────────────────────
+# The site makes ZERO external requests, so the CSP is locked down hard.
+# script-src stays strict ('self', no unsafe-inline) — all handlers are wired in
+# script.js, never inline. style-src allows 'unsafe-inline' because content uses
+# inline style="color:var(--…)" on table cells (migrating those to utility
+# classes later would let us drop it — see plan.md §7).
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "no-referrer"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=(), interest-cohort=()"
+    Content-Security-Policy = "default-src 'none'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self'; font-src 'self'; manifest-src 'self'; worker-src 'self'; connect-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'"
+
+# ── Caching ─────────────────────────────────────────────────────────────────
+# Fonts & images rarely change → cache a year, immutable.
+[[headers]]
+  for = "/Img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# CSS/JS change with each content update → shorter cache.
+[[headers]]
+  for = "/style.css"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/script.js"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# The service worker must always be revalidated so updates roll out promptly.
+[[headers]]
+  for = "/sw.js"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"

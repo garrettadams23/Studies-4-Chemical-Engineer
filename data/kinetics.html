@@ -113,3 +113,44 @@ Yield        = (desired formed)/(A fed)</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: RESIDENCE-TIME DISTRIBUTION ───────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">⏳</span>
+    <span class="topic-name">Residence-Time Distribution (RTD)</span>
+    <span class="topic-badge">NON-IDEAL</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Real Reactors Aren't Ideal</div>
+      <div class="concept-title">A tracer test reveals the flow pattern</div>
+      <div class="concept-desc">
+        Real vessels channel, short-circuit and have dead zones. The
+        <strong class="text-blue">residence-time distribution E(t)</strong>, measured by a
+        tracer test, quantifies how long fluid elements actually stay — bridging ideal models
+        and reality.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE RTD FUNCTION</div>
+        <pre class="code-block">E(t) dt = fraction of exit stream with age t → t+dt
+∫₀^∞ E(t) dt = 1        mean residence time  t̄ = ∫ t E(t) dt
+
+Pulse (δ) tracer → E(t) directly
+Step tracer      → F(t), and E = dF/dt</pre>
+        <div class="dt">▸ IDEAL SIGNATURES</div>
+        <table class="ref-table">
+          <tr><th>Reactor</th><th>RTD signature</th></tr>
+          <tr><td style="color: var(--amber)">PFR</td><td>Sharp spike at t = τ (no spread)</td></tr>
+          <tr><td style="color: var(--green)">CSTR</td><td>Exponential decay E = e^(−t/τ)/τ</td></tr>
+          <tr><td style="color: var(--cyan)">Real vessel</td><td>Between the two; models: tanks-in-series, dispersion</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🔬 RTD fixes the flow pattern but not conversion alone — for non-first-order kinetics
+        you also need the micromixing (segregation) model.
+      </div>
+    </div>
+  </div>
+</div>

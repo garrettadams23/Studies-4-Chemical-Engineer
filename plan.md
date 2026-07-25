@@ -30,7 +30,7 @@ chemical-engineering curriculum, the FE/PE exams, and day-to-day plant practice.
 
 **Success metrics:**
 
-- ✅ 15 domains live · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
+- 🚧 15 domains live · **52 topics** and growing (Phase 3 underway) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
 - 📝 Interactive calculators for the 20 most-used engineering formulas.
 - 📝 Embedded reference data (steam tables, Antoine coefficients, property tables).
 - 📝 Self-test/quiz engine with per-domain progress.
@@ -756,9 +756,11 @@ tables and consumed by the calculators. No external API — everything bundled.
 15 domains live · engine, theme, search, notepad, progress, permalinks ·
 CI build-check · README/CONTRIBUTING.
 
-**Phase 2 — Deploy (📝 next)**
-`netlify.toml` · custom domain + HTTPS · 404 page · deploy previews ·
-Netlify Forms feedback · service worker (PWA offline).
+**Phase 2 — Deploy (🚧 mostly done)**
+✅ `netlify.toml` (build + strict CSP + cache headers) · ✅ themed `404.html` ·
+✅ `_redirects` · ✅ `robots.txt` + `sitemap.xml` · ✅ SEO + Open-Graph/Twitter meta ·
+✅ `sw.js` service worker (offline PWA) + registration · ✅ inline handlers removed
+(CSP `script-src 'self'`) · 📝 custom domain + HTTPS · 📝 Netlify Forms feedback panel.
 
 **Phase 3 — Depth (📝)**
 Fill each existing domain to its full planned topic list (§3). Target 8–15
@@ -806,3 +808,33 @@ glossary tooltips.
 - Dark-mode-aware SVG diagrams driven by CSS variables.
 - Contributor "topic linter" script that checks the skeleton & class conventions.
 - Anonymous, privacy-preserving "most-viewed topics" via Netlify Analytics only.
+
+---
+
+## 12. Changelog
+
+### 2026-07-25 — Deploy scaffolding + first content-depth pass
+**Phase 2 (Deploy) — mostly complete:**
+- `netlify.toml` — `python3 build.py` build, `publish = "."`, strict CSP
+  (`script-src 'self'`), long-cache immutable assets, security & permissions headers.
+- `sw.js` service worker + registration in `script.js` → installable offline PWA
+  (https only; `file://` skips it). Precaches the whole site, cache-first.
+- Removed all inline event handlers from `index-shell.html` (search, clear,
+  notepad) and wired them in `script.js`, so the CSP needs no `script-src 'unsafe-inline'`.
+- SEO: meta description, canonical, Open Graph & Twitter cards, `theme-color`
+  (light/dark), pointed at the live Netlify URL.
+- `robots.txt`, `sitemap.xml`, `_redirects`, and a themed `404.html`.
+
+**Phase 3 (Depth) — first pass, +10 topics (42 → 52):**
+- Material Balances: Units/Dimensions/Conversion · Reactive Balances (extent ξ)
+- Thermodynamics: Real Gases (compressibility Z) · Thermochemistry (heats of reaction)
+- Fluid Mechanics: Fluid Statics & Manometry
+- Heat Transfer: Transient Conduction (lumped capacitance & Biot)
+- Mass Transfer: Two-Film Theory & Overall Coefficients
+- Process Control: Second-Order Dynamics & Response
+- Reaction Engineering: Residence-Time Distribution (RTD)
+- Process Safety: PSM — the 14 Elements (OSHA 1910.119)
+
+**Still open (next passes):** finish each domain's planned topic list (§3), add
+the new domains (§4), build the interactive calculators & datasets (§5–6), and a
+Netlify Forms feedback panel.

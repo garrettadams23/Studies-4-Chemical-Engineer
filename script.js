@@ -128,9 +128,21 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("hdr-theme-btn")?.addEventListener("click", toggleTheme);
   document.getElementById("hdr-expand-btn")?.addEventListener("click", toggleAll);
 
+  // Search + notepad — wired here (not inline) so the CSP can stay script-src 'self'
+  document.getElementById("search-input")?.addEventListener("input", e => onSearchInput(e.target.value));
+  document.getElementById("search-clear")?.addEventListener("click", clearSearch);
+  document.getElementById("notepad-tab")?.addEventListener("click", toggleNotepad);
+
   initAccessibilityAndTools();
   initBackToTop();
 });
+
+// ── SERVICE WORKER (offline PWA; https only — never over file://) ────────────
+if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/sw.js").catch(() => {});
+  });
+}
 
 // ── SNAP QUOTE ─────────────────────────────────────────────────────────────
 function initSnapQuote() {

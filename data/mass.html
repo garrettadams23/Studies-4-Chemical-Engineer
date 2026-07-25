@@ -112,3 +112,41 @@ H = Henry's constant  (↑ H ⇒ less soluble)</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: TWO-FILM THEORY & OVERALL COEFFICIENTS ────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🎞️</span>
+    <span class="topic-name">Two-Film Theory &amp; Overall Coefficients</span>
+    <span class="topic-badge">INTERPHASE</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Resistances in Series</div>
+      <div class="concept-title">Where does the mass-transfer resistance live?</div>
+      <div class="concept-desc">
+        At a gas-liquid interface, two stagnant films resist transfer. The
+        <strong class="text-blue">two-film theory</strong> adds them like resistors in series,
+        giving an overall coefficient — the mass-transfer analog of the U-value.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ OVERALL vs INDIVIDUAL COEFFICIENTS</div>
+        <pre class="code-block">1/K_y = 1/k_y + m/k_x        (gas-phase overall)
+1/K_x = 1/(m·k_y) + 1/k_x    (liquid-phase overall)
+
+m = slope of the equilibrium line (Henry's constant form).</pre>
+        <div class="dt">▸ WHICH FILM CONTROLS?</div>
+        <table class="ref-table">
+          <tr><th>Condition</th><th>Controlling resistance</th></tr>
+          <tr><td style="color: var(--cyan)">Very soluble gas (small m)</td><td>Gas film controls</td></tr>
+          <tr><td style="color: var(--amber)">Sparingly soluble gas (large m)</td><td>Liquid film controls</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🎯 Design effort should target the <em>controlling</em> film — improving the other one
+        barely moves the overall rate.
+      </div>
+    </div>
+  </div>
+</div>

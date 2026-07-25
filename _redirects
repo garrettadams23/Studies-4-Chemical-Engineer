@@ -1,0 +1,4 @@
+# Netlify redirects. Deep-links use #hash fragments handled client-side, so no
+# path rewriting is needed. Any unknown path falls through to the themed 404.
+/home    /            301
+/*       /404.html    404

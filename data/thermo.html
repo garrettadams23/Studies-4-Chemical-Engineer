@@ -120,3 +120,84 @@ Relative volatility:    α = (y_A/x_A)/(y_B/x_B)
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: REAL GASES — COMPRESSIBILITY FACTOR ───────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🎈</span>
+    <span class="topic-name">Real Gases — the Compressibility Factor Z</span>
+    <span class="topic-badge">PVT</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">When PV = nRT Fails</div>
+      <div class="concept-title">Z measures the departure from ideality</div>
+      <div class="concept-desc">
+        At high pressure or near condensation the ideal-gas law breaks down. The
+        <strong class="text-blue">compressibility factor Z</strong> corrects it, and the
+        principle of corresponding states makes Z nearly universal in reduced coordinates.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ DEFINITION &amp; REDUCED PROPERTIES</div>
+        <pre class="code-block">PV = Z n R T          Z = PV / nRT
+
+Reduced:  Tr = T/Tc      Pr = P/Pc
+Generalized (Nelson-Obert / Pitzer) charts: Z = Z(Tr, Pr, ω)</pre>
+        <div class="dt">▸ READING Z</div>
+        <table class="ref-table">
+          <tr><th>Z value</th><th>Meaning</th></tr>
+          <tr><td style="color: var(--green)">Z = 1</td><td>Ideal-gas behavior</td></tr>
+          <tr><td style="color: var(--cyan)">Z &lt; 1</td><td>Attractions dominate (near condensation)</td></tr>
+          <tr><td style="color: var(--red)">Z &gt; 1</td><td>Repulsions dominate (very high P)</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🌡️ The acentric factor ω captures molecular non-sphericity and feeds both the
+        generalized charts and cubic EOS (SRK, Peng-Robinson).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: THERMOCHEMISTRY ───────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔥</span>
+    <span class="topic-name">Thermochemistry — Heats of Reaction &amp; Formation</span>
+    <span class="topic-badge">ENERGY BALANCE</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Energy Released or Absorbed</div>
+      <div class="concept-title">Hess's law turns tabulated data into any ΔH</div>
+      <div class="concept-desc">
+        Reactor energy balances need the heat of reaction. Because enthalpy is a state
+        function, <strong class="text-purple">Hess's law</strong> lets you build any ΔH from
+        tabulated enthalpies of formation.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ CORE RELATIONS</div>
+        <pre class="code-block">ΔH°rxn = Σ ν_i ΔH°f (products) − Σ ν_i ΔH°f (reactants)
+
+ΔH < 0  → exothermic (releases heat)
+ΔH > 0  → endothermic (absorbs heat)
+
+Adiabatic flame temp: all ΔHrxn heats the products (Q = 0).</pre>
+        <div class="dt">▸ KEY QUANTITIES</div>
+        <table class="ref-table">
+          <tr><th>Term</th><th>Meaning</th></tr>
+          <tr><td style="color: var(--cyan)">ΔH°f</td><td>Formation from elements (elements = 0)</td></tr>
+          <tr><td style="color: var(--amber)">ΔH°c</td><td>Combustion to CO₂ + H₂O</td></tr>
+          <tr><td style="color: var(--green)">Sensible heat</td><td>∫ Cp dT — heating/cooling without reaction</td></tr>
+          <tr><td style="color: var(--red)">Latent heat</td><td>ΔHvap, ΔHfus — phase change at constant T</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        ♨️ Choose a reference state, compute ΔH along a convenient path (state function!), and
+        the answer is path-independent — the heart of every reactor energy balance.
+      </div>
+    </div>
+  </div>
+</div>

@@ -77,3 +77,40 @@ F = correction factor (1.0 for true counter-current)</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: TRANSIENT CONDUCTION — LUMPED CAPACITANCE ─────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">⏱️</span>
+    <span class="topic-name">Transient Conduction — Lumped Capacitance &amp; Biot</span>
+    <span class="topic-badge">UNSTEADY</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">How Fast Does It Heat/Cool?</div>
+      <div class="concept-title">When a body has one uniform temperature</div>
+      <div class="concept-desc">
+        If internal conduction is much faster than surface convection, a body heats or cools
+        <em>uniformly</em> — the <strong class="text-blue">lumped-capacitance</strong> model,
+        valid when the Biot number is small.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ BIOT NUMBER — THE VALIDITY TEST</div>
+        <pre class="code-block">Bi = h L_c / k          L_c = V / A_surface
+
+Bi < 0.1  → lumped model OK (uniform internal T)
+Bi > 0.1  → gradients matter → use Heisler charts / PDE</pre>
+        <div class="dt">▸ LUMPED TEMPERATURE RESPONSE</div>
+        <pre class="code-block">(T − T_∞)/(T₀ − T_∞) = exp(−t / τ)
+
+τ = ρ V c_p / (h A)     (thermal time constant)
+Fourier number  Fo = α t / L_c²   (dimensionless time)</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🔥 Small Bi means the surface film — not the solid — is the bottleneck. A thin metal
+        part in slow-moving air is the classic lumped case.
+      </div>
+    </div>
+  </div>
+</div>
