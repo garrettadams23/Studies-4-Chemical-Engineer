@@ -280,6 +280,36 @@
     "sub": "Industries · Roles · Interviews · AIChE · Communication · Lifelong Learning"
   },
   {
+    "id": "nano",
+    "colorClass": "domain-nano",
+    "icon": "🔬",
+    "title": "Nanotechnology &amp; Advanced Materials",
+    "certTags": [
+      { "cls": "ctag-adv", "text": "ADV" }
+    ],
+    "sub": "Nanoscale Phenomena · Synthesis · SEM/TEM/XRD · Quantum Dots · Applications"
+  },
+  {
+    "id": "psychro",
+    "colorClass": "domain-psychro",
+    "icon": "💨",
+    "title": "Psychrometrics &amp; HVAC",
+    "certTags": [
+      { "cls": "ctag-core", "text": "CORE" }
+    ],
+    "sub": "Humidity Ratio · Psychrometric Chart · Wet-Bulb · Cooling Towers · Air Conditioning"
+  },
+  {
+    "id": "cryo",
+    "colorClass": "domain-cryo",
+    "icon": "❄️",
+    "title": "Cryogenics &amp; Low-Temperature",
+    "certTags": [
+      { "cls": "ctag-adv", "text": "ADV" }
+    ],
+    "sub": "Liquefaction · Joule-Thomson · Linde &amp; Claude Cycles · Air Separation · Cryo Storage"
+  },
+  {
     "id": "quiz",
     "colorClass": "domain-quiz",
     "icon": "🧠",

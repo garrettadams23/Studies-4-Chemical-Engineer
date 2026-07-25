@@ -2455,3 +2455,15 @@ mark.sh {
 .domain-quiz { --accent: #fbbf24; }
 
 .calc-field textarea { resize: vertical; min-height: 64px; font-family: var(--sans); }
+
+/* ── Final Phase-4 domains: Nanotech, Psychrometrics, Cryogenics ───────────── */
+.chip.c-nano    { color: #c026d3; border-color: rgba(192, 38, 211, 0.3); }
+.chip.c-nano.active,    .chip.c-nano:hover    { background: rgba(192, 38, 211, 0.12); }
+.chip.c-psychro { color: #3b82f6; border-color: rgba(59, 130, 246, 0.3); }
+.chip.c-psychro.active, .chip.c-psychro:hover { background: rgba(59, 130, 246, 0.12); }
+.chip.c-cryo    { color: #67e8f9; border-color: rgba(103, 232, 249, 0.3); }
+.chip.c-cryo.active,    .chip.c-cryo:hover    { background: rgba(103, 232, 249, 0.12); }
+
+.domain-nano    { --accent: #d946ef; }
+.domain-psychro { --accent: #3b82f6; }
+.domain-cryo    { --accent: #67e8f9; }

@@ -1,0 +1,74 @@
+<!-- ── TOPIC: GAS LIQUEFACTION ──────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">❄️</span>
+    <span class="topic-name">Gas Liquefaction Cycles</span>
+    <span class="topic-badge">FOUNDATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Reaching Very Low Temperatures</div>
+      <div class="concept-title">Cooling gases until they turn to liquid</div>
+      <div class="concept-desc">
+        Cryogenics (below ~−150 °C) liquefies air, natural gas and hydrogen. It leans on the
+        Joule–Thomson effect and clever heat integration from the Thermodynamics domain.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE CORE CYCLES</div>
+        <table class="ref-table">
+          <tr><th>Cycle</th><th>Idea</th></tr>
+          <tr><td style="color: var(--cyan)">Linde–Hampson</td><td>Compress → cool → Joule–Thomson throttle → partial liquefy</td></tr>
+          <tr><td style="color: var(--green)">Claude</td><td>Adds an expander (does work) — more efficient</td></tr>
+        </table>
+        <div class="dt">▸ THE JOULE–THOMSON KEY</div>
+        <pre class="code-block">Throttling cools a gas only below its inversion temperature.
+
+H₂ and He must be pre-cooled first (their inversion T is very low)
+— otherwise throttling warms them.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🌡️ Regenerative heat exchange (cold product cools incoming feed) is essential — without
+        it, liquefaction would be hopelessly energy-intensive.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: AIR SEPARATION & STORAGE ──────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧊</span>
+    <span class="topic-name">Air Separation &amp; Cryogenic Storage</span>
+    <span class="topic-badge">APPLIED</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Distilling the Atmosphere</div>
+      <div class="concept-title">Making O₂, N₂ and Ar from air</div>
+      <div class="concept-desc">
+        Cryogenic <strong class="text-blue">air separation units (ASUs)</strong> liquefy air and
+        distill it into oxygen, nitrogen and argon — distillation (Mass Transfer) at −190 °C.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE ASU IN BRIEF</div>
+        <pre class="code-block">Filter &amp; compress air → remove H₂O &amp; CO₂ (they'd freeze)
+→ cool to near-liquefaction (regenerative HX)
+→ cryogenic distillation columns:
+   N₂ (bp −196 °C) overhead · O₂ (bp −183 °C) bottoms · Ar side-draw</pre>
+        <div class="dt">▸ STORAGE &amp; SAFETY</div>
+        <table class="ref-table">
+          <tr><th>Concern</th><th>Handling</th></tr>
+          <tr><td style="color: var(--cyan)">Insulation</td><td>Vacuum-jacketed / multilayer (Dewar)</td></tr>
+          <tr><td style="color: var(--red)">Material choice</td><td>Austenitic steels stay tough at cryo T</td></tr>
+          <tr><td style="color: var(--amber)">Hazards</td><td>Cold burns, O₂ enrichment, asphyxiation</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🔩 Ordinary carbon steel turns brittle in the cold — cryogenic service demands
+        austenitic stainless or aluminium (see the Materials domain).
+      </div>
+    </div>
+  </div>
+</div>

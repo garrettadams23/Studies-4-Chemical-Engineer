@@ -30,7 +30,7 @@ chemical-engineering curriculum, the FE/PE exams, and day-to-day plant practice.
 
 **Success metrics:**
 
-- 🚧 27 domains live · **115 topics** and growing (Phases 2–6 all advanced) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
+- 🚧 30 domains live · **121 topics** and growing (Phase 4 complete; 2/5/6 advanced) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
 - 🚧 Interactive calculators — 6 live (unit converter, Reynolds, ideal gas, LMTD, Antoine, buffer pH).
 - 📝 Embedded reference data (steam tables, Antoine coefficients, property tables).
 - ✅ Self-test quiz engine — 18 questions, instant feedback, best score saved (localStorage).
@@ -766,10 +766,11 @@ CI build-check · README/CONTRIBUTING.
 Fill each existing domain to its full planned topic list (§3). Target 8–15
 topics/domain. This is the bulk of the writing.
 
-**Phase 4 — Breadth (🚧 started)**
-✅ Electrochemical & Energy Engineering · ✅ Formula Sheet & Quick Reference ·
-📝 remaining new domains (§4): Environment/Sustainability, Petroleum, Pharma/GMP,
-Particles, Data Science, Worked Examples, Exam Prep, Career.
+**Phase 4 — Breadth (✅ complete)**
+All planned §4 domains delivered: Electrochemical, Sustainability, Petroleum,
+Pharma/GMP, Data Science, Particles, Worked Examples, Formula Sheet, Exam Prep,
+Career, Nanotech, Psychrometrics, Cryogenics — plus interactive Calculators &
+Self-Test Quiz domains. 30 domains total.
 
 **Phase 5 — Interactivity (🚧 well underway)**
 ✅ 4 calculators (unit converter, Reynolds, ideal gas, LMTD) · ✅ self-test quiz
@@ -902,3 +903,9 @@ offline, with a theme-aware `.calc` widget style. Verified: 1 atm→101.325 kPa,
   external scripts) added to the Career domain.
 - **Phase 6 started**: JSON-LD structured data (WebSite + LearningResource) in the
   head — a data block, so it's CSP-safe and survives minification (validated).
+
+### 2026-07-25 — Phase 4 complete: Nanotech, Psychrometrics, Cryogenics (115 → 121, 27 → 30)
+- **🔬 Nanotechnology & Advanced Materials** — nanoscale phenomena/synthesis; characterization & applications.
+- **💨 Psychrometrics & HVAC** — the psychrometric chart; cooling towers & air conditioning.
+- **❄️ Cryogenics & Low-Temperature** — gas liquefaction (Linde/Claude, Joule–Thomson); air separation & storage.
+This closes the §4 new-domain list. The reference now spans 30 domains.
