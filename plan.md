@@ -30,9 +30,9 @@ chemical-engineering curriculum, the FE/PE exams, and day-to-day plant practice.
 
 **Success metrics:**
 
-- 🚧 30 domains live · **121 topics** and growing (Phase 4 complete; 2/5/6 advanced) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
-- 🚧 Interactive calculators — 6 live (unit converter, Reynolds, ideal gas, LMTD, Antoine, buffer pH).
-- 📝 Embedded reference data (steam tables, Antoine coefficients, property tables).
+- 🚧 30 domains live · **123 topics** · 8 tools + quiz + flashcards (Phase 4 done; 5 well advanced) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
+- 🚧 Interactive tools — 7 calculators + steam-table lookup + quiz + flashcards.
+- 🚧 Embedded reference data — steam table + Antoine coefficients live; property tables planned.
 - ✅ Self-test quiz engine — 18 questions, instant feedback, best score saved (localStorage).
 - 📝 Deployed on Netlify with a custom domain, deploy previews, and a feedback form.
 
@@ -909,3 +909,13 @@ offline, with a theme-aware `.calc` widget style. Verified: 1 atm→101.325 kPa,
 - **💨 Psychrometrics & HVAC** — the psychrometric chart; cooling towers & air conditioning.
 - **❄️ Cryogenics & Low-Temperature** — gas liquefaction (Linde/Claude, Joule–Thomson); air separation & storage.
 This closes the §4 new-domain list. The reference now spans 30 domains.
+
+### 2026-07-25 — Steam-table lookup + flashcards (121 → 123)
+- **Saturated steam-table lookup** (Calculators domain): interpolates an embedded
+  saturated-water table (0–250 °C) for P_sat, h_f, h_g, h_fg. Verified exact at
+  100 °C (101.35 kPa, h_fg 2257) and correct interpolation at 110 °C.
+- **Flashcards** (Self-Test domain): 18 term/definition cards, click-to-flip,
+  shuffle, and a "★ Got it" retire-from-rotation feature saved to localStorage
+  (spaced-repetition-lite). Verified flip/next/persistence; zero errors.
+- Interactive roster now: 7 calculators + steam table + quiz + flashcards, all
+  vanilla, offline and CSP-safe.

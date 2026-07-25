@@ -963,6 +963,100 @@ function initPH() {
   calc();
 }
 
+// Saturated water/steam table: [T °C, P kPa, hf kJ/kg, hg kJ/kg].
+const STEAM = [
+  [0.01, 0.6113, 0.0, 2501.3], [10, 1.2276, 42.0, 2519.8], [20, 2.339, 83.9, 2538.1],
+  [30, 4.246, 125.7, 2556.3], [40, 7.384, 167.5, 2574.3], [50, 12.35, 209.3, 2592.1],
+  [60, 19.94, 251.1, 2609.6], [70, 31.19, 293.0, 2626.8], [80, 47.39, 334.9, 2643.7],
+  [90, 70.14, 376.9, 2660.1], [100, 101.35, 419.0, 2676.1], [120, 198.53, 503.7, 2706.3],
+  [140, 361.3, 589.1, 2733.9], [160, 617.8, 675.5, 2758.1], [180, 1002.1, 763.2, 2778.2],
+  [200, 1554.9, 852.4, 2793.2], [220, 2318, 943.6, 2802.1], [250, 3973, 1085.4, 2801.5],
+];
+
+function initSteamTable() {
+  const T = document.getElementById("st-T");
+  const out = document.getElementById("st-out");
+  if (!T || !out) return;
+  function interp(t) {
+    const d = STEAM;
+    if (t <= d[0][0]) return d[0];
+    if (t >= d[d.length - 1][0]) return d[d.length - 1];
+    for (let i = 0; i < d.length - 1; i++) {
+      if (t >= d[i][0] && t <= d[i + 1][0]) {
+        const f = (t - d[i][0]) / (d[i + 1][0] - d[i][0]);
+        return d[i].map((v, k) => v + f * (d[i + 1][k] - v));
+      }
+    }
+    return d[d.length - 1];
+  }
+  function calc() {
+    const t = parseFloat(T.value);
+    if (isNaN(t)) { out.textContent = "—"; return; }
+    const [, P, hf, hg] = interp(t);
+    out.textContent = `P_sat ${calcFmt(P)} kPa · h_f ${calcFmt(hf)} · h_g ${calcFmt(hg)} · h_fg ${calcFmt(hg - hf)} kJ/kg`;
+  }
+  T.addEventListener("input", calc);
+  calc();
+}
+
+const FLASHCARDS = [
+  { front: "Reynolds number", back: "Re = ρvD/μ — inertial vs viscous; <2100 laminar, >4000 turbulent" },
+  { front: "Bernoulli equation", back: "P/ρ + v²/2 + gz = constant (frictionless mechanical-energy balance)" },
+  { front: "First law (open, steady)", back: "Q̇ − Ẇs = Σṁ(h + v²/2 + gz)_out − _in" },
+  { front: "Gibbs free energy", back: "G = H − TS; ΔG<0 spontaneous; ΔG° = −RT·ln K" },
+  { front: "Arrhenius equation", back: "k = A·exp(−Ea/RT); rate roughly doubles per +10 °C" },
+  { front: "CSTR design equation", back: "V = F_A0·X / (−r_A)" },
+  { front: "PFR design equation", back: "V = F_A0·∫ dX/(−r_A)" },
+  { front: "LMTD", back: "(ΔT₁−ΔT₂)/ln(ΔT₁/ΔT₂); Q = U·A·F·ΔT_lm" },
+  { front: "Fick's first law", back: "J = −D·dC/dz (diffusion down a concentration gradient)" },
+  { front: "Relative volatility α", back: "(y_A/x_A)/(y_B/x_B); α=1 → azeotrope (no ordinary distillation)" },
+  { front: "Raoult's law", back: "y_i·P = x_i·P_i^sat (ideal vapor-liquid equilibrium)" },
+  { front: "Thiele modulus", back: "φ = L·√(k/D_eff); φ≫1 → pore-diffusion limited (η ≈ 1/φ)" },
+  { front: "NPSH rule", back: "NPSH_available > NPSH_required to avoid pump cavitation" },
+  { front: "Biot number", back: "Bi = hL/k; <0.1 → lumped-capacitance model valid" },
+  { front: "Henderson–Hasselbalch", back: "pH = pKa + log([A⁻]/[HA])" },
+  { front: "DNA base pairing", back: "A=T (2 H-bonds), G≡C (3 H-bonds); antiparallel double helix" },
+  { front: "Damköhler number", back: "Da = reaction rate / transport rate" },
+  { front: "Green-chemistry E-factor", back: "kg waste / kg product — lower is greener" },
+];
+
+function initFlashcards() {
+  const root = document.getElementById("flash-root");
+  if (!root) return;
+  const KEY = "flash-known";
+  const ce = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e; };
+  const known = () => { try { return new Set(JSON.parse(localStorage.getItem(KEY) || "[]")); } catch { return new Set(); } };
+  const activeIdx = () => { const k = known(); const a = [...FLASHCARDS.keys()].filter(i => !k.has(i)); return a.length ? a : [...FLASHCARDS.keys()]; };
+  let order, cur, showBack;
+
+  function start() { order = quizShuffle(activeIdx()); cur = 0; showBack = false; render(); }
+  function render() {
+    root.textContent = "";
+    const card = FLASHCARDS[order[cur]];
+    const wrap = ce("div", "flash");
+    const c = ce("div", "flash-card" + (showBack ? " back" : ""), showBack ? card.back : card.front);
+    c.addEventListener("click", () => { showBack = !showBack; render(); });
+    const ctr = ce("div", "flash-controls");
+    const flip = ce("button", "quiz-btn", showBack ? "Show term" : "Flip ⟳"); flip.type = "button";
+    flip.addEventListener("click", () => { showBack = !showBack; render(); });
+    const next = ce("button", "quiz-btn", "Next ▶"); next.type = "button";
+    next.addEventListener("click", () => { cur = (cur + 1) % order.length; showBack = false; render(); });
+    const got = ce("button", "quiz-btn", "★ Got it"); got.type = "button";
+    got.addEventListener("click", () => { const k = known(); k.add(order[cur]); localStorage.setItem(KEY, JSON.stringify([...k])); start(); });
+    const learned = FLASHCARDS.length - activeIdx().length;
+    const meta = ce("div", "flash-meta", `Card ${cur + 1}/${order.length} · ${learned} learned`);
+    ctr.append(flip, next, got, meta);
+    wrap.append(c, ctr);
+    if (learned > 0) {
+      const reset = ce("button", "quiz-btn", "↺ Reset learned"); reset.type = "button";
+      reset.addEventListener("click", () => { localStorage.removeItem(KEY); start(); });
+      wrap.append(reset);
+    }
+    root.appendChild(wrap);
+  }
+  start();
+}
+
 function initCalculators() {
   initUnitConverter();
   initReynolds();
@@ -970,6 +1064,8 @@ function initCalculators() {
   initLMTD();
   initAntoine();
   initPH();
+  initSteamTable();
+  initFlashcards();
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

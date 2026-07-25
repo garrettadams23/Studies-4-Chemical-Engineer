@@ -217,3 +217,36 @@
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: STEAM TABLE ───────────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">♨️</span>
+    <span class="topic-name">Saturated Steam Table Lookup</span>
+    <span class="topic-badge">LIVE TOOL</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Embedded Dataset</div>
+      <div class="concept-title">Saturation pressure &amp; enthalpies by temperature</div>
+      <div class="concept-desc">
+        Enter a temperature (0–250 °C); the tool interpolates an embedded saturated-water table
+        for saturation pressure and the liquid/vapor enthalpies. No lookup by hand.
+      </div>
+      <div class="calc" id="calc-steam">
+        <div class="calc-grid">
+          <div class="calc-field"><label>Temperature (°C)</label><input id="st-T" type="number" value="100" step="any" /></div>
+        </div>
+        <div class="calc-out">
+          <span class="calc-out-label">Saturated</span>
+          <span class="calc-out-val" id="st-out" style="font-size: 14px">—</span>
+        </div>
+      </div>
+      <div class="info-bar ib-muted">
+        🔥 At 100 °C: P_sat ≈ 101.35 kPa and h_fg ≈ 2257 kJ/kg — the latent heat that drives
+        evaporation and distillation reboilers.
+      </div>
+    </div>
+  </div>
+</div>
