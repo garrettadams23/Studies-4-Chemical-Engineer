@@ -64,6 +64,7 @@ content="Interactive, offline-first study reference spanning the entire chemical
 <link rel="manifest" href="Img/favicon/site.webmanifest" />
 </head>
 <body>
+<a href="#domain-container" class="skip-link">Skip to content</a>
 <header>
 <div class="header-inner">
 <div class="header-content">
@@ -2334,6 +2335,45 @@ structural reason the heat/mass-transfer analogies work.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: TURBULENCE & EDDY TRANSPORT ───────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🌪️</span>
+<span class="topic-name">Turbulence &amp; Eddy Transport</span>
+<span class="topic-badge">ADVANCED</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Chaos That Mixes</div>
+<div class="concept-title">Eddies transport far faster than molecules</div>
+<div class="concept-desc">
+Above the critical Reynolds number, flow becomes turbulent — chaotic eddies dramatically
+enhance momentum, heat and mass transport beyond molecular diffusion.
+</div>
+<div class="dw">
+<div class="dt">▸ REYNOLDS AVERAGING</div>
+<pre class="code-block">Split each quantity into mean + fluctuation:  v = v̄ + v'
+
+Averaging the Navier-Stokes eqns leaves a new term — the
+Reynolds stress −ρ⟨v'v'⟩ — modeled with an eddy viscosity.
+
+Total flux = molecular + turbulent (eddy) contribution.</pre>
+<div class="dt">▸ EDDY DIFFUSIVITIES</div>
+<table class="ref-table">
+<tr><th>Transport</th><th>Effective diffusivity</th></tr>
+<tr><td style="color: var(--cyan)">Momentum</td><td>ν + ε_M (eddy)</td></tr>
+<tr><td style="color: var(--red)">Heat</td><td>α + ε_H</td></tr>
+<tr><td style="color: var(--green)">Mass</td><td>D + ε_D</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🌀 Turbulence is why stirring speeds mixing so much — eddy diffusivities can dwarf
+molecular ones by orders of magnitude. It's also the "closure problem" CFD must model.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-unitops" data-domain="unitops">
@@ -2493,6 +2533,45 @@ Laminar (Re < 10):    N_p ∝ 1/Re     → P ∝ μ N² D³</pre>
 <div class="info-bar ib-muted">
 📐 You can't hold everything constant on scale-up — equal power/volume, equal tip speed,
 and equal mixing time are competing criteria. Pick the one that matters for your duty.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: EVAPORATION & MULTIPLE EFFECT ─────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">💨</span>
+<span class="topic-name">Evaporation &amp; Multiple-Effect Evaporators</span>
+<span class="topic-badge">CONCENTRATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Boiling Off Solvent</div>
+<div class="concept-title">Reusing steam across stages for efficiency</div>
+<div class="concept-desc">
+Evaporation concentrates a solution by boiling off solvent (usually water). Multiple-effect
+arrangements reuse the vapor from one effect as the heating steam for the next — a
+heat-integration classic.
+</div>
+<div class="dw">
+<div class="dt">▸ THE STEAM ECONOMY IDEA</div>
+<pre class="code-block">Single effect: ~1 kg steam evaporates ~1 kg water
+N effects in series: ~1 kg steam evaporates ~N kg water
+
+Each effect runs at lower P (and lower T) so vapor from
+effect i can boil the liquid in effect i+1.</pre>
+<div class="dt">▸ KEY EFFECTS</div>
+<table class="ref-table">
+<tr><th>Factor</th><th>Impact</th></tr>
+<tr><td style="color: var(--amber)">Boiling-point rise</td><td>Dissolved solids raise the boiling T (less ΔT available)</td></tr>
+<tr><td style="color: var(--cyan)">Feed arrangement</td><td>Forward / backward / mixed feed trades economy vs viscosity</td></tr>
+<tr><td style="color: var(--green)">Vapor recompression</td><td>MVR/TVR boosts economy further</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+♻️ Multiple-effect evaporation is the same reuse-the-energy principle as pinch analysis —
+each effect's condensing vapor is the next one's heat source.
 </div>
 </div>
 </div>
@@ -3326,6 +3405,44 @@ selectivity beat end-of-pipe treatment every time.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: UTILITIES & STEAM SYSTEMS ─────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔧</span>
+<span class="topic-name">Utilities, Steam Levels &amp; Cooling Water</span>
+<span class="topic-badge">SITE SYSTEMS</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">The Plant's Support Systems</div>
+<div class="concept-title">Heat and cooling delivered as utilities</div>
+<div class="concept-desc">
+Processes rarely make their own heating and cooling — a central utility system supplies
+steam at several pressure levels, cooling water, refrigeration, power and inert gas.
+</div>
+<div class="dw">
+<div class="dt">▸ STEAM PRESSURE LEVELS</div>
+<table class="ref-table">
+<tr><th>Level</th><th>Typical use</th></tr>
+<tr><td style="color: var(--red)">HP steam</td><td>Drives turbines; highest-temperature heating</td></tr>
+<tr><td style="color: var(--amber)">MP steam</td><td>Reboilers, general process heating</td></tr>
+<tr><td style="color: var(--cyan)">LP steam</td><td>Low-temperature heating, stripping, tracing</td></tr>
+</table>
+<div class="dt">▸ COOLING &amp; SELECTION</div>
+<pre class="code-block">Cooling water   ~30 °C supply (cooling-tower limited)
+Chilled water   ~5–10 °C (refrigeration, energy-costly)
+Air cooling     when water is scarce
+
+Pick the cheapest utility that meets the ΔT the duty needs.</pre>
+</div>
+<div class="info-bar ib-muted">
+💰 Utility choice is an economics decision — refrigeration is far pricier than cooling
+water, so designs avoid low temperatures unless the separation truly needs them.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-math" data-domain="math">
@@ -3805,6 +3922,45 @@ gc               32.174 lbm·ft/(lbf·s²)</pre>
 <div class="info-bar ib-muted">
 🎯 Pick the value of R whose units match the problem — the single most common way to
 avoid an order-of-magnitude error.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: PHYSICAL PROPERTIES TABLE ─────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧪</span>
+<span class="topic-name">Physical Properties of Common Compounds</span>
+<span class="topic-badge">DATASET</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Critical Properties &amp; More</div>
+<div class="concept-title">MW, Tc, Pc, acentric factor &amp; boiling point</div>
+<div class="concept-desc">
+The property data most needed for equation-of-state and VLE work, for a set of common
+compounds. Feeds the compressibility-factor and cubic-EOS methods in Thermodynamics.
+</div>
+<div class="dw">
+<div class="dt">▸ REFERENCE TABLE</div>
+<table class="ref-table">
+<tr><th>Compound</th><th>MW (g/mol)</th><th>Tc (K)</th><th>Pc (bar)</th><th>ω</th><th>T_b (°C)</th></tr>
+<tr><td style="color: var(--cyan)">Water</td><td>18.02</td><td>647.1</td><td>220.6</td><td>0.345</td><td>100.0</td></tr>
+<tr><td>Methane</td><td>16.04</td><td>190.6</td><td>46.0</td><td>0.011</td><td>−161.5</td></tr>
+<tr><td>Ethane</td><td>30.07</td><td>305.3</td><td>48.7</td><td>0.099</td><td>−88.6</td></tr>
+<tr><td style="color: var(--amber)">Benzene</td><td>78.11</td><td>562.2</td><td>48.9</td><td>0.212</td><td>80.1</td></tr>
+<tr><td style="color: var(--amber)">Toluene</td><td>92.14</td><td>591.8</td><td>41.0</td><td>0.263</td><td>110.6</td></tr>
+<tr><td style="color: var(--green)">Ethanol</td><td>46.07</td><td>513.9</td><td>61.4</td><td>0.644</td><td>78.4</td></tr>
+<tr><td>Ammonia</td><td>17.03</td><td>405.5</td><td>113.5</td><td>0.250</td><td>−33.3</td></tr>
+<tr><td>CO₂</td><td>44.01</td><td>304.2</td><td>73.8</td><td>0.224</td><td>−78.5 (subl.)</td></tr>
+<tr><td style="color: var(--purple)">Nitrogen</td><td>28.01</td><td>126.2</td><td>34.0</td><td>0.038</td><td>−195.8</td></tr>
+<tr><td style="color: var(--purple)">Oxygen</td><td>32.00</td><td>154.6</td><td>50.4</td><td>0.022</td><td>−183.0</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+📌 Reduced properties Tr = T/Tc and Pr = P/Pc plus ω feed the generalized charts and
+Peng-Robinson/SRK equations of state.
 </div>
 </div>
 </div>

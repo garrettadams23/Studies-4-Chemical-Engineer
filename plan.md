@@ -30,9 +30,9 @@ chemical-engineering curriculum, the FE/PE exams, and day-to-day plant practice.
 
 **Success metrics:**
 
-- 🚧 30 domains live · **123 topics** · 8 tools + quiz + flashcards (Phase 4 done; 5 well advanced) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
+- 🚧 30 domains live · **127 topics** · 8 tools + quiz + flashcards (Phase 4 done; 5–6 advanced) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
 - 🚧 Interactive tools — 7 calculators + steam-table lookup + quiz + flashcards.
-- 🚧 Embedded reference data — steam table + Antoine coefficients live; property tables planned.
+- 🚧 Embedded reference data — steam table, Antoine coefficients, physical-property table live.
 - ✅ Self-test quiz engine — 18 questions, instant feedback, best score saved (localStorage).
 - 📝 Deployed on Netlify with a custom domain, deploy previews, and a feedback form.
 
@@ -777,10 +777,9 @@ Self-Test Quiz domains. 30 domains total.
 engine (18 Q, scored, localStorage best). 📝 remaining: more calculators (§5.2),
 reference-data tools/datasets (§5.3, §6), flashcards.
 
-**Phase 6 — Polish (🚧 started)**
-✅ SEO JSON-LD structured data (WebSite + LearningResource) · ✅ print stylesheet
-(chrome hidden, expanded, light). 📝 remaining: SVG diagrams, WCAG AA audit,
-Lighthouse pass, glossary tooltips.
+**Phase 6 — Polish (🚧 underway)**
+✅ SEO JSON-LD (WebSite + LearningResource) · ✅ print stylesheet · ✅ skip-to-content
+link (WCAG). 📝 remaining: SVG diagrams, fuller WCAG AA audit, Lighthouse pass, glossary tooltips.
 
 ---
 
@@ -919,3 +918,10 @@ This closes the §4 new-domain list. The reference now spans 30 domains.
   (spaced-repetition-lite). Verified flip/next/persistence; zero errors.
 - Interactive roster now: 7 calculators + steam table + quiz + flashcards, all
   vanilla, offline and CSP-safe.
+
+### 2026-07-25 — Dataset + depth + accessibility (123 → 127)
+- **Physical-properties dataset** (Formula Sheet): MW, Tc, Pc, ω, boiling point for
+  10 common compounds — feeds the EOS/VLE methods.
+- **Depth topics**: Turbulence & Eddy Transport (Transport); Evaporation &
+  Multiple-Effect (Unit Ops); Utilities, Steam Levels & Cooling Water (Design).
+- **Accessibility (Phase 6)**: a keyboard/screen-reader skip-to-content link.
