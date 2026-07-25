@@ -1,0 +1,80 @@
+<!-- ── TOPIC: STATISTICAL PROCESS CONTROL ───────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📈</span>
+    <span class="topic-name">Statistical Process Control &amp; Monitoring</span>
+    <span class="topic-badge">FOUNDATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Is the Process In Control?</div>
+      <div class="concept-title">Separating signal from noise in plant data</div>
+      <div class="concept-desc">
+        Every measurement varies. <strong class="text-blue">Statistical process control</strong>
+        distinguishes normal common-cause variation from a real, assignable shift that demands
+        action.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ CONTROL CHARTS</div>
+        <pre class="code-block">Center line = process mean
+Control limits = mean ± 3σ   (≈ 99.7% of in-control data)
+
+Out-of-control signals: point beyond 3σ, runs, trends,
+increasing spread → investigate an assignable cause.</pre>
+        <div class="dt">▸ MULTIVARIATE METHODS</div>
+        <table class="ref-table">
+          <tr><th>Method</th><th>Does</th></tr>
+          <tr><td style="color: var(--cyan)">PCA</td><td>Compresses many correlated sensors to a few components</td></tr>
+          <tr><td style="color: var(--green)">PLS</td><td>Relates process variables to quality outputs</td></tr>
+          <tr><td style="color: var(--amber)">Cpk</td><td>Process capability vs. spec limits</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🎯 Don't tamper: reacting to common-cause noise as if it were a real shift ("overcontrol")
+        actually increases variability — a lesson from Deming's funnel experiment.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: MACHINE LEARNING FOR PROCESS ENG ──────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🤖</span>
+    <span class="topic-name">Machine Learning &amp; Digital Twins</span>
+    <span class="topic-badge">MODERN</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Data-Driven Process Engineering</div>
+      <div class="concept-title">Models learned from data, not just first principles</div>
+      <div class="concept-desc">
+        When first-principles models are too slow or incomplete, ML learns behavior from plant
+        data — powering <strong class="text-green">soft sensors</strong>, digital twins, and
+        real-time optimization.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ WHERE ML HELPS</div>
+        <table class="ref-table">
+          <tr><th>Application</th><th>Idea</th></tr>
+          <tr><td style="color: var(--cyan)">Soft sensor</td><td>Predict a hard-to-measure quality from easy sensors</td></tr>
+          <tr><td style="color: var(--green)">Surrogate model</td><td>Fast approximation of a slow simulation</td></tr>
+          <tr><td style="color: var(--amber)">Digital twin</td><td>Live model mirroring the real unit for what-if runs</td></tr>
+          <tr><td style="color: var(--purple)">Predictive maintenance</td><td>Flag failures from vibration/thermal patterns</td></tr>
+        </table>
+        <div class="dt">▸ THE WORKFLOW</div>
+        <pre class="code-block">Data (historian) → clean &amp; feature-engineer → train/validate
+→ deploy → monitor for drift → retrain
+
+Python stack: pandas, scikit-learn, NumPy — plus domain physics
+(physics-informed ML beats black boxes on extrapolation).</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🧠 Garbage in, garbage out applies double: a model is only as good as its data and only
+        trustworthy inside the range it was trained on.
+      </div>
+    </div>
+  </div>
+</div>
