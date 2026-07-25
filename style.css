@@ -2393,3 +2393,62 @@ mark.sh {
 .domain-examples { --accent: #14b8a6; }
 .domain-exam     { --accent: #8b5cf6; }
 .domain-career   { --accent: #22d3ee; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SELF-TEST QUIZ WIDGET
+   ═══════════════════════════════════════════════════════════════════════════ */
+.quiz { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
+.quiz-meta {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+}
+.quiz-q { font-size: 16px; font-weight: 600; line-height: 1.4; }
+.quiz-opts { display: flex; flex-direction: column; gap: 8px; }
+.quiz-opt {
+  text-align: left;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg3);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.quiz-opt:hover:not(:disabled) { border-color: var(--accent, var(--cyan)); }
+.quiz-opt:disabled { cursor: default; }
+.quiz-opt.correct { border-color: var(--green); background: rgba(0, 255, 153, 0.12); color: var(--green); }
+.quiz-opt.wrong { border-color: var(--red); background: rgba(255, 77, 109, 0.12); color: var(--red); }
+.quiz-exp {
+  font-size: 13px;
+  color: var(--muted);
+  border-left: 3px solid var(--accent, var(--cyan));
+  padding: 8px 12px;
+  background: var(--bg2);
+  border-radius: 6px;
+  line-height: 1.55;
+}
+.quiz-btn {
+  align-self: flex-start;
+  padding: 9px 18px;
+  border: 1px solid var(--accent, var(--cyan));
+  border-radius: 8px;
+  background: transparent;
+  color: var(--accent, var(--cyan));
+  font-family: var(--mono);
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.quiz-btn:hover { background: color-mix(in srgb, var(--accent, var(--cyan)) 12%, transparent); }
+.quiz-score { font-family: var(--mono); font-size: 20px; font-weight: 700; color: var(--accent, var(--cyan)); }
+
+/* ── Domain: Self-Test Quiz ────────────────────────────────────────────────── */
+.chip.c-quiz { color: #fbbf24; border-color: rgba(251, 191, 36, 0.3); }
+.chip.c-quiz.active, .chip.c-quiz:hover { background: rgba(251, 191, 36, 0.12); }
+.domain-quiz { --accent: #fbbf24; }

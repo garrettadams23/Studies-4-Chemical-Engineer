@@ -30,10 +30,10 @@ chemical-engineering curriculum, the FE/PE exams, and day-to-day plant practice.
 
 **Success metrics:**
 
-- 🚧 20 domains live · **98 topics** and growing (Phases 3–5 underway) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
+- 🚧 27 domains live · **112 topics** and growing (Phases 3–5 underway) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
 - 🚧 Interactive calculators — 4 live (unit converter, Reynolds, ideal gas, LMTD); more planned.
 - 📝 Embedded reference data (steam tables, Antoine coefficients, property tables).
-- 📝 Self-test/quiz engine with per-domain progress.
+- ✅ Self-test quiz engine — 18 questions, instant feedback, best score saved (localStorage).
 - 📝 Deployed on Netlify with a custom domain, deploy previews, and a feedback form.
 
 ---
@@ -771,10 +771,10 @@ topics/domain. This is the bulk of the writing.
 📝 remaining new domains (§4): Environment/Sustainability, Petroleum, Pharma/GMP,
 Particles, Data Science, Worked Examples, Exam Prep, Career.
 
-**Phase 5 — Interactivity (🚧 started)**
-✅ First 4 calculators live (unit converter, Reynolds, ideal gas, LMTD) — vanilla,
-offline, CSP-safe. 📝 remaining: more calculators (§5.2), reference tools (§5.3),
-quiz & flashcards (§5.4), embedded datasets (§6).
+**Phase 5 — Interactivity (🚧 well underway)**
+✅ 4 calculators (unit converter, Reynolds, ideal gas, LMTD) · ✅ self-test quiz
+engine (18 Q, scored, localStorage best). 📝 remaining: more calculators (§5.2),
+reference-data tools/datasets (§5.3, §6), flashcards.
 
 **Phase 6 — Polish (📝 / 💡)**
 SVG diagrams, SEO/schema, WCAG AA audit, Lighthouse 100s, print stylesheet,
@@ -884,3 +884,11 @@ offline, with a theme-aware `.calc` widget style. Verified: 1 atm→101.325 kPa,
 **Breadth (Phase 4):** two more domains —
 - **🌱 Energy, Sustainability & Environment** — CCUS; water/wastewater treatment; LCA & circular economy.
 - **🛢️ Petroleum Refining & Petrochemicals** — crude/atmospheric distillation; cracking & hydroprocessing; the petrochemical tree.
+
+### 2026-07-25 — Phase 5: self-test quiz + Phase 4 domains (98 → 112, 20 → 27)
+- **🧠 Self-Test Quiz** — 18 curriculum-spanning MCQs with instant feedback,
+  running score, explanations, and a best score saved to localStorage. Vanilla,
+  offline, CSP-safe (createElement/textContent, addEventListener). Verified full
+  play-through: scoring, feedback states, finish screen, best-score persistence, zero errors.
+- Plus the six Phase-4 domains landed this session (Pharma/GMP, Data Science,
+  Particles, Worked Examples, Exam Prep, Career).

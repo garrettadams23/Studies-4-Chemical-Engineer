@@ -136,6 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initAccessibilityAndTools();
   initBackToTop();
   initCalculators();
+  initQuiz();
 });
 
 // ── SERVICE WORKER (offline PWA; https only — never over file://) ────────────
@@ -925,4 +926,122 @@ function initCalculators() {
   initReynolds();
   initIdealGas();
   initLMTD();
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// SELF-TEST QUIZ  (vanilla · offline · CSP-safe · localStorage best score)
+// Built with createElement/textContent only — never innerHTML of data.
+// ─────────────────────────────────────────────────────────────────────────────
+const QUIZ_BANK = [
+  { q: "For a first-order reaction, the half-life is…", opts: ["Proportional to initial concentration", "Independent of initial concentration", "Inversely proportional to k²", "Always zero"], a: 1, exp: "t½ = ln2 / k — it does not depend on C₀." },
+  { q: "The Reynolds number compares…", opts: ["Inertial to viscous forces", "Heat to mass transfer", "Pressure to temperature", "Reaction to diffusion"], a: 0, exp: "Re = ρvD/μ = inertial / viscous forces." },
+  { q: "For a given duty, LMTD is largest with…", opts: ["Co-current flow", "Counter-current flow", "Cross flow", "They are always equal"], a: 1, exp: "Counter-current keeps the largest average ΔT — most efficient." },
+  { q: "Which expression defines the Gibbs free energy?", opts: ["ΔU = Q − W", "G = H − TS", "PV = nRT", "J = −D dC/dx"], a: 1, exp: "G = H − TS; at constant T,P, ΔG < 0 ⇒ spontaneous." },
+  { q: "At equal conversion (positive-order kinetics), a CSTR vs a PFR needs…", opts: ["Less volume", "More volume", "Equal volume", "No reactant"], a: 1, exp: "A CSTR operates at the low exit concentration everywhere, so it needs more volume." },
+  { q: "In DNA, adenine (A) pairs with…", opts: ["Guanine", "Cytosine", "Thymine", "Another adenine"], a: 2, exp: "A=T (two H-bonds); G≡C (three H-bonds)." },
+  { q: "A Biot number well below 0.1 means…", opts: ["Lumped-capacitance analysis is valid", "Internal gradients dominate", "Flow is turbulent", "The nozzle is choked"], a: 0, exp: "Small Bi ⇒ uniform internal temperature; the surface film controls." },
+  { q: "A relative volatility α = 1 indicates…", opts: ["Very easy distillation", "An azeotrope — no split by ordinary distillation", "Total reflux", "Minimum stages"], a: 1, exp: "α = 1 means vapor and liquid have equal composition — an azeotrope." },
+  { q: "Le Chatelier: raising pressure shifts a gas equilibrium toward…", opts: ["More gas moles", "Fewer gas moles", "It never changes", "Higher temperature"], a: 1, exp: "The system relieves the pressure by favoring the side with fewer gas moles." },
+  { q: "The Thiele modulus compares…", opts: ["Reaction rate to diffusion rate in a pellet", "Inertia to viscosity", "Convection to conduction", "Buoyancy to viscous forces"], a: 0, exp: "φ compares intrinsic reaction rate with internal pore diffusion." },
+  { q: "Pump cavitation is avoided when…", opts: ["NPSH available > NPSH required", "The flow is turbulent", "The head is zero", "Re < 2100"], a: 0, exp: "Keep NPSH_available above NPSH_required so the liquid doesn't flash." },
+  { q: "Which separation is driven by a partition (distribution) coefficient?", opts: ["Distillation", "Liquid-liquid extraction", "Filtration", "Cyclone separation"], a: 1, exp: "Extraction exploits how a solute partitions between two liquid phases." },
+  { q: "In electrode kinetics, the exchange current density i₀ reflects…", opts: ["Electrode/catalyst activity", "Pipe roughness", "Fin efficiency", "Crystal packing factor"], a: 0, exp: "A higher i₀ means lower activation overpotential — a more active catalyst." },
+  { q: "The residence-time distribution of an ideal PFR is…", opts: ["A sharp spike at t = τ", "Exponential decay", "Perfectly uniform", "Bimodal"], a: 0, exp: "Plug flow gives every element the same residence time τ — a delta spike." },
+  { q: "For fully developed laminar pipe flow, the friction factor is…", opts: ["f = 64/Re", "f = 0.316/Re^0.25", "Independent of Re", "Exactly 1.0"], a: 0, exp: "Laminar: f = 64/Re (Darcy). Turbulent uses the Moody chart." },
+  { q: "The green-chemistry E-factor measures…", opts: ["kg waste per kg product", "Energy per mole", "Atomic radius", "Reaction rate constant"], a: 0, exp: "E-factor = kg waste / kg product — lower is greener." },
+  { q: "A Professional Engineer's paramount duty is to…", opts: ["The client", "The employer", "Public safety, health & welfare", "Shareholders"], a: 2, exp: "Codes of ethics hold public safety, health and welfare paramount." },
+  { q: "Choked (sonic) flow through a relief valve occurs at Mach…", opts: ["0.1", "0.3", "1.0", "5.0"], a: 2, exp: "Flow chokes at Ma = 1 at the throat; lowering downstream P won't raise it further." },
+];
+
+function quizShuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function initQuiz() {
+  const root = document.getElementById("quiz-root");
+  if (!root) return;
+  const N = QUIZ_BANK.length;
+  let order, cur, score;
+
+  const el = (tag, cls, text) => {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  };
+
+  function start() {
+    order = quizShuffle([...Array(N).keys()]);
+    cur = 0;
+    score = 0;
+    renderQuestion();
+  }
+
+  function renderQuestion() {
+    root.textContent = "";
+    const item = QUIZ_BANK[order[cur]];
+    const wrap = el("div", "quiz");
+    const meta = el("div", "quiz-meta");
+    meta.append(el("span", null, `Question ${cur + 1} / ${N}`), el("span", null, `Score: ${score}`));
+    const q = el("div", "quiz-q", item.q);
+    const opts = el("div", "quiz-opts");
+    const exp = el("div", "quiz-exp", item.exp || "");
+    exp.style.display = "none";
+    const next = el("button", "quiz-btn", cur + 1 < N ? "Next ▶" : "See results ▶");
+    next.type = "button";
+    next.style.display = "none";
+
+    item.opts.forEach((o, i) => {
+      const btn = el("button", "quiz-opt", o);
+      btn.type = "button";
+      btn.addEventListener("click", () => {
+        [...opts.children].forEach(c => { c.disabled = true; });
+        if (i === item.a) { btn.classList.add("correct"); score++; }
+        else { btn.classList.add("wrong"); opts.children[item.a].classList.add("correct"); }
+        meta.lastChild.textContent = `Score: ${score}`;
+        exp.style.display = "";
+        next.style.display = "";
+      });
+      opts.appendChild(btn);
+    });
+    next.addEventListener("click", () => { cur++; cur < N ? renderQuestion() : finish(); });
+
+    wrap.append(meta, q, opts, exp, next);
+    root.appendChild(wrap);
+  }
+
+  function finish() {
+    root.textContent = "";
+    const prevBest = parseInt(localStorage.getItem("quiz-best") || "0", 10);
+    const best = Math.max(score, prevBest);
+    localStorage.setItem("quiz-best", String(best));
+    const pct = Math.round((100 * score) / N);
+    const verdict = pct >= 80 ? "Excellent — exam-ready!" : pct >= 60 ? "Solid — review the ones you missed." : "Keep studying — revisit the domains above.";
+    const wrap = el("div", "quiz");
+    wrap.append(
+      el("div", "quiz-score", `You scored ${score} / ${N}  ·  ${pct}%`),
+      el("div", "quiz-exp", `Best: ${best}/${N}. ${verdict}`)
+    );
+    const again = el("button", "quiz-btn", "↻ Restart quiz");
+    again.type = "button";
+    again.addEventListener("click", start);
+    wrap.appendChild(again);
+    root.appendChild(wrap);
+  }
+
+  // Landing state
+  root.textContent = "";
+  const holder = el("div", "quiz");
+  const best = localStorage.getItem("quiz-best");
+  holder.appendChild(el("div", "quiz-meta", best ? `Best score: ${best}/${N}` : `${N} questions · instant feedback · saved to this browser`));
+  const startBtn = el("button", "quiz-btn", "▶ Start quiz");
+  startBtn.type = "button";
+  startBtn.addEventListener("click", start);
+  holder.appendChild(startBtn);
+  root.appendChild(holder);
 }

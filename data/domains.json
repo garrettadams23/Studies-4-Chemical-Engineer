@@ -278,5 +278,15 @@
       { "cls": "ctag-ref", "text": "PRO" }
     ],
     "sub": "Industries · Roles · Interviews · AIChE · Communication · Lifelong Learning"
+  },
+  {
+    "id": "quiz",
+    "colorClass": "domain-quiz",
+    "icon": "🧠",
+    "title": "Self-Test Quiz",
+    "certTags": [
+      { "cls": "ctag-tools", "text": "QUIZ" }
+    ],
+    "sub": "18 questions across the curriculum · instant feedback · best score saved in your browser"
   }
 ]
