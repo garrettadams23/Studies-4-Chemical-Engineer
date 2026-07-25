@@ -838,3 +838,10 @@ glossary tooltips.
 **Still open (next passes):** finish each domain's planned topic list (§3), add
 the new domains (§4), build the interactive calculators & datasets (§5–6), and a
 Netlify Forms feedback panel.
+
+### 2026-07-25 — Cross-site header link
+- Added an **"IT Knowledge Base"** header button (`.hdr-link-btn`, cyan→purple
+  gradient) linking to `https://garrettstudies.netlify.app/` in a new tab
+  (`rel="noopener noreferrer"`). Mirrors the reciprocal button added on the IT
+  site in Studies PR #17. Pure HTML/CSS — no CSP change needed (link navigation
+  isn't governed by CSP fetch directives).

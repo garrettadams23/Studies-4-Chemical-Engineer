@@ -2196,3 +2196,59 @@ mark.sh {
 .ctag-lab   { color: #22d3ee; border-color: rgba(34, 211, 238, 0.3); }
 .ctag-bio   { color: #34d399; border-color: rgba(52, 211, 153, 0.3); }
 .ctag-safe  { color: #f59e0b; border-color: rgba(245, 158, 11, 0.3); }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CROSS-SITE HEADER LINK — "IT Knowledge Base" button (mirrors Studies PR #17)
+   ═══════════════════════════════════════════════════════════════════════════ */
+.hdr-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 13px;
+  border: 1px solid var(--cyan);
+  border-radius: 10px;
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--cyan) 16%, transparent),
+    color-mix(in srgb, var(--purple) 16%, transparent)
+  );
+  color: var(--cyan);
+  text-decoration: none;
+  font-family: var(--mono);
+  font-size: 11px;
+  line-height: 1.15;
+  letter-spacing: 0.03em;
+  font-weight: 600;
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s, border-color 0.2s;
+}
+.hdr-link-btn:hover {
+  background: linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--cyan) 30%, transparent),
+    color-mix(in srgb, var(--purple) 30%, transparent)
+  );
+  box-shadow: 0 0 0 1px var(--cyan), 0 4px 14px rgba(0, 0, 0, 0.25);
+  transform: translateY(-1px);
+}
+.hdr-link-btn:focus-visible {
+  outline: 2px solid var(--purple);
+  outline-offset: 3px;
+}
+.hdr-link-icon {
+  font-size: 15px;
+  line-height: 1;
+}
+.hdr-link-label {
+  text-align: left;
+  text-transform: uppercase;
+}
+.hdr-link-ext {
+  font-size: 12px;
+  opacity: 0.75;
+}
+@media (max-width: 640px) {
+  .hdr-link-btn {
+    padding: 6px 10px;
+    font-size: 10px;
+  }
+}
