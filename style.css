@@ -2252,3 +2252,15 @@ mark.sh {
     font-size: 10px;
   }
 }
+
+/* ── New domains: Electrochemical & Formula Sheet ──────────────────────────── */
+.chip.c-electro   { color: #a3e635; border-color: rgba(163, 230, 53, 0.3); }
+.chip.c-electro.active,   .chip.c-electro:hover   { background: rgba(163, 230, 53, 0.12); }
+.chip.c-formulas  { color: #2dd4bf; border-color: rgba(45, 212, 191, 0.3); }
+.chip.c-formulas.active,  .chip.c-formulas:hover  { background: rgba(45, 212, 191, 0.12); }
+
+.domain-electro   { --accent: #a3e635; }
+.domain-formulas  { --accent: #2dd4bf; }
+
+.ctag-energy { color: #a3e635; border-color: rgba(163, 230, 53, 0.3); }
+.ctag-ref    { color: #2dd4bf; border-color: rgba(45, 212, 191, 0.3); }

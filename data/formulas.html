@@ -1,0 +1,133 @@
+<!-- ── TOPIC: CORE EQUATIONS BY DOMAIN ──────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📐</span>
+    <span class="topic-name">Core Equations — One-Page Cheat Sheet</span>
+    <span class="topic-badge">QUICK REFERENCE</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">The Equations You Reach for Most</div>
+      <div class="concept-title">Every workhorse formula, one screen</div>
+      <div class="concept-desc">
+        A condensed pull-together of the most-used relations across the curriculum — for
+        revision and exam day. Each links to its full treatment in the relevant domain.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ BALANCES &amp; THERMODYNAMICS</div>
+        <pre class="code-block">General balance   In − Out + Gen − Cons = Accumulation
+Species (extent)  n_i = n_i0 + ν_i ξ
+Energy (open, SS) Q̇ − Ẇs = Σ ṁ_out h − Σ ṁ_in h
+Ideal / real gas  PV = nRT ;  PV = ZnRT
+Gibbs             ΔG = ΔH − TΔS ;  ΔG° = −RT ln K
+Heat of reaction  ΔH°rxn = Σν ΔH°f(prod) − Σν ΔH°f(reac)</pre>
+        <div class="dt">▸ TRANSPORT (MOMENTUM · HEAT · MASS)</div>
+        <pre class="code-block">Bernoulli   P/ρ + v²/2 + gz + w = const + h_f
+Reynolds    Re = ρvD/μ
+Darcy ΔP    ΔP = f (L/D)(ρv²/2)
+Fourier     q = −kA dT/dx
+Newton cool q = hA ΔT
+Radiation   q = εσA(T₁⁴ − T₂⁴)
+Exchanger   Q = U A F ΔT_lm
+Fick        J = −D dC/dz
+Column      Z = HTU × NTU</pre>
+        <div class="dt">▸ REACTION &amp; SEPARATIONS</div>
+        <pre class="code-block">Arrhenius   k = A exp(−E_a/RT)
+CSTR        V = F_A0 X / (−r_A)
+PFR         V = F_A0 ∫ dX/(−r_A)
+Rel. vol.   α = (y_A/x_A)/(y_B/x_B)
+Raoult      y_i P = x_i P_i^sat
+Fenske      N_min = ln[(x_LK/x_HK)_D (x_HK/x_LK)_B]/ln α</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        📌 This is a map, not the territory — each formula's assumptions and derivation live in
+        its home domain. Use it to jog memory, not to skip understanding.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: DIMENSIONLESS GROUPS ──────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔢</span>
+    <span class="topic-name">Dimensionless Groups — Master Table</span>
+    <span class="topic-badge">REFERENCE</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">The Ratios That Run the Correlations</div>
+      <div class="concept-title">What each group compares, and where it appears</div>
+      <div class="concept-desc">
+        Dimensionless groups compress physics into ratios of competing effects. Recognizing them
+        turns messy correlations into intuition.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE ESSENTIAL GROUPS</div>
+        <table class="ref-table">
+          <tr><th>Group</th><th>Definition</th><th>Ratio of…</th></tr>
+          <tr><td style="color: var(--cyan)">Reynolds Re</td><td>ρvD/μ</td><td>Inertia / viscous</td></tr>
+          <tr><td style="color: var(--red)">Prandtl Pr</td><td>c_p μ/k</td><td>Momentum / thermal diffusivity</td></tr>
+          <tr><td style="color: var(--green)">Schmidt Sc</td><td>μ/(ρD)</td><td>Momentum / mass diffusivity</td></tr>
+          <tr><td style="color: var(--amber)">Nusselt Nu</td><td>hL/k</td><td>Convective / conductive heat</td></tr>
+          <tr><td style="color: var(--purple)">Sherwood Sh</td><td>k_c L/D</td><td>Convective / diffusive mass</td></tr>
+          <tr><td style="color: var(--cyan)">Grashof Gr</td><td>gβΔT L³/ν²</td><td>Buoyancy / viscous</td></tr>
+          <tr><td style="color: var(--red)">Biot Bi</td><td>hL/k_solid</td><td>Internal / surface resistance</td></tr>
+          <tr><td style="color: var(--green)">Fourier Fo</td><td>αt/L²</td><td>Dimensionless time (transient)</td></tr>
+          <tr><td style="color: var(--amber)">Péclet Pe</td><td>Re·Pr or Re·Sc</td><td>Convection / diffusion</td></tr>
+          <tr><td style="color: var(--purple)">Damköhler Da</td><td>rxn rate / transport rate</td><td>Reaction / flow or diffusion</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🔬 Heat/mass analogy: swap (Nu, Pr) ↔ (Sh, Sc) and correlations carry straight over —
+        Nu = f(Re, Pr) becomes Sh = f(Re, Sc).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: CONSTANTS & CONVERSIONS ───────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧷</span>
+    <span class="topic-name">Constants &amp; Conversion Factors</span>
+    <span class="topic-badge">REFERENCE</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Numbers You Shouldn't Have to Look Up</div>
+      <div class="concept-title">Universal constants &amp; the conversions that trip people</div>
+      <div class="concept-desc">
+        The constants and unit conversions that appear again and again — kept in one place so a
+        stray factor never sinks an answer.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ UNIVERSAL CONSTANTS</div>
+        <pre class="code-block">Gas constant R   8.314 J/(mol·K)   = 0.08206 L·atm/(mol·K)
+                 = 1.987 cal/(mol·K) = 10.73 psia·ft³/(lbmol·°R)
+Avogadro N_A     6.022 × 10²³ /mol
+Boltzmann k_B    1.381 × 10⁻²³ J/K
+Faraday F        96 485 C/mol
+Stefan–Boltz σ   5.670 × 10⁻⁸ W/(m²·K⁴)
+g (standard)     9.807 m/s²  = 32.174 ft/s²
+gc               32.174 lbm·ft/(lbf·s²)</pre>
+        <div class="dt">▸ COMMON CONVERSIONS</div>
+        <table class="ref-table">
+          <tr><th>Quantity</th><th>Conversion</th></tr>
+          <tr><td style="color: var(--cyan)">Pressure</td><td>1 atm = 101.325 kPa = 14.696 psia = 760 mmHg = 1.01325 bar</td></tr>
+          <tr><td style="color: var(--green)">Energy</td><td>1 BTU = 1055 J = 0.252 kcal ; 1 kWh = 3.6 MJ</td></tr>
+          <tr><td style="color: var(--amber)">Power</td><td>1 hp = 745.7 W ; 1 kW = 3412 BTU/h</td></tr>
+          <tr><td style="color: var(--purple)">Length / mass</td><td>1 in = 2.54 cm ; 1 lbm = 0.4536 kg</td></tr>
+          <tr><td style="color: var(--red)">Temperature</td><td>°F = 1.8·°C + 32 ; K = °C + 273.15 ; °R = °F + 459.67</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🎯 Pick the value of R whose units match the problem — the single most common way to
+        avoid an order-of-magnitude error.
+      </div>
+    </div>
+  </div>
+</div>

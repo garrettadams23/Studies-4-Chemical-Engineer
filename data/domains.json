@@ -160,5 +160,27 @@
       { "cls": "ctag-fund", "text": "FE" }
     ],
     "sub": "ODEs · Linear Algebra · Statistics · Root Finding · Integration · Regression · Dimensional Analysis"
+  },
+  {
+    "id": "electro",
+    "colorClass": "domain-electro",
+    "icon": "⚡",
+    "title": "Electrochemical &amp; Energy Engineering",
+    "certTags": [
+      { "cls": "ctag-adv", "text": "ADV" },
+      { "cls": "ctag-energy", "text": "ENERGY" }
+    ],
+    "sub": "Electrode Kinetics · Batteries · Fuel Cells · Electrolysis · Green Hydrogen · CO₂ Reduction"
+  },
+  {
+    "id": "formulas",
+    "colorClass": "domain-formulas",
+    "icon": "📄",
+    "title": "Formula Sheet &amp; Quick Reference",
+    "certTags": [
+      { "cls": "ctag-ref", "text": "REF" },
+      { "cls": "ctag-fe", "text": "EXAM" }
+    ],
+    "sub": "Key Equations · Dimensionless Groups · Constants · Conversion Factors — exam-day reference"
   }
 ]

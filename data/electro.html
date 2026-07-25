@@ -1,0 +1,118 @@
+<!-- ── TOPIC: ELECTRODE KINETICS ────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔌</span>
+    <span class="topic-name">Electrode Kinetics &amp; Butler–Volmer</span>
+    <span class="topic-badge">FOUNDATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Reactions That Move Electrons</div>
+      <div class="concept-title">Overpotential drives the current</div>
+      <div class="concept-desc">
+        At an electrode, reaction rate <em>is</em> current. Driving the electrode away from its
+        equilibrium potential — the <strong class="text-blue">overpotential η</strong> — speeds
+        the reaction, described by the Butler–Volmer equation.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ BUTLER–VOLMER &amp; TAFEL</div>
+        <pre class="code-block">i = i₀ [ exp(α_a F η / RT) − exp(−α_c F η / RT) ]
+
+i₀ = exchange current density (intrinsic activity)
+η  = E − E_eq (overpotential)
+
+Large η → Tafel form:  η = a + b·log|i|   (straight line)</pre>
+        <div class="dt">▸ SOURCES OF OVERPOTENTIAL</div>
+        <table class="ref-table">
+          <tr><th>Type</th><th>Origin</th></tr>
+          <tr><td style="color: var(--cyan)">Activation</td><td>Charge-transfer barrier (Butler–Volmer)</td></tr>
+          <tr><td style="color: var(--amber)">Ohmic (IR)</td><td>Electrolyte + contact resistance</td></tr>
+          <tr><td style="color: var(--red)">Concentration</td><td>Reactant depletion at the surface (mass transfer)</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        ⚡ A good catalyst raises i₀, shrinking the activation overpotential — why platinum-group
+        catalysts dominate fuel cells and electrolyzers.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: BATTERIES & FUEL CELLS ────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔋</span>
+    <span class="topic-name">Batteries &amp; Fuel Cells</span>
+    <span class="topic-badge">ENERGY STORAGE</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Storing &amp; Converting Energy</div>
+      <div class="concept-title">Galvanic cells that power the transition</div>
+      <div class="concept-desc">
+        Batteries store energy chemically; fuel cells convert a continuously-fed fuel directly to
+        electricity. Both are galvanic cells governed by the same thermodynamics.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ EFFICIENCY &amp; VOLTAGE</div>
+        <pre class="code-block">Ideal (thermodynamic) efficiency  = ΔG / ΔH
+Cell voltage  E = E° − (RT/nF) ln Q   (Nernst)
+Actual voltage = E − η_activation − η_ohmic − η_concentration</pre>
+        <div class="dt">▸ TECHNOLOGY MAP</div>
+        <table class="ref-table">
+          <tr><th>Device</th><th>Chemistry</th><th>Note</th></tr>
+          <tr><td style="color: var(--green)">Li-ion</td><td>Li intercalation</td><td>High energy density, EVs</td></tr>
+          <tr><td style="color: var(--cyan)">Flow battery</td><td>Vanadium redox</td><td>Grid storage, decoupled power/energy</td></tr>
+          <tr><td style="color: var(--amber)">PEM fuel cell</td><td>H₂ + O₂ → H₂O</td><td>Low-T, fast start, transport</td></tr>
+          <tr><td style="color: var(--red)">SOFC</td><td>Solid oxide</td><td>High-T, high efficiency, stationary</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🔬 Fuel cells dodge the Carnot limit because they convert chemical energy directly — not
+        via heat — so their ideal efficiency (ΔG/ΔH) can exceed a heat engine's.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: ELECTROLYSIS & GREEN HYDROGEN ─────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">💧</span>
+    <span class="topic-name">Electrolysis &amp; Green Hydrogen</span>
+    <span class="topic-badge">DECARBONIZATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Splitting Water with Electrons</div>
+      <div class="concept-title">The reverse of a fuel cell</div>
+      <div class="concept-desc">
+        Electrolysis uses electricity to drive a non-spontaneous reaction. Powered by renewables,
+        water electrolysis makes <strong class="text-green">green hydrogen</strong> — a linchpin
+        of hard-to-electrify decarbonization.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ WATER ELECTROLYSIS</div>
+        <pre class="code-block">Cathode:  2H₂O + 2e⁻ → H₂ + 2OH⁻
+Anode:    2OH⁻ → ½O₂ + H₂O + 2e⁻
+Overall:  H₂O → H₂ + ½O₂     E°_cell = −1.23 V (needs work)
+
+Energy: Faraday's law → mass ∝ (current × time)/(nF)</pre>
+        <div class="dt">▸ THE "HYDROGEN COLORS"</div>
+        <table class="ref-table">
+          <tr><th>Color</th><th>Source</th></tr>
+          <tr><td style="color: var(--green)">Green</td><td>Electrolysis from renewable power (zero-carbon)</td></tr>
+          <tr><td style="color: var(--cyan)">Blue</td><td>Steam methane reforming + carbon capture</td></tr>
+          <tr><td style="color: var(--muted)">Grey</td><td>Steam methane reforming, CO₂ vented</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🌱 Electrolyzer types mirror fuel cells (PEM, alkaline, solid-oxide) — the same
+        hardware run in reverse. CO₂ electroreduction extends the idea to fuels and chemicals.
+      </div>
+    </div>
+  </div>
+</div>

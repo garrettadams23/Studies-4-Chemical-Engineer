@@ -30,7 +30,7 @@ chemical-engineering curriculum, the FE/PE exams, and day-to-day plant practice.
 
 **Success metrics:**
 
-- 🚧 15 domains live · **82 topics** and growing (Phase 3 well underway) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
+- 🚧 17 domains live · **88 topics** and growing (Phases 3–4 underway) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
 - 📝 Interactive calculators for the 20 most-used engineering formulas.
 - 📝 Embedded reference data (steam tables, Antoine coefficients, property tables).
 - 📝 Self-test/quiz engine with per-domain progress.
@@ -766,10 +766,10 @@ CI build-check · README/CONTRIBUTING.
 Fill each existing domain to its full planned topic list (§3). Target 8–15
 topics/domain. This is the bulk of the writing.
 
-**Phase 4 — Breadth (📝)**
-Add new domains (§4): Electrochemical, Environment/Sustainability, Petroleum,
-Pharma/GMP, Particles, Data Science, plus Worked Examples, Formula Sheet, Exam
-Prep, Career.
+**Phase 4 — Breadth (🚧 started)**
+✅ Electrochemical & Energy Engineering · ✅ Formula Sheet & Quick Reference ·
+📝 remaining new domains (§4): Environment/Sustainability, Petroleum, Pharma/GMP,
+Particles, Data Science, Worked Examples, Exam Prep, Career.
 
 **Phase 5 — Interactivity (📝)**
 Calculators (§5.2), reference tools (§5.3), quiz & flashcards (§5.4), embedded
@@ -863,3 +863,11 @@ Added 2 topics to every one of the 15 domains:
 - Chemistry: Chemical Equilibrium & Le Chatelier; Electrochemistry & Nernst
 - Process Design: Process Simulation & Convergence; Optimization & Green Design
 - Engineering Math: Laplace Transforms; Partial Differential Equations
+
+### 2026-07-25 — Phase 4 start: 2 new domains (+6 topics, 82 → 88; 15 → 17 domains)
+- **⚡ Electrochemical & Energy Engineering** — Electrode Kinetics & Butler–Volmer;
+  Batteries & Fuel Cells; Electrolysis & Green Hydrogen. (lime accent, ENERGY tag)
+- **📄 Formula Sheet & Quick Reference** — Core Equations cheat sheet; Dimensionless
+  Groups master table; Constants & Conversion Factors. (teal accent, REF/EXAM tags)
+- Wired both via domains.json + chips + style.css (chip/accent colors, new
+  `ctag-energy` / `ctag-ref` tag classes). Verified filter + render, zero console errors.

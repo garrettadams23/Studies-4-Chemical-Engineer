@@ -111,6 +111,8 @@ alt="Optimized Study Routine: 4 Pillars for Success infographic."
 <div class="chip c-chem"           data-domain="chem">🧫 CHEMISTRY</div>
 <div class="chip c-design"         data-domain="design">📐 PROCESS DESIGN</div>
 <div class="chip c-math"           data-domain="math">🧮 ENG MATH</div>
+<div class="chip c-electro"        data-domain="electro">⚡ ELECTROCHEMICAL</div>
+<div class="chip c-formulas"       data-domain="formulas">📄 FORMULA SHEET</div>
 </div>
 </div>
 <!-- SEARCH BAR ──────────────────────────────────────────────────────── -->
@@ -3489,6 +3491,281 @@ Numerical:   finite difference / finite element / finite volume
 <div class="info-bar ib-muted">
 🔬 The unsteady diffusion/heat equation ∂u/∂t = α ∂²u/∂x² recurs across the whole
 curriculum — transient conduction, drug release, and Fick's second law are all the same PDE.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="domain-section domain-electro" data-domain="electro">
+<div class="domain-header">
+<span class="domain-icon">⚡</span>
+<span class="domain-title">Electrochemical &amp; Energy Engineering</span>
+<div class="cert-tags">
+<span class="ctag ctag-adv">ADV</span>
+<span class="ctag ctag-energy">ENERGY</span>
+</div>
+<span class="domain-sub">Electrode Kinetics · Batteries · Fuel Cells · Electrolysis · Green Hydrogen · CO₂ Reduction</span>
+<span class="chevron">▾</span>
+</div>
+<div class="domain-body">
+<!-- ── TOPIC: ELECTRODE KINETICS ────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔌</span>
+<span class="topic-name">Electrode Kinetics &amp; Butler–Volmer</span>
+<span class="topic-badge">FOUNDATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Reactions That Move Electrons</div>
+<div class="concept-title">Overpotential drives the current</div>
+<div class="concept-desc">
+At an electrode, reaction rate <em>is</em> current. Driving the electrode away from its
+equilibrium potential — the <strong class="text-blue">overpotential η</strong> — speeds
+the reaction, described by the Butler–Volmer equation.
+</div>
+<div class="dw">
+<div class="dt">▸ BUTLER–VOLMER &amp; TAFEL</div>
+<pre class="code-block">i = i₀ [ exp(α_a F η / RT) − exp(−α_c F η / RT) ]
+
+i₀ = exchange current density (intrinsic activity)
+η  = E − E_eq (overpotential)
+
+Large η → Tafel form:  η = a + b·log|i|   (straight line)</pre>
+<div class="dt">▸ SOURCES OF OVERPOTENTIAL</div>
+<table class="ref-table">
+<tr><th>Type</th><th>Origin</th></tr>
+<tr><td style="color: var(--cyan)">Activation</td><td>Charge-transfer barrier (Butler–Volmer)</td></tr>
+<tr><td style="color: var(--amber)">Ohmic (IR)</td><td>Electrolyte + contact resistance</td></tr>
+<tr><td style="color: var(--red)">Concentration</td><td>Reactant depletion at the surface (mass transfer)</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+⚡ A good catalyst raises i₀, shrinking the activation overpotential — why platinum-group
+catalysts dominate fuel cells and electrolyzers.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: BATTERIES & FUEL CELLS ────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔋</span>
+<span class="topic-name">Batteries &amp; Fuel Cells</span>
+<span class="topic-badge">ENERGY STORAGE</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Storing &amp; Converting Energy</div>
+<div class="concept-title">Galvanic cells that power the transition</div>
+<div class="concept-desc">
+Batteries store energy chemically; fuel cells convert a continuously-fed fuel directly to
+electricity. Both are galvanic cells governed by the same thermodynamics.
+</div>
+<div class="dw">
+<div class="dt">▸ EFFICIENCY &amp; VOLTAGE</div>
+<pre class="code-block">Ideal (thermodynamic) efficiency  = ΔG / ΔH
+Cell voltage  E = E° − (RT/nF) ln Q   (Nernst)
+Actual voltage = E − η_activation − η_ohmic − η_concentration</pre>
+<div class="dt">▸ TECHNOLOGY MAP</div>
+<table class="ref-table">
+<tr><th>Device</th><th>Chemistry</th><th>Note</th></tr>
+<tr><td style="color: var(--green)">Li-ion</td><td>Li intercalation</td><td>High energy density, EVs</td></tr>
+<tr><td style="color: var(--cyan)">Flow battery</td><td>Vanadium redox</td><td>Grid storage, decoupled power/energy</td></tr>
+<tr><td style="color: var(--amber)">PEM fuel cell</td><td>H₂ + O₂ → H₂O</td><td>Low-T, fast start, transport</td></tr>
+<tr><td style="color: var(--red)">SOFC</td><td>Solid oxide</td><td>High-T, high efficiency, stationary</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🔬 Fuel cells dodge the Carnot limit because they convert chemical energy directly — not
+via heat — so their ideal efficiency (ΔG/ΔH) can exceed a heat engine's.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: ELECTROLYSIS & GREEN HYDROGEN ─────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">💧</span>
+<span class="topic-name">Electrolysis &amp; Green Hydrogen</span>
+<span class="topic-badge">DECARBONIZATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Splitting Water with Electrons</div>
+<div class="concept-title">The reverse of a fuel cell</div>
+<div class="concept-desc">
+Electrolysis uses electricity to drive a non-spontaneous reaction. Powered by renewables,
+water electrolysis makes <strong class="text-green">green hydrogen</strong> — a linchpin
+of hard-to-electrify decarbonization.
+</div>
+<div class="dw">
+<div class="dt">▸ WATER ELECTROLYSIS</div>
+<pre class="code-block">Cathode:  2H₂O + 2e⁻ → H₂ + 2OH⁻
+Anode:    2OH⁻ → ½O₂ + H₂O + 2e⁻
+Overall:  H₂O → H₂ + ½O₂     E°_cell = −1.23 V (needs work)
+
+Energy: Faraday's law → mass ∝ (current × time)/(nF)</pre>
+<div class="dt">▸ THE "HYDROGEN COLORS"</div>
+<table class="ref-table">
+<tr><th>Color</th><th>Source</th></tr>
+<tr><td style="color: var(--green)">Green</td><td>Electrolysis from renewable power (zero-carbon)</td></tr>
+<tr><td style="color: var(--cyan)">Blue</td><td>Steam methane reforming + carbon capture</td></tr>
+<tr><td style="color: var(--muted)">Grey</td><td>Steam methane reforming, CO₂ vented</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🌱 Electrolyzer types mirror fuel cells (PEM, alkaline, solid-oxide) — the same
+hardware run in reverse. CO₂ electroreduction extends the idea to fuels and chemicals.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="domain-section domain-formulas" data-domain="formulas">
+<div class="domain-header">
+<span class="domain-icon">📄</span>
+<span class="domain-title">Formula Sheet &amp; Quick Reference</span>
+<div class="cert-tags">
+<span class="ctag ctag-ref">REF</span>
+<span class="ctag ctag-fe">EXAM</span>
+</div>
+<span class="domain-sub">Key Equations · Dimensionless Groups · Constants · Conversion Factors — exam-day reference</span>
+<span class="chevron">▾</span>
+</div>
+<div class="domain-body">
+<!-- ── TOPIC: CORE EQUATIONS BY DOMAIN ──────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">📐</span>
+<span class="topic-name">Core Equations — One-Page Cheat Sheet</span>
+<span class="topic-badge">QUICK REFERENCE</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">The Equations You Reach for Most</div>
+<div class="concept-title">Every workhorse formula, one screen</div>
+<div class="concept-desc">
+A condensed pull-together of the most-used relations across the curriculum — for
+revision and exam day. Each links to its full treatment in the relevant domain.
+</div>
+<div class="dw">
+<div class="dt">▸ BALANCES &amp; THERMODYNAMICS</div>
+<pre class="code-block">General balance   In − Out + Gen − Cons = Accumulation
+Species (extent)  n_i = n_i0 + ν_i ξ
+Energy (open, SS) Q̇ − Ẇs = Σ ṁ_out h − Σ ṁ_in h
+Ideal / real gas  PV = nRT ;  PV = ZnRT
+Gibbs             ΔG = ΔH − TΔS ;  ΔG° = −RT ln K
+Heat of reaction  ΔH°rxn = Σν ΔH°f(prod) − Σν ΔH°f(reac)</pre>
+<div class="dt">▸ TRANSPORT (MOMENTUM · HEAT · MASS)</div>
+<pre class="code-block">Bernoulli   P/ρ + v²/2 + gz + w = const + h_f
+Reynolds    Re = ρvD/μ
+Darcy ΔP    ΔP = f (L/D)(ρv²/2)
+Fourier     q = −kA dT/dx
+Newton cool q = hA ΔT
+Radiation   q = εσA(T₁⁴ − T₂⁴)
+Exchanger   Q = U A F ΔT_lm
+Fick        J = −D dC/dz
+Column      Z = HTU × NTU</pre>
+<div class="dt">▸ REACTION &amp; SEPARATIONS</div>
+<pre class="code-block">Arrhenius   k = A exp(−E_a/RT)
+CSTR        V = F_A0 X / (−r_A)
+PFR         V = F_A0 ∫ dX/(−r_A)
+Rel. vol.   α = (y_A/x_A)/(y_B/x_B)
+Raoult      y_i P = x_i P_i^sat
+Fenske      N_min = ln[(x_LK/x_HK)_D (x_HK/x_LK)_B]/ln α</pre>
+</div>
+<div class="info-bar ib-muted">
+📌 This is a map, not the territory — each formula's assumptions and derivation live in
+its home domain. Use it to jog memory, not to skip understanding.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: DIMENSIONLESS GROUPS ──────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔢</span>
+<span class="topic-name">Dimensionless Groups — Master Table</span>
+<span class="topic-badge">REFERENCE</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">The Ratios That Run the Correlations</div>
+<div class="concept-title">What each group compares, and where it appears</div>
+<div class="concept-desc">
+Dimensionless groups compress physics into ratios of competing effects. Recognizing them
+turns messy correlations into intuition.
+</div>
+<div class="dw">
+<div class="dt">▸ THE ESSENTIAL GROUPS</div>
+<table class="ref-table">
+<tr><th>Group</th><th>Definition</th><th>Ratio of…</th></tr>
+<tr><td style="color: var(--cyan)">Reynolds Re</td><td>ρvD/μ</td><td>Inertia / viscous</td></tr>
+<tr><td style="color: var(--red)">Prandtl Pr</td><td>c_p μ/k</td><td>Momentum / thermal diffusivity</td></tr>
+<tr><td style="color: var(--green)">Schmidt Sc</td><td>μ/(ρD)</td><td>Momentum / mass diffusivity</td></tr>
+<tr><td style="color: var(--amber)">Nusselt Nu</td><td>hL/k</td><td>Convective / conductive heat</td></tr>
+<tr><td style="color: var(--purple)">Sherwood Sh</td><td>k_c L/D</td><td>Convective / diffusive mass</td></tr>
+<tr><td style="color: var(--cyan)">Grashof Gr</td><td>gβΔT L³/ν²</td><td>Buoyancy / viscous</td></tr>
+<tr><td style="color: var(--red)">Biot Bi</td><td>hL/k_solid</td><td>Internal / surface resistance</td></tr>
+<tr><td style="color: var(--green)">Fourier Fo</td><td>αt/L²</td><td>Dimensionless time (transient)</td></tr>
+<tr><td style="color: var(--amber)">Péclet Pe</td><td>Re·Pr or Re·Sc</td><td>Convection / diffusion</td></tr>
+<tr><td style="color: var(--purple)">Damköhler Da</td><td>rxn rate / transport rate</td><td>Reaction / flow or diffusion</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🔬 Heat/mass analogy: swap (Nu, Pr) ↔ (Sh, Sc) and correlations carry straight over —
+Nu = f(Re, Pr) becomes Sh = f(Re, Sc).
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: CONSTANTS & CONVERSIONS ───────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧷</span>
+<span class="topic-name">Constants &amp; Conversion Factors</span>
+<span class="topic-badge">REFERENCE</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Numbers You Shouldn't Have to Look Up</div>
+<div class="concept-title">Universal constants &amp; the conversions that trip people</div>
+<div class="concept-desc">
+The constants and unit conversions that appear again and again — kept in one place so a
+stray factor never sinks an answer.
+</div>
+<div class="dw">
+<div class="dt">▸ UNIVERSAL CONSTANTS</div>
+<pre class="code-block">Gas constant R   8.314 J/(mol·K)   = 0.08206 L·atm/(mol·K)
+                 = 1.987 cal/(mol·K) = 10.73 psia·ft³/(lbmol·°R)
+Avogadro N_A     6.022 × 10²³ /mol
+Boltzmann k_B    1.381 × 10⁻²³ J/K
+Faraday F        96 485 C/mol
+Stefan–Boltz σ   5.670 × 10⁻⁸ W/(m²·K⁴)
+g (standard)     9.807 m/s²  = 32.174 ft/s²
+gc               32.174 lbm·ft/(lbf·s²)</pre>
+<div class="dt">▸ COMMON CONVERSIONS</div>
+<table class="ref-table">
+<tr><th>Quantity</th><th>Conversion</th></tr>
+<tr><td style="color: var(--cyan)">Pressure</td><td>1 atm = 101.325 kPa = 14.696 psia = 760 mmHg = 1.01325 bar</td></tr>
+<tr><td style="color: var(--green)">Energy</td><td>1 BTU = 1055 J = 0.252 kcal ; 1 kWh = 3.6 MJ</td></tr>
+<tr><td style="color: var(--amber)">Power</td><td>1 hp = 745.7 W ; 1 kW = 3412 BTU/h</td></tr>
+<tr><td style="color: var(--purple)">Length / mass</td><td>1 in = 2.54 cm ; 1 lbm = 0.4536 kg</td></tr>
+<tr><td style="color: var(--red)">Temperature</td><td>°F = 1.8·°C + 32 ; K = °C + 273.15 ; °R = °F + 459.67</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🎯 Pick the value of R whose units match the problem — the single most common way to
+avoid an order-of-magnitude error.
 </div>
 </div>
 </div>
