@@ -1,0 +1,104 @@
+<!-- ── WORKED: MATERIAL BALANCE ─────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📝</span>
+    <span class="topic-name">Worked: Flash Separator Material Balance</span>
+    <span class="topic-badge">SOLVED</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Step-by-Step</div>
+      <div class="concept-title">Splitting a two-component feed</div>
+      <div class="concept-desc">
+        A worked example of the balance method from the Material Balances domain — draw, basis,
+        DOF, solve.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ PROBLEM &amp; SOLUTION</div>
+        <pre class="code-block">Q: 100 kmol/h of 40% benzene / 60% toluene is flashed.
+   Vapor is 70% benzene; liquid is 30% benzene. Find V and L.
+
+1. Basis: F = 100 kmol/h.  Unknowns: V, L (DOF = 0, two balances).
+2. Overall:      V + L = 100
+3. Benzene:      0.70 V + 0.30 L = 0.40(100) = 40
+4. Sub L = 100 − V:
+   0.70V + 0.30(100 − V) = 40
+   0.40V + 30 = 40  →  V = 25 kmol/h
+5. L = 75 kmol/h.
+
+Check benzene: 0.70(25) + 0.30(75) = 17.5 + 22.5 = 40 ✓</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🎯 Two unknowns, two independent balances (overall + one component) → exactly solvable.
+        Always verify with the un-used component.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── WORKED: CSTR SIZING ──────────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📝</span>
+    <span class="topic-name">Worked: CSTR Volume for a First-Order Reaction</span>
+    <span class="topic-badge">SOLVED</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Step-by-Step</div>
+      <div class="concept-title">Reactor sizing from the design equation</div>
+      <div class="concept-desc">A worked application of the CSTR design equation from Reaction Engineering.</div>
+      <div class="dw">
+        <div class="dt">▸ PROBLEM &amp; SOLUTION</div>
+        <pre class="code-block">Q: Liquid-phase A → B, first order, k = 0.5 min⁻¹.
+   Feed 10 L/min, C_A0 = 2 mol/L. Want 80% conversion. Find V.
+
+1. Design eqn:  V = F_A0 X / (−r_A)
+2. First order:  −r_A = k C_A = k C_A0 (1 − X)
+3. F_A0 = v₀ C_A0 = 10 × 2 = 20 mol/min
+4. −r_A at exit = 0.5 × 2 × (1 − 0.8) = 0.2 mol/(L·min)
+5. V = (20 × 0.8) / 0.2 = 80 L
+
+Space time τ = V/v₀ = 80/10 = 8 min.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🧪 A CSTR reacts at the low <em>exit</em> concentration everywhere — that's why it needs
+        more volume than a PFR for the same conversion.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── WORKED: HEAT EXCHANGER ───────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📝</span>
+    <span class="topic-name">Worked: Heat-Exchanger Area from LMTD</span>
+    <span class="topic-badge">SOLVED</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Step-by-Step</div>
+      <div class="concept-title">Sizing from duty, U and LMTD</div>
+      <div class="concept-desc">A worked application combining an energy balance with the LMTD method from Heat Transfer.</div>
+      <div class="dw">
+        <div class="dt">▸ PROBLEM &amp; SOLUTION</div>
+        <pre class="code-block">Q: Cool 5 kg/s oil (cp = 2 kJ/kg·K) from 120→60 °C with water
+   entering 25 °C, leaving 45 °C, counter-current. U = 400 W/m²K.
+   Find the area.
+
+1. Duty:  Q = m cp ΔT = 5 × 2000 × (120−60) = 600,000 W
+2. End ΔTs (counter-current):
+   ΔT₁ = 120 − 45 = 75 °C      ΔT₂ = 60 − 25 = 35 °C
+3. LMTD = (75 − 35)/ln(75/35) = 40/0.762 = 52.5 °C
+4. A = Q / (U · LMTD) = 600,000 / (400 × 52.5) = 28.6 m²</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        ♨️ Try it in the Calculators domain: enter ΔT₁ = 75, ΔT₂ = 35 in the LMTD tool → 52.5 °C.
+      </div>
+    </div>
+  </div>
+</div>

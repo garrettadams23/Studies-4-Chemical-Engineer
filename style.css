@@ -319,6 +319,16 @@ header p {
   gap: 12px;
   margin-left: auto;
   align-items: center;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+/* Stack the light/dark and expand toggles vertically so they never run off a
+   narrow screen alongside the cross-site link button. */
+.sw-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: stretch;
 }
 .sw-btn {
   display: flex;
@@ -2355,3 +2365,31 @@ mark.sh {
 .ctag-tools { color: #f43f5e; border-color: rgba(244, 63, 94, 0.3); }
 .ctag-env   { color: #22c55e; border-color: rgba(34, 197, 94, 0.3); }
 .ctag-petro { color: #d97706; border-color: rgba(217, 119, 6, 0.35); }
+
+/* ── New domains: Pharma, Data Science, Particles ──────────────────────────── */
+.chip.c-pharma    { color: #db2777; border-color: rgba(219, 39, 119, 0.3); }
+.chip.c-pharma.active,    .chip.c-pharma:hover    { background: rgba(219, 39, 119, 0.12); }
+.chip.c-data      { color: #6366f1; border-color: rgba(99, 102, 241, 0.3); }
+.chip.c-data.active,      .chip.c-data:hover      { background: rgba(99, 102, 241, 0.12); }
+.chip.c-particles { color: #b45309; border-color: rgba(180, 83, 9, 0.35); }
+.chip.c-particles.active, .chip.c-particles:hover { background: rgba(180, 83, 9, 0.14); }
+
+.domain-pharma    { --accent: #ec4899; }
+.domain-data      { --accent: #818cf8; }
+.domain-particles { --accent: #d6a35c; }
+
+.ctag-pharma { color: #ec4899; border-color: rgba(236, 72, 153, 0.3); }
+.ctag-data   { color: #818cf8; border-color: rgba(129, 140, 248, 0.3); }
+.ctag-part   { color: #d6a35c; border-color: rgba(214, 163, 92, 0.35); }
+
+/* ── New domains: Worked Examples, Exam Prep, Career ───────────────────────── */
+.chip.c-examples { color: #14b8a6; border-color: rgba(20, 184, 166, 0.3); }
+.chip.c-examples.active, .chip.c-examples:hover { background: rgba(20, 184, 166, 0.12); }
+.chip.c-exam     { color: #8b5cf6; border-color: rgba(139, 92, 246, 0.3); }
+.chip.c-exam.active,     .chip.c-exam:hover     { background: rgba(139, 92, 246, 0.12); }
+.chip.c-career   { color: #22d3ee; border-color: rgba(34, 211, 238, 0.3); }
+.chip.c-career.active,   .chip.c-career:hover   { background: rgba(34, 211, 238, 0.12); }
+
+.domain-examples { --accent: #14b8a6; }
+.domain-exam     { --accent: #8b5cf6; }
+.domain-career   { --accent: #22d3ee; }

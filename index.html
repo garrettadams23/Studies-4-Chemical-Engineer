@@ -59,6 +59,7 @@ title="Open the IT Knowledge Base (opens in a new tab)"
 <span class="hdr-link-label">Information Technology<br />Knowledge Base</span>
 <span class="hdr-link-ext" aria-hidden="true">↗</span>
 </a>
+<div class="sw-group">
 <button class="sw-btn" id="hdr-theme-btn" role="switch" aria-checked="false" aria-label="Toggle light / dark" title="Toggle light / dark">
 <span class="sw-sun">☀</span>
 <span class="sw-track"><span class="sw-thumb"></span></span>
@@ -68,6 +69,7 @@ title="Open the IT Knowledge Base (opens in a new tab)"
 <span class="sw-text">EXPAND</span>
 <span class="sw-track"><span class="sw-thumb"></span></span>
 </button>
+</div>
 </div>
 </div>
 <h1>Cycles, Concepts <span>&amp; Diagrams</span> — ChemE Topic Reference</h1>
@@ -116,6 +118,12 @@ alt="Optimized Study Routine: 4 Pillars for Success infographic."
 <div class="chip c-tools"          data-domain="tools">🧰 CALCULATORS</div>
 <div class="chip c-enviro"         data-domain="enviro">🌱 SUSTAINABILITY</div>
 <div class="chip c-petro"          data-domain="petro">🛢️ PETROLEUM</div>
+<div class="chip c-pharma"         data-domain="pharma">💊 PHARMA/GMP</div>
+<div class="chip c-data"           data-domain="data">📊 DATA SCIENCE</div>
+<div class="chip c-particles"      data-domain="particles">⚪ PARTICLES</div>
+<div class="chip c-examples"       data-domain="examples">📝 WORKED EXAMPLES</div>
+<div class="chip c-exam"           data-domain="exam">🎓 EXAM PREP</div>
+<div class="chip c-career"         data-domain="career">💼 CAREER</div>
 </div>
 </div>
 <!-- SEARCH BAR ──────────────────────────────────────────────────────── -->
@@ -4191,6 +4199,567 @@ Quench fast to lock in the product slate (kinetics, not equilibrium).</pre>
 <div class="info-bar ib-muted">
 🧬 Ethylene is the single largest-volume organic chemical made — its polymers link back
 to the Materials domain, and its production is a kinetics/selectivity masterclass.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="domain-section domain-pharma" data-domain="pharma">
+<div class="domain-header">
+<span class="domain-icon">💊</span>
+<span class="domain-title">Pharmaceutical &amp; GMP Engineering</span>
+<div class="cert-tags">
+<span class="ctag ctag-pharma">PHARMA</span>
+<span class="ctag ctag-adv">ADV</span>
+</div>
+<span class="domain-sub">Drug Development · API Synthesis · GMP · Validation · QbD · Sterile Processing</span>
+<span class="chevron">▾</span>
+</div>
+<div class="domain-body">
+<!-- ── TOPIC: DRUG DEVELOPMENT PIPELINE ─────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">💊</span>
+<span class="topic-name">Drug Development &amp; the API Pipeline</span>
+<span class="topic-badge">FOUNDATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">From Molecule to Medicine</div>
+<div class="concept-title">Where chemical engineering meets the clinic</div>
+<div class="concept-desc">
+Making a drug is two problems: the <strong class="text-blue">active pharmaceutical
+ingredient (API)</strong> (reaction + separation) and the <strong class="text-green">drug
+product</strong> (formulation into a dose). Both are unit-operations problems under
+intense regulation.
+</div>
+<div class="dw">
+<div class="dt">▸ DEVELOPMENT PHASES</div>
+<table class="ref-table">
+<tr><th>Stage</th><th>Focus</th></tr>
+<tr><td style="color: var(--cyan)">Discovery / lab</td><td>Route selection, mg–g scale</td></tr>
+<tr><td style="color: var(--green)">Process development</td><td>Scale-up, kg pilot, robustness</td></tr>
+<tr><td style="color: var(--amber)">Clinical (I–III)</td><td>GMP supply, growing batches</td></tr>
+<tr><td style="color: var(--purple)">Commercial</td><td>Validated, continuous or large batch</td></tr>
+</table>
+<div class="dt">▸ API SYNTHESIS CHALLENGES</div>
+<pre class="code-block">Multi-step synthesis · chiral (single-enantiomer) control
+Crystallization for purity &amp; polymorph control
+Chromatography for tough separations
+Low-volume, high-value → yield matters enormously</pre>
+</div>
+<div class="info-bar ib-muted">
+🧪 Pharma has high E-factors (lots of solvent waste per kg drug) — a growing driver for
+greener routes and continuous manufacturing.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: GMP, VALIDATION & QbD ─────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">✅</span>
+<span class="topic-name">GMP, Validation &amp; Quality by Design</span>
+<span class="topic-badge">REGULATORY</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Proving the Process Is in Control</div>
+<div class="concept-title">Quality is built in, not tested in</div>
+<div class="concept-desc">
+Pharmaceutical manufacturing runs under <strong class="text-blue">Good Manufacturing
+Practice (GMP)</strong>. Modern practice designs quality into the process from the start
+(Quality by Design) rather than inspecting it at the end.
+</div>
+<div class="dw">
+<div class="dt">▸ VALIDATION (IQ / OQ / PQ)</div>
+<table class="ref-table">
+<tr><th>Stage</th><th>Confirms</th></tr>
+<tr><td style="color: var(--cyan)">IQ</td><td>Installed correctly (as specified)</td></tr>
+<tr><td style="color: var(--green)">OQ</td><td>Operates across its range</td></tr>
+<tr><td style="color: var(--amber)">PQ</td><td>Performs consistently in real production</td></tr>
+</table>
+<div class="dt">▸ QUALITY BY DESIGN (ICH Q8–Q11)</div>
+<pre class="code-block">Define the Quality Target Product Profile (QTPP)
+→ identify Critical Quality Attributes (CQAs)
+→ link to Critical Process Parameters (CPPs)
+→ establish a Design Space (proven safe operating region)
+→ monitor with PAT (Process Analytical Technology)</pre>
+</div>
+<div class="info-bar ib-muted">
+📋 The "design space" is a multivariate operating window — move within it freely without
+a new regulatory filing. It's essentially a validated process map.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="domain-section domain-data" data-domain="data">
+<div class="domain-header">
+<span class="domain-icon">📊</span>
+<span class="domain-title">Process Data Science &amp; ML</span>
+<div class="cert-tags">
+<span class="ctag ctag-data">DATA</span>
+<span class="ctag ctag-adv">ADV</span>
+</div>
+<span class="domain-sub">SPC · PCA/PLS · Soft Sensors · Machine Learning · Digital Twins · Optimization</span>
+<span class="chevron">▾</span>
+</div>
+<div class="domain-body">
+<!-- ── TOPIC: STATISTICAL PROCESS CONTROL ───────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">📈</span>
+<span class="topic-name">Statistical Process Control &amp; Monitoring</span>
+<span class="topic-badge">FOUNDATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Is the Process In Control?</div>
+<div class="concept-title">Separating signal from noise in plant data</div>
+<div class="concept-desc">
+Every measurement varies. <strong class="text-blue">Statistical process control</strong>
+distinguishes normal common-cause variation from a real, assignable shift that demands
+action.
+</div>
+<div class="dw">
+<div class="dt">▸ CONTROL CHARTS</div>
+<pre class="code-block">Center line = process mean
+Control limits = mean ± 3σ   (≈ 99.7% of in-control data)
+
+Out-of-control signals: point beyond 3σ, runs, trends,
+increasing spread → investigate an assignable cause.</pre>
+<div class="dt">▸ MULTIVARIATE METHODS</div>
+<table class="ref-table">
+<tr><th>Method</th><th>Does</th></tr>
+<tr><td style="color: var(--cyan)">PCA</td><td>Compresses many correlated sensors to a few components</td></tr>
+<tr><td style="color: var(--green)">PLS</td><td>Relates process variables to quality outputs</td></tr>
+<tr><td style="color: var(--amber)">Cpk</td><td>Process capability vs. spec limits</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🎯 Don't tamper: reacting to common-cause noise as if it were a real shift ("overcontrol")
+actually increases variability — a lesson from Deming's funnel experiment.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: MACHINE LEARNING FOR PROCESS ENG ──────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🤖</span>
+<span class="topic-name">Machine Learning &amp; Digital Twins</span>
+<span class="topic-badge">MODERN</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Data-Driven Process Engineering</div>
+<div class="concept-title">Models learned from data, not just first principles</div>
+<div class="concept-desc">
+When first-principles models are too slow or incomplete, ML learns behavior from plant
+data — powering <strong class="text-green">soft sensors</strong>, digital twins, and
+real-time optimization.
+</div>
+<div class="dw">
+<div class="dt">▸ WHERE ML HELPS</div>
+<table class="ref-table">
+<tr><th>Application</th><th>Idea</th></tr>
+<tr><td style="color: var(--cyan)">Soft sensor</td><td>Predict a hard-to-measure quality from easy sensors</td></tr>
+<tr><td style="color: var(--green)">Surrogate model</td><td>Fast approximation of a slow simulation</td></tr>
+<tr><td style="color: var(--amber)">Digital twin</td><td>Live model mirroring the real unit for what-if runs</td></tr>
+<tr><td style="color: var(--purple)">Predictive maintenance</td><td>Flag failures from vibration/thermal patterns</td></tr>
+</table>
+<div class="dt">▸ THE WORKFLOW</div>
+<pre class="code-block">Data (historian) → clean &amp; feature-engineer → train/validate
+→ deploy → monitor for drift → retrain
+
+Python stack: pandas, scikit-learn, NumPy — plus domain physics
+(physics-informed ML beats black boxes on extrapolation).</pre>
+</div>
+<div class="info-bar ib-muted">
+🧠 Garbage in, garbage out applies double: a model is only as good as its data and only
+trustworthy inside the range it was trained on.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="domain-section domain-particles" data-domain="particles">
+<div class="domain-header">
+<span class="domain-icon">⚪</span>
+<span class="domain-title">Particle Technology &amp; Powders</span>
+<div class="cert-tags">
+<span class="ctag ctag-part">POWDER</span>
+<span class="ctag ctag-core">CORE</span>
+</div>
+<span class="domain-sub">Particle Size · Powder Flow · Storage · Fluidization · Granulation · Conveying</span>
+<span class="chevron">▾</span>
+</div>
+<div class="domain-body">
+<!-- ── TOPIC: PARTICLE CHARACTERIZATION ─────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">⚪</span>
+<span class="topic-name">Particle Characterization &amp; Size Distribution</span>
+<span class="topic-badge">FOUNDATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Describing a Powder</div>
+<div class="concept-title">Size, shape and distribution govern behavior</div>
+<div class="concept-desc">
+Half of all chemical products ship as particles. How they flow, dissolve and react
+depends on a <strong class="text-blue">particle-size distribution</strong>, not a single
+size.
+</div>
+<div class="dw">
+<div class="dt">▸ MEAN DIAMETERS</div>
+<pre class="code-block">Sauter mean D₃₂ = Σn d³ / Σn d²   (surface-volume — key for reaction/mass transfer)
+Mass median D₅₀ = 50% of mass below this size
+Span = (D₉₀ − D₁₀)/D₅₀   (width of the distribution)</pre>
+<div class="dt">▸ MEASUREMENT METHODS</div>
+<table class="ref-table">
+<tr><th>Method</th><th>Range / basis</th></tr>
+<tr><td style="color: var(--cyan)">Sieving</td><td>Coarse, by mesh</td></tr>
+<tr><td style="color: var(--green)">Laser diffraction</td><td>Wide range, by scattering</td></tr>
+<tr><td style="color: var(--amber)">Microscopy / imaging</td><td>Shape + size</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🔬 The Sauter mean D₃₂ sets the surface area per volume — the size that matters most for
+dissolution, combustion and catalysis.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: POWDER FLOW & FLUIDIZATION ────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🌫️</span>
+<span class="topic-name">Powder Flow, Storage &amp; Fluidization</span>
+<span class="topic-badge">HANDLING</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Solids Are Not Fluids</div>
+<div class="concept-title">Why hoppers jam and beds bubble</div>
+<div class="concept-desc">
+Bulk solids behave unlike liquids — they build stress, arch and rat-hole. Understanding
+flow and fluidization prevents the notorious solids-handling failures.
+</div>
+<div class="dw">
+<div class="dt">▸ HOPPER FLOW PATTERNS</div>
+<table class="ref-table">
+<tr><th>Pattern</th><th>Behavior</th></tr>
+<tr><td style="color: var(--green)">Mass flow</td><td>All solids move — first in, first out (preferred)</td></tr>
+<tr><td style="color: var(--red)">Funnel flow</td><td>Central channel; dead zones, segregation, rat-holing</td></tr>
+</table>
+<div class="dt">▸ FLUIDIZATION</div>
+<pre class="code-block">At minimum fluidization velocity u_mf, drag = weight:
+  bed pressure drop ΔP = (1 − ε)(ρ_s − ρ_g) g L
+
+Below u_mf: fixed bed.  Above: bubbling → slugging → transport.
+Geldart groups (A/B/C/D) predict fluidization quality by size &amp; density.</pre>
+</div>
+<div class="info-bar ib-muted">
+🏭 A well-designed steep, smooth hopper gives mass flow; the wrong wall angle causes
+arching and erratic feed — a classic, costly design miss.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="domain-section domain-examples" data-domain="examples">
+<div class="domain-header">
+<span class="domain-icon">📝</span>
+<span class="domain-title">Worked Examples &amp; Problem Sets</span>
+<div class="cert-tags">
+<span class="ctag ctag-ref">SOLVED</span>
+</div>
+<span class="domain-sub">Step-by-step solved problems — balances, reactor sizing, heat exchangers &amp; more</span>
+<span class="chevron">▾</span>
+</div>
+<div class="domain-body">
+<!-- ── WORKED: MATERIAL BALANCE ─────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">📝</span>
+<span class="topic-name">Worked: Flash Separator Material Balance</span>
+<span class="topic-badge">SOLVED</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Step-by-Step</div>
+<div class="concept-title">Splitting a two-component feed</div>
+<div class="concept-desc">
+A worked example of the balance method from the Material Balances domain — draw, basis,
+DOF, solve.
+</div>
+<div class="dw">
+<div class="dt">▸ PROBLEM &amp; SOLUTION</div>
+<pre class="code-block">Q: 100 kmol/h of 40% benzene / 60% toluene is flashed.
+   Vapor is 70% benzene; liquid is 30% benzene. Find V and L.
+
+1. Basis: F = 100 kmol/h.  Unknowns: V, L (DOF = 0, two balances).
+2. Overall:      V + L = 100
+3. Benzene:      0.70 V + 0.30 L = 0.40(100) = 40
+4. Sub L = 100 − V:
+   0.70V + 0.30(100 − V) = 40
+   0.40V + 30 = 40  →  V = 25 kmol/h
+5. L = 75 kmol/h.
+
+Check benzene: 0.70(25) + 0.30(75) = 17.5 + 22.5 = 40 ✓</pre>
+</div>
+<div class="info-bar ib-muted">
+🎯 Two unknowns, two independent balances (overall + one component) → exactly solvable.
+Always verify with the un-used component.
+</div>
+</div>
+</div>
+</div>
+<!-- ── WORKED: CSTR SIZING ──────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">📝</span>
+<span class="topic-name">Worked: CSTR Volume for a First-Order Reaction</span>
+<span class="topic-badge">SOLVED</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Step-by-Step</div>
+<div class="concept-title">Reactor sizing from the design equation</div>
+<div class="concept-desc">A worked application of the CSTR design equation from Reaction Engineering.</div>
+<div class="dw">
+<div class="dt">▸ PROBLEM &amp; SOLUTION</div>
+<pre class="code-block">Q: Liquid-phase A → B, first order, k = 0.5 min⁻¹.
+   Feed 10 L/min, C_A0 = 2 mol/L. Want 80% conversion. Find V.
+
+1. Design eqn:  V = F_A0 X / (−r_A)
+2. First order:  −r_A = k C_A = k C_A0 (1 − X)
+3. F_A0 = v₀ C_A0 = 10 × 2 = 20 mol/min
+4. −r_A at exit = 0.5 × 2 × (1 − 0.8) = 0.2 mol/(L·min)
+5. V = (20 × 0.8) / 0.2 = 80 L
+
+Space time τ = V/v₀ = 80/10 = 8 min.</pre>
+</div>
+<div class="info-bar ib-muted">
+🧪 A CSTR reacts at the low <em>exit</em> concentration everywhere — that's why it needs
+more volume than a PFR for the same conversion.
+</div>
+</div>
+</div>
+</div>
+<!-- ── WORKED: HEAT EXCHANGER ───────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">📝</span>
+<span class="topic-name">Worked: Heat-Exchanger Area from LMTD</span>
+<span class="topic-badge">SOLVED</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Step-by-Step</div>
+<div class="concept-title">Sizing from duty, U and LMTD</div>
+<div class="concept-desc">A worked application combining an energy balance with the LMTD method from Heat Transfer.</div>
+<div class="dw">
+<div class="dt">▸ PROBLEM &amp; SOLUTION</div>
+<pre class="code-block">Q: Cool 5 kg/s oil (cp = 2 kJ/kg·K) from 120→60 °C with water
+   entering 25 °C, leaving 45 °C, counter-current. U = 400 W/m²K.
+   Find the area.
+
+1. Duty:  Q = m cp ΔT = 5 × 2000 × (120−60) = 600,000 W
+2. End ΔTs (counter-current):
+   ΔT₁ = 120 − 45 = 75 °C      ΔT₂ = 60 − 25 = 35 °C
+3. LMTD = (75 − 35)/ln(75/35) = 40/0.762 = 52.5 °C
+4. A = Q / (U · LMTD) = 600,000 / (400 × 52.5) = 28.6 m²</pre>
+</div>
+<div class="info-bar ib-muted">
+♨️ Try it in the Calculators domain: enter ΔT₁ = 75, ΔT₂ = 35 in the LMTD tool → 52.5 °C.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="domain-section domain-exam" data-domain="exam">
+<div class="domain-header">
+<span class="domain-icon">🎓</span>
+<span class="domain-title">FE / PE Exam Prep</span>
+<div class="cert-tags">
+<span class="ctag ctag-fe">FE</span>
+<span class="ctag ctag-pe">PE</span>
+</div>
+<span class="domain-sub">Exam Structure · Reference Handbook · Strategy · High-Yield Topics · Licensure</span>
+<span class="chevron">▾</span>
+</div>
+<div class="domain-body">
+<!-- ── TOPIC: THE FE CHEMICAL EXAM ──────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🎓</span>
+<span class="topic-name">The FE Chemical Exam</span>
+<span class="topic-badge">FIRST STEP</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Fundamentals of Engineering</div>
+<div class="concept-title">The first milestone toward licensure</div>
+<div class="concept-desc">
+The NCEES <strong class="text-blue">FE Chemical</strong> is a computer-based exam usually
+taken near graduation — the gateway to Engineer-in-Training status.
+</div>
+<div class="dw">
+<div class="dt">▸ FORMAT &amp; HIGH-WEIGHT AREAS</div>
+<pre class="code-block">110 questions · 6 hours · closed-book (NCEES reference handbook provided)
+
+Heaviest topics: Material/Energy Balances, Thermodynamics,
+Heat/Mass Transfer, Fluids, Reaction Engineering, Math/Probability.</pre>
+<div class="dt">▸ STRATEGY</div>
+<table class="ref-table">
+<tr><th>Tip</th><th>Why</th></tr>
+<tr><td style="color: var(--green)">Learn the handbook</td><td>Every equation is in it — know where</td></tr>
+<tr><td style="color: var(--cyan)">Watch units</td><td>Most errors are unit slips</td></tr>
+<tr><td style="color: var(--amber)">Pace ~1.9 min/question</td><td>Flag &amp; return to hard ones</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+📄 The Formula Sheet and Worked Examples domains here map directly onto FE high-yield
+topics — use them as a revision spine.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: THE PE EXAM & LICENSURE ───────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">📜</span>
+<span class="topic-name">The PE Exam &amp; Path to Licensure</span>
+<span class="topic-badge">LICENSURE</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Becoming a Professional Engineer</div>
+<div class="concept-title">FE → experience → PE</div>
+<div class="concept-desc">
+The <strong class="text-blue">PE (Professional Engineer)</strong> license lets you take
+legal responsibility for engineering work. It follows the FE plus qualifying experience.
+</div>
+<div class="dw">
+<div class="dt">▸ THE PATH</div>
+<pre class="code-block">1. Graduate (ABET-accredited program)
+2. Pass the FE → become an EIT / EI
+3. Gain ~4 years of qualifying experience under a PE
+4. Pass the PE Chemical exam
+5. Apply to your state board → PE license (renew with CEUs)</pre>
+<div class="dt">▸ WHY IT MATTERS</div>
+<table class="ref-table">
+<tr><th>PE unlocks</th><th></th></tr>
+<tr><td style="color: var(--green)">Sign &amp; seal</td><td>Legally certify designs/reports</td></tr>
+<tr><td style="color: var(--cyan)">Consulting</td><td>Offer services to the public</td></tr>
+<tr><td style="color: var(--amber)">Advancement</td><td>Required for many senior roles</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+⚖️ With the seal comes the paramount duty (see Process Safety &amp; Ethics): public
+safety over client or employer interest.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="domain-section domain-career" data-domain="career">
+<div class="domain-header">
+<span class="domain-icon">💼</span>
+<span class="domain-title">Professional Practice &amp; Career</span>
+<div class="cert-tags">
+<span class="ctag ctag-ref">PRO</span>
+</div>
+<span class="domain-sub">Industries · Roles · Interviews · AIChE · Communication · Lifelong Learning</span>
+<span class="chevron">▾</span>
+</div>
+<div class="domain-body">
+<!-- ── TOPIC: INDUSTRIES & ROLES ────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🏢</span>
+<span class="topic-name">Industries &amp; Roles for Chemical Engineers</span>
+<span class="topic-badge">CAREER</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Where ChemEs Work</div>
+<div class="concept-title">One degree, many industries</div>
+<div class="concept-desc">
+The chemical-engineering toolkit — balances, transport, reactions, economics — transfers
+across a strikingly wide range of industries and job functions.
+</div>
+<div class="dw">
+<div class="dt">▸ INDUSTRIES &amp; TYPICAL ROLES</div>
+<table class="ref-table">
+<tr><th>Industry</th><th>Typical roles</th></tr>
+<tr><td style="color: var(--cyan)">Oil, gas &amp; chemicals</td><td>Process, production, project engineer</td></tr>
+<tr><td style="color: var(--green)">Pharma &amp; biotech</td><td>Process development, validation, MSAT</td></tr>
+<tr><td style="color: var(--amber)">Energy &amp; sustainability</td><td>Hydrogen, CCUS, battery, renewables</td></tr>
+<tr><td style="color: var(--purple)">Food, consumer, semiconductor</td><td>Process, quality, R&amp;D</td></tr>
+<tr><td style="color: var(--red)">Beyond</td><td>Data science, finance, patent law, consulting</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+💼 "Process engineer" is the classic first role — owning a unit's day-to-day performance,
+troubleshooting, and optimization.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: INTERVIEW & PROFESSIONAL PREP ─────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🤝</span>
+<span class="topic-name">Interview &amp; Professional Preparation</span>
+<span class="topic-badge">PROFESSIONAL</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Landing &amp; Growing the Role</div>
+<div class="concept-title">Technical fundamentals + communication</div>
+<div class="concept-desc">
+ChemE interviews blend fundamentals, problem-solving, and behavioral fit. Professional
+growth adds communication, teamwork and lifelong learning.
+</div>
+<div class="dw">
+<div class="dt">▸ COMMON INTERVIEW GROUND</div>
+<table class="ref-table">
+<tr><th>Area</th><th>Be ready for</th></tr>
+<tr><td style="color: var(--cyan)">Fundamentals</td><td>Balances, P&amp;IDs, unit ops, safety basics</td></tr>
+<tr><td style="color: var(--green)">Estimation</td><td>Back-of-envelope, order-of-magnitude sanity</td></tr>
+<tr><td style="color: var(--amber)">Behavioral</td><td>Teamwork, failure, initiative (STAR method)</td></tr>
+<tr><td style="color: var(--purple)">Safety mindset</td><td>They will probe this — always lead with it</td></tr>
+</table>
+<div class="dt">▸ KEEP GROWING</div>
+<pre class="code-block">Join AIChE · pursue PE · document your work clearly
+Communication &gt; cleverness: an unexplained result is a useless one.</pre>
+</div>
+<div class="info-bar ib-muted">
+🗣️ The best engineers translate: turning messy data and equations into a clear
+recommendation a decision-maker can act on.
 </div>
 </div>
 </div>

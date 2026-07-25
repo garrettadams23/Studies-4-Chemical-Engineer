@@ -214,5 +214,69 @@
       { "cls": "ctag-pe", "text": "PE" }
     ],
     "sub": "Crude Distillation · FCC · Hydroprocessing · Reforming · Gas Treating · The Petrochemical Tree"
+  },
+  {
+    "id": "pharma",
+    "colorClass": "domain-pharma",
+    "icon": "💊",
+    "title": "Pharmaceutical &amp; GMP Engineering",
+    "certTags": [
+      { "cls": "ctag-pharma", "text": "PHARMA" },
+      { "cls": "ctag-adv", "text": "ADV" }
+    ],
+    "sub": "Drug Development · API Synthesis · GMP · Validation · QbD · Sterile Processing"
+  },
+  {
+    "id": "data",
+    "colorClass": "domain-data",
+    "icon": "📊",
+    "title": "Process Data Science &amp; ML",
+    "certTags": [
+      { "cls": "ctag-data", "text": "DATA" },
+      { "cls": "ctag-adv", "text": "ADV" }
+    ],
+    "sub": "SPC · PCA/PLS · Soft Sensors · Machine Learning · Digital Twins · Optimization"
+  },
+  {
+    "id": "particles",
+    "colorClass": "domain-particles",
+    "icon": "⚪",
+    "title": "Particle Technology &amp; Powders",
+    "certTags": [
+      { "cls": "ctag-part", "text": "POWDER" },
+      { "cls": "ctag-core", "text": "CORE" }
+    ],
+    "sub": "Particle Size · Powder Flow · Storage · Fluidization · Granulation · Conveying"
+  },
+  {
+    "id": "examples",
+    "colorClass": "domain-examples",
+    "icon": "📝",
+    "title": "Worked Examples &amp; Problem Sets",
+    "certTags": [
+      { "cls": "ctag-ref", "text": "SOLVED" }
+    ],
+    "sub": "Step-by-step solved problems — balances, reactor sizing, heat exchangers &amp; more"
+  },
+  {
+    "id": "exam",
+    "colorClass": "domain-exam",
+    "icon": "🎓",
+    "title": "FE / PE Exam Prep",
+    "certTags": [
+      { "cls": "ctag-fe", "text": "FE" },
+      { "cls": "ctag-pe", "text": "PE" }
+    ],
+    "sub": "Exam Structure · Reference Handbook · Strategy · High-Yield Topics · Licensure"
+  },
+  {
+    "id": "career",
+    "colorClass": "domain-career",
+    "icon": "💼",
+    "title": "Professional Practice &amp; Career",
+    "certTags": [
+      { "cls": "ctag-ref", "text": "PRO" }
+    ],
+    "sub": "Industries · Roles · Interviews · AIChE · Communication · Lifelong Learning"
   }
 ]
