@@ -117,3 +117,162 @@ DOF < 0  → overspecified (possible inconsistency)</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: UNITS, DIMENSIONS & CONVERSION ────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📏</span>
+    <span class="topic-name">Units, Dimensions &amp; Unit Conversion</span>
+    <span class="topic-badge">FOUNDATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Get the Units Right First</div>
+      <div class="concept-title">Dimensional homogeneity is non-negotiable</div>
+      <div class="concept-desc">
+        Every valid equation is <strong class="text-blue">dimensionally homogeneous</strong> —
+        both sides carry the same units. More exam points are lost to unit slips than to any
+        concept. Carry units through every step.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ BASE DIMENSIONS &amp; SI UNITS</div>
+        <table class="ref-table">
+          <tr><th>Dimension</th><th>SI unit</th><th>USCS</th></tr>
+          <tr><td style="color: var(--cyan)">Mass M</td><td>kg</td><td>lbm</td></tr>
+          <tr><td style="color: var(--green)">Length L</td><td>m</td><td>ft</td></tr>
+          <tr><td style="color: var(--amber)">Time T</td><td>s</td><td>s / h</td></tr>
+          <tr><td style="color: var(--purple)">Temperature Θ</td><td>K</td><td>°R</td></tr>
+          <tr><td style="color: var(--red)">Amount N</td><td>mol</td><td>lbmol</td></tr>
+        </table>
+        <div class="dt">▸ THE gc CONVERSION FACTOR (USCS)</div>
+        <pre class="code-block">F = m·a / gc
+
+gc = 32.174 lbm·ft / (lbf·s²)   = 1 kg·m/(N·s²) in SI
+
+Force in lbf needs gc; in SI, 1 N ≡ 1 kg·m/s² (gc = 1).</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        💡 Convert by multiplying by unity ratios (e.g. 1 = 2.54 cm / 1 in). Weight = m·g;
+        mass ≠ weight — keep lbm and lbf distinct.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: REACTIVE BALANCES — EXTENT OF REACTION ────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧮</span>
+    <span class="topic-name">Reactive Balances — Extent of Reaction</span>
+    <span class="topic-badge">METHOD</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">One Variable Ties a Reaction Together</div>
+      <div class="concept-title">The extent ξ bookkeeps every species at once</div>
+      <div class="concept-desc">
+        For a single reaction, the <strong class="text-purple">extent of reaction ξ</strong>
+        links the change in every species through its stoichiometric coefficient — collapsing
+        many unknowns into one.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE EXTENT RELATION</div>
+        <pre class="code-block">n_i = n_i0 + ν_i · ξ
+
+ν_i < 0 for reactants, > 0 for products.
+Molar flow version:  ṅ_i = ṅ_i0 + ν_i · ξ̇</pre>
+        <div class="dt">▸ CONVERSION, YIELD &amp; SELECTIVITY</div>
+        <table class="ref-table">
+          <tr><th>Metric</th><th>Definition</th></tr>
+          <tr><td style="color: var(--cyan)">Limiting reactant</td><td>Runs out first (smallest feed/ν ratio)</td></tr>
+          <tr><td style="color: var(--green)">Conversion X</td><td>(reacted) / (fed) of limiting reactant</td></tr>
+          <tr><td style="color: var(--amber)">Yield</td><td>(desired product formed) / (theoretical max)</td></tr>
+          <tr><td style="color: var(--purple)">Selectivity</td><td>(desired) / (undesired) product</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🎯 Atom balances need no ξ and are often faster; extent shines when rate/equilibrium
+        data pin ξ directly.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: MULTIPLE-UNIT BALANCES ────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔗</span>
+    <span class="topic-name">Multiple-Unit Balances &amp; Flowsheet Strategy</span>
+    <span class="topic-badge">STRATEGY</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Divide and Conquer</div>
+      <div class="concept-title">Where to draw the boundary matters most</div>
+      <div class="concept-desc">
+        A flowsheet is a set of connected control volumes. The art is choosing subsystems that
+        expose solvable balances — often the <strong class="text-blue">overall</strong> process
+        first, then individual units.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ CHOOSING SUBSYSTEMS</div>
+        <table class="ref-table">
+          <tr><th>Boundary</th><th>Why draw it</th></tr>
+          <tr><td style="color: var(--green)">Overall process</td><td>Recycle/internal streams cancel — fewest unknowns</td></tr>
+          <tr><td style="color: var(--cyan)">Around a mixing point</td><td>Isolates a splitter/blender relation</td></tr>
+          <tr><td style="color: var(--amber)">Single unit</td><td>Needed once overall DOF is used up</td></tr>
+        </table>
+        <div class="dt">▸ SOLUTION ORDER</div>
+        <pre class="code-block">1. Draw &amp; label the flowsheet (all streams, compositions)
+2. Pick a basis
+3. DOF on the overall system → solve what you can
+4. Move to the subsystem with DOF = 0
+5. Repeat until every stream is known</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🎯 Never write balances for every unit at once — pick the boundary with the fewest
+        unknowns and the equations fall out in sequence.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: PSYCHROMETRY & HUMIDITY ───────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">💦</span>
+    <span class="topic-name">Psychrometry &amp; Humidity Balances</span>
+    <span class="topic-badge">AIR-WATER</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Water in Air</div>
+      <div class="concept-title">The basis for drying, cooling towers &amp; HVAC</div>
+      <div class="concept-desc">
+        Balances on humid air use the <strong class="text-blue">humidity ratio</strong> — mass
+        of water per mass of dry air — because dry air is the conserved (tie) component.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ KEY QUANTITIES</div>
+        <pre class="code-block">Absolute humidity  H = (18/29) · p_w / (P − p_w)   [kg water / kg dry air]
+Relative humidity  RH = p_w / p_w^sat × 100%
+Dew point = T at which p_w = p_w^sat (condensation begins)</pre>
+        <div class="dt">▸ CHARACTERISTIC TEMPERATURES</div>
+        <table class="ref-table">
+          <tr><th>Term</th><th>Meaning</th></tr>
+          <tr><td style="color: var(--cyan)">Dry-bulb</td><td>Ordinary thermometer reading</td></tr>
+          <tr><td style="color: var(--green)">Wet-bulb</td><td>Evaporative cooling limit</td></tr>
+          <tr><td style="color: var(--amber)">Adiabatic saturation</td><td>≈ wet-bulb for the air-water system</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🌡️ Do humidity balances on <em>dry air</em> — it passes through unchanged while water is
+        added or removed.
+      </div>
+    </div>
+  </div>
+</div>

@@ -117,3 +117,83 @@ R² measures fraction of variance explained (1 = perfect).</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: LAPLACE TRANSFORMS ────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔤</span>
+    <span class="topic-name">Laplace Transforms</span>
+    <span class="topic-badge">ODE SOLVER</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Turning Calculus into Algebra</div>
+      <div class="concept-title">The engineer's shortcut for linear ODEs</div>
+      <div class="concept-desc">
+        The Laplace transform converts differential equations into algebraic ones in the
+        variable s, solves them by algebra, then inverts back to time — the mathematical engine
+        of process dynamics and control.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ TRANSFORM PAIRS</div>
+        <pre class="code-block">L{f(t)} = ∫₀^∞ f(t) e^(−st) dt
+
+f(t)          F(s)
+1             1/s
+e^(−at)       1/(s+a)
+sin(ωt)       ω/(s²+ω²)
+f'(t)         sF(s) − f(0)</pre>
+        <div class="dt">▸ SOLVING WITH LAPLACE</div>
+        <table class="ref-table">
+          <tr><th>Step</th><th>Action</th></tr>
+          <tr><td style="color: var(--cyan)">1. Transform</td><td>ODE → algebraic equation in s</td></tr>
+          <tr><td style="color: var(--green)">2. Solve</td><td>Algebra for Y(s)</td></tr>
+          <tr><td style="color: var(--amber)">3. Invert</td><td>Partial fractions → y(t)</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🎛️ The transfer function G(s) = Y(s)/U(s) is nothing but the Laplace-domain description
+        of a process — the bridge to the Process Control domain.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: PARTIAL DIFFERENTIAL EQUATIONS ────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🌊</span>
+    <span class="topic-name">Partial Differential Equations</span>
+    <span class="topic-badge">DISTRIBUTED</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">When Space and Time Both Matter</div>
+      <div class="concept-title">Transport phenomena speak in PDEs</div>
+      <div class="concept-desc">
+        Whenever a quantity varies in more than one dimension — a temperature profile evolving
+        in time, diffusion into a slab — the model is a <strong class="text-blue">partial
+        differential equation</strong>.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE THREE CLASSIC PDEs</div>
+        <table class="ref-table">
+          <tr><th>Type</th><th>Equation</th><th>Physics</th></tr>
+          <tr><td style="color: var(--red)">Parabolic</td><td>∂u/∂t = α ∇²u</td><td>Heat / diffusion (transient)</td></tr>
+          <tr><td style="color: var(--cyan)">Elliptic</td><td>∇²u = 0</td><td>Steady conduction (Laplace)</td></tr>
+          <tr><td style="color: var(--green)">Hyperbolic</td><td>∂²u/∂t² = c² ∇²u</td><td>Waves / convection</td></tr>
+        </table>
+        <div class="dt">▸ SOLUTION ROUTES</div>
+        <pre class="code-block">Analytical:  separation of variables → Fourier series
+Numerical:   finite difference / finite element / finite volume
+             (what every CFD &amp; simulation package does)</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🔬 The unsteady diffusion/heat equation ∂u/∂t = α ∂²u/∂x² recurs across the whole
+        curriculum — transient conduction, drug release, and Fick's second law are all the same PDE.
+      </div>
+    </div>
+  </div>
+</div>

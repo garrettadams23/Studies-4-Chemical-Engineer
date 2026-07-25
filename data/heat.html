@@ -77,3 +77,118 @@ F = correction factor (1.0 for true counter-current)</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: TRANSIENT CONDUCTION — LUMPED CAPACITANCE ─────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">⏱️</span>
+    <span class="topic-name">Transient Conduction — Lumped Capacitance &amp; Biot</span>
+    <span class="topic-badge">UNSTEADY</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">How Fast Does It Heat/Cool?</div>
+      <div class="concept-title">When a body has one uniform temperature</div>
+      <div class="concept-desc">
+        If internal conduction is much faster than surface convection, a body heats or cools
+        <em>uniformly</em> — the <strong class="text-blue">lumped-capacitance</strong> model,
+        valid when the Biot number is small.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ BIOT NUMBER — THE VALIDITY TEST</div>
+        <pre class="code-block">Bi = h L_c / k          L_c = V / A_surface
+
+Bi < 0.1  → lumped model OK (uniform internal T)
+Bi > 0.1  → gradients matter → use Heisler charts / PDE</pre>
+        <div class="dt">▸ LUMPED TEMPERATURE RESPONSE</div>
+        <pre class="code-block">(T − T_∞)/(T₀ − T_∞) = exp(−t / τ)
+
+τ = ρ V c_p / (h A)     (thermal time constant)
+Fourier number  Fo = α t / L_c²   (dimensionless time)</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🔥 Small Bi means the surface film — not the solid — is the bottleneck. A thin metal
+        part in slow-moving air is the classic lumped case.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: FINS & EXTENDED SURFACES ──────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🪶</span>
+    <span class="topic-name">Fins &amp; Extended Surfaces</span>
+    <span class="topic-badge">ENHANCEMENT</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">More Area, More Heat</div>
+      <div class="concept-title">When convection is the bottleneck, add surface</div>
+      <div class="concept-desc">
+        Fins extend a surface to move more heat when the convective coefficient h is low (gases).
+        A temperature gradient runs along the fin, so not all of it works equally hard.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ FIN PERFORMANCE</div>
+        <pre class="code-block">Fin parameter  m = sqrt(hP / kA_c)
+Long-fin heat rate  q = sqrt(h P k A_c) · (T_b − T_∞)
+
+Fin efficiency  η_f = q_actual / q_if_whole_fin_at_T_b</pre>
+        <div class="dt">▸ WHEN FINS HELP</div>
+        <table class="ref-table">
+          <tr><th>Condition</th><th>Fins worth it?</th></tr>
+          <tr><td style="color: var(--green)">Low h (gas side)</td><td>Yes — big gain</td></tr>
+          <tr><td style="color: var(--red)">High h (boiling)</td><td>Little benefit</td></tr>
+          <tr><td style="color: var(--cyan)">High-k material</td><td>Better (flatter gradient)</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🔧 Always fin the side with the <em>lower</em> h — that's the controlling resistance
+        (air-cooled exchangers fin the air side).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: RADIATION EXCHANGE & VIEW FACTORS ─────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">☀️</span>
+    <span class="topic-name">Radiation Exchange &amp; View Factors</span>
+    <span class="topic-badge">RADIATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Heat Without a Medium</div>
+      <div class="concept-title">Geometry and emissivity set the exchange</div>
+      <div class="concept-desc">
+        Radiation needs no medium and scales with T⁴, so it dominates at high temperature
+        (furnaces, flares). The <strong class="text-amber">view factor</strong> captures how
+        much of one surface "sees" another.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ KEY LAWS</div>
+        <pre class="code-block">Blackbody emissive power  E_b = σ T⁴     σ = 5.67e-8 W/m²K⁴
+Two-surface exchange  Q = σ A₁ F₁₂ (T₁⁴ − T₂⁴)   (black)
+
+View-factor rules:  reciprocity  A₁F₁₂ = A₂F₂₁
+                    summation    Σ F_ij = 1</pre>
+        <div class="dt">▸ SURFACE PROPERTIES</div>
+        <table class="ref-table">
+          <tr><th>Property</th><th>Meaning</th></tr>
+          <tr><td style="color: var(--red)">Emissivity ε</td><td>Fraction of blackbody emission (0–1)</td></tr>
+          <tr><td style="color: var(--cyan)">Absorptivity α</td><td>Fraction absorbed (α = ε at equilibrium)</td></tr>
+          <tr><td style="color: var(--green)">Reflectivity ρ</td><td>ρ = 1 − α (opaque)</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🔥 A radiation shield (low-ε foil) between two surfaces can cut radiant transfer
+        dramatically — the principle behind multilayer insulation.
+      </div>
+    </div>
+  </div>
+</div>

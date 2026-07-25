@@ -120,3 +120,162 @@ Relative volatility:    α = (y_A/x_A)/(y_B/x_B)
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: REAL GASES — COMPRESSIBILITY FACTOR ───────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🎈</span>
+    <span class="topic-name">Real Gases — the Compressibility Factor Z</span>
+    <span class="topic-badge">PVT</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">When PV = nRT Fails</div>
+      <div class="concept-title">Z measures the departure from ideality</div>
+      <div class="concept-desc">
+        At high pressure or near condensation the ideal-gas law breaks down. The
+        <strong class="text-blue">compressibility factor Z</strong> corrects it, and the
+        principle of corresponding states makes Z nearly universal in reduced coordinates.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ DEFINITION &amp; REDUCED PROPERTIES</div>
+        <pre class="code-block">PV = Z n R T          Z = PV / nRT
+
+Reduced:  Tr = T/Tc      Pr = P/Pc
+Generalized (Nelson-Obert / Pitzer) charts: Z = Z(Tr, Pr, ω)</pre>
+        <div class="dt">▸ READING Z</div>
+        <table class="ref-table">
+          <tr><th>Z value</th><th>Meaning</th></tr>
+          <tr><td style="color: var(--green)">Z = 1</td><td>Ideal-gas behavior</td></tr>
+          <tr><td style="color: var(--cyan)">Z &lt; 1</td><td>Attractions dominate (near condensation)</td></tr>
+          <tr><td style="color: var(--red)">Z &gt; 1</td><td>Repulsions dominate (very high P)</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🌡️ The acentric factor ω captures molecular non-sphericity and feeds both the
+        generalized charts and cubic EOS (SRK, Peng-Robinson).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: THERMOCHEMISTRY ───────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔥</span>
+    <span class="topic-name">Thermochemistry — Heats of Reaction &amp; Formation</span>
+    <span class="topic-badge">ENERGY BALANCE</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Energy Released or Absorbed</div>
+      <div class="concept-title">Hess's law turns tabulated data into any ΔH</div>
+      <div class="concept-desc">
+        Reactor energy balances need the heat of reaction. Because enthalpy is a state
+        function, <strong class="text-purple">Hess's law</strong> lets you build any ΔH from
+        tabulated enthalpies of formation.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ CORE RELATIONS</div>
+        <pre class="code-block">ΔH°rxn = Σ ν_i ΔH°f (products) − Σ ν_i ΔH°f (reactants)
+
+ΔH < 0  → exothermic (releases heat)
+ΔH > 0  → endothermic (absorbs heat)
+
+Adiabatic flame temp: all ΔHrxn heats the products (Q = 0).</pre>
+        <div class="dt">▸ KEY QUANTITIES</div>
+        <table class="ref-table">
+          <tr><th>Term</th><th>Meaning</th></tr>
+          <tr><td style="color: var(--cyan)">ΔH°f</td><td>Formation from elements (elements = 0)</td></tr>
+          <tr><td style="color: var(--amber)">ΔH°c</td><td>Combustion to CO₂ + H₂O</td></tr>
+          <tr><td style="color: var(--green)">Sensible heat</td><td>∫ Cp dT — heating/cooling without reaction</td></tr>
+          <tr><td style="color: var(--red)">Latent heat</td><td>ΔHvap, ΔHfus — phase change at constant T</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        ♨️ Choose a reference state, compute ΔH along a convenient path (state function!), and
+        the answer is path-independent — the heart of every reactor energy balance.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: POWER & REFRIGERATION CYCLES ──────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔄</span>
+    <span class="topic-name">Power &amp; Refrigeration Cycles</span>
+    <span class="topic-badge">CYCLES</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Turning Heat into Work (and Back)</div>
+      <div class="concept-title">Rankine, Brayton &amp; vapor-compression</div>
+      <div class="concept-desc">
+        Thermodynamic cycles are the engines of the energy industry. Each is a loop of four
+        processes analyzed with the open-system energy balance on each device.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE MAJOR CYCLES</div>
+        <table class="ref-table">
+          <tr><th>Cycle</th><th>Working fluid</th><th>Use</th></tr>
+          <tr><td style="color: var(--red)">Rankine</td><td>Water/steam</td><td>Steam power plants</td></tr>
+          <tr><td style="color: var(--amber)">Brayton</td><td>Air/gas</td><td>Gas turbines, jet engines</td></tr>
+          <tr><td style="color: var(--cyan)">Vapor-compression</td><td>Refrigerant</td><td>Refrigeration, heat pumps</td></tr>
+        </table>
+        <div class="dt">▸ EFFICIENCY &amp; COP</div>
+        <pre class="code-block">Power cycle:  η = W_net / Q_in       (Carnot limit: 1 − T_C/T_H)
+Refrigerator: COP = Q_C / W_in
+Heat pump:    COP = Q_H / W_in = COP_refrig + 1</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        ♨️ Reheat and regeneration push the Rankine cycle toward the Carnot limit — more
+        equipment, higher efficiency.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: FUGACITY & ACTIVITY COEFFICIENTS ──────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧩</span>
+    <span class="topic-name">Fugacity &amp; Activity Coefficients</span>
+    <span class="topic-badge">NON-IDEALITY</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Real-Mixture Equilibrium</div>
+      <div class="concept-title">The rigorous criterion behind VLE</div>
+      <div class="concept-desc">
+        Phase equilibrium means equal <strong class="text-purple">fugacity</strong> of each
+        species in every phase. Fugacity is an "effective pressure"; activity coefficients
+        correct the liquid phase for non-ideal mixing.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE EQUILIBRIUM CRITERION</div>
+        <pre class="code-block">f_i^vapor = f_i^liquid    (for every species i)
+
+Vapor:  f_i^V = y_i φ_i P            (φ = fugacity coefficient)
+Liquid: f_i^L = x_i γ_i f_i^pure     (γ = activity coefficient)
+
+γ → 1 for ideal solutions (Raoult's law recovered).</pre>
+        <div class="dt">▸ ACTIVITY-COEFFICIENT MODELS</div>
+        <table class="ref-table">
+          <tr><th>Model</th><th>Best for</th></tr>
+          <tr><td style="color: var(--cyan)">Margules / Van Laar</td><td>Simple binaries</td></tr>
+          <tr><td style="color: var(--green)">Wilson / NRTL</td><td>Polar, non-ideal mixtures</td></tr>
+          <tr><td style="color: var(--amber)">UNIQUAC / UNIFAC</td><td>Predictive (group contribution)</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🧪 γ &gt; 1 (positive deviation) points toward a minimum-boiling azeotrope — the usual
+        case for ethanol-water.
+      </div>
+    </div>
+  </div>
+</div>

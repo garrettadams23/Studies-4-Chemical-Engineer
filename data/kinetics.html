@@ -113,3 +113,119 @@ Yield        = (desired formed)/(A fed)</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: RESIDENCE-TIME DISTRIBUTION ───────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">⏳</span>
+    <span class="topic-name">Residence-Time Distribution (RTD)</span>
+    <span class="topic-badge">NON-IDEAL</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Real Reactors Aren't Ideal</div>
+      <div class="concept-title">A tracer test reveals the flow pattern</div>
+      <div class="concept-desc">
+        Real vessels channel, short-circuit and have dead zones. The
+        <strong class="text-blue">residence-time distribution E(t)</strong>, measured by a
+        tracer test, quantifies how long fluid elements actually stay — bridging ideal models
+        and reality.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE RTD FUNCTION</div>
+        <pre class="code-block">E(t) dt = fraction of exit stream with age t → t+dt
+∫₀^∞ E(t) dt = 1        mean residence time  t̄ = ∫ t E(t) dt
+
+Pulse (δ) tracer → E(t) directly
+Step tracer      → F(t), and E = dF/dt</pre>
+        <div class="dt">▸ IDEAL SIGNATURES</div>
+        <table class="ref-table">
+          <tr><th>Reactor</th><th>RTD signature</th></tr>
+          <tr><td style="color: var(--amber)">PFR</td><td>Sharp spike at t = τ (no spread)</td></tr>
+          <tr><td style="color: var(--green)">CSTR</td><td>Exponential decay E = e^(−t/τ)/τ</td></tr>
+          <tr><td style="color: var(--cyan)">Real vessel</td><td>Between the two; models: tanks-in-series, dispersion</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🔬 RTD fixes the flow pattern but not conversion alone — for non-first-order kinetics
+        you also need the micromixing (segregation) model.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: NON-ISOTHERMAL REACTORS ───────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🌡️</span>
+    <span class="topic-name">Non-Isothermal Reactors &amp; Multiple Steady States</span>
+    <span class="topic-badge">ENERGY BALANCE</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Heat and Rate Are Coupled</div>
+      <div class="concept-title">Temperature feeds back on the reaction</div>
+      <div class="concept-desc">
+        Reactions release or absorb heat, and rate depends exponentially on temperature (Arrhenius).
+        Coupling the mole and energy balances can produce <strong class="text-red">multiple steady
+        states</strong> and runaway.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ CSTR ENERGY BALANCE</div>
+        <pre class="code-block">Heat generated  G(T) = (−ΔH_rxn) · (−r_A) V   (S-shaped in T)
+Heat removed    R(T) = ṁ c_p (T − T_0) + UA(T − T_c)  (linear)
+
+Steady state where G(T) = R(T). Up to 3 intersections
+→ low, unstable middle, and high (ignited) steady states.</pre>
+        <div class="dt">▸ OPERATING CONCERNS</div>
+        <table class="ref-table">
+          <tr><th>Phenomenon</th><th>Cause</th></tr>
+          <tr><td style="color: var(--red)">Thermal runaway</td><td>Removal can't keep up with generation</td></tr>
+          <tr><td style="color: var(--amber)">Ignition/extinction</td><td>Jump between steady states</td></tr>
+          <tr><td style="color: var(--green)">Adiabatic ΔT</td><td>(−ΔH)·C_A0 / (ρ c_p) — max temp rise</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🚨 Exothermic reactors need enough cooling <em>and</em> a stable operating point —
+        a core process-safety concern (calorimetry sizes the hazard).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: CATALYSIS — THIELE MODULUS ────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧽</span>
+    <span class="topic-name">Heterogeneous Catalysis — Thiele Modulus &amp; Effectiveness</span>
+    <span class="topic-badge">DIFFUSION-REACTION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Does the Pore Interior Get Used?</div>
+      <div class="concept-title">Reaction vs diffusion inside a catalyst pellet</div>
+      <div class="concept-desc">
+        Inside a porous catalyst, reactant must diffuse in while it reacts. The
+        <strong class="text-purple">Thiele modulus</strong> compares the two rates; the
+        <strong class="text-blue">effectiveness factor</strong> says how much of the pellet
+        actually works.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THIELE MODULUS &amp; EFFECTIVENESS</div>
+        <pre class="code-block">φ = L · sqrt(k / D_eff)      (reaction rate / diffusion rate)
+
+η = (actual rate) / (rate with no diffusion limit)
+
+φ ≪ 1  → η ≈ 1  (reaction-limited, whole pellet used)
+φ ≫ 1  → η ≈ 1/φ (diffusion-limited, only the shell works)</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🔬 Strong pore-diffusion limitation halves the apparent activation energy and makes
+        rate scale with sqrt(k) — a classic diagnostic of internal diffusion control.
+      </div>
+    </div>
+  </div>
+</div>

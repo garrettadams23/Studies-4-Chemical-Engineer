@@ -118,3 +118,127 @@ Autoignition T = ignites without a spark</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: PSM — THE 14 ELEMENTS ─────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📋</span>
+    <span class="topic-name">Process Safety Management — The 14 Elements</span>
+    <span class="topic-badge">OSHA 1910.119</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">The Regulatory Backbone</div>
+      <div class="concept-title">A management system for highly hazardous chemicals</div>
+      <div class="concept-desc">
+        US OSHA's <strong class="text-blue">Process Safety Management</strong> standard (29 CFR
+        1910.119) defines 14 interlocking elements that together prevent catastrophic releases.
+        Weakness in any one has caused real disasters.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE 14 ELEMENTS</div>
+        <table class="ref-table">
+          <tr><th>#</th><th>Element</th></tr>
+          <tr><td style="color: var(--cyan)">1</td><td>Employee participation</td></tr>
+          <tr><td style="color: var(--cyan)">2</td><td>Process safety information (PSI)</td></tr>
+          <tr><td style="color: var(--green)">3</td><td>Process hazard analysis (PHA)</td></tr>
+          <tr><td style="color: var(--green)">4</td><td>Operating procedures</td></tr>
+          <tr><td style="color: var(--amber)">5</td><td>Training</td></tr>
+          <tr><td style="color: var(--amber)">6</td><td>Contractors</td></tr>
+          <tr><td style="color: var(--purple)">7</td><td>Pre-startup safety review (PSSR)</td></tr>
+          <tr><td style="color: var(--purple)">8</td><td>Mechanical integrity</td></tr>
+          <tr><td style="color: var(--red)">9</td><td>Hot-work permits</td></tr>
+          <tr><td style="color: var(--red)">10</td><td>Management of change (MOC)</td></tr>
+          <tr><td style="color: var(--cyan)">11</td><td>Incident investigation</td></tr>
+          <tr><td style="color: var(--green)">12</td><td>Emergency planning &amp; response</td></tr>
+          <tr><td style="color: var(--amber)">13</td><td>Compliance audits</td></tr>
+          <tr><td style="color: var(--purple)">14</td><td>Trade secrets</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🔧 <strong class="text-red">Management of Change</strong> and
+        <strong class="text-red">Mechanical Integrity</strong> are the most frequently cited in
+        incident root causes — Flixborough was an uncontrolled change.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: TOXIC RELEASE & DISPERSION ────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🌬️</span>
+    <span class="topic-name">Toxic Release &amp; Dispersion Modeling</span>
+    <span class="topic-badge">CONSEQUENCE</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">How Far Does It Reach?</div>
+      <div class="concept-title">Source term, then atmospheric dispersion</div>
+      <div class="concept-desc">
+        Consequence analysis asks how a release spreads and who it affects. It splits into a
+        <strong class="text-red">source term</strong> (release rate) and a
+        <strong class="text-cyan">dispersion model</strong> (downwind concentration).
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE TWO STEPS</div>
+        <pre class="code-block">Source term:  liquid/gas discharge rate through the hole
+              (Bernoulli / choked-flow equations)
+
+Dispersion:  Gaussian plume  C(x,y,z) ∝ Q / (u σ_y σ_z)
+             σ_y, σ_z grow downwind (Pasquill stability class)</pre>
+        <div class="dt">▸ EXPOSURE LIMITS</div>
+        <table class="ref-table">
+          <tr><th>Limit</th><th>Meaning</th></tr>
+          <tr><td style="color: var(--green)">TLV / PEL</td><td>Safe for an 8-h working day</td></tr>
+          <tr><td style="color: var(--amber)">ERPG-2</td><td>Max for 1 h without serious effects</td></tr>
+          <tr><td style="color: var(--red)">IDLH</td><td>Immediately dangerous to life &amp; health</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🌫️ Dense gases (chlorine, ammonia) slump and hug the ground rather than dispersing
+        upward — they need heavy-gas models, not the simple Gaussian plume.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: FAULT TREE & EVENT TREE ───────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🌳</span>
+    <span class="topic-name">Fault Tree &amp; Event Tree Analysis</span>
+    <span class="topic-badge">QUANTITATIVE</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Putting Numbers on Risk</div>
+      <div class="concept-title">Backward from failure, forward from an event</div>
+      <div class="concept-desc">
+        Quantitative risk analysis links equipment failure rates to outcome frequencies.
+        <strong class="text-blue">Fault trees</strong> work backward from a top event;
+        <strong class="text-green">event trees</strong> work forward from an initiating event.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ FAULT-TREE LOGIC</div>
+        <pre class="code-block">AND gate:  P = P₁ × P₂        (both must fail — redundancy)
+OR gate:   P = P₁ + P₂ − P₁P₂ (either failure suffices)
+
+Top-event frequency built up from component failure rates.</pre>
+        <div class="dt">▸ THE TWO METHODS</div>
+        <table class="ref-table">
+          <tr><th>Tool</th><th>Direction</th><th>Answers</th></tr>
+          <tr><td style="color: var(--cyan)">Fault tree</td><td>Backward (deductive)</td><td>How can this failure happen?</td></tr>
+          <tr><td style="color: var(--green)">Event tree</td><td>Forward (inductive)</td><td>What outcomes follow this event?</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🔗 Redundancy (AND logic) multiplies small probabilities — two independent safeguards
+        at 0.01 each give a 0.0001 combined failure, the mathematics behind layers of protection.
+      </div>
+    </div>
+  </div>
+</div>

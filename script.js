@@ -128,9 +128,22 @@ document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("hdr-theme-btn")?.addEventListener("click", toggleTheme);
   document.getElementById("hdr-expand-btn")?.addEventListener("click", toggleAll);
 
+  // Search + notepad — wired here (not inline) so the CSP can stay script-src 'self'
+  document.getElementById("search-input")?.addEventListener("input", e => onSearchInput(e.target.value));
+  document.getElementById("search-clear")?.addEventListener("click", clearSearch);
+  document.getElementById("notepad-tab")?.addEventListener("click", toggleNotepad);
+
   initAccessibilityAndTools();
   initBackToTop();
+  initCalculators();
 });
+
+// ── SERVICE WORKER (offline PWA; https only — never over file://) ────────────
+if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/sw.js").catch(() => {});
+  });
+}
 
 // ── SNAP QUOTE ─────────────────────────────────────────────────────────────
 function initSnapQuote() {
@@ -760,4 +773,156 @@ function mountNotepad(root) {
 
   updateCharCount();
   renderList();
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// INTERACTIVE CALCULATORS  (vanilla · offline · CSP-safe — all logic lives here,
+// never inline, so the page keeps script-src 'self'.)
+// ─────────────────────────────────────────────────────────────────────────────
+
+/** Format a number for display: fixed for normal magnitudes, exponential for extremes. */
+function calcFmt(x) {
+  if (x === null || x === undefined || !isFinite(x)) return "—";
+  const a = Math.abs(x);
+  if (a !== 0 && (a < 1e-3 || a >= 1e6)) return x.toExponential(4);
+  return parseFloat(x.toPrecision(6)).toString();
+}
+
+// Conversion factors → SI base unit for each category.
+const UC_UNITS = {
+  Pressure: { Pa: 1, kPa: 1000, bar: 1e5, atm: 101325, psi: 6894.757, mmHg: 133.322, torr: 133.322 },
+  Energy:   { J: 1, kJ: 1000, cal: 4.184, kcal: 4184, BTU: 1055.06, kWh: 3.6e6 },
+  Power:    { W: 1, kW: 1000, MW: 1e6, hp: 745.7, "BTU/h": 0.293071 },
+  Length:   { m: 1, cm: 0.01, mm: 0.001, km: 1000, in: 0.0254, ft: 0.3048, mi: 1609.344 },
+  Mass:     { kg: 1, g: 0.001, mg: 1e-6, "t (metric)": 1000, lb: 0.453592, oz: 0.0283495 },
+  Volume:   { "m³": 1, L: 0.001, mL: 1e-6, "gal (US)": 0.00378541, "ft³": 0.0283168, bbl: 0.158987 },
+};
+
+function ucTempToK(v, from) {
+  if (from === "°C") return v + 273.15;
+  if (from === "°F") return (v - 32) * 5 / 9 + 273.15;
+  if (from === "°R") return v * 5 / 9;
+  return v; // K
+}
+function ucTempFromK(K, to) {
+  if (to === "°C") return K - 273.15;
+  if (to === "°F") return (K - 273.15) * 9 / 5 + 32;
+  if (to === "°R") return K * 9 / 5;
+  return K; // K
+}
+
+function calcFillSelect(sel, opts, selectedIndex) {
+  sel.textContent = "";
+  opts.forEach((o, i) => {
+    const e = document.createElement("option");
+    e.value = o;
+    e.textContent = o;
+    if (i === selectedIndex) e.selected = true;
+    sel.appendChild(e);
+  });
+}
+
+function initUnitConverter() {
+  const cat = document.getElementById("uc-cat");
+  const val = document.getElementById("uc-val");
+  const from = document.getElementById("uc-from");
+  const to = document.getElementById("uc-to");
+  const out = document.getElementById("uc-out");
+  if (!cat || !val || !from || !to || !out) return;
+
+  const cats = [...Object.keys(UC_UNITS), "Temperature"];
+  const unitsFor = c => (c === "Temperature" ? ["°C", "°F", "K", "°R"] : Object.keys(UC_UNITS[c]));
+
+  function convert() {
+    const c = cat.value;
+    const v = parseFloat(val.value);
+    if (isNaN(v)) { out.textContent = "—"; return; }
+    let r;
+    if (c === "Temperature") r = ucTempFromK(ucTempToK(v, from.value), to.value);
+    else { const f = UC_UNITS[c]; r = (v * f[from.value]) / f[to.value]; }
+    out.textContent = calcFmt(r) + " " + to.value;
+  }
+  function rebuildUnits() {
+    const u = unitsFor(cat.value);
+    calcFillSelect(from, u, 0);
+    calcFillSelect(to, u, Math.min(1, u.length - 1));
+    convert();
+  }
+
+  calcFillSelect(cat, cats, 0);
+  rebuildUnits();
+  cat.addEventListener("change", rebuildUnits);
+  [val, from, to].forEach(el => el.addEventListener("input", convert));
+}
+
+function initReynolds() {
+  const rho = document.getElementById("re-rho");
+  const v = document.getElementById("re-v");
+  const d = document.getElementById("re-d");
+  const mu = document.getElementById("re-mu");
+  const out = document.getElementById("re-out");
+  const reg = document.getElementById("re-regime");
+  if (!rho || !v || !d || !mu || !out) return;
+
+  function calc() {
+    const vals = [rho, v, d, mu].map(e => parseFloat(e.value));
+    if (vals.some(isNaN) || vals[3] === 0) { out.textContent = "—"; if (reg) reg.textContent = ""; return; }
+    const Re = (vals[0] * vals[1] * vals[2]) / vals[3];
+    out.textContent = calcFmt(Re);
+    if (reg) reg.textContent = Re < 2100 ? "· laminar" : Re < 4000 ? "· transitional" : "· turbulent";
+  }
+  [rho, v, d, mu].forEach(e => e.addEventListener("input", calc));
+  calc();
+}
+
+function initIdealGas() {
+  const solve = document.getElementById("ig-solve");
+  const P = document.getElementById("ig-P");
+  const V = document.getElementById("ig-V");
+  const n = document.getElementById("ig-n");
+  const T = document.getElementById("ig-T");
+  const out = document.getElementById("ig-out");
+  const lbl = document.getElementById("ig-lbl");
+  if (!solve || !P || !V || !n || !T || !out) return;
+  const R = 8.314; // L·kPa/(mol·K)  ==  J/(mol·K)
+  const map = { P, V, n, T };
+  const units = { P: "kPa", V: "L", n: "mol", T: "K" };
+
+  function calc() {
+    const s = solve.value;
+    Object.entries(map).forEach(([k, el]) => { el.disabled = k === s; });
+    const p = parseFloat(P.value), v = parseFloat(V.value), nn = parseFloat(n.value), t = parseFloat(T.value);
+    let res;
+    if (s === "P") res = (nn * R * t) / v;
+    else if (s === "V") res = (nn * R * t) / p;
+    else if (s === "n") res = (p * v) / (R * t);
+    else res = (p * v) / (nn * R);
+    if (lbl) lbl.textContent = s + " =";
+    out.textContent = isFinite(res) ? calcFmt(res) + " " + units[s] : "—";
+  }
+  [P, V, n, T].forEach(e => e.addEventListener("input", calc));
+  solve.addEventListener("change", calc);
+  calc();
+}
+
+function initLMTD() {
+  const t1 = document.getElementById("lm-t1");
+  const t2 = document.getElementById("lm-t2");
+  const out = document.getElementById("lm-out");
+  if (!t1 || !t2 || !out) return;
+  function calc() {
+    const a = parseFloat(t1.value), b = parseFloat(t2.value);
+    if (isNaN(a) || isNaN(b) || a <= 0 || b <= 0) { out.textContent = "—"; return; }
+    const lmtd = Math.abs(a - b) < 1e-9 ? a : (a - b) / Math.log(a / b);
+    out.textContent = calcFmt(lmtd);
+  }
+  [t1, t2].forEach(e => e.addEventListener("input", calc));
+  calc();
+}
+
+function initCalculators() {
+  initUnitConverter();
+  initReynolds();
+  initIdealGas();
+  initLMTD();
 }

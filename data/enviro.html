@@ -1,0 +1,119 @@
+<!-- ── TOPIC: CARBON CAPTURE ────────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🌍</span>
+    <span class="topic-name">Carbon Capture, Utilization &amp; Storage (CCUS)</span>
+    <span class="topic-badge">DECARBONIZATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Keeping CO₂ Out of the Air</div>
+      <div class="concept-title">Separation engineering aimed at the climate</div>
+      <div class="concept-desc">
+        CCUS applies classic separation unit operations — absorption, adsorption, membranes — to
+        the world's largest waste stream: CO₂. It is a flagship application of chemical
+        engineering to sustainability.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ CAPTURE ROUTES</div>
+        <table class="ref-table">
+          <tr><th>Route</th><th>Where CO₂ is caught</th><th>Method</th></tr>
+          <tr><td style="color: var(--cyan)">Post-combustion</td><td>From flue gas after burning</td><td>Amine absorption (MEA)</td></tr>
+          <tr><td style="color: var(--amber)">Pre-combustion</td><td>From syngas before burning</td><td>Shift + physical solvent</td></tr>
+          <tr><td style="color: var(--red)">Oxy-fuel</td><td>Burn in O₂ → near-pure CO₂</td><td>Air separation needed</td></tr>
+          <tr><td style="color: var(--green)">Direct air capture</td><td>From ambient air (~420 ppm)</td><td>Sorbent / hydroxide loops</td></tr>
+        </table>
+        <div class="dt">▸ THE AMINE LOOP</div>
+        <pre class="code-block">Absorber (cool):  CO₂ + amine → carbamate   (chemical absorption)
+Stripper (hot):   heat regenerates the amine, releases pure CO₂
+→ compress → pipeline → geological storage or utilization
+
+The regeneration heat is the dominant energy cost.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        ♻️ It's the same absorption/stripping as gas sweetening (see Mass Transfer) — the
+        engineering is mature; the challenge is doing it at gigatonne scale and low energy.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: WATER & WASTEWATER ────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🚰</span>
+    <span class="topic-name">Water &amp; Wastewater Treatment</span>
+    <span class="topic-badge">ENVIRONMENTAL</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Cleaning the Most Important Solvent</div>
+      <div class="concept-title">Physical, biological and chemical stages</div>
+      <div class="concept-desc">
+        Every plant and city runs water treatment. It chains unit operations to remove solids,
+        organics and nutrients before discharge or reuse.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ TREATMENT STAGES</div>
+        <table class="ref-table">
+          <tr><th>Stage</th><th>Removes</th><th>How</th></tr>
+          <tr><td style="color: var(--cyan)">Primary</td><td>Suspended solids</td><td>Screening, sedimentation</td></tr>
+          <tr><td style="color: var(--green)">Secondary</td><td>Dissolved organics (BOD)</td><td>Activated sludge (microbes)</td></tr>
+          <tr><td style="color: var(--amber)">Tertiary</td><td>Nutrients (N, P), pathogens</td><td>Filtration, membranes, UV/Cl₂</td></tr>
+        </table>
+        <div class="dt">▸ KEY METRICS</div>
+        <pre class="code-block">BOD = biochemical oxygen demand (organic load)
+COD = chemical oxygen demand
+TSS = total suspended solids
+
+Activated sludge is a live CSTR of microbes — a bioreactor
+doing environmental work (see Biochemical &amp; Reaction Eng).</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        💧 Reverse osmosis (see Mass Transfer) turns seawater and wastewater into drinking water
+        — desalination is membrane engineering at civilization scale.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: LCA & CIRCULAR ECONOMY ────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">♻️</span>
+    <span class="topic-name">Life-Cycle Assessment &amp; the Circular Economy</span>
+    <span class="topic-badge">SYSTEMS</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Counting the Full Footprint</div>
+      <div class="concept-title">Cradle-to-grave, then cradle-to-cradle</div>
+      <div class="concept-desc">
+        A process that looks clean at the gate may be dirty upstream. <strong class="text-green">Life-cycle
+        assessment</strong> tallies impacts across the whole value chain; the circular economy
+        redesigns to eliminate waste entirely.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE FOUR LCA PHASES (ISO 14040)</div>
+        <pre class="code-block">1. Goal &amp; scope   — define boundaries &amp; functional unit
+2. Inventory (LCI) — tally all inputs &amp; emissions
+3. Impact (LCIA)   — translate to GWP, acidification, etc.
+4. Interpretation  — hotspots &amp; improvement options</pre>
+        <div class="dt">▸ GREEN-CHEMISTRY METRICS</div>
+        <table class="ref-table">
+          <tr><th>Metric</th><th>Definition</th></tr>
+          <tr><td style="color: var(--cyan)">Atom economy</td><td>MW of product / Σ MW of reactants</td></tr>
+          <tr><td style="color: var(--amber)">E-factor</td><td>kg waste / kg product</td></tr>
+          <tr><td style="color: var(--green)">Carbon intensity</td><td>kg CO₂e / kg product</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🔁 Bulk chemicals have E-factors under 5; pharmaceuticals can exceed 100 — the higher the
+        value, the more waste hides behind each kilogram of product.
+      </div>
+    </div>
+  </div>
+</div>

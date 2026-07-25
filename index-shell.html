@@ -6,6 +6,31 @@
     <title>
       Chemical Engineering Reference — Concepts, Cycles, Diagrams &amp; Equations
     </title>
+    <meta
+      name="description"
+      content="A free, offline-first, interactive chemical-engineering reference: material &amp; energy balances, thermodynamics, fluid mechanics, heat &amp; mass transfer, reaction engineering, process control, biochemical engineering (incl. DNA), transport phenomena, unit operations, process safety, materials, chemistry, plant design, and engineering math."
+    />
+    <meta name="author" content="Chemical Engineering Reference" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#070c18" />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff" />
+    <link rel="canonical" href="https://garrettstudies4chemicalengineer.netlify.app/" />
+    <!-- Open Graph / social -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Chemical Engineering Reference" />
+    <meta property="og:title" content="Chemical Engineering Reference — 2026 Edition" />
+    <meta
+      property="og:description"
+      content="Interactive, offline-first study reference spanning the entire chemical-engineering curriculum and the FE/PE exams."
+    />
+    <meta property="og:url" content="https://garrettstudies4chemicalengineer.netlify.app/" />
+    <meta property="og:image" content="https://garrettstudies4chemicalengineer.netlify.app/Img/Studying-Tips.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Chemical Engineering Reference — 2026 Edition" />
+    <meta
+      name="twitter:description"
+      content="Interactive, offline-first study reference spanning the entire chemical-engineering curriculum and the FE/PE exams."
+    />
+    <meta name="twitter:image" content="https://garrettstudies4chemicalengineer.netlify.app/Img/Studying-Tips.png" />
     <!-- Self-hosted fonts (works offline / over file://; no third-party calls) -->
     <link rel="stylesheet" href="Img/fonts.css" />
     <link rel="stylesheet" href="style.css" />
@@ -23,6 +48,17 @@
               Chemical Engineering Reference · 2026 Edition
             </div>
             <div class="header-controls" id="header-controls">
+              <a
+                class="hdr-link-btn"
+                href="https://garrettstudies.netlify.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Open the IT Knowledge Base (opens in a new tab)"
+              >
+                <span class="hdr-link-icon">💻</span>
+                <span class="hdr-link-label">Information Technology<br />Knowledge Base</span>
+                <span class="hdr-link-ext" aria-hidden="true">↗</span>
+              </a>
               <button class="sw-btn" id="hdr-theme-btn" role="switch" aria-checked="false" aria-label="Toggle light / dark" title="Toggle light / dark">
                 <span class="sw-sun">☀</span>
                 <span class="sw-track"><span class="sw-thumb"></span></span>
@@ -76,6 +112,11 @@
         <div class="chip c-chem"           data-domain="chem">🧫 CHEMISTRY</div>
         <div class="chip c-design"         data-domain="design">📐 PROCESS DESIGN</div>
         <div class="chip c-math"           data-domain="math">🧮 ENG MATH</div>
+        <div class="chip c-electro"        data-domain="electro">⚡ ELECTROCHEMICAL</div>
+        <div class="chip c-formulas"       data-domain="formulas">📄 FORMULA SHEET</div>
+        <div class="chip c-tools"          data-domain="tools">🧰 CALCULATORS</div>
+        <div class="chip c-enviro"         data-domain="enviro">🌱 SUSTAINABILITY</div>
+        <div class="chip c-petro"          data-domain="petro">🛢️ PETROLEUM</div>
       </div>
     </div>
 
@@ -88,11 +129,10 @@
           class="search-input"
           type="search"
           placeholder="Search topics, concepts, equations…"
-          oninput="onSearchInput(this.value)"
           autocomplete="off"
           spellcheck="false"
         />
-        <button class="search-clear" id="search-clear" onclick="clearSearch()" title="Clear search">✕</button>
+        <button class="search-clear" id="search-clear" title="Clear search">✕</button>
         <span class="search-count" id="search-count"></span>
       </div>
     </div>
@@ -104,7 +144,7 @@
 
     <script src="script.js"></script>
     <!-- NOTEPAD: slide tab -->
-  <button id="notepad-tab" class="notepad-tab" onclick="toggleNotepad()" title="Open notepad">
+  <button id="notepad-tab" class="notepad-tab" title="Open notepad">
     <span class="notepad-tab-icon">📋</span>
     <span class="notepad-tab-label">NOTEPAD</span>
   </button>

@@ -1,0 +1,150 @@
+<!-- ── TOPIC: UNIT CONVERTER ────────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔄</span>
+    <span class="topic-name">Unit Converter</span>
+    <span class="topic-badge">LIVE TOOL</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">SI ⇄ USCS</div>
+      <div class="concept-title">Convert pressure, energy, power, length, mass, volume &amp; temperature</div>
+      <div class="concept-desc">
+        Pick a category and units; the result updates as you type. Runs entirely in your browser
+        — no network, works offline.
+      </div>
+      <div class="calc" id="calc-unit">
+        <div class="calc-grid">
+          <div class="calc-field"><label>Category</label><select id="uc-cat"></select></div>
+          <div class="calc-field"><label>Value</label><input id="uc-val" type="number" value="1" step="any" /></div>
+          <div class="calc-field"><label>From</label><select id="uc-from"></select></div>
+          <div class="calc-field"><label>To</label><select id="uc-to"></select></div>
+        </div>
+        <div class="calc-out">
+          <span class="calc-out-label">Result</span>
+          <span class="calc-out-val" id="uc-out">—</span>
+        </div>
+      </div>
+      <div class="info-bar ib-muted">
+        🧷 Temperature uses full offset conversions (°C/°F/K/°R); all other categories are
+        factor-based to an SI base unit.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: REYNOLDS NUMBER ───────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🌀</span>
+    <span class="topic-name">Reynolds Number Calculator</span>
+    <span class="topic-badge">LIVE TOOL</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Flow Regime</div>
+      <div class="concept-title">Re = ρvD/μ — laminar, transitional or turbulent?</div>
+      <div class="concept-desc">
+        Enter fluid density, velocity, pipe diameter and viscosity (all SI). The regime label
+        follows the pipe-flow thresholds (Re &lt; 2100 laminar, &gt; 4000 turbulent).
+      </div>
+      <div class="calc" id="calc-re">
+        <div class="calc-grid">
+          <div class="calc-field"><label>Density ρ (kg/m³)</label><input id="re-rho" type="number" value="1000" step="any" /></div>
+          <div class="calc-field"><label>Velocity v (m/s)</label><input id="re-v" type="number" value="2" step="any" /></div>
+          <div class="calc-field"><label>Diameter D (m)</label><input id="re-d" type="number" value="0.05" step="any" /></div>
+          <div class="calc-field"><label>Viscosity μ (Pa·s)</label><input id="re-mu" type="number" value="0.001" step="any" /></div>
+        </div>
+        <div class="calc-out">
+          <span class="calc-out-label">Reynolds</span>
+          <span class="calc-out-val" id="re-out">—</span>
+          <span class="calc-note" id="re-regime"></span>
+        </div>
+      </div>
+      <div class="info-bar ib-muted">
+        💧 Defaults model water in a 50 mm pipe at 2 m/s → Re = 100,000 (fully turbulent). See
+        the Fluid Mechanics domain for the full treatment.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: IDEAL GAS LAW ─────────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🎈</span>
+    <span class="topic-name">Ideal Gas Law Solver</span>
+    <span class="topic-badge">LIVE TOOL</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">PV = nRT</div>
+      <div class="concept-title">Solve for any one variable</div>
+      <div class="concept-desc">
+        Choose which variable to solve for; enter the other three. Units: P in kPa, V in litres,
+        n in mol, T in kelvin (R = 8.314 L·kPa/mol·K).
+      </div>
+      <div class="calc" id="calc-ig">
+        <div class="calc-grid">
+          <div class="calc-field">
+            <label>Solve for</label>
+            <select id="ig-solve">
+              <option value="P">Pressure (kPa)</option>
+              <option value="V">Volume (L)</option>
+              <option value="n">Moles (mol)</option>
+              <option value="T">Temperature (K)</option>
+            </select>
+          </div>
+          <div class="calc-field"><label>P (kPa)</label><input id="ig-P" type="number" value="101.325" step="any" /></div>
+          <div class="calc-field"><label>V (L)</label><input id="ig-V" type="number" value="22.414" step="any" /></div>
+          <div class="calc-field"><label>n (mol)</label><input id="ig-n" type="number" value="1" step="any" /></div>
+          <div class="calc-field"><label>T (K)</label><input id="ig-T" type="number" value="273.15" step="any" /></div>
+        </div>
+        <div class="calc-out">
+          <span class="calc-out-label" id="ig-lbl">Result</span>
+          <span class="calc-out-val" id="ig-out">—</span>
+        </div>
+      </div>
+      <div class="info-bar ib-muted">
+        🧪 The defaults are STP for 1 mol → 22.414 L. Solve for V to confirm the molar volume.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: LMTD ──────────────────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">♨️</span>
+    <span class="topic-name">LMTD Calculator</span>
+    <span class="topic-badge">LIVE TOOL</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Heat Exchangers</div>
+      <div class="concept-title">Log-mean temperature difference</div>
+      <div class="concept-desc">
+        Enter the terminal temperature differences at each end of the exchanger. The tool handles
+        the equal-ΔT limit (where LMTD = ΔT) automatically.
+      </div>
+      <div class="calc" id="calc-lmtd">
+        <div class="calc-grid">
+          <div class="calc-field"><label>ΔT₁ — one end (°C or K)</label><input id="lm-t1" type="number" value="50" step="any" /></div>
+          <div class="calc-field"><label>ΔT₂ — other end (°C or K)</label><input id="lm-t2" type="number" value="20" step="any" /></div>
+        </div>
+        <div class="calc-out">
+          <span class="calc-out-label">LMTD</span>
+          <span class="calc-out-val" id="lm-out">—</span>
+        </div>
+      </div>
+      <div class="info-bar ib-muted">
+        🔥 LMTD = (ΔT₁ − ΔT₂) / ln(ΔT₁/ΔT₂). Feed it into Q = U·A·F·ΔT_lm to size an exchanger
+        (see Heat Transfer).
+      </div>
+    </div>
+  </div>
+</div>
