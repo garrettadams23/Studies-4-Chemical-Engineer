@@ -1,0 +1,79 @@
+<!-- ── TOPIC: PFD vs P&ID ───────────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🗺️</span>
+    <span class="topic-name">Flowsheets — PFD vs. P&amp;ID</span>
+    <span class="topic-badge">FOUNDATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">The Blueprints of a Plant</div>
+      <div class="concept-title">From concept to construction drawing</div>
+      <div class="concept-desc">
+        Design progresses from a block flow diagram, to a Process Flow Diagram, to a fully
+        detailed Piping &amp; Instrumentation Diagram — each adding fidelity.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE DRAWING HIERARCHY</div>
+        <table class="ref-table">
+          <tr><th>Document</th><th>Shows</th><th>Used for</th></tr>
+          <tr><td style="color: var(--cyan)">BFD</td><td>Blocks &amp; major streams</td><td>Concept</td></tr>
+          <tr><td style="color: var(--green)">PFD</td><td>Major equipment, T/P/flow, mass balance</td><td>Process design</td></tr>
+          <tr><td style="color: var(--amber)">P&amp;ID</td><td>Every valve, line, instrument, tag</td><td>Construction &amp; ops</td></tr>
+        </table>
+        <div class="dt">▸ HEAT INTEGRATION — PINCH ANALYSIS</div>
+        <pre class="code-block">Match hot &amp; cold streams to recover heat internally.
+The "pinch" sets the minimum utility (steam/cooling) needed.
+
+Rule:  don't transfer heat across the pinch,
+       don't cool above it, don't heat below it.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        ♻️ Pinch analysis can cut a plant's energy bill dramatically — the flagship tool of
+        process integration and sustainable design.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: ENGINEERING ECONOMICS ────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">💰</span>
+    <span class="topic-name">Engineering Economics &amp; Profitability</span>
+    <span class="topic-badge">DECISION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Is the Project Worth Building?</div>
+      <div class="concept-title">Time value of money decides</div>
+      <div class="concept-desc">
+        A technically brilliant process still has to make money. Capital and operating costs
+        are weighed against revenue using discounted-cash-flow metrics.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ PROFITABILITY METRICS</div>
+        <pre class="code-block">Future value:  F = P(1 + i)ⁿ
+Present value: P = F / (1 + i)ⁿ
+
+NPV = Σ (cash flow_t) / (1 + i)^t  − capital
+  NPV > 0  → accept
+IRR = discount rate where NPV = 0
+Payback = years to recover the capital outlay</pre>
+        <div class="dt">▸ COST ESTIMATING SHORTCUTS</div>
+        <table class="ref-table">
+          <tr><th>Rule</th><th>Relation</th></tr>
+          <tr><td style="color: var(--cyan)">Six-tenths rule</td><td>Cost₂ = Cost₁ (S₂/S₁)^0.6</td></tr>
+          <tr><td style="color: var(--green)">Lang factor</td><td>Fixed capital ≈ factor × equipment cost</td></tr>
+          <tr><td style="color: var(--amber)">CEPCI</td><td>Escalate old costs to today's dollars</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        📊 The six-tenths rule captures economy of scale: doubling capacity rarely doubles cost
+        — bigger is usually cheaper per unit.
+      </div>
+    </div>
+  </div>
+</div>

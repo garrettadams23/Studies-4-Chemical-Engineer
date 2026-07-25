@@ -1,0 +1,115 @@
+<!-- ── TOPIC: LAPLACE & TRANSFER FUNCTIONS ──────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧮</span>
+    <span class="topic-name">Laplace Transforms &amp; Transfer Functions</span>
+    <span class="topic-badge">FOUNDATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Dynamics in the s-Domain</div>
+      <div class="concept-title">Turning ODEs into algebra</div>
+      <div class="concept-desc">
+        Process control lives in the frequency domain. The Laplace transform converts the
+        differential equations of a process into algebraic <strong class="text-blue">transfer
+        functions</strong> G(s) relating output to input.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ COMMON TRANSFORMS</div>
+        <table class="ref-table">
+          <tr><th>f(t)</th><th>F(s)</th></tr>
+          <tr><td style="color: var(--cyan)">step, 1</td><td>1/s</td></tr>
+          <tr><td style="color: var(--green)">e^(−at)</td><td>1/(s+a)</td></tr>
+          <tr><td style="color: var(--amber)">df/dt</td><td>sF(s) − f(0)</td></tr>
+          <tr><td style="color: var(--purple)">delay, f(t−θ)</td><td>e^(−θs) F(s)</td></tr>
+        </table>
+        <div class="dt">▸ FIRST-ORDER PROCESS</div>
+        <pre class="code-block">G(s) = Y(s)/U(s) = K / (τ s + 1)
+
+K = process gain      τ = time constant
+Step response reaches 63% of final value at t = τ.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        ⏱️ Add a dead time θ (e^(−θs)) and control gets harder — delay is the enemy of tight
+        control.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: PID CONTROL ───────────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🎚️</span>
+    <span class="topic-name">Feedback Control &amp; PID Tuning</span>
+    <span class="topic-badge">CONTROLLER</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">The Universal Controller</div>
+      <div class="concept-title">Proportional + Integral + Derivative</div>
+      <div class="concept-desc">
+        The PID controller drives the error (setpoint − measurement) to zero by combining
+        three actions. It runs the overwhelming majority of industrial loops.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE PID LAW</div>
+        <pre class="code-block">u(t) = Kc [ e + (1/τ_I) ∫e dt + τ_D de/dt ]
+
+e = setpoint − measured value</pre>
+        <div class="dt">▸ WHAT EACH TERM DOES</div>
+        <table class="ref-table">
+          <tr><th>Term</th><th>Effect</th><th>Downside</th></tr>
+          <tr><td style="color: var(--cyan)">P (gain Kc)</td><td>Fast response</td><td>Leaves offset</td></tr>
+          <tr><td style="color: var(--green)">I (τ_I)</td><td>Eliminates offset</td><td>Can add oscillation / windup</td></tr>
+          <tr><td style="color: var(--amber)">D (τ_D)</td><td>Anticipates, damps</td><td>Amplifies noise</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🔧 Ziegler–Nichols and IMC are the classic tuning recipes; too much gain pushes the
+        loop past its stability limit into sustained oscillation.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: P&ID & INSTRUMENTATION ────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📋</span>
+    <span class="topic-name">P&amp;IDs &amp; Instrument Tags</span>
+    <span class="topic-badge">DOCUMENTATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Reading the Plant</div>
+      <div class="concept-title">The universal language of process control</div>
+      <div class="concept-desc">
+        A <strong class="text-purple">Piping &amp; Instrumentation Diagram</strong> shows every
+        instrument, valve and control loop. ISA tag letters encode what each device measures
+        and does.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ ISA TAG LETTERS (1st = variable, 2nd = function)</div>
+        <table class="ref-table">
+          <tr><th>Letter</th><th>Variable (1st)</th><th>Function (2nd)</th></tr>
+          <tr><td style="color: var(--red)">T</td><td>Temperature</td><td>—</td></tr>
+          <tr><td style="color: var(--cyan)">P</td><td>Pressure</td><td>—</td></tr>
+          <tr><td style="color: var(--green)">F</td><td>Flow</td><td>—</td></tr>
+          <tr><td style="color: var(--amber)">L</td><td>Level</td><td>—</td></tr>
+          <tr><td style="color: var(--purple)">— / T,I,C,V</td><td>—</td><td>Transmit, Indicate, Control, Valve</td></tr>
+        </table>
+        <pre class="code-block">TIC-101  = Temperature Indicating Controller, loop 101
+FT-205   = Flow Transmitter, loop 205
+LCV-310  = Level Control Valve, loop 310</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🏭 A PFD shows the big picture (major equipment &amp; streams); a P&amp;ID shows every
+        valve, tag and line — see the Process Design domain.
+      </div>
+    </div>
+  </div>
+</div>

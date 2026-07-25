@@ -1,0 +1,119 @@
+<!-- ── TOPIC: ODEs & LINEAR ALGEBRA ─────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📐</span>
+    <span class="topic-name">ODEs &amp; Linear Algebra for Engineers</span>
+    <span class="topic-badge">FOUNDATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">The Language of Models</div>
+      <div class="concept-title">Balances become differential equations</div>
+      <div class="concept-desc">
+        Every dynamic balance — a reactor, a tank, a controller — is a differential equation.
+        Steady multi-unit balances become linear systems. Fluency here is non-negotiable.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ FIRST-ORDER LINEAR ODE</div>
+        <pre class="code-block">dy/dx + P(x) y = Q(x)
+
+Integrating factor:  μ = exp(∫P dx)
+Solution:  y = (1/μ) ∫ μ Q dx + C/μ
+
+Classic result: mixing-tank concentration approaches
+steady state exponentially with time constant τ = V/Q.</pre>
+        <div class="dt">▸ SOLVING LINEAR SYSTEMS  A x = b</div>
+        <table class="ref-table">
+          <tr><th>Method</th><th>Use</th></tr>
+          <tr><td style="color: var(--cyan)">Gaussian elimination</td><td>Direct, dense systems</td></tr>
+          <tr><td style="color: var(--green)">LU decomposition</td><td>Reuse for many b vectors</td></tr>
+          <tr><td style="color: var(--amber)">Eigenvalues</td><td>Stability, vibration, PCA</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🎛️ The eigenvalues of a linearized system's matrix determine stability — negative real
+        parts mean the process returns to steady state.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: NUMERICAL METHODS ─────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🖥️</span>
+    <span class="topic-name">Numerical Methods &amp; Root Finding</span>
+    <span class="topic-badge">COMPUTATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">When There's No Closed Form</div>
+      <div class="concept-title">Iterating to a numerical answer</div>
+      <div class="concept-desc">
+        Real equations of state, kinetics and balances rarely solve by hand. Numerical methods
+        underpin every process simulator (Aspen, HYSYS, MATLAB, Python).
+      </div>
+      <div class="dw">
+        <div class="dt">▸ ROOT FINDING  f(x) = 0</div>
+        <table class="ref-table">
+          <tr><th>Method</th><th>Idea</th><th>Convergence</th></tr>
+          <tr><td style="color: var(--cyan)">Bisection</td><td>Halve a bracketing interval</td><td>Slow, guaranteed</td></tr>
+          <tr><td style="color: var(--green)">Newton–Raphson</td><td>x← x − f/f′</td><td>Fast (quadratic)</td></tr>
+          <tr><td style="color: var(--amber)">Secant</td><td>Newton without derivatives</td><td>Superlinear</td></tr>
+        </table>
+        <div class="dt">▸ INTEGRATING ODEs NUMERICALLY</div>
+        <pre class="code-block">Euler:   y_{n+1} = y_n + h f(x_n, y_n)     (simple, low order)
+RK4:     4th-order Runge–Kutta            (workhorse accuracy)
+
+h = step size;  smaller h ⇒ more accurate, more cost.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🐍 A PFR design integral ∫dX/(−r_A) with messy kinetics is exactly the kind of problem
+        Simpson's rule or scipy's <code>solve_ivp</code> handles in seconds.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: STATISTICS & REGRESSION ───────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📊</span>
+    <span class="topic-name">Statistics, Regression &amp; Data</span>
+    <span class="topic-badge">DATA</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Making Sense of Measurements</div>
+      <div class="concept-title">Fitting models &amp; controlling quality</div>
+      <div class="concept-desc">
+        Plant data is noisy. Statistics extracts kinetic parameters, validates models and keeps
+        production within spec.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ LEAST-SQUARES REGRESSION</div>
+        <pre class="code-block">Minimize Σ (y_i − ŷ_i)²
+
+Linearize when possible:
+  Arrhenius → ln k vs 1/T   (slope −E_a/R)
+  1st-order → ln C vs t     (slope −k)
+
+R² measures fraction of variance explained (1 = perfect).</pre>
+        <div class="dt">▸ QUALITY &amp; DESIGN OF EXPERIMENTS</div>
+        <table class="ref-table">
+          <tr><th>Tool</th><th>Purpose</th></tr>
+          <tr><td style="color: var(--cyan)">Control chart</td><td>Detect process drift (±3σ limits)</td></tr>
+          <tr><td style="color: var(--green)">Factorial DOE</td><td>Screen many variables efficiently</td></tr>
+          <tr><td style="color: var(--amber)">Propagation of error</td><td>How input uncertainty flows to results</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        📈 Dimensional analysis (Buckingham π theorem) reduces the number of experiments by
+        grouping variables into dimensionless numbers — see Transport Phenomena.
+      </div>
+    </div>
+  </div>
+</div>

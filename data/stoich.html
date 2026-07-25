@@ -1,0 +1,119 @@
+<!-- ── TOPIC: CONSERVATION OF MASS ─────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">⚖️</span>
+    <span class="topic-name">The General Balance Equation</span>
+    <span class="topic-badge">FOUNDATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Conservation Law</div>
+      <div class="concept-title">In = Out + Generation − Consumption − Accumulation</div>
+      <div class="concept-desc">
+        Every material and energy balance in chemical engineering descends from a single
+        bookkeeping statement applied to a defined <strong class="text-blue">control volume</strong>.
+        Choose a basis, draw the boundary, then account for everything that crosses it.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE GENERAL BALANCE</div>
+        <pre class="code-block">Accumulation = In − Out + Generation − Consumption
+
+Steady state  →  Accumulation = 0
+Non-reactive  →  Generation = Consumption = 0
+  ⇒ In = Out   (total mass always conserved)</pre>
+        <div class="dt">▸ BALANCE TYPES</div>
+        <table class="ref-table">
+          <tr><th>Quantity</th><th>Conserved?</th><th>Notes</th></tr>
+          <tr><td style="color: var(--green)">Total mass</td><td>Always</td><td>No generation term (non-nuclear)</td></tr>
+          <tr><td style="color: var(--cyan)">Total moles</td><td>Not always</td><td>Changes when moles react (A + B → C)</td></tr>
+          <tr><td style="color: var(--amber)">Element / atom</td><td>Always</td><td>Atoms are conserved in every reaction</td></tr>
+          <tr><td style="color: var(--red)">Energy</td><td>Always</td><td>1st Law; includes heat &amp; work</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        💡 <strong class="text-green">Strategy:</strong> pick the balance that gives the most
+        equations with the fewest unknowns — atom balances shine for combustion, component
+        balances for separations.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: RECYCLE, BYPASS & PURGE ──────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔁</span>
+    <span class="topic-name">Recycle, Bypass &amp; Purge</span>
+    <span class="topic-badge">FLOWSHEET</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Multi-Unit Balances</div>
+      <div class="concept-title">Improving conversion and controlling inerts</div>
+      <div class="concept-desc">
+        Real plants rarely convert feed in one pass. Three flow structures reshape the
+        overall vs. single-pass performance.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE THREE STRUCTURES</div>
+        <table class="ref-table">
+          <tr><th>Structure</th><th>Purpose</th><th>Key effect</th></tr>
+          <tr><td style="color: var(--cyan)">Recycle</td><td>Return unreacted feed</td><td>Overall conversion ≫ single-pass conversion</td></tr>
+          <tr><td style="color: var(--green)">Bypass</td><td>Split stream around a unit</td><td>Blend to hit a target spec</td></tr>
+          <tr><td style="color: var(--amber)">Purge</td><td>Bleed off a recycle loop</td><td>Prevents inert / impurity build-up</td></tr>
+        </table>
+        <div class="dt">▸ CONVERSION DEFINITIONS</div>
+        <pre class="code-block">Single-pass X = (reacted in reactor) / (fed to reactor)
+Overall     X = (reacted in reactor) / (fresh feed to process)
+
+With recycle:  Overall X  >  Single-pass X</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🧷 A steady recycle loop with a reaction that produces an inert <em>must</em> have a
+        purge, or the inert accumulates without bound.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: COMBUSTION & DEGREES OF FREEDOM ──────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔥</span>
+    <span class="topic-name">Combustion &amp; Degree-of-Freedom Analysis</span>
+    <span class="topic-badge">METHOD</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Solvability</div>
+      <div class="concept-title">Counting equations before you solve</div>
+      <div class="concept-desc">
+        A <strong class="text-purple">degree-of-freedom (DOF)</strong> analysis tells you
+        whether a problem is solvable <em>before</em> algebra begins.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ DOF FORMULA</div>
+        <pre class="code-block">DOF = (unknowns) − (independent balances)
+          − (specifications) − (given relations)
+
+DOF = 0  → exactly solvable
+DOF > 0  → underspecified (need more info)
+DOF < 0  → overspecified (possible inconsistency)</pre>
+        <div class="dt">▸ COMBUSTION VOCABULARY</div>
+        <table class="ref-table">
+          <tr><th>Term</th><th>Meaning</th></tr>
+          <tr><td style="color: var(--amber)">Theoretical air</td><td>Exact O₂ for complete combustion to CO₂ + H₂O</td></tr>
+          <tr><td style="color: var(--green)">Excess air</td><td>Air supplied above theoretical (drives completion)</td></tr>
+          <tr><td style="color: var(--cyan)">Wet / dry basis</td><td>Flue-gas analysis with / without water vapor</td></tr>
+          <tr><td style="color: var(--red)">Orsat analysis</td><td>Classic dry flue-gas composition measurement</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🎯 Atom balances (C, H, O, N) are the workhorse of combustion problems — one equation per element.
+      </div>
+    </div>
+  </div>
+</div>

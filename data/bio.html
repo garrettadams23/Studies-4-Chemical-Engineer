@@ -1,0 +1,177 @@
+<!-- ── TOPIC: DNA & THE CENTRAL DOGMA ───────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧬</span>
+    <span class="topic-name">DNA &amp; the Central Dogma of Molecular Biology</span>
+    <span class="topic-badge">FOUNDATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">The Molecule of Heredity</div>
+      <div class="concept-title">DNA → RNA → Protein — information flow in the cell</div>
+      <div class="concept-desc">
+        <strong class="text-blue">Deoxyribonucleic acid (DNA)</strong> is the double-helix
+        polymer that stores genetic information. Chemical engineers harness this machinery in
+        fermentation, recombinant-protein production and biofuels. The
+        <strong class="text-green">central dogma</strong> describes how the information is read.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ STRUCTURE — THE DOUBLE HELIX</div>
+        <table class="ref-table">
+          <tr><th>Feature</th><th>Detail</th></tr>
+          <tr><td style="color: var(--cyan)">Backbone</td><td>Alternating sugar (deoxyribose) + phosphate</td></tr>
+          <tr><td style="color: var(--green)">Bases</td><td>A, T, G, C — the four-letter code</td></tr>
+          <tr><td style="color: var(--amber)">Base pairing</td><td>A=T (2 H-bonds) · G≡C (3 H-bonds)</td></tr>
+          <tr><td style="color: var(--purple)">Geometry</td><td>Antiparallel strands, ~10.5 bp per turn (Watson–Crick, 1953)</td></tr>
+        </table>
+        <div class="dt">▸ THE CENTRAL DOGMA</div>
+        <pre class="code-block">        replication
+   DNA ───────────► DNA        (cell division)
+    │
+    │ transcription
+    ▼
+   RNA (mRNA)
+    │
+    │ translation  (ribosome, codons → amino acids)
+    ▼
+  PROTEIN  → folds → biological function</pre>
+        <div class="dt">▸ BASE-PAIRING RULE</div>
+        <pre class="code-block">Template : 5'- A  T  G  C  A  G -3'
+Complement:3'- T  A  C  G  T  C -5'
+(mRNA replaces T with U → uracil)</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🧪 <strong class="text-green">Recombinant DNA</strong> technology inserts a target gene
+        into a host (e.g. <em>E. coli</em>) so an engineered bioreactor mass-produces the protein
+        — how insulin is made industrially.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: ENZYME KINETICS ───────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔑</span>
+    <span class="topic-name">Enzyme Kinetics — Michaelis–Menten</span>
+    <span class="topic-badge">BIOCATALYSIS</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Biological Catalysts</div>
+      <div class="concept-title">Saturable rate laws for enzyme reactions</div>
+      <div class="concept-desc">
+        Enzymes are protein catalysts that lower activation energy enormously. Their rate
+        saturates with substrate — the hallmark of the
+        <strong class="text-blue">Michaelis–Menten</strong> model.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ MICHAELIS–MENTEN RATE LAW</div>
+        <pre class="code-block">        V_max · [S]
+  v  = ───────────────
+          K_m + [S]
+
+V_max = max rate (all enzyme saturated)
+K_m   = substrate conc. at v = V_max/2
+        (↓ K_m ⇒ tighter enzyme–substrate binding)</pre>
+        <div class="dt">▸ LIMITING BEHAVIOR</div>
+        <table class="ref-table">
+          <tr><th>Regime</th><th>Rate law</th><th>Order in [S]</th></tr>
+          <tr><td style="color: var(--green)">[S] ≪ K_m</td><td>v ≈ (V_max/K_m)[S]</td><td>First order</td></tr>
+          <tr><td style="color: var(--amber)">[S] ≫ K_m</td><td>v ≈ V_max</td><td>Zero order</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        📉 A Lineweaver–Burk plot (1/v vs 1/[S]) linearizes the model — intercept = 1/V_max,
+        slope = K_m/V_max.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: FERMENTATION & BIOREACTORS ────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🦠</span>
+    <span class="topic-name">Fermentation &amp; Bioreactor Design</span>
+    <span class="topic-badge">SCALE-UP</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Cells as Chemical Plants</div>
+      <div class="concept-title">Growing microbes to make product</div>
+      <div class="concept-desc">
+        A bioreactor is a reactor whose catalyst is <em>alive</em>. Cell growth, substrate
+        uptake and product formation are coupled, and oxygen transfer usually limits scale-up.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ CELL-GROWTH KINETICS (MONOD)</div>
+        <pre class="code-block">          μ_max · S
+  μ  = ───────────────      (specific growth rate)
+           K_s + S
+
+dX/dt = μ X            (exponential growth)
+Y_X/S = biomass yield per substrate consumed</pre>
+        <div class="dt">▸ OPERATING MODES</div>
+        <table class="ref-table">
+          <tr><th>Mode</th><th>Feature</th></tr>
+          <tr><td style="color: var(--cyan)">Batch</td><td>Fixed nutrients; simple, lower productivity</td></tr>
+          <tr><td style="color: var(--green)">Fed-batch</td><td>Feed added over time; avoids substrate inhibition</td></tr>
+          <tr><td style="color: var(--amber)">Continuous (chemostat)</td><td>Steady state; μ = dilution rate D</td></tr>
+        </table>
+        <div class="dt">▸ OXYGEN TRANSFER — THE SCALE-UP BOTTLENECK</div>
+        <pre class="code-block">OTR = k_L a · (C* − C_L)
+
+k_L a = mass-transfer coefficient (agitation, sparging)
+C*    = saturation O₂;  C_L = dissolved O₂ in broth</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        💨 Because O₂ is sparingly soluble, k<sub>L</sub>a is the number most fought over when
+        scaling a fermenter from the bench to 100 m³.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: DOWNSTREAM PROCESSING ─────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">⚗️</span>
+    <span class="topic-name">Downstream Processing &amp; Purification</span>
+    <span class="topic-badge">RECOVERY</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">From Broth to Product</div>
+      <div class="concept-title">Separating a fragile molecule from a dilute soup</div>
+      <div class="concept-desc">
+        Making the product is half the job; recovering it — often at high purity from a very
+        dilute, heat-sensitive broth — can dominate the cost of a biopharmaceutical.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ TYPICAL PURIFICATION TRAIN</div>
+        <pre class="code-block">Broth
+  │  1. Cell separation   (centrifuge / microfiltration)
+  ▼
+  │  2. Cell disruption   (if product is intracellular)
+  ▼
+  │  3. Concentration     (ultrafiltration)
+  ▼
+  │  4. Purification      (chromatography — affinity, ion-exchange)
+  ▼
+  │  5. Polishing / formulation  (diafiltration, lyophilization)
+  ▼
+Pure product</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🧫 Chromatography exploits the same molecular-affinity principle as the extraction and
+        adsorption operations in the Mass Transfer domain — biology just makes it exquisitely
+        selective.
+      </div>
+    </div>
+  </div>
+</div>

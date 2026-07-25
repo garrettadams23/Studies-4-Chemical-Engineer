@@ -1,0 +1,122 @@
+<!-- ── TOPIC: THE FOUR LAWS ─────────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📜</span>
+    <span class="topic-name">The Laws of Thermodynamics</span>
+    <span class="topic-badge">FOUNDATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">First Principles</div>
+      <div class="concept-title">Energy is conserved; entropy sets the direction</div>
+      <div class="concept-desc">
+        Thermodynamics governs what processes are possible and how much useful work they
+        can deliver. Four laws frame every energy balance a chemical engineer writes.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE LAWS</div>
+        <table class="ref-table">
+          <tr><th>Law</th><th>Statement</th><th>Consequence</th></tr>
+          <tr><td style="color: var(--cyan)">Zeroth</td><td>Thermal equilibrium is transitive</td><td>Temperature is well-defined</td></tr>
+          <tr><td style="color: var(--green)">First</td><td>ΔU = Q − W</td><td>Energy conserved; no perpetual motion (1st kind)</td></tr>
+          <tr><td style="color: var(--amber)">Second</td><td>ΔS<sub>univ</sub> ≥ 0</td><td>Heat won't spontaneously flow cold→hot</td></tr>
+          <tr><td style="color: var(--red)">Third</td><td>S → 0 as T → 0 K</td><td>Absolute zero is unattainable</td></tr>
+        </table>
+        <div class="dt">▸ OPEN-SYSTEM ENERGY BALANCE (STEADY)</div>
+        <pre class="code-block">Q̇ − Ẇs = Σ ṁ_out (h + v²/2 + gz)
+              − Σ ṁ_in  (h + v²/2 + gz)
+
+Often the KE and PE terms are negligible:
+  Q̇ − Ẇs = ṁ Δh</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🔑 Enthalpy h = u + Pv bundles internal energy with flow work — it is the natural
+        state variable for open (flow) systems.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: ENTROPY & GIBBS ───────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🎲</span>
+    <span class="topic-name">Entropy, Gibbs Energy &amp; Spontaneity</span>
+    <span class="topic-badge">2ND LAW</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Direction of Change</div>
+      <div class="concept-title">ΔG decides whether a process will go</div>
+      <div class="concept-desc">
+        At constant T and P the <strong class="text-purple">Gibbs free energy</strong>
+        packages the 1st and 2nd laws into one criterion for spontaneity and equilibrium.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ GIBBS CRITERION</div>
+        <pre class="code-block">G = H − TS        dG = V dP − S dT
+
+ΔG < 0  → spontaneous (favorable)
+ΔG = 0  → at equilibrium
+ΔG > 0  → non-spontaneous (needs work / coupling)
+
+ΔG° = −RT ln K      (reaction equilibrium constant)</pre>
+        <div class="dt">▸ ENTHALPY–ENTROPY SIGN MAP</div>
+        <table class="ref-table">
+          <tr><th>ΔH</th><th>ΔS</th><th>Spontaneous?</th></tr>
+          <tr><td style="color: var(--green)">−</td><td>+</td><td>Always (all T)</td></tr>
+          <tr><td style="color: var(--red)">+</td><td>−</td><td>Never</td></tr>
+          <tr><td style="color: var(--amber)">−</td><td>−</td><td>Only at low T</td></tr>
+          <tr><td style="color: var(--cyan)">+</td><td>+</td><td>Only at high T</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        ♨️ Le Chatelier: raise T on an endothermic reaction (ΔH &gt; 0) and equilibrium shifts
+        toward products — consistent with ΔG° = ΔH° − TΔS°.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: EQUATIONS OF STATE & VLE ──────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🫧</span>
+    <span class="topic-name">Equations of State &amp; Vapor–Liquid Equilibrium</span>
+    <span class="topic-badge">PHASE BEHAVIOR</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">P–V–T &amp; Phase Split</div>
+      <div class="concept-title">From ideal gas to cubic EOS and Raoult's law</div>
+      <div class="concept-desc">
+        Predicting how a mixture splits between vapor and liquid is the beating heart of
+        separations design.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ EQUATIONS OF STATE</div>
+        <table class="ref-table">
+          <tr><th>Model</th><th>Form / use</th></tr>
+          <tr><td style="color: var(--cyan)">Ideal gas</td><td>PV = nRT — low P, high T</td></tr>
+          <tr><td style="color: var(--green)">Van der Waals</td><td>Adds a (attraction) &amp; b (volume)</td></tr>
+          <tr><td style="color: var(--amber)">Peng–Robinson</td><td>Cubic EOS, excellent for hydrocarbons</td></tr>
+          <tr><td style="color: var(--purple)">Soave–RK</td><td>Cubic EOS, common in process simulators</td></tr>
+        </table>
+        <div class="dt">▸ VLE RELATIONS</div>
+        <pre class="code-block">Raoult's law (ideal):   y_i P = x_i P_i^sat
+Modified Raoult:        y_i P = x_i γ_i P_i^sat
+Relative volatility:    α = (y_A/x_A)/(y_B/x_B)
+
+α > 1  → separation by distillation is feasible
+α → 1  → separation becomes very difficult</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🌡️ An <strong class="text-red">azeotrope</strong> (α = 1) can't be broken by ordinary
+        distillation — you need pressure-swing, extractive, or azeotropic distillation.
+      </div>
+    </div>
+  </div>
+</div>

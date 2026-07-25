@@ -1,0 +1,164 @@
+[
+  {
+    "id": "stoich",
+    "colorClass": "domain-stoich",
+    "icon": "⚗️",
+    "title": "Stoichiometry &amp; Material Balances",
+    "certTags": [
+      { "cls": "ctag-core", "text": "CORE" },
+      { "cls": "ctag-fund", "text": "FE" }
+    ],
+    "sub": "Units · Basis · Conservation of Mass · Recycle · Purge · Bypass · Combustion · Degrees of Freedom"
+  },
+  {
+    "id": "thermo",
+    "colorClass": "domain-thermo",
+    "icon": "🔥",
+    "title": "Chemical &amp; Engineering Thermodynamics",
+    "certTags": [
+      { "cls": "ctag-core", "text": "CORE" },
+      { "cls": "ctag-pe", "text": "PE" }
+    ],
+    "sub": "1st &amp; 2nd Law · Enthalpy · Entropy · Gibbs · Equations of State · VLE · Cycles"
+  },
+  {
+    "id": "fluids",
+    "colorClass": "domain-fluids",
+    "icon": "🌊",
+    "title": "Fluid Mechanics",
+    "certTags": [
+      { "cls": "ctag-core", "text": "CORE" },
+      { "cls": "ctag-fe", "text": "FE" }
+    ],
+    "sub": "Bernoulli · Reynolds · Laminar/Turbulent · Friction Factor · Pumps · NPSH · Compressible Flow"
+  },
+  {
+    "id": "heat",
+    "colorClass": "domain-heat",
+    "icon": "♨️",
+    "title": "Heat Transfer",
+    "certTags": [
+      { "cls": "ctag-core", "text": "CORE" },
+      { "cls": "ctag-pe", "text": "PE" }
+    ],
+    "sub": "Conduction · Convection · Radiation · LMTD · NTU · Heat Exchangers · Fins · Boiling"
+  },
+  {
+    "id": "mass",
+    "colorClass": "domain-mass",
+    "icon": "💧",
+    "title": "Mass Transfer &amp; Separations",
+    "certTags": [
+      { "cls": "ctag-core", "text": "CORE" },
+      { "cls": "ctag-pe", "text": "PE" }
+    ],
+    "sub": "Diffusion · Distillation · McCabe-Thiele · Absorption · Extraction · Membranes · Adsorption"
+  },
+  {
+    "id": "kinetics",
+    "colorClass": "domain-kinetics",
+    "icon": "🧪",
+    "title": "Reaction Engineering &amp; Kinetics",
+    "certTags": [
+      { "cls": "ctag-core", "text": "CORE" },
+      { "cls": "ctag-adv", "text": "ADV" }
+    ],
+    "sub": "Rate Laws · Arrhenius · CSTR · PFR · Batch · Conversion · Selectivity · Catalysis"
+  },
+  {
+    "id": "control",
+    "colorClass": "domain-control",
+    "icon": "🎛️",
+    "title": "Process Dynamics &amp; Control",
+    "certTags": [
+      { "cls": "ctag-adv", "text": "ADV" },
+      { "cls": "ctag-pe", "text": "PE" }
+    ],
+    "sub": "Laplace · Transfer Functions · 1st/2nd Order · PID · Tuning · Stability · P&amp;ID"
+  },
+  {
+    "id": "bio",
+    "colorClass": "domain-bio",
+    "icon": "🧬",
+    "title": "Biochemical &amp; Biomolecular Engineering",
+    "certTags": [
+      { "cls": "ctag-bio", "text": "BIO" },
+      { "cls": "ctag-adv", "text": "ADV" }
+    ],
+    "sub": "DNA &amp; the Central Dogma · Proteins · Enzyme Kinetics · Fermentation · Bioreactors · Downstream"
+  },
+  {
+    "id": "transport",
+    "colorClass": "domain-transport",
+    "icon": "🔀",
+    "title": "Transport Phenomena",
+    "certTags": [
+      { "cls": "ctag-adv", "text": "ADV" }
+    ],
+    "sub": "Momentum · Energy · Mass Analogy · Navier-Stokes · Shell Balances · Dimensionless Groups"
+  },
+  {
+    "id": "unitops",
+    "colorClass": "domain-unitops",
+    "icon": "🏭",
+    "title": "Unit Operations &amp; Equipment",
+    "certTags": [
+      { "cls": "ctag-core", "text": "CORE" },
+      { "cls": "ctag-lab", "text": "LAB" }
+    ],
+    "sub": "Pumps · Compressors · Columns · Reactors · Filtration · Drying · Crystallization · Mixing"
+  },
+  {
+    "id": "safety",
+    "colorClass": "domain-safety",
+    "icon": "🦺",
+    "title": "Process Safety &amp; Ethics",
+    "certTags": [
+      { "cls": "ctag-safe", "text": "SAFE" },
+      { "cls": "ctag-pe", "text": "PE" }
+    ],
+    "sub": "HAZOP · LOPA · Relief Valves · Flammability · Toxicology · Bhopal · Engineering Ethics"
+  },
+  {
+    "id": "materials",
+    "colorClass": "domain-materials",
+    "icon": "🧱",
+    "title": "Materials, Polymers &amp; Corrosion",
+    "certTags": [
+      { "cls": "ctag-fund", "text": "FE" }
+    ],
+    "sub": "Crystal Structure · Phase Diagrams · Polymers · Metallurgy · Corrosion · Materials Selection"
+  },
+  {
+    "id": "chem",
+    "colorClass": "domain-chem",
+    "icon": "🧫",
+    "title": "Organic &amp; Analytical Chemistry",
+    "certTags": [
+      { "cls": "ctag-fund", "text": "FE" },
+      { "cls": "ctag-lab", "text": "LAB" }
+    ],
+    "sub": "Periodic Trends · Bonding · Acids/Bases · Functional Groups · Reactions · Spectroscopy"
+  },
+  {
+    "id": "design",
+    "colorClass": "domain-design",
+    "icon": "📐",
+    "title": "Process Design &amp; Economics",
+    "certTags": [
+      { "cls": "ctag-pe", "text": "PE" },
+      { "cls": "ctag-adv", "text": "CAPSTONE" }
+    ],
+    "sub": "PFD vs P&amp;ID · Capital &amp; Operating Cost · NPV · Payback · Optimization · Sustainability"
+  },
+  {
+    "id": "math",
+    "colorClass": "domain-math",
+    "icon": "🧮",
+    "title": "Engineering Math &amp; Numerical Methods",
+    "certTags": [
+      { "cls": "ctag-fund", "text": "FE" }
+    ],
+    "sub": "ODEs · Linear Algebra · Statistics · Root Finding · Integration · Regression · Dimensional Analysis"
+  }
+]

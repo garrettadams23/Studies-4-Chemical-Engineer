@@ -1,0 +1,29 @@
+name: build-check
+
+# Ensures index.html is always the exact output of `python build.py` over the
+# sources in data/*. Fails if someone hand-edited index.html or forgot to rebuild.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify-build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Rebuild index.html
+        run: python build.py
+
+      - name: Fail if index.html is stale
+        run: |
+          if ! git diff --exit-code -- index.html; then
+            echo "::error::index.html is out of date. Run 'python build.py' and commit the result."
+            exit 1
+          fi

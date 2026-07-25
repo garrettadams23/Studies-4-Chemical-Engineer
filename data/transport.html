@@ -1,0 +1,76 @@
+<!-- ── TOPIC: THE TRANSPORT ANALOGY ─────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔗</span>
+    <span class="topic-name">The Unified Transport Analogy</span>
+    <span class="topic-badge">FOUNDATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Momentum · Heat · Mass</div>
+      <div class="concept-title">One mathematical structure, three transports</div>
+      <div class="concept-desc">
+        Transport phenomena unifies fluid flow, heat transfer and diffusion under a single
+        framework: a <em>flux</em> is proportional to a <em>gradient</em> of a driving quantity.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE THREE FLUX LAWS</div>
+        <table class="ref-table">
+          <tr><th>Transport</th><th>Flux law</th><th>Named law</th></tr>
+          <tr><td style="color: var(--cyan)">Momentum</td><td>τ = −μ dv/dy</td><td>Newton's viscosity</td></tr>
+          <tr><td style="color: var(--red)">Heat</td><td>q = −k dT/dy</td><td>Fourier</td></tr>
+          <tr><td style="color: var(--green)">Mass</td><td>J = −D dC/dy</td><td>Fick</td></tr>
+        </table>
+        <div class="dt">▸ GENERAL SHELL BALANCE</div>
+        <pre class="code-block">Rate in − Rate out + Generation = Accumulation
+
+Apply over a thin shell → differential equation
+→ integrate with boundary conditions → profile</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🧠 Master the shell balance and you can derive the velocity, temperature and
+        concentration profiles for almost any 1-D geometry.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: NAVIER-STOKES & DIMENSIONLESS GROUPS ──────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🌐</span>
+    <span class="topic-name">Navier–Stokes &amp; Dimensionless Groups</span>
+    <span class="topic-badge">GOVERNING EQUATIONS</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Equations of Change</div>
+      <div class="concept-title">Conservation of momentum in a fluid</div>
+      <div class="concept-desc">
+        The <strong class="text-blue">Navier–Stokes equations</strong> are Newton's second law
+        for a continuum fluid. Dimensionless groups compress the physics into ratios that
+        govern scale-up and correlation.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ NAVIER–STOKES (incompressible)</div>
+        <pre class="code-block">ρ(∂v/∂t + v·∇v) = −∇P + μ∇²v + ρg
+   inertia          pressure  viscous  body force</pre>
+        <div class="dt">▸ KEY DIMENSIONLESS GROUPS</div>
+        <table class="ref-table">
+          <tr><th>Group</th><th>Ratio</th><th>Governs</th></tr>
+          <tr><td style="color: var(--cyan)">Reynolds (Re)</td><td>inertia / viscous</td><td>Flow regime</td></tr>
+          <tr><td style="color: var(--red)">Prandtl (Pr)</td><td>momentum / thermal diff.</td><td>Velocity vs. thermal BL</td></tr>
+          <tr><td style="color: var(--green)">Schmidt (Sc)</td><td>momentum / mass diff.</td><td>Velocity vs. conc. BL</td></tr>
+          <tr><td style="color: var(--amber)">Nusselt (Nu)</td><td>convective / conductive heat</td><td>h correlations</td></tr>
+          <tr><td style="color: var(--purple)">Sherwood (Sh)</td><td>convective / diffusive mass</td><td>k_c correlations</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🔬 Correlations take the form Nu = f(Re, Pr) and Sh = f(Re, Sc) — the heat/mass-transfer
+        analogy in action.
+      </div>
+    </div>
+  </div>
+</div>

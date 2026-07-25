@@ -1,0 +1,79 @@
+<!-- ── TOPIC: THREE MODES ───────────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🌡️</span>
+    <span class="topic-name">The Three Modes of Heat Transfer</span>
+    <span class="topic-badge">FOUNDATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Conduction · Convection · Radiation</div>
+      <div class="concept-title">Every heat path is one (or a mix) of three</div>
+      <div class="concept-desc">
+        Heat always flows from hot to cold. Design amounts to controlling the resistance to
+        that flow — insulating it, or intensifying it.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ GOVERNING LAWS</div>
+        <table class="ref-table">
+          <tr><th>Mode</th><th>Law</th><th>Driving factor</th></tr>
+          <tr><td style="color: var(--cyan)">Conduction</td><td>q = −kA dT/dx (Fourier)</td><td>Thermal conductivity k</td></tr>
+          <tr><td style="color: var(--green)">Convection</td><td>q = hA(T_s − T_∞) (Newton)</td><td>Film coefficient h</td></tr>
+          <tr><td style="color: var(--red)">Radiation</td><td>q = εσA(T₁⁴ − T₂⁴)</td><td>Emissivity ε, T⁴</td></tr>
+        </table>
+        <div class="dt">▸ THERMAL RESISTANCE NETWORK</div>
+        <pre class="code-block">q = ΔT / ΣR      (resistances in series add)
+
+Conduction (plane):  R = L / (kA)
+Convection:           R = 1 / (hA)
+Composite wall:       R_total = ΣR_i</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🔗 The resistance analogy (à la Ohm's law) lets you stack walls, films and insulation
+        into one overall U-value.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: HEAT EXCHANGERS & LMTD ────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔥</span>
+    <span class="topic-name">Heat Exchangers — LMTD &amp; NTU</span>
+    <span class="topic-badge">DESIGN</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Sizing &amp; Rating</div>
+      <div class="concept-title">How much area to transfer a given duty</div>
+      <div class="concept-desc">
+        The shell-and-tube exchanger is the workhorse of the process industries. Two
+        methods size it: <strong class="text-blue">LMTD</strong> when outlet temps are known,
+        <strong class="text-purple">ε-NTU</strong> when they are not.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ LMTD METHOD</div>
+        <pre class="code-block">Q = U · A · F · ΔT_lm
+
+ΔT_lm = (ΔT₁ − ΔT₂) / ln(ΔT₁/ΔT₂)
+
+U = overall heat-transfer coefficient
+F = correction factor (1.0 for true counter-current)</pre>
+        <div class="dt">▸ FLOW ARRANGEMENTS</div>
+        <table class="ref-table">
+          <tr><th>Arrangement</th><th>Characteristic</th></tr>
+          <tr><td style="color: var(--green)">Counter-current</td><td>Highest ΔT_lm; most efficient</td></tr>
+          <tr><td style="color: var(--amber)">Co-current</td><td>Outlet temps can only approach, not cross</td></tr>
+          <tr><td style="color: var(--cyan)">Cross-flow</td><td>Common in air coolers; uses F factor</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🧼 <strong class="text-red">Fouling</strong> adds a resistance R_f that degrades U over
+        time — designers add a fouling allowance and schedule cleaning.
+      </div>
+    </div>
+  </div>
+</div>

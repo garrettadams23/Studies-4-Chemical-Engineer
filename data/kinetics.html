@@ -1,0 +1,115 @@
+<!-- ── TOPIC: RATE LAWS & ARRHENIUS ─────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📈</span>
+    <span class="topic-name">Rate Laws &amp; the Arrhenius Equation</span>
+    <span class="topic-badge">FOUNDATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">How Fast &amp; Why</div>
+      <div class="concept-title">Concentration and temperature set the rate</div>
+      <div class="concept-desc">
+        Kinetics answers <em>how fast</em> a reaction proceeds — the dimension thermodynamics
+        ignores. Rate laws are empirical; the Arrhenius form captures the steep temperature
+        dependence.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ RATE LAW &amp; ORDER</div>
+        <pre class="code-block">−r_A = k · C_A^a · C_B^b        order = a + b
+
+Zero order:  C_A = C_A0 − kt
+First order: ln(C_A/C_A0) = −kt      (t½ = ln2/k)
+Second:      1/C_A − 1/C_A0 = kt</pre>
+        <div class="dt">▸ ARRHENIUS TEMPERATURE LAW</div>
+        <pre class="code-block">k = A · exp(−E_a / R T)
+
+ln k = ln A − (E_a/R)(1/T)   → straight line
+
+A   = pre-exponential (frequency) factor
+E_a = activation energy   (↑ E_a ⇒ more T-sensitive)</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🌡️ Rule of thumb: many reaction rates roughly double for every +10 °C — a direct
+        consequence of the exponential Arrhenius term.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: IDEAL REACTORS ────────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🛢️</span>
+    <span class="topic-name">Ideal Reactors — Batch, CSTR &amp; PFR</span>
+    <span class="topic-badge">DESIGN</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Three Design Equations</div>
+      <div class="concept-title">Mixing pattern decides the size</div>
+      <div class="concept-desc">
+        Every reactor design starts from a mole balance on the limiting reactant. Idealized
+        mixing gives three canonical models.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ DESIGN EQUATIONS</div>
+        <table class="ref-table">
+          <tr><th>Reactor</th><th>Mole balance</th><th>Mixing</th></tr>
+          <tr><td style="color: var(--cyan)">Batch</td><td>N_A0 dX/dt = −r_A V</td><td>Perfect, transient</td></tr>
+          <tr><td style="color: var(--green)">CSTR</td><td>V = F_A0 X / (−r_A)</td><td>Perfectly mixed, uniform</td></tr>
+          <tr><td style="color: var(--amber)">PFR</td><td>V = F_A0 ∫ dX/(−r_A)</td><td>No axial mixing (plug)</td></tr>
+        </table>
+        <div class="dt">▸ CSTR vs. PFR</div>
+        <pre class="code-block">For positive-order kinetics at equal conversion:
+  V_PFR  <  V_CSTR     (PFR is smaller / more efficient)
+
+CSTR operates at the LOW exit concentration everywhere,
+so its average rate is lower ⇒ it needs more volume.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🔗 CSTRs in series approach PFR behavior as N → ∞ — a practical way to get plug-flow
+        performance with stirred tanks.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: SELECTIVITY & CATALYSIS ───────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">✨</span>
+    <span class="topic-name">Selectivity, Yield &amp; Catalysis</span>
+    <span class="topic-badge">MULTIPLE REACTIONS</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Getting the Right Product</div>
+      <div class="concept-title">Conversion isn't the whole story</div>
+      <div class="concept-desc">
+        When side reactions compete, maximizing the <strong class="text-green">desired</strong>
+        product matters more than raw conversion. Catalysts change the game by lowering E_a.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ KEY METRICS</div>
+        <pre class="code-block">Conversion X = (A reacted)/(A fed)
+Selectivity  = (desired formed)/(undesired formed)
+Yield        = (desired formed)/(A fed)</pre>
+        <div class="dt">▸ CATALYSIS</div>
+        <table class="ref-table">
+          <tr><th>Type</th><th>Example</th></tr>
+          <tr><td style="color: var(--cyan)">Homogeneous</td><td>Acid catalysis, organometallics (same phase)</td></tr>
+          <tr><td style="color: var(--green)">Heterogeneous</td><td>Solid catalyst, gas/liquid reactant (Haber, catalytic cracking)</td></tr>
+          <tr><td style="color: var(--purple)">Enzymatic</td><td>Biological catalysts — see Enzyme Kinetics (Bio domain)</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        ⚗️ A catalyst speeds both forward and reverse rates equally — it changes the
+        <em>path</em>, never the equilibrium position.
+      </div>
+    </div>
+  </div>
+</div>

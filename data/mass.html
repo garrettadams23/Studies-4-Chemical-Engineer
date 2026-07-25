@@ -1,0 +1,114 @@
+<!-- ── TOPIC: DIFFUSION ─────────────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">💠</span>
+    <span class="topic-name">Molecular Diffusion — Fick's Laws</span>
+    <span class="topic-badge">FOUNDATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Species Move Down Gradients</div>
+      <div class="concept-title">The mass-transfer analog of Fourier's law</div>
+      <div class="concept-desc">
+        Separations exploit differences in how fast species move between phases. At the
+        molecular scale that motion obeys <strong class="text-blue">Fick's laws</strong>.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ FICK'S LAWS</div>
+        <pre class="code-block">1st law (steady):   J_A = −D_AB (dC_A/dz)
+2nd law (transient): ∂C_A/∂t = D_AB ∂²C_A/∂z²
+
+D_AB = binary diffusivity  (gas ≫ liquid ≫ solid)
+Flux driven by a concentration gradient.</pre>
+        <div class="dt">▸ THE TRANSPORT ANALOGY</div>
+        <table class="ref-table">
+          <tr><th>Transport</th><th>Flux law</th><th>Diffusivity</th></tr>
+          <tr><td style="color: var(--cyan)">Momentum</td><td>τ = −μ dv/dy</td><td>ν = μ/ρ</td></tr>
+          <tr><td style="color: var(--red)">Heat</td><td>q = −k dT/dy</td><td>α = k/ρc_p</td></tr>
+          <tr><td style="color: var(--green)">Mass</td><td>J = −D dC/dy</td><td>D_AB</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🔬 The three transport diffusivities have identical units (m²/s) — the basis of the
+        Prandtl / Schmidt / Lewis number analogies.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: DISTILLATION & McCABE-THIELE ──────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🗼</span>
+    <span class="topic-name">Distillation &amp; the McCabe–Thiele Method</span>
+    <span class="topic-badge">SEPARATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Stage-by-Stage Separation</div>
+      <div class="concept-title">Trading reflux for stages</div>
+      <div class="concept-desc">
+        The most important separation in the chemical industry. McCabe–Thiele graphically
+        counts the equilibrium stages a column needs for a target purity.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ OPERATING LINES</div>
+        <pre class="code-block">Rectifying:  y = (R/(R+1)) x + x_D/(R+1)
+Stripping:   y = (L̄/V̄) x − (W/V̄) x_W
+q-line:      slope = q/(q−1)   (feed condition)
+
+R = reflux ratio (L/D)</pre>
+        <div class="dt">▸ LIMITING CASES</div>
+        <table class="ref-table">
+          <tr><th>Case</th><th>Meaning</th></tr>
+          <tr><td style="color: var(--green)">Total reflux</td><td>Minimum stages (N_min, Fenske)</td></tr>
+          <tr><td style="color: var(--amber)">Minimum reflux</td><td>Infinite stages (R_min, Underwood)</td></tr>
+          <tr><td style="color: var(--cyan)">Actual design</td><td>R ≈ 1.2–1.5 × R_min (Gilliland)</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        ⚖️ More reflux ⇒ fewer stages but higher energy. The reflux/stage trade-off is the
+        central economic decision in column design.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: ABSORPTION, EXTRACTION & MEMBRANES ────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧴</span>
+    <span class="topic-name">Absorption, Extraction &amp; Membranes</span>
+    <span class="topic-badge">SURVEY</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Other Separation Routes</div>
+      <div class="concept-title">When distillation isn't the answer</div>
+      <div class="concept-desc">
+        Heat-sensitive, dilute, or close-boiling systems call for separations driven by
+        solubility, partitioning, or selective permeation.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ SEPARATION MENU</div>
+        <table class="ref-table">
+          <tr><th>Operation</th><th>Driving property</th><th>Typical use</th></tr>
+          <tr><td style="color: var(--cyan)">Gas absorption</td><td>Solubility (Henry's law)</td><td>Scrubbing CO₂, H₂S from gas</td></tr>
+          <tr><td style="color: var(--green)">Liquid extraction</td><td>Partition coefficient</td><td>Recover antibiotics, aromatics</td></tr>
+          <tr><td style="color: var(--purple)">Membranes</td><td>Selective permeability</td><td>RO desalination, gas separation</td></tr>
+          <tr><td style="color: var(--amber)">Adsorption</td><td>Surface affinity</td><td>Drying, PSA O₂/N₂, water polishing</td></tr>
+        </table>
+        <div class="dt">▸ HENRY'S LAW</div>
+        <pre class="code-block">p_A = H · x_A      (dilute gas dissolving in liquid)
+H = Henry's constant  (↑ H ⇒ less soluble)</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🧬 Membrane separations (ultrafiltration, RO, chromatography) are central to
+        downstream <em>bioprocessing</em> — see the Biochemical domain.
+      </div>
+    </div>
+  </div>
+</div>
