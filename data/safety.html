@@ -1,0 +1,120 @@
+<!-- ── TOPIC: HAZARD ANALYSIS ───────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔍</span>
+    <span class="topic-name">HAZOP, LOPA &amp; Layers of Protection</span>
+    <span class="topic-badge">FOUNDATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Systematic Risk Assessment</div>
+      <div class="concept-title">Finding what can go wrong before it does</div>
+      <div class="concept-desc">
+        Process safety is a discipline of <em>defense in depth</em>. Structured methods
+        systematically hunt for deviations and verify that enough independent safeguards stand
+        between a cause and a catastrophe.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ HAZOP GUIDE WORDS</div>
+        <table class="ref-table">
+          <tr><th>Guide word</th><th>Deviation</th></tr>
+          <tr><td style="color: var(--red)">NO / NONE</td><td>No flow, no reaction</td></tr>
+          <tr><td style="color: var(--amber)">MORE</td><td>High flow, pressure, temperature</td></tr>
+          <tr><td style="color: var(--cyan)">LESS</td><td>Low flow, level, temperature</td></tr>
+          <tr><td style="color: var(--green)">REVERSE / AS WELL AS</td><td>Backflow, contamination</td></tr>
+        </table>
+        <div class="dt">▸ LAYERS OF PROTECTION (LOPA)</div>
+        <pre class="code-block">1. Process design (inherent safety)
+2. Basic process control (BPCS)
+3. Alarms + operator action
+4. Safety Instrumented System (SIS / SIL-rated)
+5. Physical relief (PSV, rupture disk)
+6. Containment (dike, blast wall)
+7. Emergency response
+
+Each independent layer reduces risk multiplicatively.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🛡️ The best safeguard is <strong class="text-green">inherent safety</strong> — reduce
+        inventory, substitute benign chemicals, moderate conditions — so hazards are designed
+        out, not guarded against.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: RELIEF & FLAMMABILITY ─────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">💥</span>
+    <span class="topic-name">Relief Systems &amp; Flammability</span>
+    <span class="topic-badge">PHYSICAL DEFENSE</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">The Last Lines of Defense</div>
+      <div class="concept-title">Venting overpressure &amp; avoiding the fire triangle</div>
+      <div class="concept-desc">
+        When controls fail, pressure relief prevents vessel rupture, and understanding
+        flammability limits prevents ignition in the first place.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ FLAMMABILITY LIMITS</div>
+        <pre class="code-block">Too lean ── LFL ──[ FLAMMABLE ]── UFL ── Too rich
+
+LFL = Lower Flammability Limit
+UFL = Upper Flammability Limit
+Flash point = lowest T giving an ignitable vapor
+Autoignition T = ignites without a spark</pre>
+        <div class="dt">▸ THE FIRE TRIANGLE — remove any leg</div>
+        <table class="ref-table">
+          <tr><th>Leg</th><th>Control</th></tr>
+          <tr><td style="color: var(--red)">Fuel</td><td>Inerting, purging, ventilation</td></tr>
+          <tr><td style="color: var(--cyan)">Oxidizer</td><td>Nitrogen blanketing (&lt; LOC)</td></tr>
+          <tr><td style="color: var(--amber)">Ignition</td><td>Bonding/grounding, classified areas</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🕯️ <strong class="text-red">Bhopal (1984)</strong> and <strong class="text-red">Flixborough
+        (1974)</strong> are the case studies every chemical engineer studies — inventory, siting
+        and management-of-change failures with catastrophic outcomes.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: ENGINEERING ETHICS ────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">⚖️</span>
+    <span class="topic-name">Engineering Ethics &amp; Responsibility</span>
+    <span class="topic-badge">PROFESSIONAL</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">The Engineer's Duty</div>
+      <div class="concept-title">Public safety, health &amp; welfare come first</div>
+      <div class="concept-desc">
+        Professional codes (AIChE, NSPE) place a paramount obligation on engineers to protect
+        the public — above client and employer interests.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ CORE CANONS</div>
+        <table class="ref-table">
+          <tr><th>Principle</th><th>Meaning</th></tr>
+          <tr><td style="color: var(--green)">Paramountcy</td><td>Hold public safety, health &amp; welfare paramount</td></tr>
+          <tr><td style="color: var(--cyan)">Competence</td><td>Practice only in areas of competence</td></tr>
+          <tr><td style="color: var(--amber)">Honesty</td><td>Objective, truthful statements; disclose conflicts</td></tr>
+          <tr><td style="color: var(--purple)">Sustainability</td><td>Protect the environment for future generations</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🤝 "Management of change" — every process modification, however small, must be formally
+        reviewed for new hazards. Skipping it caused Flixborough.
+      </div>
+    </div>
+  </div>
+</div>

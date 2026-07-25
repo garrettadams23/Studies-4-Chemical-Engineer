@@ -1,0 +1,1956 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>
+Chemical Engineering Reference — Concepts, Cycles, Diagrams &amp; Equations
+</title>
+<!-- Self-hosted fonts (works offline / over file://; no third-party calls) -->
+<link rel="stylesheet" href="Img/fonts.css" />
+<link rel="stylesheet" href="style.css" />
+<link rel="icon" type="image/png" href="Img/favicon/favicon-96x96.png" sizes="96x96" />
+<link rel="shortcut icon" href="Img/favicon/favicon.ico" />
+<link rel="apple-touch-icon" sizes="180x180" href="Img/favicon/apple-touch-icon.png" />
+<link rel="manifest" href="Img/favicon/site.webmanifest" />
+</head>
+<body>
+<header>
+<div class="header-inner">
+<div class="header-content">
+<div class="header-top-row">
+<div class="header-badge">
+Chemical Engineering Reference · 2026 Edition
+</div>
+<div class="header-controls" id="header-controls">
+<button class="sw-btn" id="hdr-theme-btn" role="switch" aria-checked="false" aria-label="Toggle light / dark" title="Toggle light / dark">
+<span class="sw-sun">☀</span>
+<span class="sw-track"><span class="sw-thumb"></span></span>
+<span class="sw-moon">☾</span>
+</button>
+<button class="sw-btn" id="hdr-expand-btn" role="switch" aria-checked="false" aria-label="Expand all sections" title="Expand / collapse all">
+<span class="sw-text">EXPAND</span>
+<span class="sw-track"><span class="sw-thumb"></span></span>
+</button>
+</div>
+</div>
+<h1>Cycles, Concepts <span>&amp; Diagrams</span> — ChemE Topic Reference</h1>
+<p>
+Interactive drop-down reference organized by chemical-engineering
+domain. Covers material &amp; energy balances, thermodynamics,
+fluid mechanics, heat &amp; mass transfer, reaction engineering,
+process control, biochemical engineering (incl. DNA), transport
+phenomena, unit operations, process safety, materials, chemistry,
+plant design, and engineering math.
+</p>
+<div class="snap-quote" id="snap-quote">
+<span class="sq-mark">"</span>
+<span class="sq-text" id="sq-text"></span>
+<span class="sq-mark">"</span>
+</div>
+</div>
+<div class="header-image">
+<img
+src="Img/Studying-Tips.png"
+alt="Optimized Study Routine: 4 Pillars for Success infographic."
+/>
+</div>
+</div>
+</header>
+<div class="filter-bar">
+<div class="filter-inner">
+<div class="chip c-all active"     data-domain="all">◈ ALL DOMAINS</div>
+<div class="chip c-stoich"         data-domain="stoich">⚗️ MATERIAL BALANCES</div>
+<div class="chip c-thermo"         data-domain="thermo">🔥 THERMODYNAMICS</div>
+<div class="chip c-fluids"         data-domain="fluids">🌊 FLUID MECHANICS</div>
+<div class="chip c-heat"           data-domain="heat">♨️ HEAT TRANSFER</div>
+<div class="chip c-mass"           data-domain="mass">💧 MASS TRANSFER</div>
+<div class="chip c-kinetics"       data-domain="kinetics">🧪 REACTION ENG</div>
+<div class="chip c-control"        data-domain="control">🎛️ PROCESS CONTROL</div>
+<div class="chip c-bio"            data-domain="bio">🧬 BIOCHEMICAL</div>
+<div class="chip c-transport"      data-domain="transport">🔀 TRANSPORT PHENOMENA</div>
+<div class="chip c-unitops"        data-domain="unitops">🏭 UNIT OPERATIONS</div>
+<div class="chip c-safety"         data-domain="safety">🦺 PROCESS SAFETY</div>
+<div class="chip c-materials"      data-domain="materials">🧱 MATERIALS</div>
+<div class="chip c-chem"           data-domain="chem">🧫 CHEMISTRY</div>
+<div class="chip c-design"         data-domain="design">📐 PROCESS DESIGN</div>
+<div class="chip c-math"           data-domain="math">🧮 ENG MATH</div>
+</div>
+</div>
+<!-- SEARCH BAR ──────────────────────────────────────────────────────── -->
+<div class="search-bar" id="search-bar">
+<div class="search-inner">
+<span class="search-icon">⌕</span>
+<input
+id="search-input"
+class="search-input"
+type="search"
+placeholder="Search topics, concepts, equations…"
+oninput="onSearchInput(this.value)"
+autocomplete="off"
+spellcheck="false"
+/>
+<button class="search-clear" id="search-clear" onclick="clearSearch()" title="Clear search">✕</button>
+<span class="search-count" id="search-count"></span>
+</div>
+</div>
+<!-- /search-bar -->
+<!-- /container -->
+<div class="container" id="domain-container">
+<div class="domain-section domain-stoich" data-domain="stoich">
+<div class="domain-header">
+<span class="domain-icon">⚗️</span>
+<span class="domain-title">Stoichiometry &amp; Material Balances</span>
+<div class="cert-tags">
+<span class="ctag ctag-core">CORE</span>
+<span class="ctag ctag-fund">FE</span>
+</div>
+<span class="domain-sub">Units · Basis · Conservation of Mass · Recycle · Purge · Bypass · Combustion · Degrees of Freedom</span>
+<span class="chevron">▾</span>
+</div>
+<div class="domain-body">
+<!-- ── TOPIC: CONSERVATION OF MASS ─────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">⚖️</span>
+<span class="topic-name">The General Balance Equation</span>
+<span class="topic-badge">FOUNDATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Conservation Law</div>
+<div class="concept-title">In = Out + Generation − Consumption − Accumulation</div>
+<div class="concept-desc">
+Every material and energy balance in chemical engineering descends from a single
+bookkeeping statement applied to a defined <strong class="text-blue">control volume</strong>.
+Choose a basis, draw the boundary, then account for everything that crosses it.
+</div>
+<div class="dw">
+<div class="dt">▸ THE GENERAL BALANCE</div>
+<pre class="code-block">Accumulation = In − Out + Generation − Consumption
+
+Steady state  →  Accumulation = 0
+Non-reactive  →  Generation = Consumption = 0
+  ⇒ In = Out   (total mass always conserved)</pre>
+<div class="dt">▸ BALANCE TYPES</div>
+<table class="ref-table">
+<tr><th>Quantity</th><th>Conserved?</th><th>Notes</th></tr>
+<tr><td style="color: var(--green)">Total mass</td><td>Always</td><td>No generation term (non-nuclear)</td></tr>
+<tr><td style="color: var(--cyan)">Total moles</td><td>Not always</td><td>Changes when moles react (A + B → C)</td></tr>
+<tr><td style="color: var(--amber)">Element / atom</td><td>Always</td><td>Atoms are conserved in every reaction</td></tr>
+<tr><td style="color: var(--red)">Energy</td><td>Always</td><td>1st Law; includes heat &amp; work</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+💡 <strong class="text-green">Strategy:</strong> pick the balance that gives the most
+equations with the fewest unknowns — atom balances shine for combustion, component
+balances for separations.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: RECYCLE, BYPASS & PURGE ──────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔁</span>
+<span class="topic-name">Recycle, Bypass &amp; Purge</span>
+<span class="topic-badge">FLOWSHEET</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Multi-Unit Balances</div>
+<div class="concept-title">Improving conversion and controlling inerts</div>
+<div class="concept-desc">
+Real plants rarely convert feed in one pass. Three flow structures reshape the
+overall vs. single-pass performance.
+</div>
+<div class="dw">
+<div class="dt">▸ THE THREE STRUCTURES</div>
+<table class="ref-table">
+<tr><th>Structure</th><th>Purpose</th><th>Key effect</th></tr>
+<tr><td style="color: var(--cyan)">Recycle</td><td>Return unreacted feed</td><td>Overall conversion ≫ single-pass conversion</td></tr>
+<tr><td style="color: var(--green)">Bypass</td><td>Split stream around a unit</td><td>Blend to hit a target spec</td></tr>
+<tr><td style="color: var(--amber)">Purge</td><td>Bleed off a recycle loop</td><td>Prevents inert / impurity build-up</td></tr>
+</table>
+<div class="dt">▸ CONVERSION DEFINITIONS</div>
+<pre class="code-block">Single-pass X = (reacted in reactor) / (fed to reactor)
+Overall     X = (reacted in reactor) / (fresh feed to process)
+
+With recycle:  Overall X  >  Single-pass X</pre>
+</div>
+<div class="info-bar ib-muted">
+🧷 A steady recycle loop with a reaction that produces an inert <em>must</em> have a
+purge, or the inert accumulates without bound.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: COMBUSTION & DEGREES OF FREEDOM ──────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔥</span>
+<span class="topic-name">Combustion &amp; Degree-of-Freedom Analysis</span>
+<span class="topic-badge">METHOD</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Solvability</div>
+<div class="concept-title">Counting equations before you solve</div>
+<div class="concept-desc">
+A <strong class="text-purple">degree-of-freedom (DOF)</strong> analysis tells you
+whether a problem is solvable <em>before</em> algebra begins.
+</div>
+<div class="dw">
+<div class="dt">▸ DOF FORMULA</div>
+<pre class="code-block">DOF = (unknowns) − (independent balances)
+          − (specifications) − (given relations)
+
+DOF = 0  → exactly solvable
+DOF > 0  → underspecified (need more info)
+DOF < 0  → overspecified (possible inconsistency)</pre>
+<div class="dt">▸ COMBUSTION VOCABULARY</div>
+<table class="ref-table">
+<tr><th>Term</th><th>Meaning</th></tr>
+<tr><td style="color: var(--amber)">Theoretical air</td><td>Exact O₂ for complete combustion to CO₂ + H₂O</td></tr>
+<tr><td style="color: var(--green)">Excess air</td><td>Air supplied above theoretical (drives completion)</td></tr>
+<tr><td style="color: var(--cyan)">Wet / dry basis</td><td>Flue-gas analysis with / without water vapor</td></tr>
+<tr><td style="color: var(--red)">Orsat analysis</td><td>Classic dry flue-gas composition measurement</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🎯 Atom balances (C, H, O, N) are the workhorse of combustion problems — one equation per element.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="domain-section domain-thermo" data-domain="thermo">
+<div class="domain-header">
+<span class="domain-icon">🔥</span>
+<span class="domain-title">Chemical &amp; Engineering Thermodynamics</span>
+<div class="cert-tags">
+<span class="ctag ctag-core">CORE</span>
+<span class="ctag ctag-pe">PE</span>
+</div>
+<span class="domain-sub">1st &amp; 2nd Law · Enthalpy · Entropy · Gibbs · Equations of State · VLE · Cycles</span>
+<span class="chevron">▾</span>
+</div>
+<div class="domain-body">
+<!-- ── TOPIC: THE FOUR LAWS ─────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">📜</span>
+<span class="topic-name">The Laws of Thermodynamics</span>
+<span class="topic-badge">FOUNDATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">First Principles</div>
+<div class="concept-title">Energy is conserved; entropy sets the direction</div>
+<div class="concept-desc">
+Thermodynamics governs what processes are possible and how much useful work they
+can deliver. Four laws frame every energy balance a chemical engineer writes.
+</div>
+<div class="dw">
+<div class="dt">▸ THE LAWS</div>
+<table class="ref-table">
+<tr><th>Law</th><th>Statement</th><th>Consequence</th></tr>
+<tr><td style="color: var(--cyan)">Zeroth</td><td>Thermal equilibrium is transitive</td><td>Temperature is well-defined</td></tr>
+<tr><td style="color: var(--green)">First</td><td>ΔU = Q − W</td><td>Energy conserved; no perpetual motion (1st kind)</td></tr>
+<tr><td style="color: var(--amber)">Second</td><td>ΔS<sub>univ</sub> ≥ 0</td><td>Heat won't spontaneously flow cold→hot</td></tr>
+<tr><td style="color: var(--red)">Third</td><td>S → 0 as T → 0 K</td><td>Absolute zero is unattainable</td></tr>
+</table>
+<div class="dt">▸ OPEN-SYSTEM ENERGY BALANCE (STEADY)</div>
+<pre class="code-block">Q̇ − Ẇs = Σ ṁ_out (h + v²/2 + gz)
+              − Σ ṁ_in  (h + v²/2 + gz)
+
+Often the KE and PE terms are negligible:
+  Q̇ − Ẇs = ṁ Δh</pre>
+</div>
+<div class="info-bar ib-muted">
+🔑 Enthalpy h = u + Pv bundles internal energy with flow work — it is the natural
+state variable for open (flow) systems.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: ENTROPY & GIBBS ───────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🎲</span>
+<span class="topic-name">Entropy, Gibbs Energy &amp; Spontaneity</span>
+<span class="topic-badge">2ND LAW</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Direction of Change</div>
+<div class="concept-title">ΔG decides whether a process will go</div>
+<div class="concept-desc">
+At constant T and P the <strong class="text-purple">Gibbs free energy</strong>
+packages the 1st and 2nd laws into one criterion for spontaneity and equilibrium.
+</div>
+<div class="dw">
+<div class="dt">▸ GIBBS CRITERION</div>
+<pre class="code-block">G = H − TS        dG = V dP − S dT
+
+ΔG < 0  → spontaneous (favorable)
+ΔG = 0  → at equilibrium
+ΔG > 0  → non-spontaneous (needs work / coupling)
+
+ΔG° = −RT ln K      (reaction equilibrium constant)</pre>
+<div class="dt">▸ ENTHALPY–ENTROPY SIGN MAP</div>
+<table class="ref-table">
+<tr><th>ΔH</th><th>ΔS</th><th>Spontaneous?</th></tr>
+<tr><td style="color: var(--green)">−</td><td>+</td><td>Always (all T)</td></tr>
+<tr><td style="color: var(--red)">+</td><td>−</td><td>Never</td></tr>
+<tr><td style="color: var(--amber)">−</td><td>−</td><td>Only at low T</td></tr>
+<tr><td style="color: var(--cyan)">+</td><td>+</td><td>Only at high T</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+♨️ Le Chatelier: raise T on an endothermic reaction (ΔH &gt; 0) and equilibrium shifts
+toward products — consistent with ΔG° = ΔH° − TΔS°.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: EQUATIONS OF STATE & VLE ──────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🫧</span>
+<span class="topic-name">Equations of State &amp; Vapor–Liquid Equilibrium</span>
+<span class="topic-badge">PHASE BEHAVIOR</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">P–V–T &amp; Phase Split</div>
+<div class="concept-title">From ideal gas to cubic EOS and Raoult's law</div>
+<div class="concept-desc">
+Predicting how a mixture splits between vapor and liquid is the beating heart of
+separations design.
+</div>
+<div class="dw">
+<div class="dt">▸ EQUATIONS OF STATE</div>
+<table class="ref-table">
+<tr><th>Model</th><th>Form / use</th></tr>
+<tr><td style="color: var(--cyan)">Ideal gas</td><td>PV = nRT — low P, high T</td></tr>
+<tr><td style="color: var(--green)">Van der Waals</td><td>Adds a (attraction) &amp; b (volume)</td></tr>
+<tr><td style="color: var(--amber)">Peng–Robinson</td><td>Cubic EOS, excellent for hydrocarbons</td></tr>
+<tr><td style="color: var(--purple)">Soave–RK</td><td>Cubic EOS, common in process simulators</td></tr>
+</table>
+<div class="dt">▸ VLE RELATIONS</div>
+<pre class="code-block">Raoult's law (ideal):   y_i P = x_i P_i^sat
+Modified Raoult:        y_i P = x_i γ_i P_i^sat
+Relative volatility:    α = (y_A/x_A)/(y_B/x_B)
+
+α > 1  → separation by distillation is feasible
+α → 1  → separation becomes very difficult</pre>
+</div>
+<div class="info-bar ib-muted">
+🌡️ An <strong class="text-red">azeotrope</strong> (α = 1) can't be broken by ordinary
+distillation — you need pressure-swing, extractive, or azeotropic distillation.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="domain-section domain-fluids" data-domain="fluids">
+<div class="domain-header">
+<span class="domain-icon">🌊</span>
+<span class="domain-title">Fluid Mechanics</span>
+<div class="cert-tags">
+<span class="ctag ctag-core">CORE</span>
+<span class="ctag ctag-fe">FE</span>
+</div>
+<span class="domain-sub">Bernoulli · Reynolds · Laminar/Turbulent · Friction Factor · Pumps · NPSH · Compressible Flow</span>
+<span class="chevron">▾</span>
+</div>
+<div class="domain-body">
+<!-- ── TOPIC: BERNOULLI & MECHANICAL ENERGY ─────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🪈</span>
+<span class="topic-name">Bernoulli &amp; the Mechanical Energy Balance</span>
+<span class="topic-badge">FOUNDATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Energy Along a Streamline</div>
+<div class="concept-title">Pressure, velocity and elevation trade off</div>
+<div class="concept-desc">
+Bernoulli's equation is the frictionless mechanical-energy balance; the engineering
+(extended) form adds pump work and friction losses.
+</div>
+<div class="dw">
+<div class="dt">▸ EXTENDED BERNOULLI (per unit mass)</div>
+<pre class="code-block">P₁/ρ + v₁²/2 + g z₁ + w_pump
+  = P₂/ρ + v₂²/2 + g z₂ + h_friction
+
+Ideal (no pump, no friction):
+  P/ρ + v²/2 + gz = constant</pre>
+<div class="dt">▸ WHAT EACH TERM IS</div>
+<table class="ref-table">
+<tr><th>Term</th><th>Meaning</th></tr>
+<tr><td style="color: var(--cyan)">P/ρ</td><td>Flow (pressure) energy</td></tr>
+<tr><td style="color: var(--green)">v²/2</td><td>Kinetic energy</td></tr>
+<tr><td style="color: var(--amber)">gz</td><td>Potential (elevation) energy</td></tr>
+<tr><td style="color: var(--red)">h_friction</td><td>Irreversible loss — always positive</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+💨 Faster flow ⇒ lower static pressure (the Venturi effect) — the physics behind
+flow meters, aspirators and lift.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: REYNOLDS & FRICTION ───────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🌀</span>
+<span class="topic-name">Reynolds Number &amp; Pipe Friction</span>
+<span class="topic-badge">FLOW REGIME</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Laminar vs. Turbulent</div>
+<div class="concept-title">One dimensionless group predicts the regime</div>
+<div class="concept-desc">
+The <strong class="text-blue">Reynolds number</strong> compares inertial to viscous
+forces and sets the whole character of the flow — and thus the pressure drop.
+</div>
+<div class="dw">
+<div class="dt">▸ REYNOLDS NUMBER &amp; REGIMES</div>
+<pre class="code-block">Re = ρ v D / μ = v D / ν
+
+Re < 2100      → laminar   (f = 64/Re)
+2100–4000      → transition
+Re > 4000      → turbulent (Colebrook / Moody chart)</pre>
+<div class="dt">▸ PRESSURE DROP (DARCY–WEISBACH)</div>
+<pre class="code-block">ΔP = f · (L/D) · (ρ v² / 2)
+
+f  = Darcy friction factor (from Re + ε/D)
+L  = pipe length      D = inside diameter
+ε  = roughness        ε/D = relative roughness</pre>
+</div>
+<div class="info-bar ib-muted">
+📊 The <strong class="text-amber">Moody chart</strong> plots f vs. Re for a family of
+relative-roughness curves — the classic tool for turbulent pipe sizing.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: PUMPS & NPSH ──────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">⚙️</span>
+<span class="topic-name">Pumps, Head Curves &amp; NPSH</span>
+<span class="topic-badge">EQUIPMENT</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Moving Liquids</div>
+<div class="concept-title">Operating point &amp; the cavitation limit</div>
+<div class="concept-desc">
+A centrifugal pump runs where its <strong class="text-green">head curve</strong>
+crosses the <strong class="text-red">system curve</strong>. Too little suction head
+and the liquid flashes — cavitation.
+</div>
+<div class="dw">
+<div class="dt">▸ NPSH — THE CAVITATION GUARD</div>
+<pre class="code-block">NPSH_available = (P_suction − P_vapor)/(ρg) + v²/2g − h_losses
+NPSH_required  = pump datasheet value
+
+Rule:  NPSH_available > NPSH_required
+       (typical margin ≥ 0.5–1 m)  ⇒ no cavitation</pre>
+<div class="dt">▸ AFFINITY LAWS (SPEED N)</div>
+<table class="ref-table">
+<tr><th>Quantity</th><th>Scales as</th></tr>
+<tr><td style="color: var(--cyan)">Flow Q</td><td>∝ N</td></tr>
+<tr><td style="color: var(--green)">Head H</td><td>∝ N²</td></tr>
+<tr><td style="color: var(--amber)">Power P</td><td>∝ N³</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+⚠️ Cavitation pits impellers and collapses head — chronic low NPSH is a top cause of
+pump failure in the field.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="domain-section domain-heat" data-domain="heat">
+<div class="domain-header">
+<span class="domain-icon">♨️</span>
+<span class="domain-title">Heat Transfer</span>
+<div class="cert-tags">
+<span class="ctag ctag-core">CORE</span>
+<span class="ctag ctag-pe">PE</span>
+</div>
+<span class="domain-sub">Conduction · Convection · Radiation · LMTD · NTU · Heat Exchangers · Fins · Boiling</span>
+<span class="chevron">▾</span>
+</div>
+<div class="domain-body">
+<!-- ── TOPIC: THREE MODES ───────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🌡️</span>
+<span class="topic-name">The Three Modes of Heat Transfer</span>
+<span class="topic-badge">FOUNDATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Conduction · Convection · Radiation</div>
+<div class="concept-title">Every heat path is one (or a mix) of three</div>
+<div class="concept-desc">
+Heat always flows from hot to cold. Design amounts to controlling the resistance to
+that flow — insulating it, or intensifying it.
+</div>
+<div class="dw">
+<div class="dt">▸ GOVERNING LAWS</div>
+<table class="ref-table">
+<tr><th>Mode</th><th>Law</th><th>Driving factor</th></tr>
+<tr><td style="color: var(--cyan)">Conduction</td><td>q = −kA dT/dx (Fourier)</td><td>Thermal conductivity k</td></tr>
+<tr><td style="color: var(--green)">Convection</td><td>q = hA(T_s − T_∞) (Newton)</td><td>Film coefficient h</td></tr>
+<tr><td style="color: var(--red)">Radiation</td><td>q = εσA(T₁⁴ − T₂⁴)</td><td>Emissivity ε, T⁴</td></tr>
+</table>
+<div class="dt">▸ THERMAL RESISTANCE NETWORK</div>
+<pre class="code-block">q = ΔT / ΣR      (resistances in series add)
+
+Conduction (plane):  R = L / (kA)
+Convection:           R = 1 / (hA)
+Composite wall:       R_total = ΣR_i</pre>
+</div>
+<div class="info-bar ib-muted">
+🔗 The resistance analogy (à la Ohm's law) lets you stack walls, films and insulation
+into one overall U-value.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: HEAT EXCHANGERS & LMTD ────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔥</span>
+<span class="topic-name">Heat Exchangers — LMTD &amp; NTU</span>
+<span class="topic-badge">DESIGN</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Sizing &amp; Rating</div>
+<div class="concept-title">How much area to transfer a given duty</div>
+<div class="concept-desc">
+The shell-and-tube exchanger is the workhorse of the process industries. Two
+methods size it: <strong class="text-blue">LMTD</strong> when outlet temps are known,
+<strong class="text-purple">ε-NTU</strong> when they are not.
+</div>
+<div class="dw">
+<div class="dt">▸ LMTD METHOD</div>
+<pre class="code-block">Q = U · A · F · ΔT_lm
+
+ΔT_lm = (ΔT₁ − ΔT₂) / ln(ΔT₁/ΔT₂)
+
+U = overall heat-transfer coefficient
+F = correction factor (1.0 for true counter-current)</pre>
+<div class="dt">▸ FLOW ARRANGEMENTS</div>
+<table class="ref-table">
+<tr><th>Arrangement</th><th>Characteristic</th></tr>
+<tr><td style="color: var(--green)">Counter-current</td><td>Highest ΔT_lm; most efficient</td></tr>
+<tr><td style="color: var(--amber)">Co-current</td><td>Outlet temps can only approach, not cross</td></tr>
+<tr><td style="color: var(--cyan)">Cross-flow</td><td>Common in air coolers; uses F factor</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🧼 <strong class="text-red">Fouling</strong> adds a resistance R_f that degrades U over
+time — designers add a fouling allowance and schedule cleaning.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="domain-section domain-mass" data-domain="mass">
+<div class="domain-header">
+<span class="domain-icon">💧</span>
+<span class="domain-title">Mass Transfer &amp; Separations</span>
+<div class="cert-tags">
+<span class="ctag ctag-core">CORE</span>
+<span class="ctag ctag-pe">PE</span>
+</div>
+<span class="domain-sub">Diffusion · Distillation · McCabe-Thiele · Absorption · Extraction · Membranes · Adsorption</span>
+<span class="chevron">▾</span>
+</div>
+<div class="domain-body">
+<!-- ── TOPIC: DIFFUSION ─────────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">💠</span>
+<span class="topic-name">Molecular Diffusion — Fick's Laws</span>
+<span class="topic-badge">FOUNDATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Species Move Down Gradients</div>
+<div class="concept-title">The mass-transfer analog of Fourier's law</div>
+<div class="concept-desc">
+Separations exploit differences in how fast species move between phases. At the
+molecular scale that motion obeys <strong class="text-blue">Fick's laws</strong>.
+</div>
+<div class="dw">
+<div class="dt">▸ FICK'S LAWS</div>
+<pre class="code-block">1st law (steady):   J_A = −D_AB (dC_A/dz)
+2nd law (transient): ∂C_A/∂t = D_AB ∂²C_A/∂z²
+
+D_AB = binary diffusivity  (gas ≫ liquid ≫ solid)
+Flux driven by a concentration gradient.</pre>
+<div class="dt">▸ THE TRANSPORT ANALOGY</div>
+<table class="ref-table">
+<tr><th>Transport</th><th>Flux law</th><th>Diffusivity</th></tr>
+<tr><td style="color: var(--cyan)">Momentum</td><td>τ = −μ dv/dy</td><td>ν = μ/ρ</td></tr>
+<tr><td style="color: var(--red)">Heat</td><td>q = −k dT/dy</td><td>α = k/ρc_p</td></tr>
+<tr><td style="color: var(--green)">Mass</td><td>J = −D dC/dy</td><td>D_AB</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🔬 The three transport diffusivities have identical units (m²/s) — the basis of the
+Prandtl / Schmidt / Lewis number analogies.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: DISTILLATION & McCABE-THIELE ──────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🗼</span>
+<span class="topic-name">Distillation &amp; the McCabe–Thiele Method</span>
+<span class="topic-badge">SEPARATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Stage-by-Stage Separation</div>
+<div class="concept-title">Trading reflux for stages</div>
+<div class="concept-desc">
+The most important separation in the chemical industry. McCabe–Thiele graphically
+counts the equilibrium stages a column needs for a target purity.
+</div>
+<div class="dw">
+<div class="dt">▸ OPERATING LINES</div>
+<pre class="code-block">Rectifying:  y = (R/(R+1)) x + x_D/(R+1)
+Stripping:   y = (L̄/V̄) x − (W/V̄) x_W
+q-line:      slope = q/(q−1)   (feed condition)
+
+R = reflux ratio (L/D)</pre>
+<div class="dt">▸ LIMITING CASES</div>
+<table class="ref-table">
+<tr><th>Case</th><th>Meaning</th></tr>
+<tr><td style="color: var(--green)">Total reflux</td><td>Minimum stages (N_min, Fenske)</td></tr>
+<tr><td style="color: var(--amber)">Minimum reflux</td><td>Infinite stages (R_min, Underwood)</td></tr>
+<tr><td style="color: var(--cyan)">Actual design</td><td>R ≈ 1.2–1.5 × R_min (Gilliland)</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+⚖️ More reflux ⇒ fewer stages but higher energy. The reflux/stage trade-off is the
+central economic decision in column design.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: ABSORPTION, EXTRACTION & MEMBRANES ────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧴</span>
+<span class="topic-name">Absorption, Extraction &amp; Membranes</span>
+<span class="topic-badge">SURVEY</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Other Separation Routes</div>
+<div class="concept-title">When distillation isn't the answer</div>
+<div class="concept-desc">
+Heat-sensitive, dilute, or close-boiling systems call for separations driven by
+solubility, partitioning, or selective permeation.
+</div>
+<div class="dw">
+<div class="dt">▸ SEPARATION MENU</div>
+<table class="ref-table">
+<tr><th>Operation</th><th>Driving property</th><th>Typical use</th></tr>
+<tr><td style="color: var(--cyan)">Gas absorption</td><td>Solubility (Henry's law)</td><td>Scrubbing CO₂, H₂S from gas</td></tr>
+<tr><td style="color: var(--green)">Liquid extraction</td><td>Partition coefficient</td><td>Recover antibiotics, aromatics</td></tr>
+<tr><td style="color: var(--purple)">Membranes</td><td>Selective permeability</td><td>RO desalination, gas separation</td></tr>
+<tr><td style="color: var(--amber)">Adsorption</td><td>Surface affinity</td><td>Drying, PSA O₂/N₂, water polishing</td></tr>
+</table>
+<div class="dt">▸ HENRY'S LAW</div>
+<pre class="code-block">p_A = H · x_A      (dilute gas dissolving in liquid)
+H = Henry's constant  (↑ H ⇒ less soluble)</pre>
+</div>
+<div class="info-bar ib-muted">
+🧬 Membrane separations (ultrafiltration, RO, chromatography) are central to
+downstream <em>bioprocessing</em> — see the Biochemical domain.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="domain-section domain-kinetics" data-domain="kinetics">
+<div class="domain-header">
+<span class="domain-icon">🧪</span>
+<span class="domain-title">Reaction Engineering &amp; Kinetics</span>
+<div class="cert-tags">
+<span class="ctag ctag-core">CORE</span>
+<span class="ctag ctag-adv">ADV</span>
+</div>
+<span class="domain-sub">Rate Laws · Arrhenius · CSTR · PFR · Batch · Conversion · Selectivity · Catalysis</span>
+<span class="chevron">▾</span>
+</div>
+<div class="domain-body">
+<!-- ── TOPIC: RATE LAWS & ARRHENIUS ─────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">📈</span>
+<span class="topic-name">Rate Laws &amp; the Arrhenius Equation</span>
+<span class="topic-badge">FOUNDATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">How Fast &amp; Why</div>
+<div class="concept-title">Concentration and temperature set the rate</div>
+<div class="concept-desc">
+Kinetics answers <em>how fast</em> a reaction proceeds — the dimension thermodynamics
+ignores. Rate laws are empirical; the Arrhenius form captures the steep temperature
+dependence.
+</div>
+<div class="dw">
+<div class="dt">▸ RATE LAW &amp; ORDER</div>
+<pre class="code-block">−r_A = k · C_A^a · C_B^b        order = a + b
+
+Zero order:  C_A = C_A0 − kt
+First order: ln(C_A/C_A0) = −kt      (t½ = ln2/k)
+Second:      1/C_A − 1/C_A0 = kt</pre>
+<div class="dt">▸ ARRHENIUS TEMPERATURE LAW</div>
+<pre class="code-block">k = A · exp(−E_a / R T)
+
+ln k = ln A − (E_a/R)(1/T)   → straight line
+
+A   = pre-exponential (frequency) factor
+E_a = activation energy   (↑ E_a ⇒ more T-sensitive)</pre>
+</div>
+<div class="info-bar ib-muted">
+🌡️ Rule of thumb: many reaction rates roughly double for every +10 °C — a direct
+consequence of the exponential Arrhenius term.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: IDEAL REACTORS ────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🛢️</span>
+<span class="topic-name">Ideal Reactors — Batch, CSTR &amp; PFR</span>
+<span class="topic-badge">DESIGN</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Three Design Equations</div>
+<div class="concept-title">Mixing pattern decides the size</div>
+<div class="concept-desc">
+Every reactor design starts from a mole balance on the limiting reactant. Idealized
+mixing gives three canonical models.
+</div>
+<div class="dw">
+<div class="dt">▸ DESIGN EQUATIONS</div>
+<table class="ref-table">
+<tr><th>Reactor</th><th>Mole balance</th><th>Mixing</th></tr>
+<tr><td style="color: var(--cyan)">Batch</td><td>N_A0 dX/dt = −r_A V</td><td>Perfect, transient</td></tr>
+<tr><td style="color: var(--green)">CSTR</td><td>V = F_A0 X / (−r_A)</td><td>Perfectly mixed, uniform</td></tr>
+<tr><td style="color: var(--amber)">PFR</td><td>V = F_A0 ∫ dX/(−r_A)</td><td>No axial mixing (plug)</td></tr>
+</table>
+<div class="dt">▸ CSTR vs. PFR</div>
+<pre class="code-block">For positive-order kinetics at equal conversion:
+  V_PFR  <  V_CSTR     (PFR is smaller / more efficient)
+
+CSTR operates at the LOW exit concentration everywhere,
+so its average rate is lower ⇒ it needs more volume.</pre>
+</div>
+<div class="info-bar ib-muted">
+🔗 CSTRs in series approach PFR behavior as N → ∞ — a practical way to get plug-flow
+performance with stirred tanks.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: SELECTIVITY & CATALYSIS ───────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">✨</span>
+<span class="topic-name">Selectivity, Yield &amp; Catalysis</span>
+<span class="topic-badge">MULTIPLE REACTIONS</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Getting the Right Product</div>
+<div class="concept-title">Conversion isn't the whole story</div>
+<div class="concept-desc">
+When side reactions compete, maximizing the <strong class="text-green">desired</strong>
+product matters more than raw conversion. Catalysts change the game by lowering E_a.
+</div>
+<div class="dw">
+<div class="dt">▸ KEY METRICS</div>
+<pre class="code-block">Conversion X = (A reacted)/(A fed)
+Selectivity  = (desired formed)/(undesired formed)
+Yield        = (desired formed)/(A fed)</pre>
+<div class="dt">▸ CATALYSIS</div>
+<table class="ref-table">
+<tr><th>Type</th><th>Example</th></tr>
+<tr><td style="color: var(--cyan)">Homogeneous</td><td>Acid catalysis, organometallics (same phase)</td></tr>
+<tr><td style="color: var(--green)">Heterogeneous</td><td>Solid catalyst, gas/liquid reactant (Haber, catalytic cracking)</td></tr>
+<tr><td style="color: var(--purple)">Enzymatic</td><td>Biological catalysts — see Enzyme Kinetics (Bio domain)</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+⚗️ A catalyst speeds both forward and reverse rates equally — it changes the
+<em>path</em>, never the equilibrium position.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="domain-section domain-control" data-domain="control">
+<div class="domain-header">
+<span class="domain-icon">🎛️</span>
+<span class="domain-title">Process Dynamics &amp; Control</span>
+<div class="cert-tags">
+<span class="ctag ctag-adv">ADV</span>
+<span class="ctag ctag-pe">PE</span>
+</div>
+<span class="domain-sub">Laplace · Transfer Functions · 1st/2nd Order · PID · Tuning · Stability · P&amp;ID</span>
+<span class="chevron">▾</span>
+</div>
+<div class="domain-body">
+<!-- ── TOPIC: LAPLACE & TRANSFER FUNCTIONS ──────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧮</span>
+<span class="topic-name">Laplace Transforms &amp; Transfer Functions</span>
+<span class="topic-badge">FOUNDATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Dynamics in the s-Domain</div>
+<div class="concept-title">Turning ODEs into algebra</div>
+<div class="concept-desc">
+Process control lives in the frequency domain. The Laplace transform converts the
+differential equations of a process into algebraic <strong class="text-blue">transfer
+functions</strong> G(s) relating output to input.
+</div>
+<div class="dw">
+<div class="dt">▸ COMMON TRANSFORMS</div>
+<table class="ref-table">
+<tr><th>f(t)</th><th>F(s)</th></tr>
+<tr><td style="color: var(--cyan)">step, 1</td><td>1/s</td></tr>
+<tr><td style="color: var(--green)">e^(−at)</td><td>1/(s+a)</td></tr>
+<tr><td style="color: var(--amber)">df/dt</td><td>sF(s) − f(0)</td></tr>
+<tr><td style="color: var(--purple)">delay, f(t−θ)</td><td>e^(−θs) F(s)</td></tr>
+</table>
+<div class="dt">▸ FIRST-ORDER PROCESS</div>
+<pre class="code-block">G(s) = Y(s)/U(s) = K / (τ s + 1)
+
+K = process gain      τ = time constant
+Step response reaches 63% of final value at t = τ.</pre>
+</div>
+<div class="info-bar ib-muted">
+⏱️ Add a dead time θ (e^(−θs)) and control gets harder — delay is the enemy of tight
+control.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: PID CONTROL ───────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🎚️</span>
+<span class="topic-name">Feedback Control &amp; PID Tuning</span>
+<span class="topic-badge">CONTROLLER</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">The Universal Controller</div>
+<div class="concept-title">Proportional + Integral + Derivative</div>
+<div class="concept-desc">
+The PID controller drives the error (setpoint − measurement) to zero by combining
+three actions. It runs the overwhelming majority of industrial loops.
+</div>
+<div class="dw">
+<div class="dt">▸ THE PID LAW</div>
+<pre class="code-block">u(t) = Kc [ e + (1/τ_I) ∫e dt + τ_D de/dt ]
+
+e = setpoint − measured value</pre>
+<div class="dt">▸ WHAT EACH TERM DOES</div>
+<table class="ref-table">
+<tr><th>Term</th><th>Effect</th><th>Downside</th></tr>
+<tr><td style="color: var(--cyan)">P (gain Kc)</td><td>Fast response</td><td>Leaves offset</td></tr>
+<tr><td style="color: var(--green)">I (τ_I)</td><td>Eliminates offset</td><td>Can add oscillation / windup</td></tr>
+<tr><td style="color: var(--amber)">D (τ_D)</td><td>Anticipates, damps</td><td>Amplifies noise</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🔧 Ziegler–Nichols and IMC are the classic tuning recipes; too much gain pushes the
+loop past its stability limit into sustained oscillation.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: P&ID & INSTRUMENTATION ────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">📋</span>
+<span class="topic-name">P&amp;IDs &amp; Instrument Tags</span>
+<span class="topic-badge">DOCUMENTATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Reading the Plant</div>
+<div class="concept-title">The universal language of process control</div>
+<div class="concept-desc">
+A <strong class="text-purple">Piping &amp; Instrumentation Diagram</strong> shows every
+instrument, valve and control loop. ISA tag letters encode what each device measures
+and does.
+</div>
+<div class="dw">
+<div class="dt">▸ ISA TAG LETTERS (1st = variable, 2nd = function)</div>
+<table class="ref-table">
+<tr><th>Letter</th><th>Variable (1st)</th><th>Function (2nd)</th></tr>
+<tr><td style="color: var(--red)">T</td><td>Temperature</td><td>—</td></tr>
+<tr><td style="color: var(--cyan)">P</td><td>Pressure</td><td>—</td></tr>
+<tr><td style="color: var(--green)">F</td><td>Flow</td><td>—</td></tr>
+<tr><td style="color: var(--amber)">L</td><td>Level</td><td>—</td></tr>
+<tr><td style="color: var(--purple)">— / T,I,C,V</td><td>—</td><td>Transmit, Indicate, Control, Valve</td></tr>
+</table>
+<pre class="code-block">TIC-101  = Temperature Indicating Controller, loop 101
+FT-205   = Flow Transmitter, loop 205
+LCV-310  = Level Control Valve, loop 310</pre>
+</div>
+<div class="info-bar ib-muted">
+🏭 A PFD shows the big picture (major equipment &amp; streams); a P&amp;ID shows every
+valve, tag and line — see the Process Design domain.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="domain-section domain-bio" data-domain="bio">
+<div class="domain-header">
+<span class="domain-icon">🧬</span>
+<span class="domain-title">Biochemical &amp; Biomolecular Engineering</span>
+<div class="cert-tags">
+<span class="ctag ctag-bio">BIO</span>
+<span class="ctag ctag-adv">ADV</span>
+</div>
+<span class="domain-sub">DNA &amp; the Central Dogma · Proteins · Enzyme Kinetics · Fermentation · Bioreactors · Downstream</span>
+<span class="chevron">▾</span>
+</div>
+<div class="domain-body">
+<!-- ── TOPIC: DNA & THE CENTRAL DOGMA ───────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧬</span>
+<span class="topic-name">DNA &amp; the Central Dogma of Molecular Biology</span>
+<span class="topic-badge">FOUNDATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">The Molecule of Heredity</div>
+<div class="concept-title">DNA → RNA → Protein — information flow in the cell</div>
+<div class="concept-desc">
+<strong class="text-blue">Deoxyribonucleic acid (DNA)</strong> is the double-helix
+polymer that stores genetic information. Chemical engineers harness this machinery in
+fermentation, recombinant-protein production and biofuels. The
+<strong class="text-green">central dogma</strong> describes how the information is read.
+</div>
+<div class="dw">
+<div class="dt">▸ STRUCTURE — THE DOUBLE HELIX</div>
+<table class="ref-table">
+<tr><th>Feature</th><th>Detail</th></tr>
+<tr><td style="color: var(--cyan)">Backbone</td><td>Alternating sugar (deoxyribose) + phosphate</td></tr>
+<tr><td style="color: var(--green)">Bases</td><td>A, T, G, C — the four-letter code</td></tr>
+<tr><td style="color: var(--amber)">Base pairing</td><td>A=T (2 H-bonds) · G≡C (3 H-bonds)</td></tr>
+<tr><td style="color: var(--purple)">Geometry</td><td>Antiparallel strands, ~10.5 bp per turn (Watson–Crick, 1953)</td></tr>
+</table>
+<div class="dt">▸ THE CENTRAL DOGMA</div>
+<pre class="code-block">        replication
+   DNA ───────────► DNA        (cell division)
+    │
+    │ transcription
+    ▼
+   RNA (mRNA)
+    │
+    │ translation  (ribosome, codons → amino acids)
+    ▼
+  PROTEIN  → folds → biological function</pre>
+<div class="dt">▸ BASE-PAIRING RULE</div>
+<pre class="code-block">Template : 5'- A  T  G  C  A  G -3'
+Complement:3'- T  A  C  G  T  C -5'
+(mRNA replaces T with U → uracil)</pre>
+</div>
+<div class="info-bar ib-muted">
+🧪 <strong class="text-green">Recombinant DNA</strong> technology inserts a target gene
+into a host (e.g. <em>E. coli</em>) so an engineered bioreactor mass-produces the protein
+— how insulin is made industrially.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: ENZYME KINETICS ───────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔑</span>
+<span class="topic-name">Enzyme Kinetics — Michaelis–Menten</span>
+<span class="topic-badge">BIOCATALYSIS</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Biological Catalysts</div>
+<div class="concept-title">Saturable rate laws for enzyme reactions</div>
+<div class="concept-desc">
+Enzymes are protein catalysts that lower activation energy enormously. Their rate
+saturates with substrate — the hallmark of the
+<strong class="text-blue">Michaelis–Menten</strong> model.
+</div>
+<div class="dw">
+<div class="dt">▸ MICHAELIS–MENTEN RATE LAW</div>
+<pre class="code-block">        V_max · [S]
+  v  = ───────────────
+          K_m + [S]
+
+V_max = max rate (all enzyme saturated)
+K_m   = substrate conc. at v = V_max/2
+        (↓ K_m ⇒ tighter enzyme–substrate binding)</pre>
+<div class="dt">▸ LIMITING BEHAVIOR</div>
+<table class="ref-table">
+<tr><th>Regime</th><th>Rate law</th><th>Order in [S]</th></tr>
+<tr><td style="color: var(--green)">[S] ≪ K_m</td><td>v ≈ (V_max/K_m)[S]</td><td>First order</td></tr>
+<tr><td style="color: var(--amber)">[S] ≫ K_m</td><td>v ≈ V_max</td><td>Zero order</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+📉 A Lineweaver–Burk plot (1/v vs 1/[S]) linearizes the model — intercept = 1/V_max,
+slope = K_m/V_max.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: FERMENTATION & BIOREACTORS ────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🦠</span>
+<span class="topic-name">Fermentation &amp; Bioreactor Design</span>
+<span class="topic-badge">SCALE-UP</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Cells as Chemical Plants</div>
+<div class="concept-title">Growing microbes to make product</div>
+<div class="concept-desc">
+A bioreactor is a reactor whose catalyst is <em>alive</em>. Cell growth, substrate
+uptake and product formation are coupled, and oxygen transfer usually limits scale-up.
+</div>
+<div class="dw">
+<div class="dt">▸ CELL-GROWTH KINETICS (MONOD)</div>
+<pre class="code-block">          μ_max · S
+  μ  = ───────────────      (specific growth rate)
+           K_s + S
+
+dX/dt = μ X            (exponential growth)
+Y_X/S = biomass yield per substrate consumed</pre>
+<div class="dt">▸ OPERATING MODES</div>
+<table class="ref-table">
+<tr><th>Mode</th><th>Feature</th></tr>
+<tr><td style="color: var(--cyan)">Batch</td><td>Fixed nutrients; simple, lower productivity</td></tr>
+<tr><td style="color: var(--green)">Fed-batch</td><td>Feed added over time; avoids substrate inhibition</td></tr>
+<tr><td style="color: var(--amber)">Continuous (chemostat)</td><td>Steady state; μ = dilution rate D</td></tr>
+</table>
+<div class="dt">▸ OXYGEN TRANSFER — THE SCALE-UP BOTTLENECK</div>
+<pre class="code-block">OTR = k_L a · (C* − C_L)
+
+k_L a = mass-transfer coefficient (agitation, sparging)
+C*    = saturation O₂;  C_L = dissolved O₂ in broth</pre>
+</div>
+<div class="info-bar ib-muted">
+💨 Because O₂ is sparingly soluble, k<sub>L</sub>a is the number most fought over when
+scaling a fermenter from the bench to 100 m³.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: DOWNSTREAM PROCESSING ─────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">⚗️</span>
+<span class="topic-name">Downstream Processing &amp; Purification</span>
+<span class="topic-badge">RECOVERY</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">From Broth to Product</div>
+<div class="concept-title">Separating a fragile molecule from a dilute soup</div>
+<div class="concept-desc">
+Making the product is half the job; recovering it — often at high purity from a very
+dilute, heat-sensitive broth — can dominate the cost of a biopharmaceutical.
+</div>
+<div class="dw">
+<div class="dt">▸ TYPICAL PURIFICATION TRAIN</div>
+<pre class="code-block">Broth
+  │  1. Cell separation   (centrifuge / microfiltration)
+  ▼
+  │  2. Cell disruption   (if product is intracellular)
+  ▼
+  │  3. Concentration     (ultrafiltration)
+  ▼
+  │  4. Purification      (chromatography — affinity, ion-exchange)
+  ▼
+  │  5. Polishing / formulation  (diafiltration, lyophilization)
+  ▼
+Pure product</pre>
+</div>
+<div class="info-bar ib-muted">
+🧫 Chromatography exploits the same molecular-affinity principle as the extraction and
+adsorption operations in the Mass Transfer domain — biology just makes it exquisitely
+selective.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="domain-section domain-transport" data-domain="transport">
+<div class="domain-header">
+<span class="domain-icon">🔀</span>
+<span class="domain-title">Transport Phenomena</span>
+<div class="cert-tags">
+<span class="ctag ctag-adv">ADV</span>
+</div>
+<span class="domain-sub">Momentum · Energy · Mass Analogy · Navier-Stokes · Shell Balances · Dimensionless Groups</span>
+<span class="chevron">▾</span>
+</div>
+<div class="domain-body">
+<!-- ── TOPIC: THE TRANSPORT ANALOGY ─────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔗</span>
+<span class="topic-name">The Unified Transport Analogy</span>
+<span class="topic-badge">FOUNDATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Momentum · Heat · Mass</div>
+<div class="concept-title">One mathematical structure, three transports</div>
+<div class="concept-desc">
+Transport phenomena unifies fluid flow, heat transfer and diffusion under a single
+framework: a <em>flux</em> is proportional to a <em>gradient</em> of a driving quantity.
+</div>
+<div class="dw">
+<div class="dt">▸ THE THREE FLUX LAWS</div>
+<table class="ref-table">
+<tr><th>Transport</th><th>Flux law</th><th>Named law</th></tr>
+<tr><td style="color: var(--cyan)">Momentum</td><td>τ = −μ dv/dy</td><td>Newton's viscosity</td></tr>
+<tr><td style="color: var(--red)">Heat</td><td>q = −k dT/dy</td><td>Fourier</td></tr>
+<tr><td style="color: var(--green)">Mass</td><td>J = −D dC/dy</td><td>Fick</td></tr>
+</table>
+<div class="dt">▸ GENERAL SHELL BALANCE</div>
+<pre class="code-block">Rate in − Rate out + Generation = Accumulation
+
+Apply over a thin shell → differential equation
+→ integrate with boundary conditions → profile</pre>
+</div>
+<div class="info-bar ib-muted">
+🧠 Master the shell balance and you can derive the velocity, temperature and
+concentration profiles for almost any 1-D geometry.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: NAVIER-STOKES & DIMENSIONLESS GROUPS ──────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🌐</span>
+<span class="topic-name">Navier–Stokes &amp; Dimensionless Groups</span>
+<span class="topic-badge">GOVERNING EQUATIONS</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Equations of Change</div>
+<div class="concept-title">Conservation of momentum in a fluid</div>
+<div class="concept-desc">
+The <strong class="text-blue">Navier–Stokes equations</strong> are Newton's second law
+for a continuum fluid. Dimensionless groups compress the physics into ratios that
+govern scale-up and correlation.
+</div>
+<div class="dw">
+<div class="dt">▸ NAVIER–STOKES (incompressible)</div>
+<pre class="code-block">ρ(∂v/∂t + v·∇v) = −∇P + μ∇²v + ρg
+   inertia          pressure  viscous  body force</pre>
+<div class="dt">▸ KEY DIMENSIONLESS GROUPS</div>
+<table class="ref-table">
+<tr><th>Group</th><th>Ratio</th><th>Governs</th></tr>
+<tr><td style="color: var(--cyan)">Reynolds (Re)</td><td>inertia / viscous</td><td>Flow regime</td></tr>
+<tr><td style="color: var(--red)">Prandtl (Pr)</td><td>momentum / thermal diff.</td><td>Velocity vs. thermal BL</td></tr>
+<tr><td style="color: var(--green)">Schmidt (Sc)</td><td>momentum / mass diff.</td><td>Velocity vs. conc. BL</td></tr>
+<tr><td style="color: var(--amber)">Nusselt (Nu)</td><td>convective / conductive heat</td><td>h correlations</td></tr>
+<tr><td style="color: var(--purple)">Sherwood (Sh)</td><td>convective / diffusive mass</td><td>k_c correlations</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🔬 Correlations take the form Nu = f(Re, Pr) and Sh = f(Re, Sc) — the heat/mass-transfer
+analogy in action.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="domain-section domain-unitops" data-domain="unitops">
+<div class="domain-header">
+<span class="domain-icon">🏭</span>
+<span class="domain-title">Unit Operations &amp; Equipment</span>
+<div class="cert-tags">
+<span class="ctag ctag-core">CORE</span>
+<span class="ctag ctag-lab">LAB</span>
+</div>
+<span class="domain-sub">Pumps · Compressors · Columns · Reactors · Filtration · Drying · Crystallization · Mixing</span>
+<span class="chevron">▾</span>
+</div>
+<div class="domain-body">
+<!-- ── TOPIC: EQUIPMENT SURVEY ──────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🏭</span>
+<span class="topic-name">The Unit-Operations Toolkit</span>
+<span class="topic-badge">SURVEY</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Building Blocks of a Plant</div>
+<div class="concept-title">Any process is a sequence of unit operations</div>
+<div class="concept-desc">
+The <strong class="text-blue">unit-operations</strong> concept (Arthur D. Little, 1915)
+recognizes that every process is assembled from a finite set of standard physical
+operations — the same distillation column serves oil refining and brewing alike.
+</div>
+<div class="dw">
+<div class="dt">▸ CLASSIFICATION</div>
+<table class="ref-table">
+<tr><th>Category</th><th>Operations</th></tr>
+<tr><td style="color: var(--cyan)">Fluid handling</td><td>Pumps, compressors, fans, piping</td></tr>
+<tr><td style="color: var(--red)">Heat transfer</td><td>Exchangers, reboilers, condensers, furnaces</td></tr>
+<tr><td style="color: var(--green)">Mass transfer</td><td>Distillation, absorption, extraction, drying</td></tr>
+<tr><td style="color: var(--amber)">Mechanical separation</td><td>Filtration, centrifugation, sedimentation, cyclones</td></tr>
+<tr><td style="color: var(--purple)">Solids / mixing</td><td>Crushing, crystallization, agitation, fluidization</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🔧 Learn the operation once and you can apply it across every industry — the power of
+the unit-operations abstraction.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: SEPARATION EQUIPMENT ──────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🌀</span>
+<span class="topic-name">Drying, Crystallization &amp; Filtration</span>
+<span class="topic-badge">SOLIDS</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Handling Solids</div>
+<div class="concept-title">Where phase change meets mechanical separation</div>
+<div class="concept-desc">
+Solid-forming and solid-handling operations pair heat/mass transfer with mechanical
+processing and are notoriously scale-dependent.
+</div>
+<div class="dw">
+<div class="dt">▸ OPERATIONS AT A GLANCE</div>
+<table class="ref-table">
+<tr><th>Operation</th><th>Principle</th><th>Key variable</th></tr>
+<tr><td style="color: var(--amber)">Drying</td><td>Evaporate bound moisture</td><td>Constant- vs falling-rate period</td></tr>
+<tr><td style="color: var(--cyan)">Crystallization</td><td>Supersaturation → nucleation + growth</td><td>Cooling / evaporation rate</td></tr>
+<tr><td style="color: var(--green)">Filtration</td><td>Retain solids on a medium</td><td>Cake resistance, ΔP</td></tr>
+<tr><td style="color: var(--purple)">Centrifugation</td><td>Density difference × g-force</td><td>Sigma factor</td></tr>
+</table>
+<div class="dt">▸ DRYING CURVE</div>
+<pre class="code-block">Rate
+  │  ┌──────────┐  constant-rate (surface moisture)
+  │  │          └──┐  falling-rate (internal diffusion)
+  │  │             └────
+  └──┴──────────────────► moisture content
+     critical moisture ▲</pre>
+</div>
+<div class="info-bar ib-muted">
+❄️ Crystallization delivers both separation <em>and</em> purification in one step —
+prized in pharma and specialty chemicals.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="domain-section domain-safety" data-domain="safety">
+<div class="domain-header">
+<span class="domain-icon">🦺</span>
+<span class="domain-title">Process Safety &amp; Ethics</span>
+<div class="cert-tags">
+<span class="ctag ctag-safe">SAFE</span>
+<span class="ctag ctag-pe">PE</span>
+</div>
+<span class="domain-sub">HAZOP · LOPA · Relief Valves · Flammability · Toxicology · Bhopal · Engineering Ethics</span>
+<span class="chevron">▾</span>
+</div>
+<div class="domain-body">
+<!-- ── TOPIC: HAZARD ANALYSIS ───────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔍</span>
+<span class="topic-name">HAZOP, LOPA &amp; Layers of Protection</span>
+<span class="topic-badge">FOUNDATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Systematic Risk Assessment</div>
+<div class="concept-title">Finding what can go wrong before it does</div>
+<div class="concept-desc">
+Process safety is a discipline of <em>defense in depth</em>. Structured methods
+systematically hunt for deviations and verify that enough independent safeguards stand
+between a cause and a catastrophe.
+</div>
+<div class="dw">
+<div class="dt">▸ HAZOP GUIDE WORDS</div>
+<table class="ref-table">
+<tr><th>Guide word</th><th>Deviation</th></tr>
+<tr><td style="color: var(--red)">NO / NONE</td><td>No flow, no reaction</td></tr>
+<tr><td style="color: var(--amber)">MORE</td><td>High flow, pressure, temperature</td></tr>
+<tr><td style="color: var(--cyan)">LESS</td><td>Low flow, level, temperature</td></tr>
+<tr><td style="color: var(--green)">REVERSE / AS WELL AS</td><td>Backflow, contamination</td></tr>
+</table>
+<div class="dt">▸ LAYERS OF PROTECTION (LOPA)</div>
+<pre class="code-block">1. Process design (inherent safety)
+2. Basic process control (BPCS)
+3. Alarms + operator action
+4. Safety Instrumented System (SIS / SIL-rated)
+5. Physical relief (PSV, rupture disk)
+6. Containment (dike, blast wall)
+7. Emergency response
+
+Each independent layer reduces risk multiplicatively.</pre>
+</div>
+<div class="info-bar ib-muted">
+🛡️ The best safeguard is <strong class="text-green">inherent safety</strong> — reduce
+inventory, substitute benign chemicals, moderate conditions — so hazards are designed
+out, not guarded against.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: RELIEF & FLAMMABILITY ─────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">💥</span>
+<span class="topic-name">Relief Systems &amp; Flammability</span>
+<span class="topic-badge">PHYSICAL DEFENSE</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">The Last Lines of Defense</div>
+<div class="concept-title">Venting overpressure &amp; avoiding the fire triangle</div>
+<div class="concept-desc">
+When controls fail, pressure relief prevents vessel rupture, and understanding
+flammability limits prevents ignition in the first place.
+</div>
+<div class="dw">
+<div class="dt">▸ FLAMMABILITY LIMITS</div>
+<pre class="code-block">Too lean ── LFL ──[ FLAMMABLE ]── UFL ── Too rich
+
+LFL = Lower Flammability Limit
+UFL = Upper Flammability Limit
+Flash point = lowest T giving an ignitable vapor
+Autoignition T = ignites without a spark</pre>
+<div class="dt">▸ THE FIRE TRIANGLE — remove any leg</div>
+<table class="ref-table">
+<tr><th>Leg</th><th>Control</th></tr>
+<tr><td style="color: var(--red)">Fuel</td><td>Inerting, purging, ventilation</td></tr>
+<tr><td style="color: var(--cyan)">Oxidizer</td><td>Nitrogen blanketing (&lt; LOC)</td></tr>
+<tr><td style="color: var(--amber)">Ignition</td><td>Bonding/grounding, classified areas</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🕯️ <strong class="text-red">Bhopal (1984)</strong> and <strong class="text-red">Flixborough
+(1974)</strong> are the case studies every chemical engineer studies — inventory, siting
+and management-of-change failures with catastrophic outcomes.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: ENGINEERING ETHICS ────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">⚖️</span>
+<span class="topic-name">Engineering Ethics &amp; Responsibility</span>
+<span class="topic-badge">PROFESSIONAL</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">The Engineer's Duty</div>
+<div class="concept-title">Public safety, health &amp; welfare come first</div>
+<div class="concept-desc">
+Professional codes (AIChE, NSPE) place a paramount obligation on engineers to protect
+the public — above client and employer interests.
+</div>
+<div class="dw">
+<div class="dt">▸ CORE CANONS</div>
+<table class="ref-table">
+<tr><th>Principle</th><th>Meaning</th></tr>
+<tr><td style="color: var(--green)">Paramountcy</td><td>Hold public safety, health &amp; welfare paramount</td></tr>
+<tr><td style="color: var(--cyan)">Competence</td><td>Practice only in areas of competence</td></tr>
+<tr><td style="color: var(--amber)">Honesty</td><td>Objective, truthful statements; disclose conflicts</td></tr>
+<tr><td style="color: var(--purple)">Sustainability</td><td>Protect the environment for future generations</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🤝 "Management of change" — every process modification, however small, must be formally
+reviewed for new hazards. Skipping it caused Flixborough.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="domain-section domain-materials" data-domain="materials">
+<div class="domain-header">
+<span class="domain-icon">🧱</span>
+<span class="domain-title">Materials, Polymers &amp; Corrosion</span>
+<div class="cert-tags">
+<span class="ctag ctag-fund">FE</span>
+</div>
+<span class="domain-sub">Crystal Structure · Phase Diagrams · Polymers · Metallurgy · Corrosion · Materials Selection</span>
+<span class="chevron">▾</span>
+</div>
+<div class="domain-body">
+<!-- ── TOPIC: STRUCTURE & PHASE DIAGRAMS ────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔷</span>
+<span class="topic-name">Crystal Structure &amp; Phase Diagrams</span>
+<span class="topic-badge">FOUNDATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Structure → Properties</div>
+<div class="concept-title">How atomic arrangement dictates behavior</div>
+<div class="concept-desc">
+The macroscopic properties of a material — strength, ductility, conductivity — are set
+by how its atoms pack and which phases are present at a given temperature and
+composition.
+</div>
+<div class="dw">
+<div class="dt">▸ COMMON METALLIC LATTICES</div>
+<table class="ref-table">
+<tr><th>Structure</th><th>Packing</th><th>Examples</th></tr>
+<tr><td style="color: var(--cyan)">BCC</td><td>68% (less ductile)</td><td>Fe (α), Cr, W</td></tr>
+<tr><td style="color: var(--green)">FCC</td><td>74% (ductile)</td><td>Al, Cu, Ni, Fe (γ)</td></tr>
+<tr><td style="color: var(--amber)">HCP</td><td>74% (anisotropic)</td><td>Zn, Mg, Ti</td></tr>
+</table>
+<div class="dt">▸ THE LEVER RULE (two-phase region)</div>
+<pre class="code-block">Fraction of phase β = (C₀ − C_α) / (C_β − C_α)
+
+Read compositions off the phase-diagram tie line;
+the fractions balance like a lever about C₀.</pre>
+</div>
+<div class="info-bar ib-muted">
+🔩 The Fe–C phase diagram underlies all steel metallurgy — austenite, ferrite,
+cementite and the eutectoid at 0.76% C.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: POLYMERS ──────────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧵</span>
+<span class="topic-name">Polymers &amp; Plastics</span>
+<span class="topic-badge">MACROMOLECULES</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Long-Chain Molecules</div>
+<div class="concept-title">A major product of the chemical industry</div>
+<div class="concept-desc">
+Polymers are giant chains built by linking monomers. Chain architecture and molecular
+weight control everything from a flexible film to a rigid engineering resin.
+</div>
+<div class="dw">
+<div class="dt">▸ POLYMERIZATION &amp; CLASSES</div>
+<table class="ref-table">
+<tr><th>Type</th><th>Behavior on heating</th><th>Example</th></tr>
+<tr><td style="color: var(--green)">Thermoplastic</td><td>Softens &amp; remelts (recyclable)</td><td>PE, PP, PET, PVC</td></tr>
+<tr><td style="color: var(--red)">Thermoset</td><td>Cross-links permanently</td><td>Epoxy, phenolic</td></tr>
+<tr><td style="color: var(--cyan)">Elastomer</td><td>Reversible large strain</td><td>Rubber, silicone</td></tr>
+</table>
+<div class="dt">▸ KEY PROPERTY</div>
+<pre class="code-block">Tg = glass-transition temperature
+  Below Tg → glassy, brittle
+  Above Tg → rubbery, flexible
+
+Degree of polymerization sets molecular weight ⇒ strength &amp; viscosity.</pre>
+</div>
+<div class="info-bar ib-muted">
+🌱 Bio-based and biodegradable polymers (PLA, PHA) tie polymer engineering back to the
+Biochemical domain and sustainable design.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: CORROSION ─────────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🦠</span>
+<span class="topic-name">Corrosion &amp; Materials Selection</span>
+<span class="topic-badge">DEGRADATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">The Electrochemistry of Failure</div>
+<div class="concept-title">Why plants rust — and how to stop them</div>
+<div class="concept-desc">
+Corrosion is an electrochemical process that costs industry billions annually. Material
+choice, coatings and cathodic protection defend against it.
+</div>
+<div class="dw">
+<div class="dt">▸ THE CORROSION CELL</div>
+<pre class="code-block">Anode (oxidation):   Fe → Fe²⁺ + 2e⁻   (metal is lost)
+Cathode (reduction): O₂ + 2H₂O + 4e⁻ → 4OH⁻
+
+Requires: anode + cathode + electrolyte + circuit</pre>
+<div class="dt">▸ CONTROL STRATEGIES</div>
+<table class="ref-table">
+<tr><th>Method</th><th>Idea</th></tr>
+<tr><td style="color: var(--green)">Material upgrade</td><td>Stainless, Ni alloys, titanium</td></tr>
+<tr><td style="color: var(--cyan)">Coatings / lining</td><td>Paint, glass, polymer barrier</td></tr>
+<tr><td style="color: var(--amber)">Cathodic protection</td><td>Sacrificial anode (Zn, Mg)</td></tr>
+<tr><td style="color: var(--purple)">Inhibitors</td><td>Additives that passivate the surface</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+⚠️ Localized attack — pitting, crevice and stress-corrosion cracking — is far more
+dangerous than uniform corrosion because it is hidden until failure.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="domain-section domain-chem" data-domain="chem">
+<div class="domain-header">
+<span class="domain-icon">🧫</span>
+<span class="domain-title">Organic &amp; Analytical Chemistry</span>
+<div class="cert-tags">
+<span class="ctag ctag-fund">FE</span>
+<span class="ctag ctag-lab">LAB</span>
+</div>
+<span class="domain-sub">Periodic Trends · Bonding · Acids/Bases · Functional Groups · Reactions · Spectroscopy</span>
+<span class="chevron">▾</span>
+</div>
+<div class="domain-body">
+<!-- ── TOPIC: PERIODIC TRENDS & BONDING ─────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔬</span>
+<span class="topic-name">Periodic Trends &amp; Chemical Bonding</span>
+<span class="topic-badge">FOUNDATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Why Elements Behave As They Do</div>
+<div class="concept-title">The periodic table is a map of reactivity</div>
+<div class="concept-desc">
+Chemical engineering rests on chemistry. Periodic trends predict how atoms bond and
+react — the starting point for every process.
+</div>
+<div class="dw">
+<div class="dt">▸ PERIODIC TRENDS (→ across, ↓ down)</div>
+<table class="ref-table">
+<tr><th>Property</th><th>Across period →</th><th>Down group ↓</th></tr>
+<tr><td style="color: var(--cyan)">Atomic radius</td><td>Decreases</td><td>Increases</td></tr>
+<tr><td style="color: var(--green)">Ionization energy</td><td>Increases</td><td>Decreases</td></tr>
+<tr><td style="color: var(--amber)">Electronegativity</td><td>Increases</td><td>Decreases</td></tr>
+</table>
+<div class="dt">▸ BOND TYPES</div>
+<table class="ref-table">
+<tr><th>Bond</th><th>Δ Electronegativity</th><th>Character</th></tr>
+<tr><td style="color: var(--green)">Nonpolar covalent</td><td>&lt; 0.4</td><td>Shared equally</td></tr>
+<tr><td style="color: var(--cyan)">Polar covalent</td><td>0.4–1.7</td><td>Shared unequally</td></tr>
+<tr><td style="color: var(--red)">Ionic</td><td>&gt; 1.7</td><td>Electron transferred</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🧲 Polarity drives solubility ("like dissolves like"), boiling points and the
+hydrogen bonding that holds DNA's strands together.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: ACIDS, BASES & EQUILIBRIA ─────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧪</span>
+<span class="topic-name">Acids, Bases &amp; pH</span>
+<span class="topic-badge">EQUILIBRIA</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Proton Transfer</div>
+<div class="concept-title">Controlling pH controls the process</div>
+<div class="concept-desc">
+Acid–base equilibria govern reaction rates, corrosion, precipitation and biological
+activity. pH is one of the most-measured variables in any plant.
+</div>
+<div class="dw">
+<div class="dt">▸ pH &amp; EQUILIBRIUM</div>
+<pre class="code-block">pH = −log₁₀[H⁺]        pH + pOH = 14  (25 °C)
+
+Ka = [H⁺][A⁻]/[HA]     pKa = −log Ka
+Henderson–Hasselbalch: pH = pKa + log([A⁻]/[HA])</pre>
+<div class="dt">▸ STRENGTH SCALE</div>
+<table class="ref-table">
+<tr><th>pH</th><th>Nature</th><th>Example</th></tr>
+<tr><td style="color: var(--red)">0–3</td><td>Strong acid</td><td>HCl, H₂SO₄</td></tr>
+<tr><td style="color: var(--green)">7</td><td>Neutral</td><td>Pure water</td></tr>
+<tr><td style="color: var(--cyan)">11–14</td><td>Strong base</td><td>NaOH, KOH</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🧫 A <strong class="text-purple">buffer</strong> (weak acid + conjugate base) resists pH
+change — essential in fermentation and biopharmaceutical processing.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: FUNCTIONAL GROUPS & SPECTROSCOPY ──────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧫</span>
+<span class="topic-name">Organic Functional Groups &amp; Spectroscopy</span>
+<span class="topic-badge">ANALYSIS</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Identifying Molecules</div>
+<div class="concept-title">Functional groups define reactivity; spectra reveal them</div>
+<div class="concept-desc">
+Organic reactions center on functional groups; analytical spectroscopy identifies them
+without ambiguity — the backbone of QA/QC labs.
+</div>
+<div class="dw">
+<div class="dt">▸ KEY FUNCTIONAL GROUPS</div>
+<table class="ref-table">
+<tr><th>Group</th><th>Formula</th><th>Class</th></tr>
+<tr><td style="color: var(--cyan)">Hydroxyl</td><td>–OH</td><td>Alcohol</td></tr>
+<tr><td style="color: var(--green)">Carbonyl</td><td>C=O</td><td>Aldehyde / ketone</td></tr>
+<tr><td style="color: var(--amber)">Carboxyl</td><td>–COOH</td><td>Carboxylic acid</td></tr>
+<tr><td style="color: var(--purple)">Amine</td><td>–NH₂</td><td>Amine (basic)</td></tr>
+</table>
+<div class="dt">▸ SPECTROSCOPIC TOOLBOX</div>
+<table class="ref-table">
+<tr><th>Technique</th><th>Tells you</th></tr>
+<tr><td style="color: var(--red)">IR</td><td>Functional groups (bond vibrations)</td></tr>
+<tr><td style="color: var(--cyan)">NMR</td><td>Carbon–hydrogen skeleton</td></tr>
+<tr><td style="color: var(--green)">MS</td><td>Molecular weight &amp; fragments</td></tr>
+<tr><td style="color: var(--amber)">UV-Vis</td><td>Conjugation, concentration (Beer's law)</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+📏 Beer–Lambert law: A = ε·b·c — absorbance is linear in concentration, the basis of
+most quantitative lab assays.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="domain-section domain-design" data-domain="design">
+<div class="domain-header">
+<span class="domain-icon">📐</span>
+<span class="domain-title">Process Design &amp; Economics</span>
+<div class="cert-tags">
+<span class="ctag ctag-pe">PE</span>
+<span class="ctag ctag-adv">CAPSTONE</span>
+</div>
+<span class="domain-sub">PFD vs P&amp;ID · Capital &amp; Operating Cost · NPV · Payback · Optimization · Sustainability</span>
+<span class="chevron">▾</span>
+</div>
+<div class="domain-body">
+<!-- ── TOPIC: PFD vs P&ID ───────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🗺️</span>
+<span class="topic-name">Flowsheets — PFD vs. P&amp;ID</span>
+<span class="topic-badge">FOUNDATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">The Blueprints of a Plant</div>
+<div class="concept-title">From concept to construction drawing</div>
+<div class="concept-desc">
+Design progresses from a block flow diagram, to a Process Flow Diagram, to a fully
+detailed Piping &amp; Instrumentation Diagram — each adding fidelity.
+</div>
+<div class="dw">
+<div class="dt">▸ THE DRAWING HIERARCHY</div>
+<table class="ref-table">
+<tr><th>Document</th><th>Shows</th><th>Used for</th></tr>
+<tr><td style="color: var(--cyan)">BFD</td><td>Blocks &amp; major streams</td><td>Concept</td></tr>
+<tr><td style="color: var(--green)">PFD</td><td>Major equipment, T/P/flow, mass balance</td><td>Process design</td></tr>
+<tr><td style="color: var(--amber)">P&amp;ID</td><td>Every valve, line, instrument, tag</td><td>Construction &amp; ops</td></tr>
+</table>
+<div class="dt">▸ HEAT INTEGRATION — PINCH ANALYSIS</div>
+<pre class="code-block">Match hot &amp; cold streams to recover heat internally.
+The "pinch" sets the minimum utility (steam/cooling) needed.
+
+Rule:  don't transfer heat across the pinch,
+       don't cool above it, don't heat below it.</pre>
+</div>
+<div class="info-bar ib-muted">
+♻️ Pinch analysis can cut a plant's energy bill dramatically — the flagship tool of
+process integration and sustainable design.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: ENGINEERING ECONOMICS ────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">💰</span>
+<span class="topic-name">Engineering Economics &amp; Profitability</span>
+<span class="topic-badge">DECISION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Is the Project Worth Building?</div>
+<div class="concept-title">Time value of money decides</div>
+<div class="concept-desc">
+A technically brilliant process still has to make money. Capital and operating costs
+are weighed against revenue using discounted-cash-flow metrics.
+</div>
+<div class="dw">
+<div class="dt">▸ PROFITABILITY METRICS</div>
+<pre class="code-block">Future value:  F = P(1 + i)ⁿ
+Present value: P = F / (1 + i)ⁿ
+
+NPV = Σ (cash flow_t) / (1 + i)^t  − capital
+  NPV > 0  → accept
+IRR = discount rate where NPV = 0
+Payback = years to recover the capital outlay</pre>
+<div class="dt">▸ COST ESTIMATING SHORTCUTS</div>
+<table class="ref-table">
+<tr><th>Rule</th><th>Relation</th></tr>
+<tr><td style="color: var(--cyan)">Six-tenths rule</td><td>Cost₂ = Cost₁ (S₂/S₁)^0.6</td></tr>
+<tr><td style="color: var(--green)">Lang factor</td><td>Fixed capital ≈ factor × equipment cost</td></tr>
+<tr><td style="color: var(--amber)">CEPCI</td><td>Escalate old costs to today's dollars</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+📊 The six-tenths rule captures economy of scale: doubling capacity rarely doubles cost
+— bigger is usually cheaper per unit.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="domain-section domain-math" data-domain="math">
+<div class="domain-header">
+<span class="domain-icon">🧮</span>
+<span class="domain-title">Engineering Math &amp; Numerical Methods</span>
+<div class="cert-tags">
+<span class="ctag ctag-fund">FE</span>
+</div>
+<span class="domain-sub">ODEs · Linear Algebra · Statistics · Root Finding · Integration · Regression · Dimensional Analysis</span>
+<span class="chevron">▾</span>
+</div>
+<div class="domain-body">
+<!-- ── TOPIC: ODEs & LINEAR ALGEBRA ─────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">📐</span>
+<span class="topic-name">ODEs &amp; Linear Algebra for Engineers</span>
+<span class="topic-badge">FOUNDATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">The Language of Models</div>
+<div class="concept-title">Balances become differential equations</div>
+<div class="concept-desc">
+Every dynamic balance — a reactor, a tank, a controller — is a differential equation.
+Steady multi-unit balances become linear systems. Fluency here is non-negotiable.
+</div>
+<div class="dw">
+<div class="dt">▸ FIRST-ORDER LINEAR ODE</div>
+<pre class="code-block">dy/dx + P(x) y = Q(x)
+
+Integrating factor:  μ = exp(∫P dx)
+Solution:  y = (1/μ) ∫ μ Q dx + C/μ
+
+Classic result: mixing-tank concentration approaches
+steady state exponentially with time constant τ = V/Q.</pre>
+<div class="dt">▸ SOLVING LINEAR SYSTEMS  A x = b</div>
+<table class="ref-table">
+<tr><th>Method</th><th>Use</th></tr>
+<tr><td style="color: var(--cyan)">Gaussian elimination</td><td>Direct, dense systems</td></tr>
+<tr><td style="color: var(--green)">LU decomposition</td><td>Reuse for many b vectors</td></tr>
+<tr><td style="color: var(--amber)">Eigenvalues</td><td>Stability, vibration, PCA</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🎛️ The eigenvalues of a linearized system's matrix determine stability — negative real
+parts mean the process returns to steady state.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: NUMERICAL METHODS ─────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🖥️</span>
+<span class="topic-name">Numerical Methods &amp; Root Finding</span>
+<span class="topic-badge">COMPUTATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">When There's No Closed Form</div>
+<div class="concept-title">Iterating to a numerical answer</div>
+<div class="concept-desc">
+Real equations of state, kinetics and balances rarely solve by hand. Numerical methods
+underpin every process simulator (Aspen, HYSYS, MATLAB, Python).
+</div>
+<div class="dw">
+<div class="dt">▸ ROOT FINDING  f(x) = 0</div>
+<table class="ref-table">
+<tr><th>Method</th><th>Idea</th><th>Convergence</th></tr>
+<tr><td style="color: var(--cyan)">Bisection</td><td>Halve a bracketing interval</td><td>Slow, guaranteed</td></tr>
+<tr><td style="color: var(--green)">Newton–Raphson</td><td>x← x − f/f′</td><td>Fast (quadratic)</td></tr>
+<tr><td style="color: var(--amber)">Secant</td><td>Newton without derivatives</td><td>Superlinear</td></tr>
+</table>
+<div class="dt">▸ INTEGRATING ODEs NUMERICALLY</div>
+<pre class="code-block">Euler:   y_{n+1} = y_n + h f(x_n, y_n)     (simple, low order)
+RK4:     4th-order Runge–Kutta            (workhorse accuracy)
+
+h = step size;  smaller h ⇒ more accurate, more cost.</pre>
+</div>
+<div class="info-bar ib-muted">
+🐍 A PFR design integral ∫dX/(−r_A) with messy kinetics is exactly the kind of problem
+Simpson's rule or scipy's <code>solve_ivp</code> handles in seconds.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: STATISTICS & REGRESSION ───────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">📊</span>
+<span class="topic-name">Statistics, Regression &amp; Data</span>
+<span class="topic-badge">DATA</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Making Sense of Measurements</div>
+<div class="concept-title">Fitting models &amp; controlling quality</div>
+<div class="concept-desc">
+Plant data is noisy. Statistics extracts kinetic parameters, validates models and keeps
+production within spec.
+</div>
+<div class="dw">
+<div class="dt">▸ LEAST-SQUARES REGRESSION</div>
+<pre class="code-block">Minimize Σ (y_i − ŷ_i)²
+
+Linearize when possible:
+  Arrhenius → ln k vs 1/T   (slope −E_a/R)
+  1st-order → ln C vs t     (slope −k)
+
+R² measures fraction of variance explained (1 = perfect).</pre>
+<div class="dt">▸ QUALITY &amp; DESIGN OF EXPERIMENTS</div>
+<table class="ref-table">
+<tr><th>Tool</th><th>Purpose</th></tr>
+<tr><td style="color: var(--cyan)">Control chart</td><td>Detect process drift (±3σ limits)</td></tr>
+<tr><td style="color: var(--green)">Factorial DOE</td><td>Screen many variables efficiently</td></tr>
+<tr><td style="color: var(--amber)">Propagation of error</td><td>How input uncertainty flows to results</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+📈 Dimensional analysis (Buckingham π theorem) reduces the number of experiments by
+grouping variables into dimensionless numbers — see Transport Phenomena.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<script src="script.js"></script>
+<!-- NOTEPAD: slide tab -->
+<button id="notepad-tab" class="notepad-tab" onclick="toggleNotepad()" title="Open notepad">
+<span class="notepad-tab-icon">📋</span>
+<span class="notepad-tab-label">NOTEPAD</span>
+</button>
+<div id="notepad-panel" class="notepad-panel">
+<div id="notepad-root">
+<div class="notepad-loading">Loading notepad…</div>
+</div>
+</div>
+</body>
+</html>

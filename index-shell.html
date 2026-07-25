@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Chemical Engineering Reference — Concepts, Cycles, Diagrams &amp; Equations
+    </title>
+    <!-- Self-hosted fonts (works offline / over file://; no third-party calls) -->
+    <link rel="stylesheet" href="Img/fonts.css" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" href="Img/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="shortcut icon" href="Img/favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="Img/favicon/apple-touch-icon.png" />
+    <link rel="manifest" href="Img/favicon/site.webmanifest" />
+  </head>
+  <body>
+    <header>
+      <div class="header-inner">
+        <div class="header-content">
+          <div class="header-top-row">
+            <div class="header-badge">
+              Chemical Engineering Reference · 2026 Edition
+            </div>
+            <div class="header-controls" id="header-controls">
+              <button class="sw-btn" id="hdr-theme-btn" role="switch" aria-checked="false" aria-label="Toggle light / dark" title="Toggle light / dark">
+                <span class="sw-sun">☀</span>
+                <span class="sw-track"><span class="sw-thumb"></span></span>
+                <span class="sw-moon">☾</span>
+              </button>
+              <button class="sw-btn" id="hdr-expand-btn" role="switch" aria-checked="false" aria-label="Expand all sections" title="Expand / collapse all">
+                <span class="sw-text">EXPAND</span>
+                <span class="sw-track"><span class="sw-thumb"></span></span>
+              </button>
+            </div>
+          </div>
+          <h1>Cycles, Concepts <span>&amp; Diagrams</span> — ChemE Topic Reference</h1>
+          <p>
+            Interactive drop-down reference organized by chemical-engineering
+            domain. Covers material &amp; energy balances, thermodynamics,
+            fluid mechanics, heat &amp; mass transfer, reaction engineering,
+            process control, biochemical engineering (incl. DNA), transport
+            phenomena, unit operations, process safety, materials, chemistry,
+            plant design, and engineering math.
+          </p>
+          <div class="snap-quote" id="snap-quote">
+            <span class="sq-mark">"</span>
+            <span class="sq-text" id="sq-text"></span>
+            <span class="sq-mark">"</span>
+          </div>
+        </div>
+        <div class="header-image">
+          <img
+            src="Img/Studying-Tips.png"
+            alt="Optimized Study Routine: 4 Pillars for Success infographic."
+          />
+        </div>
+      </div>
+    </header>
+
+    <div class="filter-bar">
+      <div class="filter-inner">
+        <div class="chip c-all active"     data-domain="all">◈ ALL DOMAINS</div>
+        <div class="chip c-stoich"         data-domain="stoich">⚗️ MATERIAL BALANCES</div>
+        <div class="chip c-thermo"         data-domain="thermo">🔥 THERMODYNAMICS</div>
+        <div class="chip c-fluids"         data-domain="fluids">🌊 FLUID MECHANICS</div>
+        <div class="chip c-heat"           data-domain="heat">♨️ HEAT TRANSFER</div>
+        <div class="chip c-mass"           data-domain="mass">💧 MASS TRANSFER</div>
+        <div class="chip c-kinetics"       data-domain="kinetics">🧪 REACTION ENG</div>
+        <div class="chip c-control"        data-domain="control">🎛️ PROCESS CONTROL</div>
+        <div class="chip c-bio"            data-domain="bio">🧬 BIOCHEMICAL</div>
+        <div class="chip c-transport"      data-domain="transport">🔀 TRANSPORT PHENOMENA</div>
+        <div class="chip c-unitops"        data-domain="unitops">🏭 UNIT OPERATIONS</div>
+        <div class="chip c-safety"         data-domain="safety">🦺 PROCESS SAFETY</div>
+        <div class="chip c-materials"      data-domain="materials">🧱 MATERIALS</div>
+        <div class="chip c-chem"           data-domain="chem">🧫 CHEMISTRY</div>
+        <div class="chip c-design"         data-domain="design">📐 PROCESS DESIGN</div>
+        <div class="chip c-math"           data-domain="math">🧮 ENG MATH</div>
+      </div>
+    </div>
+
+        <!-- SEARCH BAR ──────────────────────────────────────────────────────── -->
+    <div class="search-bar" id="search-bar">
+      <div class="search-inner">
+        <span class="search-icon">⌕</span>
+        <input
+          id="search-input"
+          class="search-input"
+          type="search"
+          placeholder="Search topics, concepts, equations…"
+          oninput="onSearchInput(this.value)"
+          autocomplete="off"
+          spellcheck="false"
+        />
+        <button class="search-clear" id="search-clear" onclick="clearSearch()" title="Clear search">✕</button>
+        <span class="search-count" id="search-count"></span>
+      </div>
+    </div>
+    <!-- /search-bar -->
+<!-- /container -->
+    <div class="container" id="domain-container">
+<!-- DOMAINS_CONTENT -->
+    </div>
+
+    <script src="script.js"></script>
+    <!-- NOTEPAD: slide tab -->
+  <button id="notepad-tab" class="notepad-tab" onclick="toggleNotepad()" title="Open notepad">
+    <span class="notepad-tab-icon">📋</span>
+    <span class="notepad-tab-label">NOTEPAD</span>
+  </button>
+
+  <div id="notepad-panel" class="notepad-panel">
+    <div id="notepad-root">
+      <div class="notepad-loading">Loading notepad…</div>
+    </div>
+  </div>
+</body>
+</html>

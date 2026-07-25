@@ -1,0 +1,117 @@
+<!-- ── TOPIC: BERNOULLI & MECHANICAL ENERGY ─────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🪈</span>
+    <span class="topic-name">Bernoulli &amp; the Mechanical Energy Balance</span>
+    <span class="topic-badge">FOUNDATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Energy Along a Streamline</div>
+      <div class="concept-title">Pressure, velocity and elevation trade off</div>
+      <div class="concept-desc">
+        Bernoulli's equation is the frictionless mechanical-energy balance; the engineering
+        (extended) form adds pump work and friction losses.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ EXTENDED BERNOULLI (per unit mass)</div>
+        <pre class="code-block">P₁/ρ + v₁²/2 + g z₁ + w_pump
+  = P₂/ρ + v₂²/2 + g z₂ + h_friction
+
+Ideal (no pump, no friction):
+  P/ρ + v²/2 + gz = constant</pre>
+        <div class="dt">▸ WHAT EACH TERM IS</div>
+        <table class="ref-table">
+          <tr><th>Term</th><th>Meaning</th></tr>
+          <tr><td style="color: var(--cyan)">P/ρ</td><td>Flow (pressure) energy</td></tr>
+          <tr><td style="color: var(--green)">v²/2</td><td>Kinetic energy</td></tr>
+          <tr><td style="color: var(--amber)">gz</td><td>Potential (elevation) energy</td></tr>
+          <tr><td style="color: var(--red)">h_friction</td><td>Irreversible loss — always positive</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        💨 Faster flow ⇒ lower static pressure (the Venturi effect) — the physics behind
+        flow meters, aspirators and lift.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: REYNOLDS & FRICTION ───────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🌀</span>
+    <span class="topic-name">Reynolds Number &amp; Pipe Friction</span>
+    <span class="topic-badge">FLOW REGIME</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Laminar vs. Turbulent</div>
+      <div class="concept-title">One dimensionless group predicts the regime</div>
+      <div class="concept-desc">
+        The <strong class="text-blue">Reynolds number</strong> compares inertial to viscous
+        forces and sets the whole character of the flow — and thus the pressure drop.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ REYNOLDS NUMBER &amp; REGIMES</div>
+        <pre class="code-block">Re = ρ v D / μ = v D / ν
+
+Re < 2100      → laminar   (f = 64/Re)
+2100–4000      → transition
+Re > 4000      → turbulent (Colebrook / Moody chart)</pre>
+        <div class="dt">▸ PRESSURE DROP (DARCY–WEISBACH)</div>
+        <pre class="code-block">ΔP = f · (L/D) · (ρ v² / 2)
+
+f  = Darcy friction factor (from Re + ε/D)
+L  = pipe length      D = inside diameter
+ε  = roughness        ε/D = relative roughness</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        📊 The <strong class="text-amber">Moody chart</strong> plots f vs. Re for a family of
+        relative-roughness curves — the classic tool for turbulent pipe sizing.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: PUMPS & NPSH ──────────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">⚙️</span>
+    <span class="topic-name">Pumps, Head Curves &amp; NPSH</span>
+    <span class="topic-badge">EQUIPMENT</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Moving Liquids</div>
+      <div class="concept-title">Operating point &amp; the cavitation limit</div>
+      <div class="concept-desc">
+        A centrifugal pump runs where its <strong class="text-green">head curve</strong>
+        crosses the <strong class="text-red">system curve</strong>. Too little suction head
+        and the liquid flashes — cavitation.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ NPSH — THE CAVITATION GUARD</div>
+        <pre class="code-block">NPSH_available = (P_suction − P_vapor)/(ρg) + v²/2g − h_losses
+NPSH_required  = pump datasheet value
+
+Rule:  NPSH_available > NPSH_required
+       (typical margin ≥ 0.5–1 m)  ⇒ no cavitation</pre>
+        <div class="dt">▸ AFFINITY LAWS (SPEED N)</div>
+        <table class="ref-table">
+          <tr><th>Quantity</th><th>Scales as</th></tr>
+          <tr><td style="color: var(--cyan)">Flow Q</td><td>∝ N</td></tr>
+          <tr><td style="color: var(--green)">Head H</td><td>∝ N²</td></tr>
+          <tr><td style="color: var(--amber)">Power P</td><td>∝ N³</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        ⚠️ Cavitation pits impellers and collapses head — chronic low NPSH is a top cause of
+        pump failure in the field.
+      </div>
+    </div>
+  </div>
+</div>
