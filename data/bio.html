@@ -175,3 +175,84 @@ Pure product</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: RECOMBINANT DNA — PCR, CLONING & CRISPR ───────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">✂️</span>
+    <span class="topic-name">Recombinant DNA — Cloning, PCR &amp; CRISPR</span>
+    <span class="topic-badge">GENETIC ENGINEERING</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Reprogramming Cells to Make Product</div>
+      <div class="concept-title">The toolkit behind industrial biotech</div>
+      <div class="concept-desc">
+        Recombinant DNA technology inserts a gene of interest into a host cell so it becomes a
+        living factory — how insulin, growth hormone and many enzymes are produced.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE CLONING WORKFLOW</div>
+        <pre class="code-block">1. Cut DNA at specific sites  → restriction enzymes
+2. Insert gene into a vector  → plasmid + DNA ligase
+3. Transform into a host      → E. coli / yeast / CHO cells
+4. Select &amp; screen          → antibiotic markers
+5. Express &amp; harvest         → the recombinant protein</pre>
+        <div class="dt">▸ KEY TOOLS</div>
+        <table class="ref-table">
+          <tr><th>Tool</th><th>Does</th></tr>
+          <tr><td style="color: var(--cyan)">PCR</td><td>Amplifies a target sequence millions-fold</td></tr>
+          <tr><td style="color: var(--green)">Gel electrophoresis</td><td>Separates DNA by size (charge/sieving)</td></tr>
+          <tr><td style="color: var(--amber)">Restriction enzymes</td><td>Cut DNA at specific recognition sites</td></tr>
+          <tr><td style="color: var(--purple)">CRISPR-Cas9</td><td>Precise, programmable genome editing</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🧬 CHO (Chinese hamster ovary) cells are the workhorse host for complex human
+        therapeutic proteins — they fold and glycosylate like human cells.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: STERILIZATION & THERMAL DEATH ─────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🌡️</span>
+    <span class="topic-name">Sterilization &amp; Thermal Death Kinetics</span>
+    <span class="topic-badge">CONTAMINATION CONTROL</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Keeping the Culture Pure</div>
+      <div class="concept-title">Killing contaminants follows first-order kinetics</div>
+      <div class="concept-desc">
+        A single stray microbe can ruin a batch. Sterilizing media and equipment relies on
+        first-order <strong class="text-red">thermal death</strong> kinetics — and the same
+        Arrhenius temperature dependence as any reaction.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE DEL FACTOR</div>
+        <pre class="code-block">dN/dt = −k_d N        (first-order death)
+
+Del factor  ∇ = ln(N_0 / N) = ∫ k_d dt
+
+Design target: ∇ ≈ 30–45 (N goes from ~10^12 down to <1)
+k_d rises steeply with T (Arrhenius) → hotter, shorter is better.</pre>
+        <div class="dt">▸ STERILIZATION ROUTES</div>
+        <table class="ref-table">
+          <tr><th>Method</th><th>Use</th></tr>
+          <tr><td style="color: var(--red)">Moist heat (autoclave)</td><td>Media, equipment (121 °C steam)</td></tr>
+          <tr><td style="color: var(--cyan)">Filtration (0.2 µm)</td><td>Heat-sensitive media, air, feed gas</td></tr>
+          <tr><td style="color: var(--green)">Continuous (HTST)</td><td>Large-scale media — high T, short time</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🔥 Because death is faster-accelerating with T than nutrient destruction, HTST
+        (high-temperature short-time) sterilizes with less damage to the medium.
+      </div>
+    </div>
+  </div>
+</div>

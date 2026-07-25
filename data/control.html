@@ -152,3 +152,76 @@ Overshoot &amp; decay ratio depend only on ζ.</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: FREQUENCY RESPONSE & STABILITY MARGINS ────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📉</span>
+    <span class="topic-name">Frequency Response &amp; Stability Margins</span>
+    <span class="topic-badge">STABILITY</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Will the Loop Stay Stable?</div>
+      <div class="concept-title">Bode plots and the margins that keep you safe</div>
+      <div class="concept-desc">
+        Feed a sinusoid through a process and it comes out shifted and scaled. Tracking gain and
+        phase versus frequency (the <strong class="text-blue">Bode plot</strong>) reveals how
+        close a loop is to instability.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE STABILITY CRITERION</div>
+        <pre class="code-block">Closed loop is unstable if, at the frequency where phase = −180°,
+the open-loop gain |GH| ≥ 1.
+
+Gain margin  = 1 / |GH| at phase crossover   (want > ~2, i.e. 6 dB)
+Phase margin = 180° + phase at gain crossover (want > ~30–45°)</pre>
+        <div class="dt">▸ WHAT ERODES STABILITY</div>
+        <table class="ref-table">
+          <tr><th>Factor</th><th>Effect</th></tr>
+          <tr><td style="color: var(--red)">Higher controller gain</td><td>Faster but less stable</td></tr>
+          <tr><td style="color: var(--amber)">Dead time</td><td>Adds phase lag — very destabilizing</td></tr>
+          <tr><td style="color: var(--cyan)">More lags in series</td><td>Extra −90° each — closes on −180°</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🎛️ Margins are safety factors for the model: keep a healthy gain and phase margin so
+        plant/model mismatch doesn't tip the loop into oscillation.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: CASCADE & FEEDFORWARD CONTROL ─────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🪜</span>
+    <span class="topic-name">Cascade &amp; Feedforward Control</span>
+    <span class="topic-badge">ADVANCED LOOPS</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Beyond a Single Feedback Loop</div>
+      <div class="concept-title">Reject disturbances before they hurt</div>
+      <div class="concept-desc">
+        Plain feedback only reacts <em>after</em> an error appears. Cascade and feedforward
+        structures catch disturbances earlier for tighter control.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE STRUCTURES</div>
+        <table class="ref-table">
+          <tr><th>Scheme</th><th>Idea</th><th>Best for</th></tr>
+          <tr><td style="color: var(--cyan)">Cascade</td><td>Inner fast loop + outer slow loop</td><td>Fast secondary disturbances (e.g. jacket temp)</td></tr>
+          <tr><td style="color: var(--green)">Feedforward</td><td>Measure the disturbance, act preemptively</td><td>Measurable, dominant disturbances</td></tr>
+          <tr><td style="color: var(--amber)">Ratio</td><td>Hold one flow proportional to another</td><td>Blending, combustion air/fuel</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🔗 Feedforward is never perfect (model error), so it's almost always paired with a
+        feedback trim loop that mops up the residual.
+      </div>
+    </div>
+  </div>
+</div>

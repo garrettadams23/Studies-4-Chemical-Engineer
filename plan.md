@@ -30,7 +30,7 @@ chemical-engineering curriculum, the FE/PE exams, and day-to-day plant practice.
 
 **Success metrics:**
 
-- 🚧 15 domains live · **52 topics** and growing (Phase 3 underway) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
+- 🚧 15 domains live · **82 topics** and growing (Phase 3 well underway) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
 - 📝 Interactive calculators for the 20 most-used engineering formulas.
 - 📝 Embedded reference data (steam tables, Antoine coefficients, property tables).
 - 📝 Self-test/quiz engine with per-domain progress.
@@ -845,3 +845,21 @@ Netlify Forms feedback panel.
   (`rel="noopener noreferrer"`). Mirrors the reciprocal button added on the IT
   site in Studies PR #17. Pure HTML/CSS — no CSP change needed (link navigation
   isn't governed by CSP fetch directives).
+
+### 2026-07-25 — Phase 3 depth pass B (+30 topics, 52 → 82)
+Added 2 topics to every one of the 15 domains:
+- Material Balances: Multiple-Unit Balances; Psychrometry & Humidity
+- Thermodynamics: Power & Refrigeration Cycles; Fugacity & Activity Coefficients
+- Fluid Mechanics: Flow Measurement; Compressible & Choked Flow
+- Heat Transfer: Fins & Extended Surfaces; Radiation Exchange & View Factors
+- Mass Transfer: Packed Columns (HTU/NTU); Multicomponent Shortcut (FUG)
+- Reaction Engineering: Non-Isothermal Reactors; Thiele Modulus & Effectiveness
+- Process Control: Frequency Response & Margins; Cascade & Feedforward
+- Biochemical: Recombinant DNA (PCR/cloning/CRISPR); Sterilization & Del factor
+- Transport: Shell Balances (falling film); Boundary-Layer Theory
+- Unit Operations: Size Reduction & Comminution; Mixing & Agitation
+- Process Safety: Toxic Release & Dispersion; Fault Tree & Event Tree
+- Materials: Mechanical Properties & Failure; Heat Treatment & Transformations
+- Chemistry: Chemical Equilibrium & Le Chatelier; Electrochemistry & Nernst
+- Process Design: Process Simulation & Convergence; Optimization & Green Design
+- Engineering Math: Laplace Transforms; Partial Differential Equations

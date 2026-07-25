@@ -74,3 +74,79 @@
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: SIZE REDUCTION & COMMINUTION ──────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🪨</span>
+    <span class="topic-name">Size Reduction &amp; Comminution</span>
+    <span class="topic-badge">SOLIDS</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Breaking Solids Down</div>
+      <div class="concept-title">Energy laws for crushing and grinding</div>
+      <div class="concept-desc">
+        Crushing and grinding are energy-hungry — much of the input becomes heat and noise.
+        Three empirical laws relate energy to the change in particle size.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE THREE COMMINUTION LAWS</div>
+        <table class="ref-table">
+          <tr><th>Law</th><th>Energy ∝</th><th>Best for</th></tr>
+          <tr><td style="color: var(--cyan)">Kick</td><td>ln(D₁/D₂)</td><td>Coarse crushing</td></tr>
+          <tr><td style="color: var(--amber)">Rittinger</td><td>new surface (1/D₂ − 1/D₁)</td><td>Fine grinding</td></tr>
+          <tr><td style="color: var(--green)">Bond</td><td>(1/√D₂ − 1/√D₁)</td><td>Intermediate (work index)</td></tr>
+        </table>
+        <div class="dt">▸ BOND WORK INDEX</div>
+        <pre class="code-block">E = 10 W_i (1/√D₂ − 1/√D₁)     D in µm, E in kWh/ton
+
+W_i = Bond work index (material property, from grindability tests)</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        ⚙️ Grinding efficiency is notoriously low (~1%). Equipment: jaw/gyratory crushers
+        (coarse) → ball/rod mills (fine) → jet mills (ultrafine).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: MIXING & AGITATION ────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🌀</span>
+    <span class="topic-name">Mixing &amp; Agitation</span>
+    <span class="topic-badge">SCALE-UP</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Stirring It All Together</div>
+      <div class="concept-title">Power draw and the notorious scale-up problem</div>
+      <div class="concept-desc">
+        Agitation blends, suspends solids, disperses gas and transfers heat. Its power draw is
+        correlated through the dimensionless <strong class="text-blue">power number</strong>.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ POWER CORRELATION</div>
+        <pre class="code-block">Power number  N_p = P / (ρ N³ D⁵)
+Impeller Reynolds  Re = ρ N D² / μ
+
+Turbulent (Re > 10⁴): N_p ≈ constant → P ∝ ρ N³ D⁵
+Laminar (Re < 10):    N_p ∝ 1/Re     → P ∝ μ N² D³</pre>
+        <div class="dt">▸ IMPELLER CHOICE</div>
+        <table class="ref-table">
+          <tr><th>Type</th><th>Best for</th></tr>
+          <tr><td style="color: var(--cyan)">Rushton turbine</td><td>Gas dispersion, high shear</td></tr>
+          <tr><td style="color: var(--green)">Pitched-blade / hydrofoil</td><td>Blending, solids suspension (axial flow)</td></tr>
+          <tr><td style="color: var(--amber)">Anchor / helical</td><td>High-viscosity, laminar</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        📐 You can't hold everything constant on scale-up — equal power/volume, equal tip speed,
+        and equal mixing time are competing criteria. Pick the one that matters for your duty.
+      </div>
+    </div>
+  </div>
+</div>

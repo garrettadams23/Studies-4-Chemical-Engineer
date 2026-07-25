@@ -201,3 +201,81 @@ Adiabatic flame temp: all ΔHrxn heats the products (Q = 0).</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: POWER & REFRIGERATION CYCLES ──────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔄</span>
+    <span class="topic-name">Power &amp; Refrigeration Cycles</span>
+    <span class="topic-badge">CYCLES</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Turning Heat into Work (and Back)</div>
+      <div class="concept-title">Rankine, Brayton &amp; vapor-compression</div>
+      <div class="concept-desc">
+        Thermodynamic cycles are the engines of the energy industry. Each is a loop of four
+        processes analyzed with the open-system energy balance on each device.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE MAJOR CYCLES</div>
+        <table class="ref-table">
+          <tr><th>Cycle</th><th>Working fluid</th><th>Use</th></tr>
+          <tr><td style="color: var(--red)">Rankine</td><td>Water/steam</td><td>Steam power plants</td></tr>
+          <tr><td style="color: var(--amber)">Brayton</td><td>Air/gas</td><td>Gas turbines, jet engines</td></tr>
+          <tr><td style="color: var(--cyan)">Vapor-compression</td><td>Refrigerant</td><td>Refrigeration, heat pumps</td></tr>
+        </table>
+        <div class="dt">▸ EFFICIENCY &amp; COP</div>
+        <pre class="code-block">Power cycle:  η = W_net / Q_in       (Carnot limit: 1 − T_C/T_H)
+Refrigerator: COP = Q_C / W_in
+Heat pump:    COP = Q_H / W_in = COP_refrig + 1</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        ♨️ Reheat and regeneration push the Rankine cycle toward the Carnot limit — more
+        equipment, higher efficiency.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: FUGACITY & ACTIVITY COEFFICIENTS ──────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧩</span>
+    <span class="topic-name">Fugacity &amp; Activity Coefficients</span>
+    <span class="topic-badge">NON-IDEALITY</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Real-Mixture Equilibrium</div>
+      <div class="concept-title">The rigorous criterion behind VLE</div>
+      <div class="concept-desc">
+        Phase equilibrium means equal <strong class="text-purple">fugacity</strong> of each
+        species in every phase. Fugacity is an "effective pressure"; activity coefficients
+        correct the liquid phase for non-ideal mixing.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE EQUILIBRIUM CRITERION</div>
+        <pre class="code-block">f_i^vapor = f_i^liquid    (for every species i)
+
+Vapor:  f_i^V = y_i φ_i P            (φ = fugacity coefficient)
+Liquid: f_i^L = x_i γ_i f_i^pure     (γ = activity coefficient)
+
+γ → 1 for ideal solutions (Raoult's law recovered).</pre>
+        <div class="dt">▸ ACTIVITY-COEFFICIENT MODELS</div>
+        <table class="ref-table">
+          <tr><th>Model</th><th>Best for</th></tr>
+          <tr><td style="color: var(--cyan)">Margules / Van Laar</td><td>Simple binaries</td></tr>
+          <tr><td style="color: var(--green)">Wilson / NRTL</td><td>Polar, non-ideal mixtures</td></tr>
+          <tr><td style="color: var(--amber)">UNIQUAC / UNIFAC</td><td>Predictive (group contribution)</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🧪 γ &gt; 1 (positive deviation) points toward a minimum-boiling azeotrope — the usual
+        case for ethanol-water.
+      </div>
+    </div>
+  </div>
+</div>

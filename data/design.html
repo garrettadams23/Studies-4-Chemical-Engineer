@@ -77,3 +77,80 @@ Payback = years to recover the capital outlay</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: PROCESS SIMULATION ────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🖥️</span>
+    <span class="topic-name">Process Simulation &amp; Convergence</span>
+    <span class="topic-badge">TOOLS</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">The Modern Design Workhorse</div>
+      <div class="concept-title">Flowsheet simulators do the heavy algebra</div>
+      <div class="concept-desc">
+        Tools like <strong class="text-blue">Aspen Plus, HYSYS and DWSIM</strong> solve
+        thousands of coupled balance and equilibrium equations. The engineer's job is model
+        selection, specification, and sanity-checking — not hand algebra.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ WHAT DRIVES ACCURACY</div>
+        <table class="ref-table">
+          <tr><th>Choice</th><th>Why it matters</th></tr>
+          <tr><td style="color: var(--red)">Thermo package</td><td>Peng-Robinson (hydrocarbons) vs NRTL (polar) — get this wrong and all results are wrong</td></tr>
+          <tr><td style="color: var(--cyan)">Property data</td><td>Binary interaction parameters, missing components</td></tr>
+          <tr><td style="color: var(--amber)">Recycle convergence</td><td>Tear streams, Wegstein/Newton iteration</td></tr>
+        </table>
+        <div class="dt">▸ SEQUENTIAL-MODULAR SOLVE</div>
+        <pre class="code-block">Solve units in flow order; for recycles, "tear" a stream,
+guess it, iterate until the guess matches the computed value.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        ⚠️ Garbage in, garbage out: a converged simulation is not a correct one. Always
+        reality-check against hand balances and physical intuition.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: OPTIMIZATION & SUSTAINABILITY ─────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🌿</span>
+    <span class="topic-name">Optimization &amp; Green Design</span>
+    <span class="topic-badge">BEST DESIGN</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Best, Not Just Feasible</div>
+      <div class="concept-title">Minimize cost and environmental footprint</div>
+      <div class="concept-desc">
+        Design isn't done when it works — it's done when it's <em>optimal</em>. Formal
+        optimization finds the best trade-off, and green-design metrics fold sustainability into
+        the objective.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ OPTIMIZATION ANATOMY</div>
+        <pre class="code-block">minimize   f(x)          ← objective (cost, energy, emissions)
+subject to g(x) ≤ 0      ← constraints (specs, safety, physics)
+
+Linear → LP (simplex)   Nonlinear → NLP (SQP, gradient)
+Mixed integer → MILP/MINLP (equipment on/off decisions)</pre>
+        <div class="dt">▸ GREEN-DESIGN METRICS</div>
+        <table class="ref-table">
+          <tr><th>Metric</th><th>Measures</th></tr>
+          <tr><td style="color: var(--green)">Atom economy</td><td>Fraction of reactant atoms in the product</td></tr>
+          <tr><td style="color: var(--cyan)">E-factor</td><td>kg waste / kg product</td></tr>
+          <tr><td style="color: var(--amber)">LCA</td><td>Cradle-to-grave environmental impact</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        ♻️ The greenest, cheapest waste is the one never made — process intensification and high
+        selectivity beat end-of-pipe treatment every time.
+      </div>
+    </div>
+  </div>
+</div>

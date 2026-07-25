@@ -114,3 +114,80 @@ Requires: anode + cathode + electrolyte + circuit</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: MECHANICAL PROPERTIES & FAILURE ───────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔨</span>
+    <span class="topic-name">Mechanical Properties &amp; Failure</span>
+    <span class="topic-badge">STRENGTH</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Will It Hold?</div>
+      <div class="concept-title">The stress-strain curve tells the story</div>
+      <div class="concept-desc">
+        Pressure vessels, piping and supports must carry load without yielding or fracturing.
+        The <strong class="text-blue">stress-strain curve</strong> defines the key design limits.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ STRESS-STRAIN LANDMARKS</div>
+        <pre class="code-block">Stress σ = F/A     Strain ε = ΔL/L     E = σ/ε (Young's modulus)
+
+Elastic region → Yield strength (permanent deformation begins)
+             → Ultimate tensile strength (max)
+             → Fracture</pre>
+        <div class="dt">▸ FAILURE MODES</div>
+        <table class="ref-table">
+          <tr><th>Mode</th><th>Driven by</th></tr>
+          <tr><td style="color: var(--amber)">Yielding</td><td>Static overload past yield strength</td></tr>
+          <tr><td style="color: var(--red)">Fatigue</td><td>Cyclic loading below yield (S-N curve)</td></tr>
+          <tr><td style="color: var(--purple)">Creep</td><td>Slow strain at high T over time</td></tr>
+          <tr><td style="color: var(--cyan)">Brittle fracture</td><td>Flaws + low temperature (ductile-brittle transition)</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🧊 Carbon steel loses toughness in the cold — the ductile-to-brittle transition caused
+        the Liberty-ship and many vessel failures. Choose materials for the coldest service T.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: HEAT TREATMENT & PHASE TRANSFORMATIONS ────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔥</span>
+    <span class="topic-name">Heat Treatment &amp; Phase Transformations</span>
+    <span class="topic-badge">METALLURGY</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Tuning Properties by Thermal History</div>
+      <div class="concept-title">Same composition, very different steel</div>
+      <div class="concept-desc">
+        Steel's strength and toughness depend as much on <em>how it was cooled</em> as on its
+        composition. Controlling phase transformations is the heart of metallurgy.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ COMMON TREATMENTS</div>
+        <table class="ref-table">
+          <tr><th>Treatment</th><th>Cooling</th><th>Result</th></tr>
+          <tr><td style="color: var(--red)">Quenching</td><td>Fast (water/oil)</td><td>Martensite — hard, brittle</td></tr>
+          <tr><td style="color: var(--amber)">Tempering</td><td>Reheat quenched steel</td><td>Trades hardness for toughness</td></tr>
+          <tr><td style="color: var(--green)">Annealing</td><td>Slow (furnace)</td><td>Soft, ductile, stress-relieved</td></tr>
+          <tr><td style="color: var(--cyan)">Normalizing</td><td>Air cool</td><td>Fine, uniform grain</td></tr>
+        </table>
+        <div class="dt">▸ THE TTT DIAGRAM</div>
+        <pre class="code-block">Time-Temperature-Transformation curves map cooling rate → phase.
+Fast past the "nose" → martensite; slow → pearlite/ferrite.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🔧 Welding is an uncontrolled local heat treatment — the heat-affected zone can harden
+        and crack, which is why post-weld heat treatment (PWHT) is often required.
+      </div>
+    </div>
+  </div>
+</div>

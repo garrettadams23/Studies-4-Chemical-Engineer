@@ -150,3 +150,81 @@ m = slope of the equilibrium line (Henry's constant form).</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: PACKED COLUMNS — HTU & NTU ────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🏛️</span>
+    <span class="topic-name">Packed Columns — HTU &amp; NTU</span>
+    <span class="topic-badge">CONTINUOUS CONTACT</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Sizing a Packed Absorber</div>
+      <div class="concept-title">Height = how hard × how many</div>
+      <div class="concept-desc">
+        Unlike tray columns, packed columns transfer mass <em>continuously</em>. Their height is
+        the product of a <strong class="text-blue">transfer-unit height (HTU)</strong> and the
+        <strong class="text-purple">number of transfer units (NTU)</strong>.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ COLUMN HEIGHT</div>
+        <pre class="code-block">Z = HTU × NTU
+
+HTU = G / (K_y a)      (mass-transfer efficiency of the packing)
+NTU = ∫ dy / (y − y*)  (difficulty of the separation)
+
+Dilute case:  NTU ≈ (y_in − y_out)/(driving force, log-mean)</pre>
+        <div class="dt">▸ HTU vs HETP</div>
+        <table class="ref-table">
+          <tr><th>Concept</th><th>Applies to</th></tr>
+          <tr><td style="color: var(--cyan)">HTU / NTU</td><td>Continuous-contact (packed) — rate based</td></tr>
+          <tr><td style="color: var(--green)">HETP / stages</td><td>Equivalent tray height for packing</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🌫️ Small HTU = efficient packing. Flooding sets the upper gas rate — design at ~70% of
+        flooding velocity.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: MULTICOMPONENT SHORTCUT (FUG) ─────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🗜️</span>
+    <span class="topic-name">Multicomponent Distillation — Fenske-Underwood-Gilliland</span>
+    <span class="topic-badge">SHORTCUT</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Beyond Binaries</div>
+      <div class="concept-title">Three correlations size a real column fast</div>
+      <div class="concept-desc">
+        Real columns separate many components. The <strong class="text-blue">FUG</strong>
+        shortcut estimates minimum stages, minimum reflux and the actual stage count without a
+        full stage-by-stage solve.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE THREE STEPS</div>
+        <table class="ref-table">
+          <tr><th>Method</th><th>Gives</th></tr>
+          <tr><td style="color: var(--green)">Fenske</td><td>Minimum stages N_min (total reflux)</td></tr>
+          <tr><td style="color: var(--amber)">Underwood</td><td>Minimum reflux ratio R_min</td></tr>
+          <tr><td style="color: var(--cyan)">Gilliland</td><td>Actual N at a chosen R (correlation)</td></tr>
+        </table>
+        <div class="dt">▸ FENSKE EQUATION</div>
+        <pre class="code-block">N_min = ln[ (x_LK/x_HK)_dist · (x_HK/x_LK)_bot ] / ln(α_LK,HK)
+
+LK = light key, HK = heavy key, α = relative volatility.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🔑 Pick the light &amp; heavy <em>key</em> components — the pair whose split you specify.
+        Everything else distributes around them.
+      </div>
+    </div>
+  </div>
+</div>

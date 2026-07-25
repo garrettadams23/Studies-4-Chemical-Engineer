@@ -154,3 +154,78 @@ Step tracer      → F(t), and E = dF/dt</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: NON-ISOTHERMAL REACTORS ───────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🌡️</span>
+    <span class="topic-name">Non-Isothermal Reactors &amp; Multiple Steady States</span>
+    <span class="topic-badge">ENERGY BALANCE</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Heat and Rate Are Coupled</div>
+      <div class="concept-title">Temperature feeds back on the reaction</div>
+      <div class="concept-desc">
+        Reactions release or absorb heat, and rate depends exponentially on temperature (Arrhenius).
+        Coupling the mole and energy balances can produce <strong class="text-red">multiple steady
+        states</strong> and runaway.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ CSTR ENERGY BALANCE</div>
+        <pre class="code-block">Heat generated  G(T) = (−ΔH_rxn) · (−r_A) V   (S-shaped in T)
+Heat removed    R(T) = ṁ c_p (T − T_0) + UA(T − T_c)  (linear)
+
+Steady state where G(T) = R(T). Up to 3 intersections
+→ low, unstable middle, and high (ignited) steady states.</pre>
+        <div class="dt">▸ OPERATING CONCERNS</div>
+        <table class="ref-table">
+          <tr><th>Phenomenon</th><th>Cause</th></tr>
+          <tr><td style="color: var(--red)">Thermal runaway</td><td>Removal can't keep up with generation</td></tr>
+          <tr><td style="color: var(--amber)">Ignition/extinction</td><td>Jump between steady states</td></tr>
+          <tr><td style="color: var(--green)">Adiabatic ΔT</td><td>(−ΔH)·C_A0 / (ρ c_p) — max temp rise</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🚨 Exothermic reactors need enough cooling <em>and</em> a stable operating point —
+        a core process-safety concern (calorimetry sizes the hazard).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: CATALYSIS — THIELE MODULUS ────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧽</span>
+    <span class="topic-name">Heterogeneous Catalysis — Thiele Modulus &amp; Effectiveness</span>
+    <span class="topic-badge">DIFFUSION-REACTION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Does the Pore Interior Get Used?</div>
+      <div class="concept-title">Reaction vs diffusion inside a catalyst pellet</div>
+      <div class="concept-desc">
+        Inside a porous catalyst, reactant must diffuse in while it reacts. The
+        <strong class="text-purple">Thiele modulus</strong> compares the two rates; the
+        <strong class="text-blue">effectiveness factor</strong> says how much of the pellet
+        actually works.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THIELE MODULUS &amp; EFFECTIVENESS</div>
+        <pre class="code-block">φ = L · sqrt(k / D_eff)      (reaction rate / diffusion rate)
+
+η = (actual rate) / (rate with no diffusion limit)
+
+φ ≪ 1  → η ≈ 1  (reaction-limited, whole pellet used)
+φ ≫ 1  → η ≈ 1/φ (diffusion-limited, only the shell works)</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🔬 Strong pore-diffusion limitation halves the apparent activation energy and makes
+        rate scale with sqrt(k) — a classic diagnostic of internal diffusion control.
+      </div>
+    </div>
+  </div>
+</div>

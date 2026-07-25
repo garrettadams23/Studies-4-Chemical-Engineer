@@ -150,3 +150,79 @@ Floats if ρ_body < ρ_fluid; the displaced weight = body weight.</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: FLOW MEASUREMENT ──────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📟</span>
+    <span class="topic-name">Flow Measurement</span>
+    <span class="topic-badge">INSTRUMENTATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Reading the Flow Rate</div>
+      <div class="concept-title">Most meters turn ΔP into velocity</div>
+      <div class="concept-desc">
+        Head-type meters create a constriction; the pressure drop across it reveals the flow
+        rate via a Bernoulli/energy balance and a discharge coefficient C.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ ORIFICE / VENTURI EQUATION</div>
+        <pre class="code-block">Q = C · A₂ · sqrt( 2 ΔP / (ρ (1 − β⁴)) )
+
+β = d/D (bore ratio)      C = discharge coefficient
+Orifice C ≈ 0.6 (cheap, high loss) · Venturi C ≈ 0.98 (low loss)</pre>
+        <div class="dt">▸ METER TYPES</div>
+        <table class="ref-table">
+          <tr><th>Meter</th><th>Principle</th></tr>
+          <tr><td style="color: var(--cyan)">Orifice plate</td><td>ΔP across a hole — simple, lossy</td></tr>
+          <tr><td style="color: var(--green)">Venturi</td><td>Smooth contraction — low permanent loss</td></tr>
+          <tr><td style="color: var(--amber)">Rotameter</td><td>Variable area, float height reads flow</td></tr>
+          <tr><td style="color: var(--purple)">Pitot tube</td><td>Stagnation vs static pressure → local velocity</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        💨 Venturi costs more but recovers most of the pressure; the orifice is cheap but its
+        permanent loss shows up on the pump bill.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: COMPRESSIBLE & CHOKED FLOW ────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🚀</span>
+    <span class="topic-name">Compressible &amp; Choked Flow</span>
+    <span class="topic-badge">HIGH SPEED</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">When Density Changes</div>
+      <div class="concept-title">The Mach number and the sonic limit</div>
+      <div class="concept-desc">
+        When a gas moves fast or drops a lot of pressure, density is no longer constant. The
+        <strong class="text-blue">Mach number</strong> Ma = v/c governs the regime, and flow
+        can <em>choke</em> at Ma = 1.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ MACH REGIMES &amp; CHOKING</div>
+        <pre class="code-block">Ma = v / c        c = sqrt(k R T / M)   (speed of sound)
+
+Ma < 0.3  → treat as incompressible
+Ma = 1    → sonic / choked at the throat
+Choked:  further lowering downstream P does NOT raise flow</pre>
+        <div class="dt">▸ CRITICAL PRESSURE RATIO</div>
+        <pre class="code-block">P*/P₀ = (2/(k+1))^(k/(k−1))   ≈ 0.528 for air (k = 1.4)
+
+Below this ratio → the nozzle/relief is choked.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        ⚠️ Choked flow sets the maximum discharge through relief valves and restriction
+        orifices — central to relief-system sizing (see Process Safety).
+      </div>
+    </div>
+  </div>
+</div>
