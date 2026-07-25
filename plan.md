@@ -30,8 +30,8 @@ chemical-engineering curriculum, the FE/PE exams, and day-to-day plant practice.
 
 **Success metrics:**
 
-- 🚧 17 domains live · **88 topics** and growing (Phases 3–4 underway) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
-- 📝 Interactive calculators for the 20 most-used engineering formulas.
+- 🚧 20 domains live · **98 topics** and growing (Phases 3–5 underway) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
+- 🚧 Interactive calculators — 4 live (unit converter, Reynolds, ideal gas, LMTD); more planned.
 - 📝 Embedded reference data (steam tables, Antoine coefficients, property tables).
 - 📝 Self-test/quiz engine with per-domain progress.
 - 📝 Deployed on Netlify with a custom domain, deploy previews, and a feedback form.
@@ -771,9 +771,10 @@ topics/domain. This is the bulk of the writing.
 📝 remaining new domains (§4): Environment/Sustainability, Petroleum, Pharma/GMP,
 Particles, Data Science, Worked Examples, Exam Prep, Career.
 
-**Phase 5 — Interactivity (📝)**
-Calculators (§5.2), reference tools (§5.3), quiz & flashcards (§5.4), embedded
-datasets (§6).
+**Phase 5 — Interactivity (🚧 started)**
+✅ First 4 calculators live (unit converter, Reynolds, ideal gas, LMTD) — vanilla,
+offline, CSP-safe. 📝 remaining: more calculators (§5.2), reference tools (§5.3),
+quiz & flashcards (§5.4), embedded datasets (§6).
 
 **Phase 6 — Polish (📝 / 💡)**
 SVG diagrams, SEO/schema, WCAG AA audit, Lighthouse 100s, print stylesheet,
@@ -871,3 +872,15 @@ Added 2 topics to every one of the 15 domains:
   Groups master table; Constants & Conversion Factors. (teal accent, REF/EXAM tags)
 - Wired both via domains.json + chips + style.css (chip/accent colors, new
   `ctag-energy` / `ctag-ref` tag classes). Verified filter + render, zero console errors.
+
+### 2026-07-25 — Content + interactivity pass (+3 domains, +10 topics; 88 → 98, 17 → 20)
+**Interactivity (Phase 5 start):** new **🧰 Calculators** domain with 4 live tools —
+Unit Converter (pressure/energy/power/length/mass/volume/temperature), Reynolds
+Number (+regime), Ideal Gas Law solver (solve for any variable), and LMTD. All
+vanilla JS in `script.js` (wired via addEventListener — CSP `script-src 'self'`),
+offline, with a theme-aware `.calc` widget style. Verified: 1 atm→101.325 kPa,
+100 °C→212 °F, Re=100000 turbulent, ideal-gas V=22.41 L, LMTD(50,20)=32.74; zero errors.
+
+**Breadth (Phase 4):** two more domains —
+- **🌱 Energy, Sustainability & Environment** — CCUS; water/wastewater treatment; LCA & circular economy.
+- **🛢️ Petroleum Refining & Petrochemicals** — crude/atmospheric distillation; cracking & hydroprocessing; the petrochemical tree.

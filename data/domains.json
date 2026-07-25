@@ -182,5 +182,37 @@
       { "cls": "ctag-fe", "text": "EXAM" }
     ],
     "sub": "Key Equations · Dimensionless Groups · Constants · Conversion Factors — exam-day reference"
+  },
+  {
+    "id": "tools",
+    "colorClass": "domain-tools",
+    "icon": "🧰",
+    "title": "Interactive Calculators &amp; Tools",
+    "certTags": [
+      { "cls": "ctag-tools", "text": "TOOLS" }
+    ],
+    "sub": "Unit Converter · Reynolds Number · Ideal Gas Law · LMTD — live, offline, no sign-in"
+  },
+  {
+    "id": "enviro",
+    "colorClass": "domain-enviro",
+    "icon": "🌱",
+    "title": "Energy, Sustainability &amp; Environment",
+    "certTags": [
+      { "cls": "ctag-env", "text": "ENV" },
+      { "cls": "ctag-adv", "text": "ADV" }
+    ],
+    "sub": "Carbon Capture · Hydrogen · Renewables · Water Treatment · LCA · Circular Economy"
+  },
+  {
+    "id": "petro",
+    "colorClass": "domain-petro",
+    "icon": "🛢️",
+    "title": "Petroleum Refining &amp; Petrochemicals",
+    "certTags": [
+      { "cls": "ctag-petro", "text": "PETRO" },
+      { "cls": "ctag-pe", "text": "PE" }
+    ],
+    "sub": "Crude Distillation · FCC · Hydroprocessing · Reforming · Gas Treating · The Petrochemical Tree"
   }
 ]

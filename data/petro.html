@@ -1,0 +1,119 @@
+<!-- ── TOPIC: CRUDE DISTILLATION ────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🛢️</span>
+    <span class="topic-name">Crude Oil &amp; Atmospheric Distillation</span>
+    <span class="topic-badge">FOUNDATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">The Refinery's Front Door</div>
+      <div class="concept-title">One giant column splits crude into cuts</div>
+      <div class="concept-desc">
+        A refinery begins by separating crude oil into <strong class="text-blue">boiling-range
+        cuts</strong> in a large distillation column — the biggest single application of the
+        distillation you learned in Mass Transfer.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE DISTILLATION CUTS (light → heavy)</div>
+        <table class="ref-table">
+          <tr><th>Cut</th><th>Approx. boiling range</th><th>Use</th></tr>
+          <tr><td style="color: var(--red)">Gases / LPG</td><td>&lt; 30 °C</td><td>Fuel gas, propane</td></tr>
+          <tr><td style="color: var(--amber)">Naphtha / gasoline</td><td>30–200 °C</td><td>Gasoline, reformer feed</td></tr>
+          <tr><td style="color: var(--green)">Kerosene / jet</td><td>200–275 °C</td><td>Jet fuel</td></tr>
+          <tr><td style="color: var(--cyan)">Diesel / gas oil</td><td>275–350 °C</td><td>Diesel, heating oil</td></tr>
+          <tr><td style="color: var(--purple)">Residue</td><td>&gt; 350 °C</td><td>Vacuum tower feed, asphalt</td></tr>
+        </table>
+        <div class="dt">▸ ATMOSPHERIC + VACUUM</div>
+        <pre class="code-block">Crude → desalter → fired heater → atmospheric column
+Residue → vacuum column (low P avoids thermal cracking of
+heavy molecules at the required temperature)</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🌡️ Heavy fractions are distilled under vacuum because heating them to their atmospheric
+        boiling point would crack (decompose) them first.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: CONVERSION — FCC & HYDROCRACKING ──────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">⚗️</span>
+    <span class="topic-name">Conversion — Cracking &amp; Hydroprocessing</span>
+    <span class="topic-badge">UPGRADING</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Turning Heavy into Light</div>
+      <div class="concept-title">Breaking big molecules into valuable fuels</div>
+      <div class="concept-desc">
+        Distillation only <em>separates</em> what's already there. Conversion units chemically
+        <strong class="text-blue">crack</strong> heavy, low-value molecules into gasoline and
+        diesel — reaction engineering and catalysis at massive scale.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE MAJOR CONVERSION UNITS</div>
+        <table class="ref-table">
+          <tr><th>Unit</th><th>Does</th><th>Key feature</th></tr>
+          <tr><td style="color: var(--amber)">FCC</td><td>Catalytic cracking of gas oil</td><td>Fluidized catalyst, continuous regen</td></tr>
+          <tr><td style="color: var(--green)">Hydrocracking</td><td>Cracking under H₂</td><td>High-quality distillate, flexible</td></tr>
+          <tr><td style="color: var(--cyan)">Hydrotreating</td><td>Removes S, N (HDS/HDN)</td><td>Meets clean-fuel specs</td></tr>
+          <tr><td style="color: var(--purple)">Coking</td><td>Cracks residue to the limit</td><td>Makes petroleum coke</td></tr>
+        </table>
+        <div class="dt">▸ THE FCC RISER</div>
+        <pre class="code-block">Hot regenerated catalyst + gas oil → riser (seconds of contact)
+→ cracked vapors to fractionator
+→ spent (coked) catalyst → regenerator (burn off coke) → recycle
+
+Coke burning supplies the heat for the endothermic cracking.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🔥 The FCC is a coupled reactor-regenerator with continuous catalyst circulation — a
+        textbook fluidized-bed and heat-integration problem (see Unit Ops &amp; Reaction Eng).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: THE PETROCHEMICAL TREE ────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🌳</span>
+    <span class="topic-name">The Petrochemical Tree</span>
+    <span class="topic-badge">PRODUCTS</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">From Oil to Everything</div>
+      <div class="concept-title">A handful of building blocks make the material world</div>
+      <div class="concept-desc">
+        Beyond fuels, refineries and crackers feed the <strong class="text-blue">petrochemical
+        tree</strong> — a few key intermediates that branch into plastics, fibers, solvents and
+        rubber.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE PRIMARY BUILDING BLOCKS</div>
+        <table class="ref-table">
+          <tr><th>Building block</th><th>From</th><th>Leads to</th></tr>
+          <tr><td style="color: var(--green)">Ethylene</td><td>Steam cracking</td><td>Polyethylene, PVC, glycol</td></tr>
+          <tr><td style="color: var(--cyan)">Propylene</td><td>Steam/FCC cracking</td><td>Polypropylene, acrylics</td></tr>
+          <tr><td style="color: var(--amber)">BTX aromatics</td><td>Catalytic reforming</td><td>Polystyrene, PET, nylon</td></tr>
+          <tr><td style="color: var(--red)">Synthesis gas</td><td>Reforming CH₄</td><td>Ammonia, methanol</td></tr>
+        </table>
+        <div class="dt">▸ STEAM CRACKING</div>
+        <pre class="code-block">Naphtha/ethane + steam → 800+ °C, very short residence time
+→ ethylene, propylene, butadiene, aromatics
+Quench fast to lock in the product slate (kinetics, not equilibrium).</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🧬 Ethylene is the single largest-volume organic chemical made — its polymers link back
+        to the Materials domain, and its production is a kinetics/selectivity masterclass.
+      </div>
+    </div>
+  </div>
+</div>

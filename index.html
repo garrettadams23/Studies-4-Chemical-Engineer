@@ -113,6 +113,9 @@ alt="Optimized Study Routine: 4 Pillars for Success infographic."
 <div class="chip c-math"           data-domain="math">🧮 ENG MATH</div>
 <div class="chip c-electro"        data-domain="electro">⚡ ELECTROCHEMICAL</div>
 <div class="chip c-formulas"       data-domain="formulas">📄 FORMULA SHEET</div>
+<div class="chip c-tools"          data-domain="tools">🧰 CALCULATORS</div>
+<div class="chip c-enviro"         data-domain="enviro">🌱 SUSTAINABILITY</div>
+<div class="chip c-petro"          data-domain="petro">🛢️ PETROLEUM</div>
 </div>
 </div>
 <!-- SEARCH BAR ──────────────────────────────────────────────────────── -->
@@ -3766,6 +3769,428 @@ gc               32.174 lbm·ft/(lbf·s²)</pre>
 <div class="info-bar ib-muted">
 🎯 Pick the value of R whose units match the problem — the single most common way to
 avoid an order-of-magnitude error.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="domain-section domain-tools" data-domain="tools">
+<div class="domain-header">
+<span class="domain-icon">🧰</span>
+<span class="domain-title">Interactive Calculators &amp; Tools</span>
+<div class="cert-tags">
+<span class="ctag ctag-tools">TOOLS</span>
+</div>
+<span class="domain-sub">Unit Converter · Reynolds Number · Ideal Gas Law · LMTD — live, offline, no sign-in</span>
+<span class="chevron">▾</span>
+</div>
+<div class="domain-body">
+<!-- ── TOPIC: UNIT CONVERTER ────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔄</span>
+<span class="topic-name">Unit Converter</span>
+<span class="topic-badge">LIVE TOOL</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">SI ⇄ USCS</div>
+<div class="concept-title">Convert pressure, energy, power, length, mass, volume &amp; temperature</div>
+<div class="concept-desc">
+Pick a category and units; the result updates as you type. Runs entirely in your browser
+— no network, works offline.
+</div>
+<div class="calc" id="calc-unit">
+<div class="calc-grid">
+<div class="calc-field"><label>Category</label><select id="uc-cat"></select></div>
+<div class="calc-field"><label>Value</label><input id="uc-val" type="number" value="1" step="any" /></div>
+<div class="calc-field"><label>From</label><select id="uc-from"></select></div>
+<div class="calc-field"><label>To</label><select id="uc-to"></select></div>
+</div>
+<div class="calc-out">
+<span class="calc-out-label">Result</span>
+<span class="calc-out-val" id="uc-out">—</span>
+</div>
+</div>
+<div class="info-bar ib-muted">
+🧷 Temperature uses full offset conversions (°C/°F/K/°R); all other categories are
+factor-based to an SI base unit.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: REYNOLDS NUMBER ───────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🌀</span>
+<span class="topic-name">Reynolds Number Calculator</span>
+<span class="topic-badge">LIVE TOOL</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Flow Regime</div>
+<div class="concept-title">Re = ρvD/μ — laminar, transitional or turbulent?</div>
+<div class="concept-desc">
+Enter fluid density, velocity, pipe diameter and viscosity (all SI). The regime label
+follows the pipe-flow thresholds (Re &lt; 2100 laminar, &gt; 4000 turbulent).
+</div>
+<div class="calc" id="calc-re">
+<div class="calc-grid">
+<div class="calc-field"><label>Density ρ (kg/m³)</label><input id="re-rho" type="number" value="1000" step="any" /></div>
+<div class="calc-field"><label>Velocity v (m/s)</label><input id="re-v" type="number" value="2" step="any" /></div>
+<div class="calc-field"><label>Diameter D (m)</label><input id="re-d" type="number" value="0.05" step="any" /></div>
+<div class="calc-field"><label>Viscosity μ (Pa·s)</label><input id="re-mu" type="number" value="0.001" step="any" /></div>
+</div>
+<div class="calc-out">
+<span class="calc-out-label">Reynolds</span>
+<span class="calc-out-val" id="re-out">—</span>
+<span class="calc-note" id="re-regime"></span>
+</div>
+</div>
+<div class="info-bar ib-muted">
+💧 Defaults model water in a 50 mm pipe at 2 m/s → Re = 100,000 (fully turbulent). See
+the Fluid Mechanics domain for the full treatment.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: IDEAL GAS LAW ─────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🎈</span>
+<span class="topic-name">Ideal Gas Law Solver</span>
+<span class="topic-badge">LIVE TOOL</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">PV = nRT</div>
+<div class="concept-title">Solve for any one variable</div>
+<div class="concept-desc">
+Choose which variable to solve for; enter the other three. Units: P in kPa, V in litres,
+n in mol, T in kelvin (R = 8.314 L·kPa/mol·K).
+</div>
+<div class="calc" id="calc-ig">
+<div class="calc-grid">
+<div class="calc-field">
+<label>Solve for</label>
+<select id="ig-solve">
+<option value="P">Pressure (kPa)</option>
+<option value="V">Volume (L)</option>
+<option value="n">Moles (mol)</option>
+<option value="T">Temperature (K)</option>
+</select>
+</div>
+<div class="calc-field"><label>P (kPa)</label><input id="ig-P" type="number" value="101.325" step="any" /></div>
+<div class="calc-field"><label>V (L)</label><input id="ig-V" type="number" value="22.414" step="any" /></div>
+<div class="calc-field"><label>n (mol)</label><input id="ig-n" type="number" value="1" step="any" /></div>
+<div class="calc-field"><label>T (K)</label><input id="ig-T" type="number" value="273.15" step="any" /></div>
+</div>
+<div class="calc-out">
+<span class="calc-out-label" id="ig-lbl">Result</span>
+<span class="calc-out-val" id="ig-out">—</span>
+</div>
+</div>
+<div class="info-bar ib-muted">
+🧪 The defaults are STP for 1 mol → 22.414 L. Solve for V to confirm the molar volume.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: LMTD ──────────────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">♨️</span>
+<span class="topic-name">LMTD Calculator</span>
+<span class="topic-badge">LIVE TOOL</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Heat Exchangers</div>
+<div class="concept-title">Log-mean temperature difference</div>
+<div class="concept-desc">
+Enter the terminal temperature differences at each end of the exchanger. The tool handles
+the equal-ΔT limit (where LMTD = ΔT) automatically.
+</div>
+<div class="calc" id="calc-lmtd">
+<div class="calc-grid">
+<div class="calc-field"><label>ΔT₁ — one end (°C or K)</label><input id="lm-t1" type="number" value="50" step="any" /></div>
+<div class="calc-field"><label>ΔT₂ — other end (°C or K)</label><input id="lm-t2" type="number" value="20" step="any" /></div>
+</div>
+<div class="calc-out">
+<span class="calc-out-label">LMTD</span>
+<span class="calc-out-val" id="lm-out">—</span>
+</div>
+</div>
+<div class="info-bar ib-muted">
+🔥 LMTD = (ΔT₁ − ΔT₂) / ln(ΔT₁/ΔT₂). Feed it into Q = U·A·F·ΔT_lm to size an exchanger
+(see Heat Transfer).
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="domain-section domain-enviro" data-domain="enviro">
+<div class="domain-header">
+<span class="domain-icon">🌱</span>
+<span class="domain-title">Energy, Sustainability &amp; Environment</span>
+<div class="cert-tags">
+<span class="ctag ctag-env">ENV</span>
+<span class="ctag ctag-adv">ADV</span>
+</div>
+<span class="domain-sub">Carbon Capture · Hydrogen · Renewables · Water Treatment · LCA · Circular Economy</span>
+<span class="chevron">▾</span>
+</div>
+<div class="domain-body">
+<!-- ── TOPIC: CARBON CAPTURE ────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🌍</span>
+<span class="topic-name">Carbon Capture, Utilization &amp; Storage (CCUS)</span>
+<span class="topic-badge">DECARBONIZATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Keeping CO₂ Out of the Air</div>
+<div class="concept-title">Separation engineering aimed at the climate</div>
+<div class="concept-desc">
+CCUS applies classic separation unit operations — absorption, adsorption, membranes — to
+the world's largest waste stream: CO₂. It is a flagship application of chemical
+engineering to sustainability.
+</div>
+<div class="dw">
+<div class="dt">▸ CAPTURE ROUTES</div>
+<table class="ref-table">
+<tr><th>Route</th><th>Where CO₂ is caught</th><th>Method</th></tr>
+<tr><td style="color: var(--cyan)">Post-combustion</td><td>From flue gas after burning</td><td>Amine absorption (MEA)</td></tr>
+<tr><td style="color: var(--amber)">Pre-combustion</td><td>From syngas before burning</td><td>Shift + physical solvent</td></tr>
+<tr><td style="color: var(--red)">Oxy-fuel</td><td>Burn in O₂ → near-pure CO₂</td><td>Air separation needed</td></tr>
+<tr><td style="color: var(--green)">Direct air capture</td><td>From ambient air (~420 ppm)</td><td>Sorbent / hydroxide loops</td></tr>
+</table>
+<div class="dt">▸ THE AMINE LOOP</div>
+<pre class="code-block">Absorber (cool):  CO₂ + amine → carbamate   (chemical absorption)
+Stripper (hot):   heat regenerates the amine, releases pure CO₂
+→ compress → pipeline → geological storage or utilization
+
+The regeneration heat is the dominant energy cost.</pre>
+</div>
+<div class="info-bar ib-muted">
+♻️ It's the same absorption/stripping as gas sweetening (see Mass Transfer) — the
+engineering is mature; the challenge is doing it at gigatonne scale and low energy.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: WATER & WASTEWATER ────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🚰</span>
+<span class="topic-name">Water &amp; Wastewater Treatment</span>
+<span class="topic-badge">ENVIRONMENTAL</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Cleaning the Most Important Solvent</div>
+<div class="concept-title">Physical, biological and chemical stages</div>
+<div class="concept-desc">
+Every plant and city runs water treatment. It chains unit operations to remove solids,
+organics and nutrients before discharge or reuse.
+</div>
+<div class="dw">
+<div class="dt">▸ TREATMENT STAGES</div>
+<table class="ref-table">
+<tr><th>Stage</th><th>Removes</th><th>How</th></tr>
+<tr><td style="color: var(--cyan)">Primary</td><td>Suspended solids</td><td>Screening, sedimentation</td></tr>
+<tr><td style="color: var(--green)">Secondary</td><td>Dissolved organics (BOD)</td><td>Activated sludge (microbes)</td></tr>
+<tr><td style="color: var(--amber)">Tertiary</td><td>Nutrients (N, P), pathogens</td><td>Filtration, membranes, UV/Cl₂</td></tr>
+</table>
+<div class="dt">▸ KEY METRICS</div>
+<pre class="code-block">BOD = biochemical oxygen demand (organic load)
+COD = chemical oxygen demand
+TSS = total suspended solids
+
+Activated sludge is a live CSTR of microbes — a bioreactor
+doing environmental work (see Biochemical &amp; Reaction Eng).</pre>
+</div>
+<div class="info-bar ib-muted">
+💧 Reverse osmosis (see Mass Transfer) turns seawater and wastewater into drinking water
+— desalination is membrane engineering at civilization scale.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: LCA & CIRCULAR ECONOMY ────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">♻️</span>
+<span class="topic-name">Life-Cycle Assessment &amp; the Circular Economy</span>
+<span class="topic-badge">SYSTEMS</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Counting the Full Footprint</div>
+<div class="concept-title">Cradle-to-grave, then cradle-to-cradle</div>
+<div class="concept-desc">
+A process that looks clean at the gate may be dirty upstream. <strong class="text-green">Life-cycle
+assessment</strong> tallies impacts across the whole value chain; the circular economy
+redesigns to eliminate waste entirely.
+</div>
+<div class="dw">
+<div class="dt">▸ THE FOUR LCA PHASES (ISO 14040)</div>
+<pre class="code-block">1. Goal &amp; scope   — define boundaries &amp; functional unit
+2. Inventory (LCI) — tally all inputs &amp; emissions
+3. Impact (LCIA)   — translate to GWP, acidification, etc.
+4. Interpretation  — hotspots &amp; improvement options</pre>
+<div class="dt">▸ GREEN-CHEMISTRY METRICS</div>
+<table class="ref-table">
+<tr><th>Metric</th><th>Definition</th></tr>
+<tr><td style="color: var(--cyan)">Atom economy</td><td>MW of product / Σ MW of reactants</td></tr>
+<tr><td style="color: var(--amber)">E-factor</td><td>kg waste / kg product</td></tr>
+<tr><td style="color: var(--green)">Carbon intensity</td><td>kg CO₂e / kg product</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🔁 Bulk chemicals have E-factors under 5; pharmaceuticals can exceed 100 — the higher the
+value, the more waste hides behind each kilogram of product.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="domain-section domain-petro" data-domain="petro">
+<div class="domain-header">
+<span class="domain-icon">🛢️</span>
+<span class="domain-title">Petroleum Refining &amp; Petrochemicals</span>
+<div class="cert-tags">
+<span class="ctag ctag-petro">PETRO</span>
+<span class="ctag ctag-pe">PE</span>
+</div>
+<span class="domain-sub">Crude Distillation · FCC · Hydroprocessing · Reforming · Gas Treating · The Petrochemical Tree</span>
+<span class="chevron">▾</span>
+</div>
+<div class="domain-body">
+<!-- ── TOPIC: CRUDE DISTILLATION ────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🛢️</span>
+<span class="topic-name">Crude Oil &amp; Atmospheric Distillation</span>
+<span class="topic-badge">FOUNDATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">The Refinery's Front Door</div>
+<div class="concept-title">One giant column splits crude into cuts</div>
+<div class="concept-desc">
+A refinery begins by separating crude oil into <strong class="text-blue">boiling-range
+cuts</strong> in a large distillation column — the biggest single application of the
+distillation you learned in Mass Transfer.
+</div>
+<div class="dw">
+<div class="dt">▸ THE DISTILLATION CUTS (light → heavy)</div>
+<table class="ref-table">
+<tr><th>Cut</th><th>Approx. boiling range</th><th>Use</th></tr>
+<tr><td style="color: var(--red)">Gases / LPG</td><td>&lt; 30 °C</td><td>Fuel gas, propane</td></tr>
+<tr><td style="color: var(--amber)">Naphtha / gasoline</td><td>30–200 °C</td><td>Gasoline, reformer feed</td></tr>
+<tr><td style="color: var(--green)">Kerosene / jet</td><td>200–275 °C</td><td>Jet fuel</td></tr>
+<tr><td style="color: var(--cyan)">Diesel / gas oil</td><td>275–350 °C</td><td>Diesel, heating oil</td></tr>
+<tr><td style="color: var(--purple)">Residue</td><td>&gt; 350 °C</td><td>Vacuum tower feed, asphalt</td></tr>
+</table>
+<div class="dt">▸ ATMOSPHERIC + VACUUM</div>
+<pre class="code-block">Crude → desalter → fired heater → atmospheric column
+Residue → vacuum column (low P avoids thermal cracking of
+heavy molecules at the required temperature)</pre>
+</div>
+<div class="info-bar ib-muted">
+🌡️ Heavy fractions are distilled under vacuum because heating them to their atmospheric
+boiling point would crack (decompose) them first.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: CONVERSION — FCC & HYDROCRACKING ──────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">⚗️</span>
+<span class="topic-name">Conversion — Cracking &amp; Hydroprocessing</span>
+<span class="topic-badge">UPGRADING</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Turning Heavy into Light</div>
+<div class="concept-title">Breaking big molecules into valuable fuels</div>
+<div class="concept-desc">
+Distillation only <em>separates</em> what's already there. Conversion units chemically
+<strong class="text-blue">crack</strong> heavy, low-value molecules into gasoline and
+diesel — reaction engineering and catalysis at massive scale.
+</div>
+<div class="dw">
+<div class="dt">▸ THE MAJOR CONVERSION UNITS</div>
+<table class="ref-table">
+<tr><th>Unit</th><th>Does</th><th>Key feature</th></tr>
+<tr><td style="color: var(--amber)">FCC</td><td>Catalytic cracking of gas oil</td><td>Fluidized catalyst, continuous regen</td></tr>
+<tr><td style="color: var(--green)">Hydrocracking</td><td>Cracking under H₂</td><td>High-quality distillate, flexible</td></tr>
+<tr><td style="color: var(--cyan)">Hydrotreating</td><td>Removes S, N (HDS/HDN)</td><td>Meets clean-fuel specs</td></tr>
+<tr><td style="color: var(--purple)">Coking</td><td>Cracks residue to the limit</td><td>Makes petroleum coke</td></tr>
+</table>
+<div class="dt">▸ THE FCC RISER</div>
+<pre class="code-block">Hot regenerated catalyst + gas oil → riser (seconds of contact)
+→ cracked vapors to fractionator
+→ spent (coked) catalyst → regenerator (burn off coke) → recycle
+
+Coke burning supplies the heat for the endothermic cracking.</pre>
+</div>
+<div class="info-bar ib-muted">
+🔥 The FCC is a coupled reactor-regenerator with continuous catalyst circulation — a
+textbook fluidized-bed and heat-integration problem (see Unit Ops &amp; Reaction Eng).
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: THE PETROCHEMICAL TREE ────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🌳</span>
+<span class="topic-name">The Petrochemical Tree</span>
+<span class="topic-badge">PRODUCTS</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">From Oil to Everything</div>
+<div class="concept-title">A handful of building blocks make the material world</div>
+<div class="concept-desc">
+Beyond fuels, refineries and crackers feed the <strong class="text-blue">petrochemical
+tree</strong> — a few key intermediates that branch into plastics, fibers, solvents and
+rubber.
+</div>
+<div class="dw">
+<div class="dt">▸ THE PRIMARY BUILDING BLOCKS</div>
+<table class="ref-table">
+<tr><th>Building block</th><th>From</th><th>Leads to</th></tr>
+<tr><td style="color: var(--green)">Ethylene</td><td>Steam cracking</td><td>Polyethylene, PVC, glycol</td></tr>
+<tr><td style="color: var(--cyan)">Propylene</td><td>Steam/FCC cracking</td><td>Polypropylene, acrylics</td></tr>
+<tr><td style="color: var(--amber)">BTX aromatics</td><td>Catalytic reforming</td><td>Polystyrene, PET, nylon</td></tr>
+<tr><td style="color: var(--red)">Synthesis gas</td><td>Reforming CH₄</td><td>Ammonia, methanol</td></tr>
+</table>
+<div class="dt">▸ STEAM CRACKING</div>
+<pre class="code-block">Naphtha/ethane + steam → 800+ °C, very short residence time
+→ ethylene, propylene, butadiene, aromatics
+Quench fast to lock in the product slate (kinetics, not equilibrium).</pre>
+</div>
+<div class="info-bar ib-muted">
+🧬 Ethylene is the single largest-volume organic chemical made — its polymers link back
+to the Materials domain, and its production is a kinetics/selectivity masterclass.
 </div>
 </div>
 </div>
