@@ -921,11 +921,55 @@ function initLMTD() {
   calc();
 }
 
+// Antoine coefficients for log10(P[mmHg]) = A − B/(C + T[°C]).
+const ANTOINE = {
+  Water:   { A: 8.07131, B: 1730.63, C: 233.426 },
+  Ethanol: { A: 8.20417, B: 1642.89, C: 230.300 },
+  Benzene: { A: 6.90565, B: 1211.033, C: 220.790 },
+  Toluene: { A: 6.95464, B: 1344.800, C: 219.482 },
+  Acetone: { A: 7.02447, B: 1161.000, C: 224.000 },
+};
+
+function initAntoine() {
+  const sel = document.getElementById("an-comp");
+  const T = document.getElementById("an-T");
+  const out = document.getElementById("an-out");
+  if (!sel || !T || !out) return;
+  calcFillSelect(sel, Object.keys(ANTOINE), 0);
+  function calc() {
+    const c = ANTOINE[sel.value];
+    const t = parseFloat(T.value);
+    if (!c || isNaN(t)) { out.textContent = "—"; return; }
+    const mmHg = Math.pow(10, c.A - c.B / (c.C + t));
+    out.textContent = calcFmt(mmHg) + " mmHg  (" + calcFmt(mmHg * 0.133322) + " kPa)";
+  }
+  sel.addEventListener("change", calc);
+  T.addEventListener("input", calc);
+  calc();
+}
+
+function initPH() {
+  const pKa = document.getElementById("ph-pka");
+  const A = document.getElementById("ph-a");
+  const HA = document.getElementById("ph-ha");
+  const out = document.getElementById("ph-out");
+  if (!pKa || !A || !HA || !out) return;
+  function calc() {
+    const k = parseFloat(pKa.value), a = parseFloat(A.value), ha = parseFloat(HA.value);
+    if ([k, a, ha].some(isNaN) || ha <= 0 || a <= 0) { out.textContent = "—"; return; }
+    out.textContent = calcFmt(k + Math.log10(a / ha));
+  }
+  [pKa, A, HA].forEach(e => e.addEventListener("input", calc));
+  calc();
+}
+
 function initCalculators() {
   initUnitConverter();
   initReynolds();
   initIdealGas();
   initLMTD();
+  initAntoine();
+  initPH();
 }
 
 // ─────────────────────────────────────────────────────────────────────────────

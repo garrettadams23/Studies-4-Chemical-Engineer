@@ -2302,6 +2302,7 @@ mark.sh {
   color: var(--muted);
 }
 .calc-field input,
+.calc-field textarea,
 .calc-field select {
   background: var(--bg3);
   border: 1px solid var(--border);
@@ -2452,3 +2453,5 @@ mark.sh {
 .chip.c-quiz { color: #fbbf24; border-color: rgba(251, 191, 36, 0.3); }
 .chip.c-quiz.active, .chip.c-quiz:hover { background: rgba(251, 191, 36, 0.12); }
 .domain-quiz { --accent: #fbbf24; }
+
+.calc-field textarea { resize: vertical; min-height: 64px; font-family: var(--sans); }

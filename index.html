@@ -31,6 +31,30 @@ name="twitter:description"
 content="Interactive, offline-first study reference spanning the entire chemical-engineering curriculum and the FE/PE exams."
 />
 <meta name="twitter:image" content="https://garrettstudies4chemicalengineer.netlify.app/Img/Studying-Tips.png" />
+<!-- Structured data (JSON-LD is a data block, not executed script — CSP-safe) -->
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"name": "Chemical Engineering Reference",
+"url": "https://garrettstudies4chemicalengineer.netlify.app/",
+"description": "A free, offline-first, interactive chemical-engineering reference spanning the curriculum and the FE/PE exams.",
+"inLanguage": "en"
+},
+{
+"@type": "LearningResource",
+"name": "Chemical Engineering Reference — 2026 Edition",
+"url": "https://garrettstudies4chemicalengineer.netlify.app/",
+"learningResourceType": "Reference, interactive study guide, self-test quiz, calculators",
+"educationalLevel": "Undergraduate to professional (FE/PE)",
+"about": ["Chemical Engineering", "Thermodynamics", "Fluid Mechanics", "Heat Transfer", "Mass Transfer", "Reaction Engineering", "Process Control", "Biochemical Engineering", "Process Safety"],
+"isAccessibleForFree": true
+}
+]
+}
+</script>
 <!-- Self-hosted fonts (works offline / over file://; no third-party calls) -->
 <link rel="stylesheet" href="Img/fonts.css" />
 <link rel="stylesheet" href="style.css" />
@@ -3942,6 +3966,73 @@ the equal-ΔT limit (where LMTD = ΔT) automatically.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: ANTOINE VAPOR PRESSURE ────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🫧</span>
+<span class="topic-name">Antoine Vapor-Pressure Calculator</span>
+<span class="topic-badge">LIVE TOOL</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Saturation Pressure</div>
+<div class="concept-title">log₁₀P = A − B/(C + T)</div>
+<div class="concept-desc">
+Pick a compound and temperature (°C); the Antoine equation returns the saturation vapor
+pressure. Built-in coefficients for common solvents (valid roughly 0–100 °C).
+</div>
+<div class="calc" id="calc-antoine">
+<div class="calc-grid">
+<div class="calc-field"><label>Compound</label><select id="an-comp"></select></div>
+<div class="calc-field"><label>Temperature (°C)</label><input id="an-T" type="number" value="25" step="any" /></div>
+</div>
+<div class="calc-out">
+<span class="calc-out-label">P<sub>sat</sub></span>
+<span class="calc-out-val" id="an-out">—</span>
+</div>
+</div>
+<div class="info-bar ib-muted">
+🌡️ At 100 °C water reads ≈ 760 mmHg (1 atm) — its normal boiling point, a good sanity
+check. Feeds Raoult's law in the Thermodynamics domain.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: pH / BUFFER ───────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧪</span>
+<span class="topic-name">Buffer pH Calculator</span>
+<span class="topic-badge">LIVE TOOL</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Henderson–Hasselbalch</div>
+<div class="concept-title">pH = pKa + log([A⁻]/[HA])</div>
+<div class="concept-desc">
+Enter the acid's pKa and the concentrations of conjugate base [A⁻] and weak acid [HA] to
+get the buffer pH. Essential for fermentation and bioprocessing.
+</div>
+<div class="calc" id="calc-ph">
+<div class="calc-grid">
+<div class="calc-field"><label>pKa</label><input id="ph-pka" type="number" value="4.76" step="any" /></div>
+<div class="calc-field"><label>[A⁻] (base)</label><input id="ph-a" type="number" value="0.1" step="any" /></div>
+<div class="calc-field"><label>[HA] (acid)</label><input id="ph-ha" type="number" value="0.1" step="any" /></div>
+</div>
+<div class="calc-out">
+<span class="calc-out-label">pH</span>
+<span class="calc-out-val" id="ph-out">—</span>
+</div>
+</div>
+<div class="info-bar ib-muted">
+⚗️ Equal [A⁻] and [HA] → pH = pKa (defaults use acetic acid, pKa 4.76 → pH 4.76), the
+point of maximum buffering capacity.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-enviro" data-domain="enviro">
@@ -4761,6 +4852,53 @@ Communication &gt; cleverness: an unexplained result is a useless one.</pre>
 <div class="info-bar ib-muted">
 🗣️ The best engineers translate: turning messy data and equations into a clear
 recommendation a decision-maker can act on.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: FEEDBACK / SUGGEST A TOPIC ────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">📮</span>
+<span class="topic-name">Send Feedback / Suggest a Topic</span>
+<span class="topic-badge">CONTACT</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Help Improve This Reference</div>
+<div class="concept-title">Spotted an error? Want a topic added?</div>
+<div class="concept-desc">
+This form is handled by Netlify Forms — no third-party scripts, no tracking. Submissions
+appear in the site's Netlify dashboard. (Works on the deployed site; over a local file it
+just renders.)
+</div>
+<form name="feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="calc">
+<input type="hidden" name="form-name" value="feedback" />
+<p hidden><label>Leave blank: <input name="bot-field" /></label></p>
+<div class="calc-grid">
+<div class="calc-field">
+<label>Your email (optional)</label>
+<input type="email" name="email" placeholder="you@example.com" />
+</div>
+<div class="calc-field">
+<label>Type</label>
+<select name="type">
+<option>Correction / error</option>
+<option>Suggest a topic</option>
+<option>General feedback</option>
+</select>
+</div>
+</div>
+<div class="calc-field">
+<label>Message</label>
+<textarea name="message" rows="3" required placeholder="What should we fix or add?"></textarea>
+</div>
+<button type="submit" class="quiz-btn">Send feedback ▶</button>
+</form>
+<div class="info-bar ib-muted">
+🔒 The honeypot field and Netlify's spam filtering keep the inbox clean without a CAPTCHA
+or any external request.
 </div>
 </div>
 </div>

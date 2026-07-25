@@ -31,6 +31,30 @@
       content="Interactive, offline-first study reference spanning the entire chemical-engineering curriculum and the FE/PE exams."
     />
     <meta name="twitter:image" content="https://garrettstudies4chemicalengineer.netlify.app/Img/Studying-Tips.png" />
+    <!-- Structured data (JSON-LD is a data block, not executed script — CSP-safe) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "name": "Chemical Engineering Reference",
+          "url": "https://garrettstudies4chemicalengineer.netlify.app/",
+          "description": "A free, offline-first, interactive chemical-engineering reference spanning the curriculum and the FE/PE exams.",
+          "inLanguage": "en"
+        },
+        {
+          "@type": "LearningResource",
+          "name": "Chemical Engineering Reference — 2026 Edition",
+          "url": "https://garrettstudies4chemicalengineer.netlify.app/",
+          "learningResourceType": "Reference, interactive study guide, self-test quiz, calculators",
+          "educationalLevel": "Undergraduate to professional (FE/PE)",
+          "about": ["Chemical Engineering", "Thermodynamics", "Fluid Mechanics", "Heat Transfer", "Mass Transfer", "Reaction Engineering", "Process Control", "Biochemical Engineering", "Process Safety"],
+          "isAccessibleForFree": true
+        }
+      ]
+    }
+    </script>
     <!-- Self-hosted fonts (works offline / over file://; no third-party calls) -->
     <link rel="stylesheet" href="Img/fonts.css" />
     <link rel="stylesheet" href="style.css" />

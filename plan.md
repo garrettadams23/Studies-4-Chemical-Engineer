@@ -30,8 +30,8 @@ chemical-engineering curriculum, the FE/PE exams, and day-to-day plant practice.
 
 **Success metrics:**
 
-- 🚧 27 domains live · **112 topics** and growing (Phases 3–5 underway) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
-- 🚧 Interactive calculators — 4 live (unit converter, Reynolds, ideal gas, LMTD); more planned.
+- 🚧 27 domains live · **115 topics** and growing (Phases 2–6 all advanced) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
+- 🚧 Interactive calculators — 6 live (unit converter, Reynolds, ideal gas, LMTD, Antoine, buffer pH).
 - 📝 Embedded reference data (steam tables, Antoine coefficients, property tables).
 - ✅ Self-test quiz engine — 18 questions, instant feedback, best score saved (localStorage).
 - 📝 Deployed on Netlify with a custom domain, deploy previews, and a feedback form.
@@ -760,7 +760,7 @@ CI build-check · README/CONTRIBUTING.
 ✅ `netlify.toml` (build + strict CSP + cache headers) · ✅ themed `404.html` ·
 ✅ `_redirects` · ✅ `robots.txt` + `sitemap.xml` · ✅ SEO + Open-Graph/Twitter meta ·
 ✅ `sw.js` service worker (offline PWA) + registration · ✅ inline handlers removed
-(CSP `script-src 'self'`) · 📝 custom domain + HTTPS · 📝 Netlify Forms feedback panel.
+(CSP `script-src 'self'`) · ✅ Netlify Forms feedback panel · 📝 custom domain + HTTPS.
 
 **Phase 3 — Depth (📝)**
 Fill each existing domain to its full planned topic list (§3). Target 8–15
@@ -776,9 +776,10 @@ Particles, Data Science, Worked Examples, Exam Prep, Career.
 engine (18 Q, scored, localStorage best). 📝 remaining: more calculators (§5.2),
 reference-data tools/datasets (§5.3, §6), flashcards.
 
-**Phase 6 — Polish (📝 / 💡)**
-SVG diagrams, SEO/schema, WCAG AA audit, Lighthouse 100s, print stylesheet,
-glossary tooltips.
+**Phase 6 — Polish (🚧 started)**
+✅ SEO JSON-LD structured data (WebSite + LearningResource) · ✅ print stylesheet
+(chrome hidden, expanded, light). 📝 remaining: SVG diagrams, WCAG AA audit,
+Lighthouse pass, glossary tooltips.
 
 ---
 
@@ -892,3 +893,12 @@ offline, with a theme-aware `.calc` widget style. Verified: 1 atm→101.325 kPa,
   play-through: scoring, feedback states, finish screen, best-score persistence, zero errors.
 - Plus the six Phase-4 domains landed this session (Pharma/GMP, Data Science,
   Particles, Worked Examples, Exam Prep, Career).
+
+### 2026-07-25 — Calculators #5–6, feedback form, SEO schema (112 → 115)
+- **Two more calculators**: Antoine vapor-pressure (built-in coefficients for water,
+  ethanol, benzene, toluene, acetone) and buffer pH (Henderson–Hasselbalch).
+  Verified: water Psat(100 °C) = 760 mmHg = 1 atm; buffer pH = pKa at equal conc.
+- **Phase 2 finished**: Netlify Forms feedback panel (honeypot spam-guard, no
+  external scripts) added to the Career domain.
+- **Phase 6 started**: JSON-LD structured data (WebSite + LearningResource) in the
+  head — a data block, so it's CSP-safe and survives minification (validated).
