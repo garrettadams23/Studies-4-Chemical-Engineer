@@ -30,7 +30,7 @@ chemical-engineering curriculum, the FE/PE exams, and day-to-day plant practice.
 
 **Success metrics:**
 
-- 🚧 30 domains live · **155 topics** · 8 tools + quiz + flashcards (Phase 4 done; 5–6 advanced) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
+- 🚧 30 domains live · **163 topics** · 8 tools + quiz + flashcards (Phase 4 done; 5–6 advanced) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
 - 🚧 Interactive tools — 7 calculators + steam-table lookup + quiz + flashcards.
 - 🚧 Embedded reference data — steam table, Antoine coefficients, physical-property table live.
 - ✅ Self-test quiz engine — 18 questions, instant feedback, best score saved (localStorage).
@@ -948,3 +948,9 @@ Gas Processing & Sweetening (Petroleum); Sterile & Aseptic Processing (Pharma);
 Data Cleaning & Feature Engineering (Data); Humidification & Dehumidification
 (Psychrometrics); LNG (Cryogenics); Nanomaterial Safety (Nano); Worked reflux/
 operating-line (Examples); Exam-Day Strategy (Exam Prep).
+
+### 2026-07-25 — Phase 3 depth pass F (155 → 163)
+Fired Heaters & Furnaces (Heat); Ceramics/Glasses/Refractories (Materials);
+Industrial Chemistry big processes (Chemistry); Design of Experiments (Eng Math);
+Process Intensification (Design); Electrochemical Reactors (Electrochemical);
+Pneumatic Conveying (Particles); Control & Dynamics quick reference (Formula Sheet).

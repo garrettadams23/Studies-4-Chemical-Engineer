@@ -234,3 +234,41 @@ Laplacian ∇²:    steady diffusion/conduction (∇²φ = 0)</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: DESIGN OF EXPERIMENTS ─────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧫</span>
+    <span class="topic-name">Design of Experiments (DOE)</span>
+    <span class="topic-badge">EXPERIMENTAL</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Learn More with Fewer Runs</div>
+      <div class="concept-title">Vary factors together, not one at a time</div>
+      <div class="concept-desc">
+        Changing one variable at a time is slow and misses interactions. Statistical
+        <strong class="text-blue">design of experiments</strong> plans efficient runs that reveal
+        main effects and interactions.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ DESIGN TYPES</div>
+        <table class="ref-table">
+          <tr><th>Design</th><th>Use</th></tr>
+          <tr><td style="color: var(--cyan)">Full factorial (2ᵏ)</td><td>All factor combinations — effects + interactions</td></tr>
+          <tr><td style="color: var(--green)">Fractional factorial</td><td>Screen many factors cheaply</td></tr>
+          <tr><td style="color: var(--amber)">Response surface (RSM)</td><td>Find an optimum (curvature)</td></tr>
+        </table>
+        <div class="dt">▸ WHY IT WINS</div>
+        <pre class="code-block">One-factor-at-a-time misses interactions &amp; wastes runs.
+A 2³ factorial = 8 runs gives 3 main effects + all interactions.
+Randomize &amp; replicate to separate signal from noise.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🎯 DOE is the backbone of Quality by Design (Pharma) and process optimization — the
+        efficient path from lab to a validated design space.
+      </div>
+    </div>
+  </div>
+</div>

@@ -171,3 +171,38 @@ gc               32.174 lbm·ft/(lbf·s²)</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: CONTROL & DYNAMICS QUICK REFERENCE ────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🎛️</span>
+    <span class="topic-name">Control &amp; Dynamics — Quick Reference</span>
+    <span class="topic-badge">REFERENCE</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Dynamics on One Screen</div>
+      <div class="concept-title">Transforms, responses &amp; controller forms</div>
+      <div class="concept-desc">
+        The Laplace pairs, standard responses and controller equations you reach for in process
+        dynamics and control — collected for quick recall.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ TRANSFORMS &amp; MODELS</div>
+        <pre class="code-block">L{1}=1/s   L{e^-at}=1/(s+a)   L{f'}=sF−f(0)   delay: e^(−θs)
+First order:  G = K/(τs+1)     step reaches 63% at t=τ
+Second order: G = K/(τ²s²+2ζτs+1)   ζ<1 underdamped (overshoot)</pre>
+        <div class="dt">▸ CONTROLLERS &amp; STABILITY</div>
+        <pre class="code-block">PID:  u = Kc[ e + (1/τ_I)∫e dt + τ_D de/dt ]
+Stability: |GH|<1 at phase = −180°
+Gain margin > ~2 (6 dB) · phase margin > ~30–45°
+Valve: Q = Cv·sqrt(ΔP/SG)</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🎯 P leaves offset; I removes it; D anticipates but amplifies noise. Most loops target
+        ζ ≈ 0.4–0.7 for a fast, well-damped response.
+      </div>
+    </div>
+  </div>
+</div>
