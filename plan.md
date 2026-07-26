@@ -1027,3 +1027,11 @@ Analytical Method Validation (Chemistry); Solids Mixing & Blending (Unit Ops).
 9 calculators + steam table + quiz + flashcards, full deploy/PWA/CSP/SEO stack.**
 Remaining plan items are polish (Phase 6: SVG diagrams, fuller WCAG/Lighthouse,
 glossary tooltips) and the custom-domain step (user action in Netlify).
+
+### 2026-07-25 — Phase 6.1: Accessibility / WCAG pass
+- Semantic landmarks: `<main role="main">`, `role="toolbar"` filter bar, `role="search"`,
+  `role="status" aria-live="polite"` on the search count (screen readers announce matches).
+- Filter chips (previously click-only `<div>`s) are now keyboard-operable: `role="button"`,
+  `tabindex="0"`, Enter/Space activation, and `aria-pressed` state. Verified via headless keyboard nav.
+- Focus-visible outlines on chips, search, notepad and calculator inputs.
+- `@media (prefers-reduced-motion: reduce)` disables transitions/animations for motion-sensitive users.

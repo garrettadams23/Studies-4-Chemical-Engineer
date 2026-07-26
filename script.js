@@ -48,8 +48,12 @@ function toggleTopic(h) {
 
 // ── FILTER ─────────────────────────────────────────────────────────────────
 function filter(domain, chip) {
-  document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+  document.querySelectorAll(".chip").forEach(c => {
+    c.classList.remove("active");
+    c.setAttribute("aria-pressed", "false");
+  });
   chip.classList.add("active");
+  chip.setAttribute("aria-pressed", "true");
   document.querySelectorAll(".domain-section").forEach(s => {
     s.classList.toggle("hidden", domain !== "all" && s.dataset.domain !== domain);
   });
@@ -97,10 +101,21 @@ document.addEventListener("DOMContentLoaded", () => {
   initCloudStack();
   initTouchFeedback();
 
-  // Filter chips — event delegation on the filter bar
+  // Filter chips — make them keyboard-accessible (they are <div>s) and announce state
+  document.querySelectorAll(".chip").forEach(c => {
+    c.setAttribute("role", "button");
+    c.setAttribute("tabindex", "0");
+    c.setAttribute("aria-pressed", c.classList.contains("active") ? "true" : "false");
+  });
+  // Filter chips — event delegation on the filter bar (click + keyboard)
   document.querySelector(".filter-bar")?.addEventListener("click", e => {
     const chip = e.target.closest(".chip");
     if (chip) filter(chip.dataset.domain || "all", chip);
+  });
+  document.querySelector(".filter-bar")?.addEventListener("keydown", e => {
+    if (e.key !== "Enter" && e.key !== " ") return;
+    const chip = e.target.closest(".chip");
+    if (chip) { e.preventDefault(); filter(chip.dataset.domain || "all", chip); }
   });
 
   // Accordion — event delegation on the container

@@ -121,7 +121,7 @@ alt="Optimized Study Routine: 4 Pillars for Success infographic."
 </div>
 </header>
 <div class="filter-bar">
-<div class="filter-inner">
+<div class="filter-inner" role="toolbar" aria-label="Filter topics by domain">
 <div class="chip c-all active"     data-domain="all">◈ ALL DOMAINS</div>
 <div class="chip c-stoich"         data-domain="stoich">⚗️ MATERIAL BALANCES</div>
 <div class="chip c-thermo"         data-domain="thermo">🔥 THERMODYNAMICS</div>
@@ -156,9 +156,9 @@ alt="Optimized Study Routine: 4 Pillars for Success infographic."
 </div>
 </div>
 <!-- SEARCH BAR ──────────────────────────────────────────────────────── -->
-<div class="search-bar" id="search-bar">
+<div class="search-bar" id="search-bar" role="search">
 <div class="search-inner">
-<span class="search-icon">⌕</span>
+<span class="search-icon" aria-hidden="true">⌕</span>
 <input
 id="search-input"
 class="search-input"
@@ -167,13 +167,13 @@ placeholder="Search topics, concepts, equations…"
 autocomplete="off"
 spellcheck="false"
 />
-<button class="search-clear" id="search-clear" title="Clear search">✕</button>
-<span class="search-count" id="search-count"></span>
+<button class="search-clear" id="search-clear" title="Clear search" aria-label="Clear search">✕</button>
+<span class="search-count" id="search-count" role="status" aria-live="polite" aria-atomic="true"></span>
 </div>
 </div>
 <!-- /search-bar -->
 <!-- /container -->
-<div class="container" id="domain-container">
+<main class="container" id="domain-container" role="main">
 <div class="domain-section domain-stoich" data-domain="stoich">
 <div class="domain-header">
 <span class="domain-icon">⚗️</span>
@@ -9924,7 +9924,7 @@ relations collected in the Formula Sheet domain.
 </div>
 </div>
 </div>
-</div>
+</main>
 <script src="script.js"></script>
 <!-- NOTEPAD: slide tab -->
 <button id="notepad-tab" class="notepad-tab" title="Open notepad">
