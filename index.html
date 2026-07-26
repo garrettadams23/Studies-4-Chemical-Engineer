@@ -819,6 +819,44 @@ big ΔT — pointing to the highest-value efficiency improvements (ties to pinch
 </div>
 </div>
 </div>
+<!-- ── TOPIC: REACTION EQUILIBRIUM & K ──────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">⚖️</span>
+<span class="topic-name">Chemical-Reaction Equilibrium &amp; K</span>
+<span class="topic-badge">EQUILIBRIUM</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">How Far, from Thermodynamics</div>
+<div class="concept-title">ΔG° fixes K; K fixes the equilibrium composition</div>
+<div class="concept-desc">
+Reaction equilibrium is set by thermodynamics — the same Gibbs energy that governs phase
+equilibrium. K links standard-state data to the achievable conversion.
+</div>
+<div class="dw">
+<div class="dt">▸ THE KEY RELATIONS</div>
+<pre class="code-block">ΔG°_rxn = −RT ln K
+K = Π (activity_i)^ν_i        (gas: activity ≈ fugacity/P°)
+
+van't Hoff (T-dependence):  d(ln K)/dT = ΔH°_rxn / (RT²)
+  Exothermic → K falls as T rises (fewer products when hot).</pre>
+<div class="dt">▸ SHIFTING CONVERSION</div>
+<table class="ref-table">
+<tr><th>Lever</th><th>Effect on products</th></tr>
+<tr><td style="color: var(--cyan)">Pressure (fewer moles side)</td><td>Favors that side</td></tr>
+<tr><td style="color: var(--amber)">Remove product</td><td>Drives reaction forward</td></tr>
+<tr><td style="color: var(--red)">Temperature</td><td>Depends on ΔH° sign (van't Hoff)</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🏭 Ammonia synthesis fights this: exothermic (K drops with T) yet needs T for rate — so it
+runs at moderate T, high P, with product removal (see Industrial Chemistry).
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-fluids" data-domain="fluids">
@@ -5050,6 +5088,42 @@ measurement effort pays off (identify it via the propagation terms).
 </div>
 </div>
 </div>
+<!-- ── TOPIC: INTERPOLATION & CURVE FITTING ─────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">📉</span>
+<span class="topic-name">Interpolation &amp; Curve Fitting</span>
+<span class="topic-badge">NUMERICAL</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Reading Between the Data</div>
+<div class="concept-title">Estimating values and fitting models</div>
+<div class="concept-desc">
+Property tables and experiments give discrete points. Interpolation estimates between
+them; curve fitting finds a model that best represents them.
+</div>
+<div class="dw">
+<div class="dt">▸ INTERPOLATION vs FITTING</div>
+<table class="ref-table">
+<tr><th>Method</th><th>Passes through points?</th></tr>
+<tr><td style="color: var(--cyan)">Linear interpolation</td><td>Yes — between two points (steam tables!)</td></tr>
+<tr><td style="color: var(--green)">Spline</td><td>Yes — smooth piecewise polynomials</td></tr>
+<tr><td style="color: var(--amber)">Least-squares fit</td><td>No — best trend through scatter</td></tr>
+</table>
+<div class="dt">▸ LINEAR INTERPOLATION</div>
+<pre class="code-block">y = y₁ + (x − x₁)·(y₂ − y₁)/(x₂ − x₁)
+
+The steam-table tool in the Calculators domain uses exactly this.</pre>
+</div>
+<div class="info-bar ib-muted">
+⚠️ Don't extrapolate a fit far beyond its data — and beware high-order polynomials that
+oscillate wildly (use splines instead).
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-electro" data-domain="electro">
@@ -5547,6 +5621,38 @@ Choked relief: P*/P₀ = (2/(k+1))^(k/(k−1)) ≈ 0.528 (air)</pre>
 <div class="info-bar ib-muted">
 🔗 Full treatment lives in the Process Safety and Sustainability domains — this is the
 exam-day / field cheat sheet.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: BIOPROCESS QUICK REFERENCE ────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧬</span>
+<span class="topic-name">Biochemical &amp; Bioprocess — Quick Reference</span>
+<span class="topic-badge">REFERENCE</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Bio Relations at a Glance</div>
+<div class="concept-title">Growth, enzymes &amp; oxygen transfer</div>
+<div class="concept-desc">
+The core equations from the Biochemical Engineering domain, collected for quick recall.
+</div>
+<div class="dw">
+<div class="dt">▸ KINETICS &amp; GROWTH</div>
+<pre class="code-block">Michaelis-Menten:  v = V_max[S]/(K_m+[S])
+Monod growth:      μ = μ_max·S/(K_s+S)
+Exponential:       dX/dt = μX  →  X = X₀e^(μt)
+Yield:             Y_X/S = ΔX/ΔS</pre>
+<div class="dt">▸ TRANSPORT &amp; STERILIZATION</div>
+<pre class="code-block">Oxygen transfer:  OTR = k_L a (C* − C_L)
+Thermal death:    dN/dt = −k_d N  ;  Del ∇ = ln(N₀/N)
+Central dogma:    DNA →(transcription) RNA →(translation) protein</pre>
+</div>
+<div class="info-bar ib-muted">
+🔗 Full derivations live in the Biochemical Engineering domain — this is the revision card.
 </div>
 </div>
 </div>
@@ -6521,6 +6627,45 @@ and validated processes non-negotiable (ties to GMP &amp; QbD).
 </div>
 </div>
 </div>
+<!-- ── TOPIC: SOLID DOSAGE MANUFACTURING ────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">💊</span>
+<span class="topic-name">Tablet &amp; Solid Dosage Manufacturing</span>
+<span class="topic-badge">DRUG PRODUCT</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">From API Powder to Pill</div>
+<div class="concept-title">Particle technology meets pharma</div>
+<div class="concept-desc">
+Most drugs are taken as tablets. Turning API powder into a uniform, reliable tablet is a
+particle-technology and unit-operations problem under GMP.
+</div>
+<div class="dw">
+<div class="dt">▸ THE TABLET PROCESS</div>
+<pre class="code-block">API + excipients → blend → granulate (flow &amp; uniformity)
+→ dry → compress (tablet press) → coat → package
+
+Critical quality attributes: content uniformity, hardness,
+dissolution (how fast the drug releases).</pre>
+<div class="dt">▸ WHY EXCIPIENTS</div>
+<table class="ref-table">
+<tr><th>Excipient</th><th>Role</th></tr>
+<tr><td style="color: var(--cyan)">Filler / diluent</td><td>Bulk up a tiny API dose</td></tr>
+<tr><td style="color: var(--green)">Binder</td><td>Hold the tablet together</td></tr>
+<tr><td style="color: var(--amber)">Disintegrant</td><td>Break up in the body to release drug</td></tr>
+<tr><td style="color: var(--purple)">Lubricant</td><td>Prevent sticking in the press</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+💊 Powder flow and granule quality (see Particle Technology) directly control tablet weight
+and dose uniformity — a patient-safety-critical link.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-data" data-domain="data">
@@ -6761,6 +6906,43 @@ let ML learn only the uncertain terms (e.g. a reaction rate).
 <div class="info-bar ib-muted">
 🧠 Embedding conservation laws means the model can't violate a mass balance — exactly the
 guardrail a plant model needs.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: PROCESS HISTORIANS & INFRASTRUCTURE ───────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🗄️</span>
+<span class="topic-name">Process Historians &amp; Data Infrastructure</span>
+<span class="topic-badge">FOUNDATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Where Plant Data Lives</div>
+<div class="concept-title">You can't analyze what you don't collect</div>
+<div class="concept-desc">
+Every data project rests on infrastructure — the historian that logs thousands of tags,
+and the pipelines that make that data usable.
+</div>
+<div class="dw">
+<div class="dt">▸ THE DATA STACK</div>
+<table class="ref-table">
+<tr><th>Layer</th><th>Role</th></tr>
+<tr><td style="color: var(--cyan)">Sensors / DCS</td><td>Generate the measurements</td></tr>
+<tr><td style="color: var(--green)">Historian</td><td>Time-series database (compressed tags)</td></tr>
+<tr><td style="color: var(--amber)">Data lake / warehouse</td><td>Store &amp; join with lab, maintenance, ERP data</td></tr>
+<tr><td style="color: var(--purple)">Analytics / dashboards</td><td>Turn data into decisions</td></tr>
+</table>
+<div class="dt">▸ GOTCHAS</div>
+<pre class="code-block">Compression (deadbands) can hide fast dynamics.
+Tag naming &amp; context (which unit? units?) are half the battle.
+Contextualize with events (batches, shutdowns) to make sense of trends.</pre>
+</div>
+<div class="info-bar ib-muted">
+🔗 Good analytics (SPC, ML, digital twins) all depend on this plumbing — the unglamorous
+foundation of every data-driven improvement.
 </div>
 </div>
 </div>
@@ -7174,6 +7356,37 @@ change — and divide by efficiency for the real motor size.
 </div>
 </div>
 </div>
+<!-- ── WORKED: BUBBLE POINT ─────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">📝</span>
+<span class="topic-name">Worked: Bubble-Point Temperature (Raoult)</span>
+<span class="topic-badge">SOLVED</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Step-by-Step</div>
+<div class="concept-title">Finding where a liquid first boils</div>
+<div class="concept-desc">A worked bubble-point check using Raoult's law from Thermodynamics.</div>
+<div class="dw">
+<div class="dt">▸ PROBLEM &amp; SOLUTION</div>
+<pre class="code-block">Q: A 50/50 mol benzene(1)/toluene(2) liquid at 1 atm (101.3 kPa).
+   At a trial T, P1sat = 180 kPa, P2sat = 74 kPa. Is this the bubble T?
+
+1. Bubble-point criterion:  Σ x_i·P_i^sat = P
+2. Σ = 0.5(180) + 0.5(74) = 90 + 37 = 127 kPa
+3. 127 kPa > 101.3 kPa → trial T is too HIGH; lower T and retry.
+4. At the true bubble T, Σ x_i P_i^sat = 101.3 exactly.
+5. Vapor comp: y_1 = x_1 P_1^sat / P (benzene-rich, as expected).</pre>
+</div>
+<div class="info-bar ib-muted">
+🫧 Bubble point: Σx·Psat = P. Dew point: Σy/Psat·P... i.e. Σ(y_i P / P_i^sat) = 1. Try the
+Antoine calculator (Tools) to get the Psat values.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-exam" data-domain="exam">
@@ -7366,6 +7579,43 @@ Verify with the Reynolds calculator in the Tools domain.</pre>
 <div class="info-bar ib-muted">
 🎯 Recognize the concept (regime → Reynolds), plug in with consistent units, and sanity-
 check the exponent. Most wrong options are unit-error decoys.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: ENGINEERING ECONOMICS ON THE EXAM ─────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">💲</span>
+<span class="topic-name">Engineering Economics on the Exam</span>
+<span class="topic-badge">HIGH-YIELD</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Guaranteed Points</div>
+<div class="concept-title">Time-value-of-money factors show up every time</div>
+<div class="concept-desc">
+Engineering economics is a reliable source of FE/PE points — formulaic if you know the
+factors. The handbook has them all; recognize which one the problem needs.
+</div>
+<div class="dw">
+<div class="dt">▸ THE CORE FACTORS</div>
+<pre class="code-block">Future value:   F = P(1+i)ⁿ            (single payment)
+Present value:  P = F/(1+i)ⁿ
+Annuity (A↔P):  P = A·[(1+i)ⁿ−1]/[i(1+i)ⁿ]
+NPV = Σ CF_t/(1+i)^t − capital   ;  accept if NPV > 0</pre>
+<div class="dt">▸ EXAM TIPS</div>
+<table class="ref-table">
+<tr><th>Watch</th><th>Why</th></tr>
+<tr><td style="color: var(--amber)">Period vs annual i</td><td>Monthly compounding ≠ annual</td></tr>
+<tr><td style="color: var(--cyan)">Which factor</td><td>Identify given/find (P, F, A) → pick the factor</td></tr>
+<tr><td style="color: var(--green)">Sign convention</td><td>Costs negative, revenues positive</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+💰 Try the NPV/payback calculator in the Process Design domain's economics topic to build
+intuition for the factors.
 </div>
 </div>
 </div>
@@ -7725,6 +7975,42 @@ storage, catalysis, and medicine — areas chemical engineers scale up.
 <div class="info-bar ib-muted">
 💉 Lipid nanoparticles delivering mRNA vaccines (see Biochemical) are a headline nano-
 medicine success — formulation engineering at the nanoscale.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: CARBON NANOMATERIALS ──────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">⬡</span>
+<span class="topic-name">Carbon Nanomaterials — Graphene &amp; Nanotubes</span>
+<span class="topic-badge">MATERIALS</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Carbon, Reimagined</div>
+<div class="concept-title">Two-dimensional and tubular carbon</div>
+<div class="concept-desc">
+Graphene (a one-atom-thick sheet) and carbon nanotubes (rolled sheets) have extraordinary
+strength, conductivity and surface area — a showcase of nanoscale property emergence.
+</div>
+<div class="dw">
+<div class="dt">▸ THE CARBON FAMILY</div>
+<table class="ref-table">
+<tr><th>Form</th><th>Structure</th><th>Standout property</th></tr>
+<tr><td style="color: var(--cyan)">Graphene</td><td>2D honeycomb sheet</td><td>Conductivity, strength, area</td></tr>
+<tr><td style="color: var(--green)">Carbon nanotube</td><td>Rolled sheet (tube)</td><td>Tensile strength, conductivity</td></tr>
+<tr><td style="color: var(--amber)">Fullerene (C₆₀)</td><td>Closed cage</td><td>Molecular electronics</td></tr>
+</table>
+<div class="dt">▸ APPLICATIONS</div>
+<pre class="code-block">Conductive composites · battery/supercapacitor electrodes
+Membranes &amp; sensors · reinforcement · flexible electronics
+Challenge: producing consistent quality at scale (a ChemE problem).</pre>
+</div>
+<div class="info-bar ib-muted">
+⚗️ Scaling carbon-nanomaterial synthesis with consistent quality is a reaction-engineering
+and separations challenge — exactly where chemical engineers add value.
 </div>
 </div>
 </div>

@@ -308,3 +308,40 @@ General: σ_R² = Σ (∂R/∂x_i)² σ_{x_i}²   (Taylor / delta method)</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: INTERPOLATION & CURVE FITTING ─────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📉</span>
+    <span class="topic-name">Interpolation &amp; Curve Fitting</span>
+    <span class="topic-badge">NUMERICAL</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Reading Between the Data</div>
+      <div class="concept-title">Estimating values and fitting models</div>
+      <div class="concept-desc">
+        Property tables and experiments give discrete points. Interpolation estimates between
+        them; curve fitting finds a model that best represents them.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ INTERPOLATION vs FITTING</div>
+        <table class="ref-table">
+          <tr><th>Method</th><th>Passes through points?</th></tr>
+          <tr><td style="color: var(--cyan)">Linear interpolation</td><td>Yes — between two points (steam tables!)</td></tr>
+          <tr><td style="color: var(--green)">Spline</td><td>Yes — smooth piecewise polynomials</td></tr>
+          <tr><td style="color: var(--amber)">Least-squares fit</td><td>No — best trend through scatter</td></tr>
+        </table>
+        <div class="dt">▸ LINEAR INTERPOLATION</div>
+        <pre class="code-block">y = y₁ + (x − x₁)·(y₂ − y₁)/(x₂ − x₁)
+
+The steam-table tool in the Calculators domain uses exactly this.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        ⚠️ Don't extrapolate a fit far beyond its data — and beware high-order polynomials that
+        oscillate wildly (use splines instead).
+      </div>
+    </div>
+  </div>
+</div>

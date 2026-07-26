@@ -233,3 +233,41 @@ let ML learn only the uncertain terms (e.g. a reaction rate).
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: PROCESS HISTORIANS & INFRASTRUCTURE ───────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🗄️</span>
+    <span class="topic-name">Process Historians &amp; Data Infrastructure</span>
+    <span class="topic-badge">FOUNDATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Where Plant Data Lives</div>
+      <div class="concept-title">You can't analyze what you don't collect</div>
+      <div class="concept-desc">
+        Every data project rests on infrastructure — the historian that logs thousands of tags,
+        and the pipelines that make that data usable.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE DATA STACK</div>
+        <table class="ref-table">
+          <tr><th>Layer</th><th>Role</th></tr>
+          <tr><td style="color: var(--cyan)">Sensors / DCS</td><td>Generate the measurements</td></tr>
+          <tr><td style="color: var(--green)">Historian</td><td>Time-series database (compressed tags)</td></tr>
+          <tr><td style="color: var(--amber)">Data lake / warehouse</td><td>Store &amp; join with lab, maintenance, ERP data</td></tr>
+          <tr><td style="color: var(--purple)">Analytics / dashboards</td><td>Turn data into decisions</td></tr>
+        </table>
+        <div class="dt">▸ GOTCHAS</div>
+        <pre class="code-block">Compression (deadbands) can hide fast dynamics.
+Tag naming &amp; context (which unit? units?) are half the battle.
+Contextualize with events (batches, shutdowns) to make sense of trends.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🔗 Good analytics (SPC, ML, digital twins) all depend on this plumbing — the unglamorous
+        foundation of every data-driven improvement.
+      </div>
+    </div>
+  </div>
+</div>
