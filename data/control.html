@@ -377,3 +377,39 @@ Start conservative; tighten until acceptable, keep margin.</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: PLANTWIDE CONTROL ─────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🏭</span>
+    <span class="topic-name">Plantwide Control Strategy</span>
+    <span class="topic-badge">SYSTEM VIEW</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Controlling the Whole, Not Just Loops</div>
+      <div class="concept-title">Recycles and inventories couple everything</div>
+      <div class="concept-desc">
+        Tuning individual loops isn't enough — recycles, heat integration and shared inventories
+        couple units so the plant must be controlled as a system.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ PLANTWIDE PRINCIPLES</div>
+        <table class="ref-table">
+          <tr><th>Principle</th><th>Why</th></tr>
+          <tr><td style="color: var(--red)">Manage inventories</td><td>Every tank/recycle level must be controlled (no drift)</td></tr>
+          <tr><td style="color: var(--amber)">Snowball effect</td><td>Recycle loops amplify disturbances — fix a flow, not a ratio</td></tr>
+          <tr><td style="color: var(--cyan)">Constraint control</td><td>Push against the true bottleneck for throughput</td></tr>
+        </table>
+        <div class="dt">▸ LOOP PAIRING (RGA)</div>
+        <pre class="code-block">Relative Gain Array pairs manipulated ↔ controlled variables
+to minimize loop interaction (pick pairings with RGA ≈ 1).</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        ❄️ The "snowball effect": a small feed change, amplified around a recycle, causes huge
+        swings — fix a flow in the recycle loop to tame it.
+      </div>
+    </div>
+  </div>
+</div>

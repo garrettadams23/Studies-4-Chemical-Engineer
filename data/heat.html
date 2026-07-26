@@ -342,3 +342,42 @@ Partial condenser gives a vapor product; total gives all liquid.</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: SEMI-INFINITE SOLIDS ──────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧊</span>
+    <span class="topic-name">Transient Conduction — Semi-Infinite Solids</span>
+    <span class="topic-badge">UNSTEADY</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Heat Penetrating a Thick Body</div>
+      <div class="concept-title">Before the far side "feels" the change</div>
+      <div class="concept-desc">
+        When a sudden surface change hasn't yet reached the interior, a body acts semi-infinite.
+        This governs quenching, ground temperatures, and short-time transients where the
+        lumped model (Bi &gt; 0.1) fails.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE PENETRATION SOLUTION</div>
+        <pre class="code-block">Sudden surface temperature T_s:
+  (T − T_i)/(T_s − T_i) = erfc[ x / (2√(αt)) ]
+
+Thermal penetration depth ~ √(αt) — how far heat has reached.</pre>
+        <div class="dt">▸ WHEN TO USE WHICH MODEL</div>
+        <table class="ref-table">
+          <tr><th>Model</th><th>Valid when</th></tr>
+          <tr><td style="color: var(--green)">Lumped</td><td>Bi &lt; 0.1 (uniform internal T)</td></tr>
+          <tr><td style="color: var(--cyan)">Semi-infinite</td><td>Short times; far boundary unaffected</td></tr>
+          <tr><td style="color: var(--amber)">Heisler charts</td><td>Finite body, intermediate times</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🔥 The √(αt) penetration depth tells you how deep a quench or a fire has heated a wall — a
+        quick estimate before reaching for charts.
+      </div>
+    </div>
+  </div>
+</div>

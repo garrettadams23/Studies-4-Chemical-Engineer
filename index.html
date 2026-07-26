@@ -1277,6 +1277,43 @@ same reason multiple-effect and heat integration save energy.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: TWO-PHASE & SLURRY FLOW ───────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🥤</span>
+<span class="topic-name">Two-Phase &amp; Slurry Flow</span>
+<span class="topic-badge">MULTIPHASE</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Gas + Liquid, or Solid + Liquid</div>
+<div class="concept-title">Flow patterns and their pressure drop</div>
+<div class="concept-desc">
+Pipelines often carry gas–liquid mixtures (boiling, condensing, oil–gas) or solid–liquid
+slurries. The flow pattern controls pressure drop, heat transfer and operability.
+</div>
+<div class="dw">
+<div class="dt">▸ GAS-LIQUID FLOW PATTERNS (horizontal)</div>
+<pre class="code-block">bubbly → plug → stratified → wavy → slug → annular → mist
+(as gas fraction / velocity increases)
+
+Slug flow causes damaging pressure pulses &amp; vibration.</pre>
+<div class="dt">▸ SLURRY CONCERNS</div>
+<table class="ref-table">
+<tr><th>Issue</th><th>Handling</th></tr>
+<tr><td style="color: var(--red)">Settling / plugging</td><td>Keep above critical (deposition) velocity</td></tr>
+<tr><td style="color: var(--amber)">Erosion</td><td>Abrasive solids wear bends &amp; pumps</td></tr>
+<tr><td style="color: var(--cyan)">Higher ΔP</td><td>Solids raise effective density &amp; viscosity</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+⚠️ Slug flow is a notorious operability and safety issue — the intermittent liquid slugs
+pound piping and separators; designers avoid the slug regime.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-heat" data-domain="heat">
@@ -1627,6 +1664,44 @@ stages traded for energy) directly shrinks both (see Distillation).
 </div>
 </div>
 </div>
+<!-- ── TOPIC: SEMI-INFINITE SOLIDS ──────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧊</span>
+<span class="topic-name">Transient Conduction — Semi-Infinite Solids</span>
+<span class="topic-badge">UNSTEADY</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Heat Penetrating a Thick Body</div>
+<div class="concept-title">Before the far side "feels" the change</div>
+<div class="concept-desc">
+When a sudden surface change hasn't yet reached the interior, a body acts semi-infinite.
+This governs quenching, ground temperatures, and short-time transients where the
+lumped model (Bi &gt; 0.1) fails.
+</div>
+<div class="dw">
+<div class="dt">▸ THE PENETRATION SOLUTION</div>
+<pre class="code-block">Sudden surface temperature T_s:
+  (T − T_i)/(T_s − T_i) = erfc[ x / (2√(αt)) ]
+
+Thermal penetration depth ~ √(αt) — how far heat has reached.</pre>
+<div class="dt">▸ WHEN TO USE WHICH MODEL</div>
+<table class="ref-table">
+<tr><th>Model</th><th>Valid when</th></tr>
+<tr><td style="color: var(--green)">Lumped</td><td>Bi &lt; 0.1 (uniform internal T)</td></tr>
+<tr><td style="color: var(--cyan)">Semi-infinite</td><td>Short times; far boundary unaffected</td></tr>
+<tr><td style="color: var(--amber)">Heisler charts</td><td>Finite body, intermediate times</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🔥 The √(αt) penetration depth tells you how deep a quench or a fire has heated a wall — a
+quick estimate before reaching for charts.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-mass" data-domain="mass">
@@ -1972,6 +2047,43 @@ Uses: decaf coffee, hops, flavors, pharmaceuticals.</pre>
 <div class="info-bar ib-muted">
 ☕ Decaffeinating coffee with supercritical CO₂ leaves no solvent residue — a flagship
 green-separations success.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: ION EXCHANGE ──────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔁</span>
+<span class="topic-name">Ion Exchange</span>
+<span class="topic-badge">SORPTION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Swapping Ions on a Resin</div>
+<div class="concept-title">Reversible ion capture for water &amp; recovery</div>
+<div class="concept-desc">
+Ion-exchange resins trade harmless ions for target ions in solution — softening and
+deionizing water, recovering metals, and purifying products. Like adsorption, it's a
+cyclic fixed-bed operation.
+</div>
+<div class="dw">
+<div class="dt">▸ HOW IT WORKS</div>
+<pre class="code-block">Cation resin (Na⁺ form) + Ca²⁺ → resin-Ca + 2Na⁺  (softening)
+Deionization: cation (H⁺) + anion (OH⁻) resins → pure water
+Regenerate with concentrated acid/base/brine when spent.</pre>
+<div class="dt">▸ USES</div>
+<table class="ref-table">
+<tr><th>Application</th><th>Purpose</th></tr>
+<tr><td style="color: var(--cyan)">Water softening</td><td>Remove Ca²⁺/Mg²⁺ hardness</td></tr>
+<tr><td style="color: var(--green)">Deionization</td><td>Ultrapure water (boiler feed, electronics)</td></tr>
+<tr><td style="color: var(--amber)">Recovery / purification</td><td>Metals, pharmaceuticals, chromatography</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+💧 Ion exchange shares the breakthrough-curve behavior of adsorption — the same mass-
+transfer-zone and regeneration concepts (see Adsorption).
 </div>
 </div>
 </div>
@@ -2360,6 +2472,42 @@ reaction-engineering and heat-transfer challenge (gel effect / runaway).
 </div>
 </div>
 </div>
+<!-- ── TOPIC: ENZYME REACTOR DESIGN ─────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔑</span>
+<span class="topic-name">Enzyme &amp; Biocatalytic Reactor Design</span>
+<span class="topic-badge">BIOCATALYSIS</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Reactors Run by Enzymes</div>
+<div class="concept-title">Michaelis–Menten meets reactor design</div>
+<div class="concept-desc">
+Enzymes are exquisite catalysts. Designing reactors around them combines Michaelis–Menten
+kinetics with reactor mole balances — and the practicality of reusing the enzyme.
+</div>
+<div class="dw">
+<div class="dt">▸ IMMOBILIZED-ENZYME REACTORS</div>
+<table class="ref-table">
+<tr><th>Config</th><th>Feature</th></tr>
+<tr><td style="color: var(--cyan)">Packed-bed (PFR-like)</td><td>Enzyme on a support; continuous, reusable</td></tr>
+<tr><td style="color: var(--green)">CSTR / membrane</td><td>Retain enzyme, remove product</td></tr>
+<tr><td style="color: var(--amber)">Batch (free enzyme)</td><td>Simple, but enzyme is lost</td></tr>
+</table>
+<div class="dt">▸ DESIGN NOTE</div>
+<pre class="code-block">Combine −r = V_max[S]/(K_m+[S]) with the reactor balance.
+Immobilization adds pore-diffusion limits (Thiele modulus again!)
+and can shift the apparent K_m.</pre>
+</div>
+<div class="info-bar ib-muted">
+🔗 The same diffusion-reaction physics (Thiele modulus, effectiveness) from heterogeneous
+catalysis reappears for immobilized enzymes — one idea, two worlds.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-control" data-domain="control">
@@ -2744,6 +2892,41 @@ that never oscillates beats an aggressive one that rings when conditions change.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: PLANTWIDE CONTROL ─────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🏭</span>
+<span class="topic-name">Plantwide Control Strategy</span>
+<span class="topic-badge">SYSTEM VIEW</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Controlling the Whole, Not Just Loops</div>
+<div class="concept-title">Recycles and inventories couple everything</div>
+<div class="concept-desc">
+Tuning individual loops isn't enough — recycles, heat integration and shared inventories
+couple units so the plant must be controlled as a system.
+</div>
+<div class="dw">
+<div class="dt">▸ PLANTWIDE PRINCIPLES</div>
+<table class="ref-table">
+<tr><th>Principle</th><th>Why</th></tr>
+<tr><td style="color: var(--red)">Manage inventories</td><td>Every tank/recycle level must be controlled (no drift)</td></tr>
+<tr><td style="color: var(--amber)">Snowball effect</td><td>Recycle loops amplify disturbances — fix a flow, not a ratio</td></tr>
+<tr><td style="color: var(--cyan)">Constraint control</td><td>Push against the true bottleneck for throughput</td></tr>
+</table>
+<div class="dt">▸ LOOP PAIRING (RGA)</div>
+<pre class="code-block">Relative Gain Array pairs manipulated ↔ controlled variables
+to minimize loop interaction (pick pairings with RGA ≈ 1).</pre>
+</div>
+<div class="info-bar ib-muted">
+❄️ The "snowball effect": a small feed change, amplified around a recycle, causes huge
+swings — fix a flow in the recycle loop to tame it.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-bio" data-domain="bio">
@@ -3120,6 +3303,43 @@ Thick tissue needs vascularization or perfusion bioreactors
 <div class="info-bar ib-muted">
 🔬 The oxygen-diffusion limit is the same shell-balance physics as a catalyst pellet — a
 striking cross-over between Transport Phenomena and biology.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: BIOINFORMATICS & OMICS ────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧮</span>
+<span class="topic-name">Bioinformatics &amp; Omics</span>
+<span class="topic-badge">DATA-DRIVEN BIO</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Biology at Data Scale</div>
+<div class="concept-title">Reading genomes to engineer cells</div>
+<div class="concept-desc">
+Modern bioprocessing is data-rich. Sequencing and "omics" reveal what a cell is doing,
+guiding the metabolic engineering that improves production.
+</div>
+<div class="dw">
+<div class="dt">▸ THE "OMICS" LAYERS</div>
+<table class="ref-table">
+<tr><th>Layer</th><th>Measures</th></tr>
+<tr><td style="color: var(--cyan)">Genomics</td><td>The DNA blueprint (see the Central Dogma)</td></tr>
+<tr><td style="color: var(--green)">Transcriptomics</td><td>Which genes are active (RNA)</td></tr>
+<tr><td style="color: var(--amber)">Proteomics</td><td>Which proteins are present</td></tr>
+<tr><td style="color: var(--purple)">Metabolomics</td><td>Small-molecule metabolites (flux clues)</td></tr>
+</table>
+<div class="dt">▸ WHY ENGINEERS CARE</div>
+<pre class="code-block">Omics data + flux balance analysis (see Metabolic Engineering)
+→ find bottlenecks in a pathway → redesign the strain
+→ higher yield/titer/productivity.</pre>
+</div>
+<div class="info-bar ib-muted">
+🔗 Bioinformatics is process data science (see the Data domain) pointed at cells —
+turning sequencing data into engineering decisions.
 </div>
 </div>
 </div>
@@ -4580,6 +4800,42 @@ flow through a die under pressure yet hold shape once out.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: CORROSION TESTING & MONITORING ────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔎</span>
+<span class="topic-name">Corrosion Testing &amp; Monitoring</span>
+<span class="topic-badge">INTEGRITY</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Catching Wall Loss Before It Fails</div>
+<div class="concept-title">Measuring corrosion rate in service</div>
+<div class="concept-desc">
+Selecting a corrosion-resistant material is step one; verifying it stays intact in service
+is ongoing. Testing and monitoring quantify wall loss before it becomes a leak.
+</div>
+<div class="dw">
+<div class="dt">▸ METHODS</div>
+<table class="ref-table">
+<tr><th>Method</th><th>Measures</th></tr>
+<tr><td style="color: var(--cyan)">Coupons</td><td>Weight loss over time (mpy / mm/yr)</td></tr>
+<tr><td style="color: var(--green)">UT thickness</td><td>Wall thickness by ultrasound (inspection)</td></tr>
+<tr><td style="color: var(--amber)">ER / LPR probes</td><td>Online corrosion-rate signal</td></tr>
+<tr><td style="color: var(--red)">RBI</td><td>Risk-based inspection prioritizes what to check</td></tr>
+</table>
+<div class="dt">▸ CORROSION ALLOWANCE</div>
+<pre class="code-block">Design wall = required wall + corrosion allowance (e.g. 3 mm)
+Monitor rate → predict remaining life → schedule replacement.</pre>
+</div>
+<div class="info-bar ib-muted">
+🦺 Mechanical integrity (a PSM element) depends on this — inspection data drives when to
+repair or replace before a loss of containment (see Process Safety).
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-chem" data-domain="chem">
@@ -5244,6 +5500,45 @@ Debottlenecking finds and relieves the single unit that caps throughput.
 <div class="info-bar ib-muted">
 💰 Debottlenecking delivers the cheapest capacity in the industry — often a few percent
 more throughput for a fraction of new-build cost.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: TECHNO-ECONOMIC ANALYSIS ──────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">📈</span>
+<span class="topic-name">Techno-Economic Analysis (TEA)</span>
+<span class="topic-badge">FEASIBILITY</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Will the Technology Pay?</div>
+<div class="concept-title">Marrying process models to economics</div>
+<div class="concept-desc">
+<strong class="text-blue">Techno-economic analysis</strong> combines a process model with
+cost and market data to judge whether a technology is viable — the go/no-go tool for new
+processes and emerging tech.
+</div>
+<div class="dw">
+<div class="dt">▸ THE TEA WORKFLOW</div>
+<pre class="code-block">Process model (yields, energy, utilities)
+→ size &amp; cost equipment (CAPEX)
+→ operating cost (feed, utilities, labor) (OPEX)
+→ profitability (NPV, IRR, minimum selling price)
+→ sensitivity: which assumptions decide viability?</pre>
+<div class="dt">▸ KEY OUTPUTS</div>
+<table class="ref-table">
+<tr><th>Metric</th><th>Tells you</th></tr>
+<tr><td style="color: var(--green)">Minimum selling price</td><td>Break-even product price</td></tr>
+<tr><td style="color: var(--cyan)">NPV / IRR</td><td>Value &amp; return of the project</td></tr>
+<tr><td style="color: var(--amber)">Sensitivity / tornado</td><td>Which inputs dominate the result</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🌱 TEA + LCA together decide whether a green technology (e.g. green hydrogen, CCUS) is
+both profitable and genuinely low-carbon — the modern feasibility test.
 </div>
 </div>
 </div>

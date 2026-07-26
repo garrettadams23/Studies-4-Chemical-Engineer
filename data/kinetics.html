@@ -377,3 +377,40 @@ Exothermic → heat removal is critical (runaway risk).</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: ENZYME REACTOR DESIGN ─────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔑</span>
+    <span class="topic-name">Enzyme &amp; Biocatalytic Reactor Design</span>
+    <span class="topic-badge">BIOCATALYSIS</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Reactors Run by Enzymes</div>
+      <div class="concept-title">Michaelis–Menten meets reactor design</div>
+      <div class="concept-desc">
+        Enzymes are exquisite catalysts. Designing reactors around them combines Michaelis–Menten
+        kinetics with reactor mole balances — and the practicality of reusing the enzyme.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ IMMOBILIZED-ENZYME REACTORS</div>
+        <table class="ref-table">
+          <tr><th>Config</th><th>Feature</th></tr>
+          <tr><td style="color: var(--cyan)">Packed-bed (PFR-like)</td><td>Enzyme on a support; continuous, reusable</td></tr>
+          <tr><td style="color: var(--green)">CSTR / membrane</td><td>Retain enzyme, remove product</td></tr>
+          <tr><td style="color: var(--amber)">Batch (free enzyme)</td><td>Simple, but enzyme is lost</td></tr>
+        </table>
+        <div class="dt">▸ DESIGN NOTE</div>
+        <pre class="code-block">Combine −r = V_max[S]/(K_m+[S]) with the reactor balance.
+Immobilization adds pore-diffusion limits (Thiele modulus again!)
+and can shift the apparent K_m.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🔗 The same diffusion-reaction physics (Thiele modulus, effectiveness) from heterogeneous
+        catalysis reappears for immobilized enzymes — one idea, two worlds.
+      </div>
+    </div>
+  </div>
+</div>

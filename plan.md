@@ -30,7 +30,7 @@ chemical-engineering curriculum, the FE/PE exams, and day-to-day plant practice.
 
 **Success metrics:**
 
-- 🚧 30 domains live · **225 topics** · 9 calculators + steam table + quiz + flashcards (Phase 4 done) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
+- 🚧 30 domains live · **233 topics** · 9 calculators + steam table + quiz + flashcards (Phase 4 done) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
 - 🚧 Interactive tools — 9 calculators (incl. friction factor) + steam-table lookup + quiz + flashcards.
 - 🚧 Embedded reference data — steam table, Antoine coefficients, physical-property table live.
 - ✅ Self-test quiz engine — 18 questions, instant feedback, best score saved (localStorage).
@@ -1003,3 +1003,9 @@ Air/Fuel Ratio & Flue-Gas Dew Point (Balances); Steam Properties & Mollier
 (Thermo); Froth Flotation (Unit Ops); Emergency Planning & Response (Safety);
 Alkylation & Isomerization (Petroleum); Solid & Hazardous Waste (Sustainability);
 The Energy Equation & Viscous Dissipation (Transport); Entrepreneurship (Career).
+
+### 2026-07-25 — Phase 3 depth pass O (225 → 233)
+Ion Exchange (Mass); Semi-Infinite Solids (Heat); Two-Phase & Slurry Flow (Fluids);
+Enzyme Reactor Design (Kinetics); Plantwide Control Strategy (Control); Corrosion
+Testing & Monitoring (Materials); Techno-Economic Analysis (Design); Bioinformatics
+& Omics (Biochemical).
