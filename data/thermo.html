@@ -357,3 +357,42 @@ van't Hoff (T-dependence):  d(ln K)/dT = ΔH°_rxn / (RT²)
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: STEAM PROPERTIES & MOLLIER ────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📈</span>
+    <span class="topic-name">Steam Properties &amp; the Mollier Diagram</span>
+    <span class="topic-badge">PROPERTY DATA</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Reading Steam's State</div>
+      <div class="concept-title">Tables and the enthalpy–entropy chart</div>
+      <div class="concept-desc">
+        Steam is the industry's workhorse fluid. Its properties come from steam tables or the
+        <strong class="text-blue">Mollier (h–s) diagram</strong>, which makes turbine and nozzle
+        calculations graphical.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ QUALITY &amp; PROPERTIES</div>
+        <pre class="code-block">In the two-phase dome, quality x = mass vapor / total:
+  h = h_f + x·h_fg      s = s_f + x·s_fg
+
+Superheated: needs both T and P (two independent properties).
+The Calculators domain's steam-table tool returns h_f, h_g, h_fg.</pre>
+        <div class="dt">▸ THE MOLLIER DIAGRAM</div>
+        <table class="ref-table">
+          <tr><th>Use</th><th>Why h–s</th></tr>
+          <tr><td style="color: var(--cyan)">Turbine expansion</td><td>Isentropic = vertical line; read Δh = work</td></tr>
+          <tr><td style="color: var(--amber)">Nozzle / throttle</td><td>Constant h line (throttling)</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        ⚙️ On the Mollier chart an ideal turbine drops straight down (constant s); the horizontal
+        gap to the real endpoint is the isentropic-efficiency loss.
+      </div>
+    </div>
+  </div>
+</div>
