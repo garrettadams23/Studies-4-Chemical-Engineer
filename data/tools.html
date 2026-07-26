@@ -250,3 +250,37 @@
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: FRICTION FACTOR ───────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🌀</span>
+    <span class="topic-name">Darcy Friction Factor Calculator</span>
+    <span class="topic-badge">LIVE TOOL</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Pipe Pressure Drop</div>
+      <div class="concept-title">Laminar 64/Re or turbulent (Haaland)</div>
+      <div class="concept-desc">
+        Enter the Reynolds number and relative roughness ε/D. Below Re = 2100 it uses 64/Re;
+        above, the explicit Haaland approximation to the Colebrook equation.
+      </div>
+      <div class="calc" id="calc-ff">
+        <div class="calc-grid">
+          <div class="calc-field"><label>Reynolds number Re</label><input id="ff-re" type="number" value="100000" step="any" /></div>
+          <div class="calc-field"><label>Relative roughness ε/D</label><input id="ff-rr" type="number" value="0.0001" step="any" /></div>
+        </div>
+        <div class="calc-out">
+          <span class="calc-out-label">Darcy f</span>
+          <span class="calc-out-val" id="ff-out">—</span>
+        </div>
+      </div>
+      <div class="info-bar ib-muted">
+        💧 Feed f into ΔP = f·(L/D)·(ρv²/2). Smooth pipe at Re = 10⁵ gives f ≈ 0.018 — a Moody-chart
+        sanity check.
+      </div>
+    </div>
+  </div>
+</div>

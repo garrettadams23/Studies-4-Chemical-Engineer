@@ -30,8 +30,8 @@ chemical-engineering curriculum, the FE/PE exams, and day-to-day plant practice.
 
 **Success metrics:**
 
-- 🚧 30 domains live · **195 topics** · 8 tools + quiz + flashcards (Phase 4 done; 5–6 advanced) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
-- 🚧 Interactive tools — 7 calculators + steam-table lookup + quiz + flashcards.
+- 🚧 30 domains live · **201 topics** · 9 calculators + steam table + quiz + flashcards (Phase 4 done) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
+- 🚧 Interactive tools — 9 calculators (incl. friction factor) + steam-table lookup + quiz + flashcards.
 - 🚧 Embedded reference data — steam table, Antoine coefficients, physical-property table live.
 - ✅ Self-test quiz engine — 18 questions, instant feedback, best score saved (localStorage).
 - 📝 Deployed on Netlify with a custom domain, deploy previews, and a feedback form.
@@ -978,3 +978,10 @@ Physics-Informed & Hybrid Models (Data); Screening & Classification (Particles);
 Worked combustion air/flue-gas (Examples); Practice-Question Walkthrough (Exam);
 Safety & Environmental quick reference (Formula Sheet); Renewable Energy Systems
 (Sustainability); Project Management & Execution (Career); Sensors & Transmitters (Control).
+
+### 2026-07-25 — Friction calculator + depth pass K (195 → 201)
+- **9th calculator**: Darcy friction factor (laminar 64/Re; turbulent Haaland).
+  Verified f = 0.0183 at Re = 1e5 (Moody-chart sanity) and 64/Re laminar.
+- Depth: Multiphase & Gas-Liquid Reactors (Kinetics); Multicomponent Diffusion /
+  Maxwell-Stefan (Transport); Heat-Exchange Equipment (Unit Ops); Industrial
+  Hygiene (Safety); Emerging Energy Storage (Electrochemical).

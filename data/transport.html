@@ -267,3 +267,43 @@ Solution involves the Thiele modulus  φ = L√(k/D):
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: MULTICOMPONENT DIFFUSION ──────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔀</span>
+    <span class="topic-name">Multicomponent Diffusion (Maxwell–Stefan)</span>
+    <span class="topic-badge">ADVANCED</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Beyond Fick for Mixtures</div>
+      <div class="concept-title">When species diffusion is coupled</div>
+      <div class="concept-desc">
+        Fick's law works for dilute binaries. In concentrated multicomponent mixtures, species
+        interactions couple the fluxes — the <strong class="text-blue">Maxwell–Stefan</strong>
+        framework handles it.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE MAXWELL–STEFAN VIEW</div>
+        <pre class="code-block">Driving force (∇ of chemical potential) is balanced by
+friction between each pair of species:
+
+  −∇x_i ≈ Σ (x_i x_j / D_ij)(v_i − v_j)
+
+Uses pairwise D_ij; reduces to Fick for a dilute binary.</pre>
+        <div class="dt">▸ SURPRISING EFFECTS</div>
+        <table class="ref-table">
+          <tr><th>Phenomenon</th><th>Meaning</th></tr>
+          <tr><td style="color: var(--amber)">Reverse diffusion</td><td>A species moves up its own gradient (dragged by others)</td></tr>
+          <tr><td style="color: var(--red)">Osmotic diffusion</td><td>Flux with zero gradient</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🔬 Rigorous distillation and membrane models use Maxwell–Stefan because real
+        multicomponent systems can violate simple Fickian intuition.
+      </div>
+    </div>
+  </div>
+</div>

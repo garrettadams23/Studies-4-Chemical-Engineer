@@ -1057,6 +1057,25 @@ function initFlashcards() {
   start();
 }
 
+function initFriction() {
+  const re = document.getElementById("ff-re");
+  const rr = document.getElementById("ff-rr");
+  const out = document.getElementById("ff-out");
+  if (!re || !rr || !out) return;
+  function calc() {
+    const Re = parseFloat(re.value), eD = parseFloat(rr.value);
+    if (isNaN(Re) || isNaN(eD) || Re <= 0 || eD < 0) { out.textContent = "—"; return; }
+    if (Re < 2100) {
+      out.textContent = calcFmt(64 / Re) + "  (laminar · 64/Re)";
+    } else {
+      const inv = -1.8 * Math.log10(Math.pow(eD / 3.7, 1.11) + 6.9 / Re);
+      out.textContent = calcFmt(1 / (inv * inv)) + "  (turbulent · Haaland)";
+    }
+  }
+  [re, rr].forEach(e => e.addEventListener("input", calc));
+  calc();
+}
+
 function initCalculators() {
   initUnitConverter();
   initReynolds();
@@ -1065,6 +1084,7 @@ function initCalculators() {
   initAntoine();
   initPH();
   initSteamTable();
+  initFriction();
   initFlashcards();
 }
 

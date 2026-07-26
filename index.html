@@ -2067,6 +2067,43 @@ circulating catalyst supplies the heat for cracking (see Petroleum).
 </div>
 </div>
 </div>
+<!-- ── TOPIC: MULTIPHASE & GAS-LIQUID REACTORS ──────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🫧</span>
+<span class="topic-name">Multiphase &amp; Gas-Liquid Reactors</span>
+<span class="topic-badge">REACTOR TYPES</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Reactions Across Phases</div>
+<div class="concept-title">When mass transfer and reaction compete</div>
+<div class="concept-desc">
+Many industrial reactions span phases — gas into liquid, over a solid catalyst. Here mass
+transfer between phases can control the overall rate as much as the kinetics.
+</div>
+<div class="dw">
+<div class="dt">▸ COMMON MULTIPHASE REACTORS</div>
+<table class="ref-table">
+<tr><th>Reactor</th><th>Phases</th><th>Example</th></tr>
+<tr><td style="color: var(--cyan)">Bubble column</td><td>Gas–liquid</td><td>Oxidations, fermentation</td></tr>
+<tr><td style="color: var(--green)">Trickle bed</td><td>Gas–liquid–solid</td><td>Hydrotreating</td></tr>
+<tr><td style="color: var(--amber)">Slurry reactor</td><td>Gas–liquid–fine solid</td><td>Hydrogenation, F-T</td></tr>
+</table>
+<div class="dt">▸ WHO CONTROLS?</div>
+<pre class="code-block">Overall rate limited by the slowest step:
+  gas-film · liquid-film · pore diffusion · surface reaction.
+Hatta number compares reaction rate to diffusion in the film
+(fast reaction → transfer-limited, enhanced absorption).</pre>
+</div>
+<div class="info-bar ib-muted">
+🔗 It's the two-film theory (Mass Transfer) plus catalysis (Thiele modulus) in one unit —
+design targets whichever resistance dominates.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-control" data-domain="control">
@@ -3034,6 +3071,45 @@ Biochemical — a unifying idea across the curriculum.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: MULTICOMPONENT DIFFUSION ──────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔀</span>
+<span class="topic-name">Multicomponent Diffusion (Maxwell–Stefan)</span>
+<span class="topic-badge">ADVANCED</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Beyond Fick for Mixtures</div>
+<div class="concept-title">When species diffusion is coupled</div>
+<div class="concept-desc">
+Fick's law works for dilute binaries. In concentrated multicomponent mixtures, species
+interactions couple the fluxes — the <strong class="text-blue">Maxwell–Stefan</strong>
+framework handles it.
+</div>
+<div class="dw">
+<div class="dt">▸ THE MAXWELL–STEFAN VIEW</div>
+<pre class="code-block">Driving force (∇ of chemical potential) is balanced by
+friction between each pair of species:
+
+  −∇x_i ≈ Σ (x_i x_j / D_ij)(v_i − v_j)
+
+Uses pairwise D_ij; reduces to Fick for a dilute binary.</pre>
+<div class="dt">▸ SURPRISING EFFECTS</div>
+<table class="ref-table">
+<tr><th>Phenomenon</th><th>Meaning</th></tr>
+<tr><td style="color: var(--amber)">Reverse diffusion</td><td>A species moves up its own gradient (dragged by others)</td></tr>
+<tr><td style="color: var(--red)">Osmotic diffusion</td><td>Flux with zero gradient</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🔬 Rigorous distillation and membrane models use Maxwell–Stefan because real
+multicomponent systems can violate simple Fickian intuition.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-unitops" data-domain="unitops">
@@ -3305,6 +3381,43 @@ Design between these at ~70–85% of flood.</pre>
 <div class="info-bar ib-muted">
 🗼 Structured packing gives many stages in a short height at low pressure drop — ideal for
 vacuum distillation of heat-sensitive materials.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: HEAT-EXCHANGE EQUIPMENT ───────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔥</span>
+<span class="topic-name">Heat-Exchange Equipment Types</span>
+<span class="topic-badge">EQUIPMENT</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Choosing the Right Exchanger</div>
+<div class="concept-title">Matching hardware to the duty</div>
+<div class="concept-desc">
+The LMTD/NTU methods (Heat Transfer) size the area; equipment selection picks the physical
+form that fits the fluids, pressures, fouling and space.
+</div>
+<div class="dw">
+<div class="dt">▸ EXCHANGER FAMILIES</div>
+<table class="ref-table">
+<tr><th>Type</th><th>Best for</th></tr>
+<tr><td style="color: var(--cyan)">Shell-and-tube</td><td>Workhorse; high P/T, wide range (TEMA)</td></tr>
+<tr><td style="color: var(--green)">Plate</td><td>Compact, high efficiency, clean fluids</td></tr>
+<tr><td style="color: var(--amber)">Air-cooled</td><td>Where cooling water is scarce</td></tr>
+<tr><td style="color: var(--purple)">Double-pipe</td><td>Small duties, high pressure</td></tr>
+</table>
+<div class="dt">▸ SELECTION FACTORS</div>
+<pre class="code-block">Fouling tendency · pressure &amp; temperature · ΔP allowance
+Cleanability · materials of construction · plot space
+Fouling &amp; maintenance often decide between plate and shell-and-tube.</pre>
+</div>
+<div class="info-bar ib-muted">
+🧼 Plate exchangers are efficient and compact but foul and can't take extreme P/T — the
+shell-and-tube stays the default for dirty, high-duty service.
 </div>
 </div>
 </div>
@@ -3633,6 +3746,46 @@ a flammable atmosphere, it becomes an ignition source — a subtle but real haza
 <div class="info-bar ib-muted">
 🔌 Bonding + grounding is one of the cheapest, most effective safeguards — removing the
 ignition leg of the fire triangle (see Flammability).
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: INDUSTRIAL HYGIENE ────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">😷</span>
+<span class="topic-name">Industrial Hygiene &amp; Occupational Health</span>
+<span class="topic-badge">PEOPLE</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Protecting the Workforce</div>
+<div class="concept-title">Anticipate, recognize, evaluate, control</div>
+<div class="concept-desc">
+Beyond catastrophic events, everyday exposure to chemicals, noise and heat harms workers.
+Industrial hygiene systematically keeps exposures within safe limits.
+</div>
+<div class="dw">
+<div class="dt">▸ THE HIERARCHY OF CONTROLS</div>
+<pre class="code-block">Most effective ↓
+  Elimination  → remove the hazard
+  Substitution → less-hazardous material
+  Engineering  → ventilation, enclosure, automation
+  Administrative → procedures, rotation, training
+  PPE          → last line (respirators, gloves)
+Least effective</pre>
+<div class="dt">▸ EXPOSURE LIMITS</div>
+<table class="ref-table">
+<tr><th>Limit</th><th>Basis</th></tr>
+<tr><td style="color: var(--green)">TLV-TWA</td><td>8-h time-weighted average</td></tr>
+<tr><td style="color: var(--amber)">STEL</td><td>Short-term (15 min) limit</td></tr>
+<tr><td style="color: var(--red)">Ceiling</td><td>Never to be exceeded</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🦺 PPE is the <em>last</em> resort, not the first — engineering the hazard out or enclosing
+it protects everyone, not just the person wearing a mask.
 </div>
 </div>
 </div>
@@ -5106,6 +5259,42 @@ RTD, mass transfer and distribution all reappear in electrical clothing.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: EMERGING ENERGY STORAGE ───────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔌</span>
+<span class="topic-name">Emerging Energy Storage</span>
+<span class="topic-badge">FRONTIER</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Beyond Today's Lithium Cell</div>
+<div class="concept-title">The storage the grid and EVs will need</div>
+<div class="concept-desc">
+As renewables grow, storage must scale in energy, power, duration and cost. Several
+electrochemical technologies compete for different niches.
+</div>
+<div class="dw">
+<div class="dt">▸ THE STORAGE LANDSCAPE</div>
+<table class="ref-table">
+<tr><th>Technology</th><th>Niche</th></tr>
+<tr><td style="color: var(--green)">Solid-state Li</td><td>Safer, denser EV batteries</td></tr>
+<tr><td style="color: var(--cyan)">Sodium-ion</td><td>Cheap, abundant materials</td></tr>
+<tr><td style="color: var(--amber)">Redox flow</td><td>Long-duration grid storage (decoupled power/energy)</td></tr>
+<tr><td style="color: var(--purple)">Supercapacitor</td><td>High power, fast cycles (not energy)</td></tr>
+</table>
+<div class="dt">▸ THE FOUR METRICS</div>
+<pre class="code-block">Energy density (Wh/kg) · power density (W/kg)
+Cycle life · cost ($/kWh) — no single tech wins all four.</pre>
+</div>
+<div class="info-bar ib-muted">
+⚡ Flow batteries decouple power (stack size) from energy (tank size) — ideal for the
+long-duration storage that firms wind and solar.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-formulas" data-domain="formulas">
@@ -5617,6 +5806,39 @@ for saturation pressure and the liquid/vapor enthalpies. No lookup by hand.
 <div class="info-bar ib-muted">
 🔥 At 100 °C: P_sat ≈ 101.35 kPa and h_fg ≈ 2257 kJ/kg — the latent heat that drives
 evaporation and distillation reboilers.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: FRICTION FACTOR ───────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🌀</span>
+<span class="topic-name">Darcy Friction Factor Calculator</span>
+<span class="topic-badge">LIVE TOOL</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Pipe Pressure Drop</div>
+<div class="concept-title">Laminar 64/Re or turbulent (Haaland)</div>
+<div class="concept-desc">
+Enter the Reynolds number and relative roughness ε/D. Below Re = 2100 it uses 64/Re;
+above, the explicit Haaland approximation to the Colebrook equation.
+</div>
+<div class="calc" id="calc-ff">
+<div class="calc-grid">
+<div class="calc-field"><label>Reynolds number Re</label><input id="ff-re" type="number" value="100000" step="any" /></div>
+<div class="calc-field"><label>Relative roughness ε/D</label><input id="ff-rr" type="number" value="0.0001" step="any" /></div>
+</div>
+<div class="calc-out">
+<span class="calc-out-label">Darcy f</span>
+<span class="calc-out-val" id="ff-out">—</span>
+</div>
+</div>
+<div class="info-bar ib-muted">
+💧 Feed f into ΔP = f·(L/D)·(ρv²/2). Smooth pipe at Re = 10⁵ gives f ≈ 0.018 — a Moody-chart
+sanity check.
 </div>
 </div>
 </div>
