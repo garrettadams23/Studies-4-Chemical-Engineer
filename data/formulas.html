@@ -171,3 +171,110 @@ gc               32.174 lbm·ft/(lbf·s²)</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: CONTROL & DYNAMICS QUICK REFERENCE ────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🎛️</span>
+    <span class="topic-name">Control &amp; Dynamics — Quick Reference</span>
+    <span class="topic-badge">REFERENCE</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Dynamics on One Screen</div>
+      <div class="concept-title">Transforms, responses &amp; controller forms</div>
+      <div class="concept-desc">
+        The Laplace pairs, standard responses and controller equations you reach for in process
+        dynamics and control — collected for quick recall.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ TRANSFORMS &amp; MODELS</div>
+        <pre class="code-block">L{1}=1/s   L{e^-at}=1/(s+a)   L{f'}=sF−f(0)   delay: e^(−θs)
+First order:  G = K/(τs+1)     step reaches 63% at t=τ
+Second order: G = K/(τ²s²+2ζτs+1)   ζ<1 underdamped (overshoot)</pre>
+        <div class="dt">▸ CONTROLLERS &amp; STABILITY</div>
+        <pre class="code-block">PID:  u = Kc[ e + (1/τ_I)∫e dt + τ_D de/dt ]
+Stability: |GH|<1 at phase = −180°
+Gain margin > ~2 (6 dB) · phase margin > ~30–45°
+Valve: Q = Cv·sqrt(ΔP/SG)</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🎯 P leaves offset; I removes it; D anticipates but amplifies noise. Most loops target
+        ζ ≈ 0.4–0.7 for a fast, well-damped response.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: SAFETY & ENVIRONMENTAL QUICK REFERENCE ────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🦺</span>
+    <span class="topic-name">Safety &amp; Environmental — Quick Reference</span>
+    <span class="topic-badge">REFERENCE</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">The Numbers That Keep People Safe</div>
+      <div class="concept-title">Flammability, exposure &amp; risk at a glance</div>
+      <div class="concept-desc">
+        Key definitions and relations from Process Safety and Sustainability, collected for fast
+        recall.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ FLAMMABILITY &amp; RELIEF</div>
+        <pre class="code-block">Flammable range: LFL ─── [ burns ] ─── UFL
+Flash point: lowest T giving an ignitable vapor
+LOC: limiting oxygen concentration (inert below it)
+Choked relief: P*/P₀ = (2/(k+1))^(k/(k−1)) ≈ 0.528 (air)</pre>
+        <div class="dt">▸ EXPOSURE &amp; RISK</div>
+        <table class="ref-table">
+          <tr><th>Term</th><th>Meaning</th></tr>
+          <tr><td style="color: var(--green)">TLV / PEL</td><td>Safe 8-h average exposure</td></tr>
+          <tr><td style="color: var(--red)">IDLH</td><td>Immediately dangerous to life &amp; health</td></tr>
+          <tr><td style="color: var(--cyan)">Risk</td><td>= likelihood × consequence</td></tr>
+          <tr><td style="color: var(--amber)">LOPA</td><td>Independent layers multiply risk reduction</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🔗 Full treatment lives in the Process Safety and Sustainability domains — this is the
+        exam-day / field cheat sheet.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: BIOPROCESS QUICK REFERENCE ────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧬</span>
+    <span class="topic-name">Biochemical &amp; Bioprocess — Quick Reference</span>
+    <span class="topic-badge">REFERENCE</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Bio Relations at a Glance</div>
+      <div class="concept-title">Growth, enzymes &amp; oxygen transfer</div>
+      <div class="concept-desc">
+        The core equations from the Biochemical Engineering domain, collected for quick recall.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ KINETICS &amp; GROWTH</div>
+        <pre class="code-block">Michaelis-Menten:  v = V_max[S]/(K_m+[S])
+Monod growth:      μ = μ_max·S/(K_s+S)
+Exponential:       dX/dt = μX  →  X = X₀e^(μt)
+Yield:             Y_X/S = ΔX/ΔS</pre>
+        <div class="dt">▸ TRANSPORT &amp; STERILIZATION</div>
+        <pre class="code-block">Oxygen transfer:  OTR = k_L a (C* − C_L)
+Thermal death:    dN/dt = −k_d N  ;  Del ∇ = ln(N₀/N)
+Central dogma:    DNA →(transcription) RNA →(translation) protein</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🔗 Full derivations live in the Biochemical Engineering domain — this is the revision card.
+      </div>
+    </div>
+  </div>
+</div>

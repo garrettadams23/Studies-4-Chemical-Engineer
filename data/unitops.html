@@ -190,3 +190,228 @@ effect i can boil the liquid in effect i+1.</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: CENTRIFUGATION & SEDIMENTATION ────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">💫</span>
+    <span class="topic-name">Centrifugation &amp; Sedimentation</span>
+    <span class="topic-badge">SEPARATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Separating by Density</div>
+      <div class="concept-title">Let gravity — or many g's — do the work</div>
+      <div class="concept-desc">
+        Solids or immiscible liquids separate by density difference. Sedimentation uses gravity;
+        centrifugation multiplies it thousands of times for fine or slow-settling particles.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ TERMINAL (STOKES) SETTLING</div>
+        <pre class="code-block">v_t = d²(ρ_p − ρ_f) g / (18 μ)     (Stokes, small Re)
+
+Centrifuge: replace g with ω²r → separation factor = ω²r/g
+(often thousands — settles what gravity never could).</pre>
+        <div class="dt">▸ EQUIPMENT</div>
+        <table class="ref-table">
+          <tr><th>Device</th><th>Use</th></tr>
+          <tr><td style="color: var(--cyan)">Thickener / clarifier</td><td>Gravity settling, large flows</td></tr>
+          <tr><td style="color: var(--green)">Disc-stack centrifuge</td><td>Fine solids, liquid-liquid</td></tr>
+          <tr><td style="color: var(--amber)">Decanter</td><td>High-solids slurries</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🧫 Centrifugation is the first step of most bioseparations — spinning cells out of broth
+        (see Downstream Processing in Biochemical).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: COLUMN INTERNALS ──────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🏛️</span>
+    <span class="topic-name">Column Internals — Trays &amp; Packing</span>
+    <span class="topic-badge">EQUIPMENT</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Where the Contacting Happens</div>
+      <div class="concept-title">Trays vs packing — the column's working guts</div>
+      <div class="concept-desc">
+        Distillation and absorption columns need intimate vapor-liquid contact. Two families of
+        internals provide it — discrete trays or continuous packing — each with a niche.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ TRAYS vs PACKING</div>
+        <table class="ref-table">
+          <tr><th>Internal</th><th>Best for</th></tr>
+          <tr><td style="color: var(--cyan)">Sieve / valve trays</td><td>Large columns, fouling service, wide turndown</td></tr>
+          <tr><td style="color: var(--green)">Random packing</td><td>Low pressure drop, corrosive service</td></tr>
+          <tr><td style="color: var(--amber)">Structured packing</td><td>High efficiency, vacuum, low ΔP (HETP small)</td></tr>
+        </table>
+        <div class="dt">▸ HYDRAULIC LIMITS</div>
+        <pre class="code-block">Too much vapor → flooding (liquid carried up)
+Too little → weeping / dumping (liquid falls through)
+Design between these at ~70–85% of flood.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🗼 Structured packing gives many stages in a short height at low pressure drop — ideal for
+        vacuum distillation of heat-sensitive materials.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: HEAT-EXCHANGE EQUIPMENT ───────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔥</span>
+    <span class="topic-name">Heat-Exchange Equipment Types</span>
+    <span class="topic-badge">EQUIPMENT</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Choosing the Right Exchanger</div>
+      <div class="concept-title">Matching hardware to the duty</div>
+      <div class="concept-desc">
+        The LMTD/NTU methods (Heat Transfer) size the area; equipment selection picks the physical
+        form that fits the fluids, pressures, fouling and space.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ EXCHANGER FAMILIES</div>
+        <table class="ref-table">
+          <tr><th>Type</th><th>Best for</th></tr>
+          <tr><td style="color: var(--cyan)">Shell-and-tube</td><td>Workhorse; high P/T, wide range (TEMA)</td></tr>
+          <tr><td style="color: var(--green)">Plate</td><td>Compact, high efficiency, clean fluids</td></tr>
+          <tr><td style="color: var(--amber)">Air-cooled</td><td>Where cooling water is scarce</td></tr>
+          <tr><td style="color: var(--purple)">Double-pipe</td><td>Small duties, high pressure</td></tr>
+        </table>
+        <div class="dt">▸ SELECTION FACTORS</div>
+        <pre class="code-block">Fouling tendency · pressure &amp; temperature · ΔP allowance
+Cleanability · materials of construction · plot space
+Fouling &amp; maintenance often decide between plate and shell-and-tube.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🧼 Plate exchangers are efficient and compact but foul and can't take extreme P/T — the
+        shell-and-tube stays the default for dirty, high-duty service.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: FROTH FLOTATION ───────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🫧</span>
+    <span class="topic-name">Froth Flotation</span>
+    <span class="topic-badge">SURFACE SEPARATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Separating by Wettability</div>
+      <div class="concept-title">Bubbles carry the right particles to the top</div>
+      <div class="concept-desc">
+        Flotation separates fine particles by differences in surface chemistry: air bubbles attach
+        to water-repelling (hydrophobic) particles and float them off as a froth — the backbone of
+        mineral processing.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ HOW IT WORKS</div>
+        <pre class="code-block">Collectors make target particles hydrophobic
+→ air bubbled through the slurry attaches to them
+→ they rise into a froth layer &amp; are skimmed off
+→ hydrophilic (wetted) particles stay in the liquid.</pre>
+        <div class="dt">▸ THE REAGENTS</div>
+        <table class="ref-table">
+          <tr><th>Reagent</th><th>Role</th></tr>
+          <tr><td style="color: var(--cyan)">Collector</td><td>Selectively makes a mineral hydrophobic</td></tr>
+          <tr><td style="color: var(--green)">Frother</td><td>Stabilizes the bubbles/froth</td></tr>
+          <tr><td style="color: var(--amber)">Modifier</td><td>Adjusts pH &amp; selectivity</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        ⛏️ Flotation concentrates most of the world's copper, and its surface-chemistry principles
+        extend to de-inking paper and even wastewater treatment.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: CROSS-FLOW MEMBRANE FILTRATION ────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧫</span>
+    <span class="topic-name">Cross-Flow Membrane Filtration</span>
+    <span class="topic-badge">MEMBRANES</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Filtering Without Clogging</div>
+      <div class="concept-title">Flow across the membrane sweeps the cake away</div>
+      <div class="concept-desc">
+        In cross-flow (tangential) filtration the feed flows <em>along</em> the membrane, sweeping
+        away retained material so flux stays high — the workhorse arrangement for MF/UF/RO modules.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ DEAD-END vs CROSS-FLOW</div>
+        <table class="ref-table">
+          <tr><th>Mode</th><th>Behavior</th></tr>
+          <tr><td style="color: var(--red)">Dead-end</td><td>All feed through membrane → cake builds, flux decays</td></tr>
+          <tr><td style="color: var(--green)">Cross-flow</td><td>Tangential sweep limits fouling → sustained flux</td></tr>
+        </table>
+        <div class="dt">▸ THE FLUX LIMITER</div>
+        <pre class="code-block">Concentration polarization: rejected solute piles up at the surface
+→ raises local osmotic pressure &amp; resistance → caps flux.
+Higher cross-flow velocity reduces the polarization layer.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        💧 Concentration polarization (Mass Transfer) is the real flux limit in RO/UF — which is
+        why cross-flow velocity and module design matter so much.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: SOLIDS MIXING & BLENDING ──────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🥣</span>
+    <span class="topic-name">Solids Mixing &amp; Blending</span>
+    <span class="topic-badge">POWDERS</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Uniform Powders Are Hard</div>
+      <div class="concept-title">Mixing solids — and keeping them mixed</div>
+      <div class="concept-desc">
+        Unlike liquids, powders don't stay mixed — they segregate by size and density. Achieving
+        and holding a uniform blend is critical for pharma tablets, food and catalysts.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ MIXING MECHANISMS</div>
+        <table class="ref-table">
+          <tr><th>Mechanism</th><th>Action</th></tr>
+          <tr><td style="color: var(--cyan)">Convective</td><td>Bulk movement (ribbon, paddle)</td></tr>
+          <tr><td style="color: var(--green)">Diffusive</td><td>Particle-scale rearrangement (tumbling)</td></tr>
+          <tr><td style="color: var(--amber)">Shear</td><td>Slip planes break up agglomerates</td></tr>
+        </table>
+        <div class="dt">▸ THE SEGREGATION PROBLEM</div>
+        <pre class="code-block">Vibration &amp; handling re-separate mixed powders by size/density.
+Fixes: similar particle sizes, granulation (bind them),
+minimize free-fall &amp; vibration downstream of the blender.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        💊 Blend uniformity directly sets tablet dose consistency — segregation after mixing is a
+        patient-safety failure mode (see Pharma &amp; Particle Technology).
+      </div>
+    </div>
+  </div>
+</div>

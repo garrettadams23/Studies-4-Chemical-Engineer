@@ -228,3 +228,192 @@ LK = light key, HK = heavy key, α = relative volatility.</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: ADSORPTION — ISOTHERMS & BREAKTHROUGH ─────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧽</span>
+    <span class="topic-name">Adsorption — Isotherms &amp; Breakthrough</span>
+    <span class="topic-badge">SORPTION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Capturing on a Surface</div>
+      <div class="concept-title">Equilibrium isotherms and the moving front</div>
+      <div class="concept-desc">
+        Adsorption binds molecules onto a solid surface (activated carbon, zeolite, silica gel).
+        An <strong class="text-blue">isotherm</strong> sets capacity; a
+        <strong class="text-purple">breakthrough curve</strong> sets bed life.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ EQUILIBRIUM ISOTHERMS</div>
+        <pre class="code-block">Langmuir:   q = q_max·K·C / (1 + K·C)   (monolayer, saturates)
+Freundlich: q = K·C^(1/n)               (empirical, heterogeneous)</pre>
+        <div class="dt">▸ FIXED-BED OPERATION</div>
+        <table class="ref-table">
+          <tr><th>Concept</th><th>Meaning</th></tr>
+          <tr><td style="color: var(--cyan)">Mass-transfer zone</td><td>The moving band where adsorption happens</td></tr>
+          <tr><td style="color: var(--amber)">Breakthrough</td><td>Outlet conc. rises → bed nearly spent</td></tr>
+          <tr><td style="color: var(--green)">Regeneration</td><td>Heat (TSA) or pressure (PSA) swing to reuse</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🌀 Pressure-swing adsorption (PSA) makes on-site N₂ and O₂ and purifies H₂ — cyclic beds
+        adsorbing at high P and regenerating at low P.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: LEACHING & SOLID-LIQUID EXTRACTION ────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🫙</span>
+    <span class="topic-name">Leaching &amp; Solid-Liquid Extraction</span>
+    <span class="topic-badge">SEPARATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Dissolving Out the Valuable Part</div>
+      <div class="concept-title">A solvent pulls solute from a solid</div>
+      <div class="concept-desc">
+        Leaching contacts a solid with a solvent to dissolve a target — extracting metals from
+        ore, oil from seeds, or caffeine from beans. It's mass transfer from within a particle.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ RATE-CONTROLLING STEPS</div>
+        <pre class="code-block">1. Solvent diffuses into the solid pores
+2. Solute dissolves
+3. Solute diffuses back out to the bulk
+
+Fine grinding &amp; agitation speed steps 1 &amp; 3 (shorter diffusion path).</pre>
+        <div class="dt">▸ CONTACTING SCHEMES</div>
+        <table class="ref-table">
+          <tr><th>Scheme</th><th>Feature</th></tr>
+          <tr><td style="color: var(--green)">Counter-current stages</td><td>High yield, low solvent use</td></tr>
+          <tr><td style="color: var(--cyan)">Percolation / heap</td><td>Solvent trickles through a bed (ore heaps)</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        ⛏️ Heap leaching recovers copper and gold from low-grade ore — then electrowinning
+        (Electrochemical) finishes the metal.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: SUPERCRITICAL FLUID EXTRACTION ────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🫧</span>
+    <span class="topic-name">Supercritical Fluid Extraction</span>
+    <span class="topic-badge">GREEN SEPARATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Neither Gas nor Liquid</div>
+      <div class="concept-title">Tunable solvents above the critical point</div>
+      <div class="concept-desc">
+        Above its critical point a fluid (often CO₂) has gas-like diffusivity and liquid-like
+        density — a tunable, benign solvent for extraction, prized where solvent residue can't be
+        tolerated.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ WHY SUPERCRITICAL CO₂</div>
+        <table class="ref-table">
+          <tr><th>Property</th><th>Benefit</th></tr>
+          <tr><td style="color: var(--green)">Tunable solvency</td><td>Change density (P,T) → change what dissolves</td></tr>
+          <tr><td style="color: var(--cyan)">Clean removal</td><td>Depressurize → CO₂ leaves as gas, no residue</td></tr>
+          <tr><td style="color: var(--amber)">Benign</td><td>Non-toxic, non-flammable, mild T (protects product)</td></tr>
+        </table>
+        <div class="dt">▸ THE PROCESS</div>
+        <pre class="code-block">Compress CO₂ above Tc(31°C)/Pc(74 bar) → extract solute
+→ drop pressure → solute precipitates, CO₂ recycled.
+Uses: decaf coffee, hops, flavors, pharmaceuticals.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        ☕ Decaffeinating coffee with supercritical CO₂ leaves no solvent residue — a flagship
+        green-separations success.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: ION EXCHANGE ──────────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔁</span>
+    <span class="topic-name">Ion Exchange</span>
+    <span class="topic-badge">SORPTION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Swapping Ions on a Resin</div>
+      <div class="concept-title">Reversible ion capture for water &amp; recovery</div>
+      <div class="concept-desc">
+        Ion-exchange resins trade harmless ions for target ions in solution — softening and
+        deionizing water, recovering metals, and purifying products. Like adsorption, it's a
+        cyclic fixed-bed operation.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ HOW IT WORKS</div>
+        <pre class="code-block">Cation resin (Na⁺ form) + Ca²⁺ → resin-Ca + 2Na⁺  (softening)
+Deionization: cation (H⁺) + anion (OH⁻) resins → pure water
+Regenerate with concentrated acid/base/brine when spent.</pre>
+        <div class="dt">▸ USES</div>
+        <table class="ref-table">
+          <tr><th>Application</th><th>Purpose</th></tr>
+          <tr><td style="color: var(--cyan)">Water softening</td><td>Remove Ca²⁺/Mg²⁺ hardness</td></tr>
+          <tr><td style="color: var(--green)">Deionization</td><td>Ultrapure water (boiler feed, electronics)</td></tr>
+          <tr><td style="color: var(--amber)">Recovery / purification</td><td>Metals, pharmaceuticals, chromatography</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        💧 Ion exchange shares the breakthrough-curve behavior of adsorption — the same mass-
+        transfer-zone and regeneration concepts (see Adsorption).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: BATCH DISTILLATION ────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🫖</span>
+    <span class="topic-name">Batch Distillation (Rayleigh)</span>
+    <span class="topic-badge">SEPARATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Distilling a Pot, Not a Column</div>
+      <div class="concept-title">Composition changes as you boil</div>
+      <div class="concept-desc">
+        Batch (differential) distillation boils a charge and collects vapor over time — flexible
+        for small volumes and multiproduct plants, but the still composition drifts as the light
+        component leaves.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE RAYLEIGH EQUATION</div>
+        <pre class="code-block">ln(L/L₀) = ∫ dx / (y − x)   (from initial to final still comp.)
+
+L = moles left in the still; y in equilibrium with still x.
+As boiling proceeds, the still (and product) get heavier.</pre>
+        <div class="dt">▸ BATCH vs CONTINUOUS</div>
+        <table class="ref-table">
+          <tr><th>Batch</th><th>Continuous</th></tr>
+          <tr><td style="color: var(--cyan)">Flexible, multiproduct</td><td>Efficient, steady composition</td></tr>
+          <tr><td style="color: var(--amber)">Composition drifts</td><td>Constant product spec</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🥃 Common in fine chemicals, pharma and spirits — one still makes many products, at the
+        cost of a changing cut composition (collect fractions to manage it).
+      </div>
+    </div>
+  </div>
+</div>

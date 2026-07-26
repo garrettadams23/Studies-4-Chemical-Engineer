@@ -193,3 +193,192 @@ Total flux = molecular + turbulent (eddy) contribution.</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: CONVECTIVE CORRELATIONS ───────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📐</span>
+    <span class="topic-name">Convective Transport Correlations</span>
+    <span class="topic-badge">DESIGN TOOLS</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Turning Groups into Coefficients</div>
+      <div class="concept-title">Nu = f(Re, Pr) and its mass-transfer twin</div>
+      <div class="concept-desc">
+        Design needs actual h and k_c values. Empirical correlations in dimensionless groups
+        deliver them — the practical payoff of transport analysis.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ WORKHORSE CORRELATIONS</div>
+        <pre class="code-block">Turbulent pipe (heat):  Nu = 0.023 Re^0.8 Pr^0.4   (Dittus-Boelter)
+Mass-transfer analog:   Sh = 0.023 Re^0.8 Sc^(1/3)
+Flat plate (laminar):   Nu = 0.332 Re^0.5 Pr^(1/3)
+
+Then  h = Nu·k/L  and  k_c = Sh·D/L.</pre>
+        <div class="dt">▸ THE CHILTON–COLBURN ANALOGY</div>
+        <pre class="code-block">j_H = j_D = f/2   (heat & mass transfer factors ≈ friction/2)
+→ measure one transport, infer the others.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🔗 The analogy is why a correlation measured for heat transfer can be reused for mass
+        transfer just by swapping Pr → Sc.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: DIFFUSION WITH REACTION ───────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧬</span>
+    <span class="topic-name">Diffusion with Chemical Reaction</span>
+    <span class="topic-badge">COUPLED</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Transport and Reaction Together</div>
+      <div class="concept-title">When molecules react as they diffuse</div>
+      <div class="concept-desc">
+        In catalyst pellets, gas absorption with reaction, and living tissue, diffusion and
+        reaction happen simultaneously. A shell balance now carries a reaction term.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE GOVERNING BALANCE</div>
+        <pre class="code-block">Steady 1-D:  D d²C/dx² − k·C = 0   (diffusion − consumption = 0)
+
+Solution involves the Thiele modulus  φ = L√(k/D):
+  φ small → reaction-limited (uniform C)
+  φ large → diffusion-limited (C drops sharply near the surface)</pre>
+        <div class="dt">▸ WHERE IT SHOWS UP</div>
+        <table class="ref-table">
+          <tr><th>System</th><th>Coupling</th></tr>
+          <tr><td style="color: var(--cyan)">Catalyst pellet</td><td>Pore diffusion + surface reaction (effectiveness factor)</td></tr>
+          <tr><td style="color: var(--green)">Gas absorption + reaction</td><td>Enhancement of mass transfer</td></tr>
+          <tr><td style="color: var(--amber)">Biofilm / tissue</td><td>Nutrient diffuses in as cells consume it</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🔬 The same math (φ, effectiveness factor) reappears in Reaction Engineering and
+        Biochemical — a unifying idea across the curriculum.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: MULTICOMPONENT DIFFUSION ──────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔀</span>
+    <span class="topic-name">Multicomponent Diffusion (Maxwell–Stefan)</span>
+    <span class="topic-badge">ADVANCED</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Beyond Fick for Mixtures</div>
+      <div class="concept-title">When species diffusion is coupled</div>
+      <div class="concept-desc">
+        Fick's law works for dilute binaries. In concentrated multicomponent mixtures, species
+        interactions couple the fluxes — the <strong class="text-blue">Maxwell–Stefan</strong>
+        framework handles it.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE MAXWELL–STEFAN VIEW</div>
+        <pre class="code-block">Driving force (∇ of chemical potential) is balanced by
+friction between each pair of species:
+
+  −∇x_i ≈ Σ (x_i x_j / D_ij)(v_i − v_j)
+
+Uses pairwise D_ij; reduces to Fick for a dilute binary.</pre>
+        <div class="dt">▸ SURPRISING EFFECTS</div>
+        <table class="ref-table">
+          <tr><th>Phenomenon</th><th>Meaning</th></tr>
+          <tr><td style="color: var(--amber)">Reverse diffusion</td><td>A species moves up its own gradient (dragged by others)</td></tr>
+          <tr><td style="color: var(--red)">Osmotic diffusion</td><td>Flux with zero gradient</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🔬 Rigorous distillation and membrane models use Maxwell–Stefan because real
+        multicomponent systems can violate simple Fickian intuition.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: THE ENERGY EQUATION ───────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔥</span>
+    <span class="topic-name">The Energy Equation &amp; Viscous Dissipation</span>
+    <span class="topic-badge">GOVERNING EQUATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Heat's Equation of Change</div>
+      <div class="concept-title">Convection, conduction, and friction heating</div>
+      <div class="concept-desc">
+        Just as Navier–Stokes governs momentum, the energy equation governs the temperature field
+        — including heat generated by the fluid's own internal friction.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE ENERGY EQUATION (form)</div>
+        <pre class="code-block">ρc_p (∂T/∂t + v·∇T) = k∇²T + Φ_viscous + q_gen
+   accumulation+convection   conduction  friction  sources
+
+Φ_viscous = viscous dissipation (mechanical energy → heat).</pre>
+        <div class="dt">▸ WHEN DISSIPATION MATTERS</div>
+        <table class="ref-table">
+          <tr><th>Situation</th><th>Effect</th></tr>
+          <tr><td style="color: var(--red)">High-viscosity flow</td><td>Polymer melts self-heat (extruders)</td></tr>
+          <tr><td style="color: var(--amber)">High shear / speed</td><td>Bearings, high-speed lubrication</td></tr>
+          <tr><td style="color: var(--cyan)">Ordinary flows</td><td>Usually negligible</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🍯 Viscous dissipation is why polymer extruders can heat their own melt — the shear work
+        becomes significant heat (ties to Non-Newtonian Fluids &amp; Polymer Processing).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: NATURAL CONVECTION ────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🎈</span>
+    <span class="topic-name">Natural Convection &amp; Buoyancy-Driven Flow</span>
+    <span class="topic-badge">FREE CONVECTION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Flow Without a Pump</div>
+      <div class="concept-title">Density differences do the moving</div>
+      <div class="concept-desc">
+        When fluid near a hot surface expands, becomes lighter and rises, buoyancy drives the flow
+        with no pump or fan. Natural convection sets losses from vessels, electronics and buildings.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE GOVERNING GROUPS</div>
+        <pre class="code-block">Grashof  Gr = gβΔT L³/ν²   (buoyancy / viscous)
+Rayleigh Ra = Gr·Pr        (drives the correlation)
+Nu = C·Ra^n   (n ≈ 1/4 laminar, 1/3 turbulent)</pre>
+        <div class="dt">▸ FORCED vs FREE</div>
+        <table class="ref-table">
+          <tr><th>Compare</th><th>Regime</th></tr>
+          <tr><td style="color: var(--cyan)">Gr/Re² ≪ 1</td><td>Forced convection dominates</td></tr>
+          <tr><td style="color: var(--amber)">Gr/Re² ≈ 1</td><td>Mixed — both matter</td></tr>
+          <tr><td style="color: var(--green)">Gr/Re² ≫ 1</td><td>Free convection dominates</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🔥 Natural-convection coefficients are small — which is exactly why still air is a good
+        insulator and why fins are added to boost the low-h side (see Heat Transfer).
+      </div>
+    </div>
+  </div>
+</div>

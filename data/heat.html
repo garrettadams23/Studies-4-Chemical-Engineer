@@ -62,6 +62,21 @@ Composite wall:       R_total = ΣR_i</pre>
 
 U = overall heat-transfer coefficient
 F = correction factor (1.0 for true counter-current)</pre>
+        <div class="dt">▸ COUNTER-CURRENT TEMPERATURE PROFILE</div>
+        <svg class="svg-diagram" viewBox="0 0 400 170" role="img" aria-label="Counter-current heat-exchanger temperature profile: the hot fluid cools from left to right, the cold fluid warms, and the terminal temperature differences delta-T-1 and delta-T-2 stay relatively uniform.">
+          <line x1="40" y1="15" x2="40" y2="150" class="stroke-fg" stroke-width="1" />
+          <line x1="40" y1="150" x2="382" y2="150" class="stroke-fg" stroke-width="1" />
+          <line x1="40" y1="30" x2="360" y2="72" style="stroke: var(--red)" stroke-width="3" />
+          <line x1="40" y1="92" x2="360" y2="120" style="stroke: var(--cyan)" stroke-width="3" />
+          <line x1="40" y1="30" x2="40" y2="92" style="stroke: var(--muted)" stroke-width="1" stroke-dasharray="3 3" />
+          <line x1="360" y1="72" x2="360" y2="120" style="stroke: var(--muted)" stroke-width="1" stroke-dasharray="3 3" />
+          <text x="48" y="28" style="fill: var(--red)">hot fluid</text>
+          <text x="300" y="114" style="fill: var(--cyan)">cold fluid</text>
+          <text x="8" y="66" class="lbl-muted">ΔT₁</text>
+          <text x="366" y="100" class="lbl-muted">ΔT₂</text>
+          <text x="30" y="12" class="lbl-muted">T</text>
+          <text x="300" y="165" class="lbl-muted">position →</text>
+        </svg>
         <div class="dt">▸ FLOW ARRANGEMENTS</div>
         <table class="ref-table">
           <tr><th>Arrangement</th><th>Characteristic</th></tr>
@@ -188,6 +203,234 @@ View-factor rules:  reciprocity  A₁F₁₂ = A₂F₂₁
       <div class="info-bar ib-muted">
         🔥 A radiation shield (low-ε foil) between two surfaces can cut radiant transfer
         dramatically — the principle behind multilayer insulation.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: BOILING & CONDENSATION ────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🫧</span>
+    <span class="topic-name">Boiling &amp; Condensation</span>
+    <span class="topic-badge">PHASE CHANGE</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Heat Transfer with Phase Change</div>
+      <div class="concept-title">Huge coefficients — and a dangerous limit</div>
+      <div class="concept-desc">
+        Boiling and condensation move enormous heat fluxes at small ΔT because latent heat is
+        large. But the boiling curve hides a peak beyond which performance collapses.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE POOL-BOILING CURVE</div>
+        <pre class="code-block">ΔT_excess → q":
+  Natural convection → NUCLEATE boiling (efficient, bubbles)
+  → CRITICAL HEAT FLUX (peak) → TRANSITION → FILM boiling
+
+Past CHF a vapor blanket insulates the surface — q" drops and
+the surface temperature can spike (burnout).</pre>
+        <div class="dt">▸ CONDENSATION MODES</div>
+        <table class="ref-table">
+          <tr><th>Mode</th><th>Behavior</th></tr>
+          <tr><td style="color: var(--cyan)">Film (Nusselt)</td><td>Continuous liquid film — the usual design case</td></tr>
+          <tr><td style="color: var(--green)">Dropwise</td><td>Droplets shed — much higher h, hard to sustain</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🔥 Reboilers and steam heaters are designed to stay in the nucleate-boiling region —
+        crossing the critical heat flux risks tube burnout.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: FIRED HEATERS & FURNACES ──────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔥</span>
+    <span class="topic-name">Fired Heaters &amp; Furnaces</span>
+    <span class="topic-badge">HIGH-TEMPERATURE</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Direct-Fired Heat</div>
+      <div class="concept-title">Radiant + convective heat from burning fuel</div>
+      <div class="concept-desc">
+        When a duty needs temperatures above what steam can provide, a fired heater burns fuel and
+        transfers heat first by radiation, then convection — combining the Heat Transfer modes at
+        industrial scale.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE TWO SECTIONS</div>
+        <table class="ref-table">
+          <tr><th>Section</th><th>Dominant mode</th></tr>
+          <tr><td style="color: var(--red)">Radiant</td><td>Radiation from flame &amp; hot walls (most of the duty)</td></tr>
+          <tr><td style="color: var(--amber)">Convection</td><td>Hot flue gas heats tubes on the way out (recovery)</td></tr>
+        </table>
+        <div class="dt">▸ EFFICIENCY &amp; SAFETY</div>
+        <pre class="code-block">Thermal efficiency ↑ with flue-gas heat recovery (air preheat)
+Watch: tube-wall temperature, coking, flame impingement
+Burner management system (BMS) prevents unignited-fuel explosions</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🌡️ Furnace tube overheating and coking are top operating risks — a fouled tube runs hot
+        and can rupture; firing is trimmed to protect tube metallurgy.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: THERMAL INSULATION & HEAT LOSS ────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧥</span>
+    <span class="topic-name">Thermal Insulation &amp; Heat Loss</span>
+    <span class="topic-badge">ENERGY</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Keeping Heat Where You Want It</div>
+      <div class="concept-title">Adding resistance to save energy — and skin</div>
+      <div class="concept-desc">
+        Insulation adds conductive resistance to cut heat loss (or gain), save energy, and keep
+        surfaces safe to touch. Its economics balance insulation cost against energy saved.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE RESISTANCE ADDED</div>
+        <pre class="code-block">Q = ΔT / (R_wall + R_insulation + R_film)
+R_insulation = thickness / (k·A)   (low-k material = high R)
+
+Economic thickness: minimize (insulation cost + energy cost).</pre>
+        <div class="dt">▸ SPECIAL CASES</div>
+        <table class="ref-table">
+          <tr><th>Case</th><th>Note</th></tr>
+          <tr><td style="color: var(--amber)">Personnel protection</td><td>Keep outer surface below ~60 °C</td></tr>
+          <tr><td style="color: var(--cyan)">Critical radius (pipes)</td><td>Thin insulation on small pipes can increase loss</td></tr>
+          <tr><td style="color: var(--red)">CUI</td><td>Corrosion under insulation — a hidden integrity risk</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        ⚠️ Corrosion under insulation (CUI) is a notorious mechanical-integrity problem — trapped
+        moisture attacks the pipe out of sight (see Materials &amp; Process Safety).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: CONDENSERS & REBOILERS ────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">♨️</span>
+    <span class="topic-name">Condensers &amp; Reboilers</span>
+    <span class="topic-badge">COLUMN SERVICE</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">The Column's Heat Engines</div>
+      <div class="concept-title">Boiling at the bottom, condensing at the top</div>
+      <div class="concept-desc">
+        A distillation column needs a reboiler to generate vapor and a condenser to make reflux —
+        phase-change exchangers with big duties and their own design quirks.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE TWO SERVICES</div>
+        <table class="ref-table">
+          <tr><th>Unit</th><th>Job</th><th>Type</th></tr>
+          <tr><td style="color: var(--red)">Reboiler</td><td>Boil bottoms → vapor up the column</td><td>Thermosiphon / kettle</td></tr>
+          <tr><td style="color: var(--cyan)">Condenser</td><td>Condense overhead → reflux + product</td><td>Total / partial</td></tr>
+        </table>
+        <div class="dt">▸ DESIGN NOTES</div>
+        <pre class="code-block">Reboiler duty ≈ set by reflux ratio &amp; latent heat.
+Kettle reboiler: pool boiling (watch critical heat flux).
+Partial condenser gives a vapor product; total gives all liquid.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🔥 Reboiler and condenser duties are the column's energy cost — cutting reflux (fewer
+        stages traded for energy) directly shrinks both (see Distillation).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: SEMI-INFINITE SOLIDS ──────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧊</span>
+    <span class="topic-name">Transient Conduction — Semi-Infinite Solids</span>
+    <span class="topic-badge">UNSTEADY</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Heat Penetrating a Thick Body</div>
+      <div class="concept-title">Before the far side "feels" the change</div>
+      <div class="concept-desc">
+        When a sudden surface change hasn't yet reached the interior, a body acts semi-infinite.
+        This governs quenching, ground temperatures, and short-time transients where the
+        lumped model (Bi &gt; 0.1) fails.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE PENETRATION SOLUTION</div>
+        <pre class="code-block">Sudden surface temperature T_s:
+  (T − T_i)/(T_s − T_i) = erfc[ x / (2√(αt)) ]
+
+Thermal penetration depth ~ √(αt) — how far heat has reached.</pre>
+        <div class="dt">▸ WHEN TO USE WHICH MODEL</div>
+        <table class="ref-table">
+          <tr><th>Model</th><th>Valid when</th></tr>
+          <tr><td style="color: var(--green)">Lumped</td><td>Bi &lt; 0.1 (uniform internal T)</td></tr>
+          <tr><td style="color: var(--cyan)">Semi-infinite</td><td>Short times; far boundary unaffected</td></tr>
+          <tr><td style="color: var(--amber)">Heisler charts</td><td>Finite body, intermediate times</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🔥 The √(αt) penetration depth tells you how deep a quench or a fire has heated a wall — a
+        quick estimate before reaching for charts.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: HEAT PIPES & THERMOSIPHONS ────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🌡️</span>
+    <span class="topic-name">Heat Pipes &amp; Thermosiphons</span>
+    <span class="topic-badge">PASSIVE TRANSFER</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Moving Heat with Phase Change</div>
+      <div class="concept-title">Enormous effective conductivity, no moving parts</div>
+      <div class="concept-desc">
+        A heat pipe evaporates a working fluid at the hot end and condenses it at the cold end,
+        carrying latent heat passively — an effective conductivity thousands of times that of
+        copper.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE CYCLE</div>
+        <pre class="code-block">Hot end: fluid evaporates (absorbs latent heat)
+→ vapor flows to the cold end (tiny ΔP)
+→ condenses (releases heat)
+→ liquid returns via wick (capillary) or gravity (thermosiphon).</pre>
+        <div class="dt">▸ WHERE USED</div>
+        <table class="ref-table">
+          <tr><th>Application</th><th>Why</th></tr>
+          <tr><td style="color: var(--cyan)">Electronics cooling</td><td>Compact, passive, reliable</td></tr>
+          <tr><td style="color: var(--green)">Heat recovery</td><td>Flue-gas / air-to-air exchangers</td></tr>
+          <tr><td style="color: var(--amber)">Permafrost / solar</td><td>Passive seasonal heat transport</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        ♨️ Latent heat + small vapor ΔP is why a thin heat pipe moves heat almost isothermally —
+        the same phase-change leverage as reboilers and condensers.
       </div>
     </div>
   </div>

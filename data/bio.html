@@ -25,6 +25,21 @@
           <tr><td style="color: var(--amber)">Base pairing</td><td>A=T (2 H-bonds) · G≡C (3 H-bonds)</td></tr>
           <tr><td style="color: var(--purple)">Geometry</td><td>Antiparallel strands, ~10.5 bp per turn (Watson–Crick, 1953)</td></tr>
         </table>
+        <div class="dt">▸ THE DOUBLE HELIX (schematic)</div>
+        <svg class="svg-diagram" viewBox="0 0 460 120" role="img" aria-label="Schematic of the DNA double helix: two antiparallel sugar-phosphate backbones connected by base-pair rungs.">
+          <line x1="30" y1="30" x2="30" y2="90" style="stroke: var(--amber)" stroke-width="4" />
+          <line x1="90" y1="30" x2="90" y2="90" style="stroke: var(--green)" stroke-width="4" />
+          <line x1="150" y1="30" x2="150" y2="90" style="stroke: var(--amber)" stroke-width="4" />
+          <line x1="210" y1="30" x2="210" y2="90" style="stroke: var(--green)" stroke-width="4" />
+          <line x1="270" y1="30" x2="270" y2="90" style="stroke: var(--amber)" stroke-width="4" />
+          <line x1="330" y1="30" x2="330" y2="90" style="stroke: var(--green)" stroke-width="4" />
+          <line x1="390" y1="30" x2="390" y2="90" style="stroke: var(--amber)" stroke-width="4" />
+          <line x1="450" y1="30" x2="450" y2="90" style="stroke: var(--green)" stroke-width="4" />
+          <polyline fill="none" style="stroke: var(--cyan)" stroke-width="3" stroke-linejoin="round" points="0,60 15,81 30,90 45,81 60,60 75,39 90,30 105,39 120,60 135,81 150,90 165,81 180,60 195,39 210,30 225,39 240,60 255,81 270,90 285,81 300,60 315,39 330,30 345,39 360,60 375,81 390,90 405,81 420,60 435,39 450,30" />
+          <polyline fill="none" style="stroke: var(--purple)" stroke-width="3" stroke-linejoin="round" points="0,60 15,39 30,30 45,39 60,60 75,81 90,90 105,81 120,60 135,39 150,30 165,39 180,60 195,81 210,90 225,81 240,60 255,39 270,30 285,39 300,60 315,81 330,90 345,81 360,60 375,39 390,30 405,39 420,60 435,81 450,90" />
+          <text x="2" y="112" class="lbl-muted">5′</text>
+          <text x="440" y="16" class="lbl-muted">3′</text>
+        </svg>
         <div class="dt">▸ THE CENTRAL DOGMA</div>
         <pre class="code-block">        replication
    DNA ───────────► DNA        (cell division)
@@ -252,6 +267,160 @@ k_d rises steeply with T (Arrhenius) → hotter, shorter is better.</pre>
       <div class="info-bar ib-muted">
         🔥 Because death is faster-accelerating with T than nutrient destruction, HTST
         (high-temperature short-time) sterilizes with less damage to the medium.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: METABOLIC ENGINEERING & FLUX ──────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🕸️</span>
+    <span class="topic-name">Metabolic Engineering &amp; Flux Balance</span>
+    <span class="topic-badge">CELL FACTORIES</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Rewiring Metabolism</div>
+      <div class="concept-title">Redirecting cellular fluxes toward a product</div>
+      <div class="concept-desc">
+        Metabolic engineering redesigns a cell's reaction network to overproduce a target — and
+        <strong class="text-blue">flux balance analysis</strong> is the material balance that
+        predicts what's possible.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ FLUX BALANCE ANALYSIS (FBA)</div>
+        <pre class="code-block">At steady state, every internal metabolite balances:
+  S · v = 0     (S = stoichiometric matrix, v = flux vector)
+
+Underdetermined → optimize an objective (usually growth or product)
+subject to flux bounds → linear program (see Eng Math optimization).</pre>
+        <div class="dt">▸ ENGINEERING LEVERS</div>
+        <table class="ref-table">
+          <tr><th>Lever</th><th>Action</th></tr>
+          <tr><td style="color: var(--green)">Overexpress</td><td>Boost a rate-limiting enzyme</td></tr>
+          <tr><td style="color: var(--red)">Knock out</td><td>Delete competing pathways</td></tr>
+          <tr><td style="color: var(--cyan)">Introduce</td><td>Add a heterologous pathway (new product)</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🧬 FBA is a material balance on a metabolic network solved as an LP — chemical-engineering
+        tools (balances + optimization) applied inside the cell.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: BIOLOGICS — ANTIBODIES & VACCINES ─────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">💉</span>
+    <span class="topic-name">Biologics — Antibodies &amp; Vaccines</span>
+    <span class="topic-badge">THERAPEUTICS</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Medicine Made by Cells</div>
+      <div class="concept-title">Large molecules that fight disease</div>
+      <div class="concept-desc">
+        Biologics — monoclonal antibodies, vaccines, gene therapies — are large, complex molecules
+        made in living cells. Producing them is bioprocess engineering at its most demanding.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ ANTIBODY (mAb) MANUFACTURING</div>
+        <pre class="code-block">CHO/mammalian cell culture (bioreactor, weeks)
+→ harvest &amp; clarify → Protein-A affinity capture
+→ polish (ion-exchange) → viral clearance → formulate
+
+Purity, glycosylation &amp; viral safety are paramount.</pre>
+        <div class="dt">▸ VACCINE PLATFORMS</div>
+        <table class="ref-table">
+          <tr><th>Platform</th><th>Basis</th></tr>
+          <tr><td style="color: var(--cyan)">Protein subunit</td><td>Recombinant antigen protein</td></tr>
+          <tr><td style="color: var(--green)">mRNA</td><td>Lipid-nanoparticle-delivered mRNA</td></tr>
+          <tr><td style="color: var(--amber)">Viral vector</td><td>Engineered harmless virus</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🧬 mRNA vaccines pair molecular biology (the Central Dogma) with lipid-nanoparticle
+        formulation — bioprocess + particle engineering delivering at global scale.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: TISSUE ENGINEERING ────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🫀</span>
+    <span class="topic-name">Tissue Engineering &amp; Regenerative Medicine</span>
+    <span class="topic-badge">FRONTIER</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Growing Living Tissue</div>
+      <div class="concept-title">Cells + scaffold + signals + transport</div>
+      <div class="concept-desc">
+        Tissue engineering builds living replacements for damaged tissue. Getting nutrients and
+        oxygen into growing 3-D tissue is a classic transport problem at the cell scale.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE THREE INGREDIENTS</div>
+        <table class="ref-table">
+          <tr><th>Element</th><th>Role</th></tr>
+          <tr><td style="color: var(--cyan)">Cells</td><td>Build the tissue (often stem cells)</td></tr>
+          <tr><td style="color: var(--green)">Scaffold</td><td>3-D template &amp; mechanical support</td></tr>
+          <tr><td style="color: var(--amber)">Signals / bioreactor</td><td>Growth factors + controlled environment</td></tr>
+        </table>
+        <div class="dt">▸ THE TRANSPORT LIMIT</div>
+        <pre class="code-block">O₂ diffuses only ~100–200 µm into tissue before cells starve.
+Thick tissue needs vascularization or perfusion bioreactors
+— a diffusion-with-consumption problem (Transport + Reaction).</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🔬 The oxygen-diffusion limit is the same shell-balance physics as a catalyst pellet — a
+        striking cross-over between Transport Phenomena and biology.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: BIOINFORMATICS & OMICS ────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧮</span>
+    <span class="topic-name">Bioinformatics &amp; Omics</span>
+    <span class="topic-badge">DATA-DRIVEN BIO</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Biology at Data Scale</div>
+      <div class="concept-title">Reading genomes to engineer cells</div>
+      <div class="concept-desc">
+        Modern bioprocessing is data-rich. Sequencing and "omics" reveal what a cell is doing,
+        guiding the metabolic engineering that improves production.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE "OMICS" LAYERS</div>
+        <table class="ref-table">
+          <tr><th>Layer</th><th>Measures</th></tr>
+          <tr><td style="color: var(--cyan)">Genomics</td><td>The DNA blueprint (see the Central Dogma)</td></tr>
+          <tr><td style="color: var(--green)">Transcriptomics</td><td>Which genes are active (RNA)</td></tr>
+          <tr><td style="color: var(--amber)">Proteomics</td><td>Which proteins are present</td></tr>
+          <tr><td style="color: var(--purple)">Metabolomics</td><td>Small-molecule metabolites (flux clues)</td></tr>
+        </table>
+        <div class="dt">▸ WHY ENGINEERS CARE</div>
+        <pre class="code-block">Omics data + flux balance analysis (see Metabolic Engineering)
+→ find bottlenecks in a pathway → redesign the strain
+→ higher yield/titer/productivity.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🔗 Bioinformatics is process data science (see the Data domain) pointed at cells —
+        turning sequencing data into engineering decisions.
       </div>
     </div>
   </div>

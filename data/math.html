@@ -197,3 +197,151 @@ Numerical:   finite difference / finite element / finite volume
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: VECTOR CALCULUS ───────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">➡️</span>
+    <span class="topic-name">Vector Calculus &amp; the Transport Operators</span>
+    <span class="topic-badge">FIELDS</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">The Language of Fields</div>
+      <div class="concept-title">grad, div &amp; curl run the equations of change</div>
+      <div class="concept-desc">
+        Transport phenomena are written in vector calculus. Three operators — gradient,
+        divergence, curl — encode how scalar and vector fields vary in space.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE THREE OPERATORS</div>
+        <table class="ref-table">
+          <tr><th>Operator</th><th>Acts on → gives</th><th>Meaning</th></tr>
+          <tr><td style="color: var(--cyan)">Gradient ∇φ</td><td>scalar → vector</td><td>Direction of steepest increase (drives flux)</td></tr>
+          <tr><td style="color: var(--green)">Divergence ∇·v</td><td>vector → scalar</td><td>Net outflow per volume (source/sink)</td></tr>
+          <tr><td style="color: var(--amber)">Curl ∇×v</td><td>vector → vector</td><td>Local rotation (vorticity)</td></tr>
+        </table>
+        <div class="dt">▸ WHERE THEY APPEAR</div>
+        <pre class="code-block">Fourier / Fick:  flux = −k∇T ,  −D∇C   (gradient drives transport)
+Continuity:      ∂ρ/∂t + ∇·(ρv) = 0   (divergence = accumulation)
+Laplacian ∇²:    steady diffusion/conduction (∇²φ = 0)</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🔬 Every "equation of change" in Transport Phenomena is a balance written with these
+        operators — recognizing them turns intimidating PDEs into familiar ideas.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: DESIGN OF EXPERIMENTS ─────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧫</span>
+    <span class="topic-name">Design of Experiments (DOE)</span>
+    <span class="topic-badge">EXPERIMENTAL</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Learn More with Fewer Runs</div>
+      <div class="concept-title">Vary factors together, not one at a time</div>
+      <div class="concept-desc">
+        Changing one variable at a time is slow and misses interactions. Statistical
+        <strong class="text-blue">design of experiments</strong> plans efficient runs that reveal
+        main effects and interactions.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ DESIGN TYPES</div>
+        <table class="ref-table">
+          <tr><th>Design</th><th>Use</th></tr>
+          <tr><td style="color: var(--cyan)">Full factorial (2ᵏ)</td><td>All factor combinations — effects + interactions</td></tr>
+          <tr><td style="color: var(--green)">Fractional factorial</td><td>Screen many factors cheaply</td></tr>
+          <tr><td style="color: var(--amber)">Response surface (RSM)</td><td>Find an optimum (curvature)</td></tr>
+        </table>
+        <div class="dt">▸ WHY IT WINS</div>
+        <pre class="code-block">One-factor-at-a-time misses interactions &amp; wastes runs.
+A 2³ factorial = 8 runs gives 3 main effects + all interactions.
+Randomize &amp; replicate to separate signal from noise.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🎯 DOE is the backbone of Quality by Design (Pharma) and process optimization — the
+        efficient path from lab to a validated design space.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: ERROR & UNCERTAINTY ───────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📏</span>
+    <span class="topic-name">Error Analysis &amp; Propagation of Uncertainty</span>
+    <span class="topic-badge">MEASUREMENT</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Every Number Has Error Bars</div>
+      <div class="concept-title">How input uncertainty flows to results</div>
+      <div class="concept-desc">
+        No measurement is exact. Propagation of uncertainty tells you how errors in inputs combine
+        into the error of a calculated result — essential for honest engineering conclusions.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ PROPAGATION FORMULAS</div>
+        <pre class="code-block">Add/subtract:  σ_R² = σ_A² + σ_B²        (absolute errors add in quadrature)
+Multiply/divide: (σ_R/R)² = (σ_A/A)² + (σ_B/B)²  (relative errors)
+General: σ_R² = Σ (∂R/∂x_i)² σ_{x_i}²   (Taylor / delta method)</pre>
+        <div class="dt">▸ ERROR TYPES</div>
+        <table class="ref-table">
+          <tr><th>Type</th><th>Character</th></tr>
+          <tr><td style="color: var(--cyan)">Random</td><td>Scatter — reduced by averaging</td></tr>
+          <tr><td style="color: var(--red)">Systematic</td><td>Bias — not reduced by averaging (calibrate it out)</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🎯 The least-precise input usually dominates the result's error — improving it is where
+        measurement effort pays off (identify it via the propagation terms).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: INTERPOLATION & CURVE FITTING ─────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📉</span>
+    <span class="topic-name">Interpolation &amp; Curve Fitting</span>
+    <span class="topic-badge">NUMERICAL</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Reading Between the Data</div>
+      <div class="concept-title">Estimating values and fitting models</div>
+      <div class="concept-desc">
+        Property tables and experiments give discrete points. Interpolation estimates between
+        them; curve fitting finds a model that best represents them.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ INTERPOLATION vs FITTING</div>
+        <table class="ref-table">
+          <tr><th>Method</th><th>Passes through points?</th></tr>
+          <tr><td style="color: var(--cyan)">Linear interpolation</td><td>Yes — between two points (steam tables!)</td></tr>
+          <tr><td style="color: var(--green)">Spline</td><td>Yes — smooth piecewise polynomials</td></tr>
+          <tr><td style="color: var(--amber)">Least-squares fit</td><td>No — best trend through scatter</td></tr>
+        </table>
+        <div class="dt">▸ LINEAR INTERPOLATION</div>
+        <pre class="code-block">y = y₁ + (x − x₁)·(y₂ − y₁)/(x₂ − x₁)
+
+The steam-table tool in the Calculators domain uses exactly this.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        ⚠️ Don't extrapolate a fit far beyond its data — and beware high-order polynomials that
+        oscillate wildly (use splines instead).
+      </div>
+    </div>
+  </div>
+</div>

@@ -30,8 +30,8 @@ chemical-engineering curriculum, the FE/PE exams, and day-to-day plant practice.
 
 **Success metrics:**
 
-- 🚧 30 domains live · **127 topics** · 8 tools + quiz + flashcards (Phase 4 done; 5–6 advanced) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
-- 🚧 Interactive tools — 7 calculators + steam-table lookup + quiz + flashcards.
+- ✅ 30 domains · **251 topics** (250+ target MET) · 9 calculators + steam table + quiz + flashcards · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
+- 🚧 Interactive tools — 9 calculators (incl. friction factor) + steam-table lookup + quiz + flashcards.
 - 🚧 Embedded reference data — steam table, Antoine coefficients, physical-property table live.
 - ✅ Self-test quiz engine — 18 questions, instant feedback, best score saved (localStorage).
 - 📝 Deployed on Netlify with a custom domain, deploy previews, and a feedback form.
@@ -925,3 +925,122 @@ This closes the §4 new-domain list. The reference now spans 30 domains.
 - **Depth topics**: Turbulence & Eddy Transport (Transport); Evaporation &
   Multiple-Effect (Unit Ops); Utilities, Steam Levels & Cooling Water (Design).
 - **Accessibility (Phase 6)**: a keyboard/screen-reader skip-to-content link.
+
+### 2026-07-25 — Depth pass on newer domains (127 → 131)
+Continuous Manufacturing & PAT (Pharma); Real-Time Optimization & MPC (Data
+Science); Catalytic Reforming & Octane (Petroleum); The Hydrogen Economy
+(Sustainability). Opened Testing branch + PR #4 for the test-URL deploy.
+
+### 2026-07-25 — Phase 3 depth pass C (131 → 139)
+Boiling & Condensation (Heat); Non-Newtonian Fluids (Fluids); Adsorption isotherms
+& breakthrough (Mass); Analyzing Rate Data (Kinetics); Composites & Materials
+Selection (Materials); Solubility & Ksp (Chemistry); Vector Calculus (Eng Math);
+Metabolic Engineering & Flux Balance (Biochemical).
+
+### 2026-07-25 — Phase 3 depth pass D (139 → 147)
+Convective Correlations (Transport); Centrifugation & Sedimentation (Unit Ops);
+Plant Layout & Safety in Design (Design); Reactive Chemicals & Runaway (Safety);
+Control Valves & Final Elements (Control); Granulation & Agglomeration (Particles);
+Electroplating & Electrowinning (Electrochemical); Exergy & 2nd-Law Efficiency (Thermo).
+
+### 2026-07-25 — Phase 3 depth pass E (147 → 155)
+Gas Processing & Sweetening (Petroleum); Sterile & Aseptic Processing (Pharma);
+Data Cleaning & Feature Engineering (Data); Humidification & Dehumidification
+(Psychrometrics); LNG (Cryogenics); Nanomaterial Safety (Nano); Worked reflux/
+operating-line (Examples); Exam-Day Strategy (Exam Prep).
+
+### 2026-07-25 — Phase 3 depth pass F (155 → 163)
+Fired Heaters & Furnaces (Heat); Ceramics/Glasses/Refractories (Materials);
+Industrial Chemistry big processes (Chemistry); Design of Experiments (Eng Math);
+Process Intensification (Design); Electrochemical Reactors (Electrochemical);
+Pneumatic Conveying (Particles); Control & Dynamics quick reference (Formula Sheet).
+
+### 2026-07-25 — Phase 3 depth pass G (163 → 171)
+Unsteady-State Balances (Material Balances); Packed Beds/Ergun (Fluids); Catalyst
+Deactivation (Kinetics); Leaching & Solid-Liquid Extraction (Mass); Biologics —
+Antibodies & Vaccines (Biochemical); Static Electricity & Grounding (Safety); Air
+Pollution Control (Sustainability); Technical Communication (Career).
+
+### 2026-07-25 — Phase 3 depth pass H (171 → 179)
+Thermal Insulation & Heat Loss (Heat); Batch & Discrete Control PLC/DCS (Control);
+Diffusion with Reaction (Transport); Column Internals — Trays & Packing (Unit Ops);
+Welding & Fabrication (Materials); Organic Reaction Mechanisms (Chemistry); Batch
+Design & Scheduling (Design); Regulatory Landscape FDA/ICH (Pharma).
+
+### 2026-07-25 — Phase 3 depth pass I (179 → 187)
+Error & Uncertainty Propagation (Eng Math); Predictive Maintenance (Data);
+Nanomaterials in Energy & Medicine (Nano); HVAC Loads & Ventilation (Psychro);
+Cryogenics in Science & Medicine (Cryo); Worked pump-head example (Examples); The
+NCEES Reference Handbook (Exam Prep); Refinery Economics & Configuration (Petroleum).
+
+### 2026-07-25 — Phase 3 depth pass J (187 → 195)
+Physics-Informed & Hybrid Models (Data); Screening & Classification (Particles);
+Worked combustion air/flue-gas (Examples); Practice-Question Walkthrough (Exam);
+Safety & Environmental quick reference (Formula Sheet); Renewable Energy Systems
+(Sustainability); Project Management & Execution (Career); Sensors & Transmitters (Control).
+
+### 2026-07-25 — Friction calculator + depth pass K (195 → 201)
+- **9th calculator**: Darcy friction factor (laminar 64/Re; turbulent Haaland).
+  Verified f = 0.0183 at Re = 1e5 (Moody-chart sanity) and 64/Re laminar.
+- Depth: Multiphase & Gas-Liquid Reactors (Kinetics); Multicomponent Diffusion /
+  Maxwell-Stefan (Transport); Heat-Exchange Equipment (Unit Ops); Industrial
+  Hygiene (Safety); Emerging Energy Storage (Electrochemical).
+
+### 2026-07-25 — Phase 3 depth pass L (201 → 209)
+Reaction Equilibrium & K (Thermo); Interpolation & Curve Fitting (Eng Math);
+Bioprocess quick reference (Formula Sheet); Worked bubble-point (Examples);
+Engineering Economics on the Exam (Exam); Solid Dosage Manufacturing (Pharma);
+Process Historians & Data Infrastructure (Data); Carbon Nanomaterials (Nano).
+
+### 2026-07-25 — Phase 3 depth pass M (209 → 217)
+Compressors/Blowers/Fans (Fluids); Condensers & Reboilers (Heat); Supercritical
+Fluid Extraction (Mass); Polymerization Kinetics (Kinetics); Loop Tuning in
+Practice (Control); Polymer Processing (Materials); Tissue Engineering
+(Biochemical); Debottlenecking & Revamps (Design).
+
+### 2026-07-25 — Phase 3 depth pass N (217 → 225)
+Air/Fuel Ratio & Flue-Gas Dew Point (Balances); Steam Properties & Mollier
+(Thermo); Froth Flotation (Unit Ops); Emergency Planning & Response (Safety);
+Alkylation & Isomerization (Petroleum); Solid & Hazardous Waste (Sustainability);
+The Energy Equation & Viscous Dissipation (Transport); Entrepreneurship (Career).
+
+### 2026-07-25 — Phase 3 depth pass O (225 → 233)
+Ion Exchange (Mass); Semi-Infinite Solids (Heat); Two-Phase & Slurry Flow (Fluids);
+Enzyme Reactor Design (Kinetics); Plantwide Control Strategy (Control); Corrosion
+Testing & Monitoring (Materials); Techno-Economic Analysis (Design); Bioinformatics
+& Omics (Biochemical).
+
+### 2026-07-25 — Phase 3 depth pass P (233 → 241)
+Worked recycle/purge (Balances); Departure Functions (Thermo); Batch Distillation
+Rayleigh (Mass); Cross-Flow Membrane Filtration (Unit Ops); Worked relief scenario
+(Safety); Solutions & Colligative Properties (Chemistry); Hydrogen & Sulfur
+Recovery (Petroleum); Worked adiabatic temperature rise (Examples).
+
+### 2026-07-25 — 🎯 250+ TOPIC TARGET REACHED (241 → 251)
+Batch Q closed the gap: Natural Convection (Transport); Heat Pipes & Thermosiphons
+(Heat); Cavitation & Water Hammer (Fluids); Combustion & Chain Reactions (Kinetics);
+Alarm Management & Human Factors (Control); Additive Manufacturing (Materials);
+Reliability & Maintenance / RAM (Design); Combustible Dust Explosions (Safety);
+Analytical Method Validation (Chemistry); Solids Mixing & Blending (Unit Ops).
+
+**Milestone: the plan's headline content target is met — 30 domains, 251 topics,
+9 calculators + steam table + quiz + flashcards, full deploy/PWA/CSP/SEO stack.**
+Remaining plan items are polish (Phase 6: SVG diagrams, fuller WCAG/Lighthouse,
+glossary tooltips) and the custom-domain step (user action in Netlify).
+
+### 2026-07-25 — Phase 6.1: Accessibility / WCAG pass
+- Semantic landmarks: `<main role="main">`, `role="toolbar"` filter bar, `role="search"`,
+  `role="status" aria-live="polite"` on the search count (screen readers announce matches).
+- Filter chips (previously click-only `<div>`s) are now keyboard-operable: `role="button"`,
+  `tabindex="0"`, Enter/Space activation, and `aria-pressed` state. Verified via headless keyboard nav.
+- Focus-visible outlines on chips, search, notepad and calculator inputs.
+- `@media (prefers-reduced-motion: reduce)` disables transitions/animations for motion-sensitive users.
+
+### 2026-07-25 — Phase 6.2: SVG diagrams (first set)
+Inline, theme-aware, offline SVG diagrams (styled with CSS vars via inline style,
+CSP-safe, survive minification) added to flagship topics:
+- DNA double helix (Biochemical) — two backbones + base-pair rungs.
+- Counter-current temperature profile (Heat Transfer, LMTD topic).
+- Feedback control block diagram (Process Control, PID topic).
+`.svg-diagram` CSS class ties diagram color to the domain accent. Pattern
+established for extending to more topics.

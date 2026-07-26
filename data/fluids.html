@@ -226,3 +226,190 @@ Below this ratio → the nozzle/relief is choked.</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: NON-NEWTONIAN FLUIDS ──────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🍯</span>
+    <span class="topic-name">Non-Newtonian Fluids &amp; Rheology</span>
+    <span class="topic-badge">RHEOLOGY</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">When Viscosity Isn't Constant</div>
+      <div class="concept-title">Polymers, slurries, foods &amp; blood</div>
+      <div class="concept-desc">
+        Many industrial fluids don't obey Newton's law — their apparent viscosity changes with
+        shear rate. Handling them needs <strong class="text-blue">rheology</strong>.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ FLUID CLASSES</div>
+        <table class="ref-table">
+          <tr><th>Type</th><th>Behavior</th><th>Example</th></tr>
+          <tr><td style="color: var(--green)">Newtonian</td><td>μ constant</td><td>Water, air, oils</td></tr>
+          <tr><td style="color: var(--cyan)">Shear-thinning</td><td>μ drops with shear</td><td>Paint, blood, polymers</td></tr>
+          <tr><td style="color: var(--amber)">Shear-thickening</td><td>μ rises with shear</td><td>Cornstarch slurry</td></tr>
+          <tr><td style="color: var(--red)">Bingham plastic</td><td>Yield stress, then flows</td><td>Toothpaste, drilling mud</td></tr>
+        </table>
+        <div class="dt">▸ POWER-LAW MODEL</div>
+        <pre class="code-block">τ = K (dv/dy)^n
+  n < 1 shear-thinning · n = 1 Newtonian · n > 1 shear-thickening</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🎨 Shear-thinning is exploited on purpose: paint flows under the brush (high shear) then
+        stops dripping at rest (low shear).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: PACKED BEDS — ERGUN ───────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🫘</span>
+    <span class="topic-name">Flow Through Packed Beds — Ergun</span>
+    <span class="topic-badge">POROUS FLOW</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Pressure Drop Through Packing</div>
+      <div class="concept-title">The Ergun equation spans laminar to turbulent</div>
+      <div class="concept-desc">
+        Catalyst beds, adsorbers and filters are packed with particles. The
+        <strong class="text-blue">Ergun equation</strong> predicts the pressure drop across them,
+        combining viscous and inertial terms.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE ERGUN EQUATION</div>
+        <pre class="code-block">ΔP/L = 150 μ(1−ε)² v /(ε³ d²)  +  1.75 ρ(1−ε) v² /(ε³ d)
+        └── viscous (Blake-Kozeny) ──┘  └── inertial (Burke-Plummer) ──┘
+
+ε = void fraction   d = particle diameter   v = superficial velocity</pre>
+        <div class="dt">▸ LIMITING FORMS</div>
+        <table class="ref-table">
+          <tr><th>Regime</th><th>Dominant term</th></tr>
+          <tr><td style="color: var(--cyan)">Low Re (laminar)</td><td>Viscous (∝ v)</td></tr>
+          <tr><td style="color: var(--amber)">High Re (turbulent)</td><td>Inertial (∝ v²)</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🌀 Set ΔP (bed weight) equal to the Ergun drop and you get the minimum fluidization
+        velocity — the link to fluidized beds (Unit Ops).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: COMPRESSORS & GAS MOVERS ──────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🌬️</span>
+    <span class="topic-name">Compressors, Blowers &amp; Fans</span>
+    <span class="topic-badge">GAS MOVERS</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Raising Gas Pressure</div>
+      <div class="concept-title">From gentle fans to high-ratio compressors</div>
+      <div class="concept-desc">
+        Moving and compressing gas spans fans (small ΔP) to multistage compressors (high ratio).
+        Because gas is compressible, the work involves the thermodynamic path.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ EQUIPMENT BY PRESSURE RISE</div>
+        <table class="ref-table">
+          <tr><th>Device</th><th>Pressure ratio</th></tr>
+          <tr><td style="color: var(--cyan)">Fan</td><td>~1.0–1.1 (ventilation)</td></tr>
+          <tr><td style="color: var(--green)">Blower</td><td>~1.1–2 (conveying, aeration)</td></tr>
+          <tr><td style="color: var(--amber)">Compressor</td><td>&gt; 2, often multistage</td></tr>
+        </table>
+        <div class="dt">▸ COMPRESSION WORK</div>
+        <pre class="code-block">Isentropic (ideal):  w = (kRT₁/(k−1))[(P₂/P₁)^((k−1)/k) − 1]
+
+Multistage with intercooling approaches isothermal → less work.
+Watch discharge temperature (limits per stage).</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        ❄️ Intercooling between stages cuts compression work and keeps temperatures safe — the
+        same reason multiple-effect and heat integration save energy.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: TWO-PHASE & SLURRY FLOW ───────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🥤</span>
+    <span class="topic-name">Two-Phase &amp; Slurry Flow</span>
+    <span class="topic-badge">MULTIPHASE</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Gas + Liquid, or Solid + Liquid</div>
+      <div class="concept-title">Flow patterns and their pressure drop</div>
+      <div class="concept-desc">
+        Pipelines often carry gas–liquid mixtures (boiling, condensing, oil–gas) or solid–liquid
+        slurries. The flow pattern controls pressure drop, heat transfer and operability.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ GAS-LIQUID FLOW PATTERNS (horizontal)</div>
+        <pre class="code-block">bubbly → plug → stratified → wavy → slug → annular → mist
+(as gas fraction / velocity increases)
+
+Slug flow causes damaging pressure pulses &amp; vibration.</pre>
+        <div class="dt">▸ SLURRY CONCERNS</div>
+        <table class="ref-table">
+          <tr><th>Issue</th><th>Handling</th></tr>
+          <tr><td style="color: var(--red)">Settling / plugging</td><td>Keep above critical (deposition) velocity</td></tr>
+          <tr><td style="color: var(--amber)">Erosion</td><td>Abrasive solids wear bends &amp; pumps</td></tr>
+          <tr><td style="color: var(--cyan)">Higher ΔP</td><td>Solids raise effective density &amp; viscosity</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        ⚠️ Slug flow is a notorious operability and safety issue — the intermittent liquid slugs
+        pound piping and separators; designers avoid the slug regime.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: CAVITATION & WATER HAMMER ─────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">💥</span>
+    <span class="topic-name">Cavitation &amp; Water Hammer</span>
+    <span class="topic-badge">TRANSIENTS</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">When Liquids Turn Violent</div>
+      <div class="concept-title">Vapor collapse and pressure surges</div>
+      <div class="concept-desc">
+        Two liquid phenomena damage equipment: cavitation (vapor bubbles forming and collapsing)
+        and water hammer (a pressure surge when flow is stopped suddenly).
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE TWO PHENOMENA</div>
+        <table class="ref-table">
+          <tr><th>Effect</th><th>Cause</th><th>Damage</th></tr>
+          <tr><td style="color: var(--red)">Cavitation</td><td>Local P drops below P_vapor → bubbles collapse</td><td>Pits pumps, valves, impellers</td></tr>
+          <tr><td style="color: var(--amber)">Water hammer</td><td>Rapid valve closure → momentum shock</td><td>Bursts pipes, breaks supports</td></tr>
+        </table>
+        <div class="dt">▸ JOUKOWSKY SURGE</div>
+        <pre class="code-block">Sudden stop pressure rise:  ΔP = ρ·a·Δv
+  a = pressure-wave speed (~1000+ m/s in water)
+→ even modest Δv gives a huge ΔP. Close valves slowly!</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        ⚠️ Prevent cavitation with adequate NPSH (see Pumps); prevent water hammer with slow valve
+        closure, surge tanks or air chambers.
+      </div>
+    </div>
+  </div>
+</div>

@@ -48,8 +48,12 @@ function toggleTopic(h) {
 
 // ── FILTER ─────────────────────────────────────────────────────────────────
 function filter(domain, chip) {
-  document.querySelectorAll(".chip").forEach(c => c.classList.remove("active"));
+  document.querySelectorAll(".chip").forEach(c => {
+    c.classList.remove("active");
+    c.setAttribute("aria-pressed", "false");
+  });
   chip.classList.add("active");
+  chip.setAttribute("aria-pressed", "true");
   document.querySelectorAll(".domain-section").forEach(s => {
     s.classList.toggle("hidden", domain !== "all" && s.dataset.domain !== domain);
   });
@@ -97,10 +101,21 @@ document.addEventListener("DOMContentLoaded", () => {
   initCloudStack();
   initTouchFeedback();
 
-  // Filter chips — event delegation on the filter bar
+  // Filter chips — make them keyboard-accessible (they are <div>s) and announce state
+  document.querySelectorAll(".chip").forEach(c => {
+    c.setAttribute("role", "button");
+    c.setAttribute("tabindex", "0");
+    c.setAttribute("aria-pressed", c.classList.contains("active") ? "true" : "false");
+  });
+  // Filter chips — event delegation on the filter bar (click + keyboard)
   document.querySelector(".filter-bar")?.addEventListener("click", e => {
     const chip = e.target.closest(".chip");
     if (chip) filter(chip.dataset.domain || "all", chip);
+  });
+  document.querySelector(".filter-bar")?.addEventListener("keydown", e => {
+    if (e.key !== "Enter" && e.key !== " ") return;
+    const chip = e.target.closest(".chip");
+    if (chip) { e.preventDefault(); filter(chip.dataset.domain || "all", chip); }
   });
 
   // Accordion — event delegation on the container
@@ -1057,6 +1072,25 @@ function initFlashcards() {
   start();
 }
 
+function initFriction() {
+  const re = document.getElementById("ff-re");
+  const rr = document.getElementById("ff-rr");
+  const out = document.getElementById("ff-out");
+  if (!re || !rr || !out) return;
+  function calc() {
+    const Re = parseFloat(re.value), eD = parseFloat(rr.value);
+    if (isNaN(Re) || isNaN(eD) || Re <= 0 || eD < 0) { out.textContent = "—"; return; }
+    if (Re < 2100) {
+      out.textContent = calcFmt(64 / Re) + "  (laminar · 64/Re)";
+    } else {
+      const inv = -1.8 * Math.log10(Math.pow(eD / 3.7, 1.11) + 6.9 / Re);
+      out.textContent = calcFmt(1 / (inv * inv)) + "  (turbulent · Haaland)";
+    }
+  }
+  [re, rr].forEach(e => e.addEventListener("input", calc));
+  calc();
+}
+
 function initCalculators() {
   initUnitConverter();
   initReynolds();
@@ -1065,6 +1099,7 @@ function initCalculators() {
   initAntoine();
   initPH();
   initSteamTable();
+  initFriction();
   initFlashcards();
 }
 

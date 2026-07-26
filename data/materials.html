@@ -191,3 +191,229 @@ Fast past the "nose" → martensite; slow → pearlite/ferrite.</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: COMPOSITES & MATERIALS SELECTION ──────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧩</span>
+    <span class="topic-name">Composites &amp; Materials Selection</span>
+    <span class="topic-badge">DESIGN CHOICE</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">The Right Material for the Job</div>
+      <div class="concept-title">Combining phases; choosing by performance index</div>
+      <div class="concept-desc">
+        Composites blend a strong fiber with a binding matrix to beat either alone. Selecting any
+        material trades off strength, weight, corrosion, temperature and cost.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ RULE OF MIXTURES (stiffness)</div>
+        <pre class="code-block">E_composite = V_f·E_fiber + V_m·E_matrix   (loaded along fibers)
+
+Fibers carry load; the matrix transfers stress &amp; protects them.
+Examples: carbon-fiber/epoxy, fiberglass, reinforced concrete.</pre>
+        <div class="dt">▸ SELECTION DRIVERS (Ashby thinking)</div>
+        <table class="ref-table">
+          <tr><th>Requirement</th><th>Maximize / minimize</th></tr>
+          <tr><td style="color: var(--cyan)">Light &amp; stiff</td><td>Specific modulus E/ρ</td></tr>
+          <tr><td style="color: var(--green)">Light &amp; strong</td><td>Specific strength σ_y/ρ</td></tr>
+          <tr><td style="color: var(--amber)">Corrosive service</td><td>Alloy/lining vs. environment</td></tr>
+          <tr><td style="color: var(--red)">Cost-limited</td><td>Performance per dollar</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        📐 An Ashby chart plots one property against another (e.g. strength vs density) so a
+        performance index picks the best material family at a glance.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: CERAMICS, GLASSES & REFRACTORIES ──────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🏺</span>
+    <span class="topic-name">Ceramics, Glasses &amp; Refractories</span>
+    <span class="topic-badge">NON-METALS</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Hard, Brittle &amp; Heat-Resistant</div>
+      <div class="concept-title">Where metals can't take the heat or the acid</div>
+      <div class="concept-desc">
+        Ceramics and glasses resist high temperature and corrosion but are brittle. Refractories
+        line furnaces and reactors that would melt or corrode any metal.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ PROPERTIES &amp; TRADE-OFFS</div>
+        <table class="ref-table">
+          <tr><th>Property</th><th>Ceramics</th></tr>
+          <tr><td style="color: var(--green)">Strengths</td><td>High T, hardness, chemical inertness, low conductivity</td></tr>
+          <tr><td style="color: var(--red)">Weakness</td><td>Brittle — fail suddenly, low fracture toughness</td></tr>
+          <tr><td style="color: var(--cyan)">Glass</td><td>Amorphous; corrosion-resistant lining (glass-lined vessels)</td></tr>
+        </table>
+        <div class="dt">▸ REFRACTORIES</div>
+        <pre class="code-block">Line furnaces, kilns, reactors, transfer lines.
+Chosen for service temperature, thermal shock, and slag/acid resistance
+(fireclay, alumina, silicon carbide, zirconia).</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🧱 Brittle materials fail from flaws in tension — designed to keep them in compression,
+        like the refractory lining of a fired heater or an FCC regenerator.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: WELDING & FABRICATION ─────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔩</span>
+    <span class="topic-name">Welding &amp; Fabrication</span>
+    <span class="topic-badge">CONSTRUCTION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Joining Metal Reliably</div>
+      <div class="concept-title">A local heat treatment with big consequences</div>
+      <div class="concept-desc">
+        Vessels and piping are welded, and a weld is a small, uncontrolled casting-plus-heat-
+        treatment. Its quality decides whether a pressure boundary holds.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE HEAT-AFFECTED ZONE (HAZ)</div>
+        <pre class="code-block">Weld metal (melted) | HAZ (altered microstructure) | base metal
+
+The HAZ can harden &amp; embrittle → cracking.
+Post-weld heat treatment (PWHT) relieves stress &amp; softens the HAZ.</pre>
+        <div class="dt">▸ INTEGRITY &amp; INSPECTION</div>
+        <table class="ref-table">
+          <tr><th>Concern</th><th>Handling</th></tr>
+          <tr><td style="color: var(--red)">Weld defects</td><td>NDT: radiography, ultrasonic, dye penetrant</td></tr>
+          <tr><td style="color: var(--amber)">Sensitization</td><td>Stainless welds → intergranular corrosion (use L grades)</td></tr>
+          <tr><td style="color: var(--cyan)">Codes</td><td>ASME BPVC / B31.3 govern qualification</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🦺 Welds are the usual failure point of pressure equipment — inspection and PWHT are
+        mechanical-integrity essentials (see Process Safety, PSM).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: POLYMER PROCESSING ────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧵</span>
+    <span class="topic-name">Polymer Processing — Extrusion &amp; Molding</span>
+    <span class="topic-badge">SHAPING</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">From Pellets to Parts</div>
+      <div class="concept-title">Melt, shape, solidify</div>
+      <div class="concept-desc">
+        Making a polymer is only half the story — shaping it into film, fiber or a part is a
+        heat-transfer and non-Newtonian-flow problem at the heart of the plastics industry.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ MAJOR PROCESSES</div>
+        <table class="ref-table">
+          <tr><th>Process</th><th>Makes</th></tr>
+          <tr><td style="color: var(--cyan)">Extrusion</td><td>Continuous shapes: pipe, film, sheet, fiber</td></tr>
+          <tr><td style="color: var(--green)">Injection molding</td><td>Complex discrete parts</td></tr>
+          <tr><td style="color: var(--amber)">Blow molding</td><td>Hollow parts: bottles</td></tr>
+          <tr><td style="color: var(--purple)">Thermoforming</td><td>Sheet → trays, packaging</td></tr>
+        </table>
+        <div class="dt">▸ THE PHYSICS</div>
+        <pre class="code-block">Melt is shear-thinning (non-Newtonian) — viscosity drops under shear.
+Cooling rate sets crystallinity → part properties &amp; shrinkage.
+Residence time &amp; temperature must avoid thermal degradation.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🍯 Polymer melts are strongly shear-thinning (see Non-Newtonian Fluids) — the reason they
+        flow through a die under pressure yet hold shape once out.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: CORROSION TESTING & MONITORING ────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔎</span>
+    <span class="topic-name">Corrosion Testing &amp; Monitoring</span>
+    <span class="topic-badge">INTEGRITY</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Catching Wall Loss Before It Fails</div>
+      <div class="concept-title">Measuring corrosion rate in service</div>
+      <div class="concept-desc">
+        Selecting a corrosion-resistant material is step one; verifying it stays intact in service
+        is ongoing. Testing and monitoring quantify wall loss before it becomes a leak.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ METHODS</div>
+        <table class="ref-table">
+          <tr><th>Method</th><th>Measures</th></tr>
+          <tr><td style="color: var(--cyan)">Coupons</td><td>Weight loss over time (mpy / mm/yr)</td></tr>
+          <tr><td style="color: var(--green)">UT thickness</td><td>Wall thickness by ultrasound (inspection)</td></tr>
+          <tr><td style="color: var(--amber)">ER / LPR probes</td><td>Online corrosion-rate signal</td></tr>
+          <tr><td style="color: var(--red)">RBI</td><td>Risk-based inspection prioritizes what to check</td></tr>
+        </table>
+        <div class="dt">▸ CORROSION ALLOWANCE</div>
+        <pre class="code-block">Design wall = required wall + corrosion allowance (e.g. 3 mm)
+Monitor rate → predict remaining life → schedule replacement.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🦺 Mechanical integrity (a PSM element) depends on this — inspection data drives when to
+        repair or replace before a loss of containment (see Process Safety).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: ADDITIVE MANUFACTURING ────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🖨️</span>
+    <span class="topic-name">Additive Manufacturing &amp; Advanced Fabrication</span>
+    <span class="topic-badge">MODERN</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Building Parts Layer by Layer</div>
+      <div class="concept-title">3-D printing metal, polymer &amp; ceramic</div>
+      <div class="concept-desc">
+        Additive manufacturing builds parts layer by layer, enabling geometries impossible to
+        machine — including process equipment like custom mixers, catalysts and heat exchangers.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ MAJOR TECHNOLOGIES</div>
+        <table class="ref-table">
+          <tr><th>Method</th><th>Material</th></tr>
+          <tr><td style="color: var(--cyan)">FDM</td><td>Thermoplastic filament</td></tr>
+          <tr><td style="color: var(--green)">SLA / DLP</td><td>Photopolymer resin (light-cured)</td></tr>
+          <tr><td style="color: var(--amber)">SLS / DMLS</td><td>Powder bed — polymer / metal (laser-fused)</td></tr>
+        </table>
+        <div class="dt">▸ WHY IT MATTERS FOR CHEM-E</div>
+        <pre class="code-block">Complex internal channels → intensified reactors &amp; exchangers
+Structured catalysts &amp; static mixers with optimized geometry
+On-demand spares → less downtime.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🎛️ Printed micro/milli-reactors and structured catalysts tie directly to Process
+        Intensification — geometries that boost transport without extra equipment.
+      </div>
+    </div>
+  </div>
+</div>

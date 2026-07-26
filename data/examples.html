@@ -102,3 +102,170 @@ Space time τ = V/v₀ = 80/10 = 8 min.</pre>
     </div>
   </div>
 </div>
+
+<!-- ── WORKED: McCABE–THIELE STAGES ─────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📝</span>
+    <span class="topic-name">Worked: Reflux Ratio &amp; Operating Line</span>
+    <span class="topic-badge">SOLVED</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Step-by-Step</div>
+      <div class="concept-title">Setting up a McCabe–Thiele analysis</div>
+      <div class="concept-desc">A worked example of the distillation operating-line setup from Mass Transfer.</div>
+      <div class="dw">
+        <div class="dt">▸ PROBLEM &amp; SOLUTION</div>
+        <pre class="code-block">Q: A column makes x_D = 0.95 distillate at reflux ratio R = 3.
+   Write the rectifying operating line and find its intercept.
+
+1. Rectifying line:  y = (R/(R+1)) x + x_D/(R+1)
+2. Slope   = R/(R+1) = 3/4 = 0.75
+3. Intercept = x_D/(R+1) = 0.95/4 = 0.2375
+4. Line: y = 0.75 x + 0.2375
+   (passes through (x_D, x_D) = (0.95, 0.95) — check: 0.75·0.95+0.2375 = 0.95 ✓)
+
+Higher R → steeper toward the y=x line → fewer stages, more energy.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        ⚖️ At total reflux (R → ∞) the operating line becomes y = x — minimum stages (Fenske);
+        the reflux/stage trade-off is the column's central economic choice.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── WORKED: PUMP HEAD & BERNOULLI ────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📝</span>
+    <span class="topic-name">Worked: Pump Head from an Energy Balance</span>
+    <span class="topic-badge">SOLVED</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Step-by-Step</div>
+      <div class="concept-title">Sizing pump work with the mechanical-energy balance</div>
+      <div class="concept-desc">A worked application of the extended Bernoulli equation from Fluid Mechanics.</div>
+      <div class="dw">
+        <div class="dt">▸ PROBLEM &amp; SOLUTION</div>
+        <pre class="code-block">Q: Pump water (ρ=1000 kg/m³) from an open tank up 20 m to a second
+   open tank; friction loss h_f = 15 J/kg; velocities negligible. Find
+   the pump work per kg and the head.
+
+1. Mechanical energy balance (both surfaces at atmospheric, v≈0):
+   w_pump = g·Δz + h_f
+2. w_pump = 9.81 × 20 + 15 = 196.2 + 15 = 211.2 J/kg
+3. Head H = w_pump / g = 211.2 / 9.81 = 21.5 m
+4. Power (at 10 kg/s): P = ṁ·w = 10 × 211.2 = 2112 W ≈ 2.1 kW (ideal)
+
+Divide by pump efficiency for shaft power.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        ⚙️ Elevation dominates here; friction adds ~7%. Always add the friction and any velocity
+        change — and divide by efficiency for the real motor size.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── WORKED: COMBUSTION AIR & FLUE GAS ────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📝</span>
+    <span class="topic-name">Worked: Combustion Air &amp; Excess Air</span>
+    <span class="topic-badge">SOLVED</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Step-by-Step</div>
+      <div class="concept-title">Theoretical and excess air for methane</div>
+      <div class="concept-desc">A worked combustion balance from the Material Balances domain.</div>
+      <div class="dw">
+        <div class="dt">▸ PROBLEM &amp; SOLUTION</div>
+        <pre class="code-block">Q: Burn 1 mol CH₄ with 20% excess air. How much air is supplied?
+
+1. Reaction:  CH₄ + 2 O₂ → CO₂ + 2 H₂O
+2. Theoretical O₂ = 2 mol per mol CH₄
+3. Excess air → O₂ supplied = 2 × 1.20 = 2.4 mol
+4. Air is 21% O₂ / 79% N₂:
+   Air = 2.4 / 0.21 = 11.43 mol
+   N₂ carried = 2.4 × (79/21) = 9.03 mol
+5. Flue gas: 1 CO₂ + 2 H₂O + 0.4 O₂ (excess) + 9.03 N₂</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🔥 Excess air guarantees complete combustion but the extra N₂ + O₂ leave hot up the stack
+        — too much excess air wastes fuel (efficiency trade-off).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── WORKED: BUBBLE POINT ─────────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📝</span>
+    <span class="topic-name">Worked: Bubble-Point Temperature (Raoult)</span>
+    <span class="topic-badge">SOLVED</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Step-by-Step</div>
+      <div class="concept-title">Finding where a liquid first boils</div>
+      <div class="concept-desc">A worked bubble-point check using Raoult's law from Thermodynamics.</div>
+      <div class="dw">
+        <div class="dt">▸ PROBLEM &amp; SOLUTION</div>
+        <pre class="code-block">Q: A 50/50 mol benzene(1)/toluene(2) liquid at 1 atm (101.3 kPa).
+   At a trial T, P1sat = 180 kPa, P2sat = 74 kPa. Is this the bubble T?
+
+1. Bubble-point criterion:  Σ x_i·P_i^sat = P
+2. Σ = 0.5(180) + 0.5(74) = 90 + 37 = 127 kPa
+3. 127 kPa > 101.3 kPa → trial T is too HIGH; lower T and retry.
+4. At the true bubble T, Σ x_i P_i^sat = 101.3 exactly.
+5. Vapor comp: y_1 = x_1 P_1^sat / P (benzene-rich, as expected).</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🫧 Bubble point: Σx·Psat = P. Dew point: Σy/Psat·P... i.e. Σ(y_i P / P_i^sat) = 1. Try the
+        Antoine calculator (Tools) to get the Psat values.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── WORKED: ADIABATIC TEMPERATURE RISE ───────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📝</span>
+    <span class="topic-name">Worked: Adiabatic Reactor Temperature Rise</span>
+    <span class="topic-badge">SOLVED</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Step-by-Step</div>
+      <div class="concept-title">How hot does an exothermic reactor get?</div>
+      <div class="concept-desc">A worked coupled mass-energy balance from Reaction Engineering &amp; Safety.</div>
+      <div class="dw">
+        <div class="dt">▸ PROBLEM &amp; SOLUTION</div>
+        <pre class="code-block">Q: Exothermic A→B, ΔH_rxn = −80 kJ/mol, feed C_A0 = 2 mol/L,
+   ρc_p = 4000 J/(L·K). Adiabatic. Max temperature rise at full conversion?
+
+1. Adiabatic ΔT_max = (−ΔH_rxn)·C_A0 / (ρ c_p)
+2. = (80,000 J/mol × 2 mol/L) / (4000 J/(L·K))
+3. = 160,000 / 4000 = 40 K rise.
+4. So an adiabatic feed at 300 K would reach ~340 K at full conversion.
+
+If ΔT_max threatens runaway/decomposition → add cooling or dilute.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🚨 The adiabatic ΔT is the first runaway check (see Reactive Chemicals): if it exceeds the
+        decomposition onset, the reactor needs cooling or a lower feed concentration.
+      </div>
+    </div>
+  </div>
+</div>

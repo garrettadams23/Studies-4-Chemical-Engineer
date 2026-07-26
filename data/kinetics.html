@@ -229,3 +229,226 @@ Steady state where G(T) = R(T). Up to 3 intersections
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: ANALYZING RATE DATA ───────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📊</span>
+    <span class="topic-name">Analyzing Rate Data — Integral &amp; Differential Methods</span>
+    <span class="topic-badge">LAB → RATE LAW</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">From Measurements to Kinetics</div>
+      <div class="concept-title">Extracting order and rate constant from data</div>
+      <div class="concept-desc">
+        Rate laws are found, not assumed. Two classic methods turn concentration-vs-time (or rate)
+        data into an order and a rate constant.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE TWO METHODS</div>
+        <table class="ref-table">
+          <tr><th>Method</th><th>Idea</th></tr>
+          <tr><td style="color: var(--cyan)">Integral</td><td>Guess order → plot the linearized form → check for a straight line</td></tr>
+          <tr><td style="color: var(--green)">Differential</td><td>Get −r_A = −dC_A/dt (slopes), then ln(−r_A) vs ln C_A → order = slope</td></tr>
+        </table>
+        <div class="dt">▸ LINEARIZED INTEGRAL PLOTS</div>
+        <pre class="code-block">Zero order:  C_A      vs t   → straight
+First order: ln C_A   vs t   → straight (slope −k)
+Second:      1/C_A    vs t   → straight (slope k)</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        📈 The order whose plot is straightest wins. The method of initial rates (differential at
+        t=0) avoids interference from products.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: CATALYST DEACTIVATION ─────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🪫</span>
+    <span class="topic-name">Catalyst Deactivation &amp; Regeneration</span>
+    <span class="topic-badge">CATALYST LIFE</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Catalysts Wear Out</div>
+      <div class="concept-title">Activity fades — design must plan for it</div>
+      <div class="concept-desc">
+        Real catalysts lose activity over time. Understanding the mechanism sets the reactor type,
+        operating strategy and regeneration schedule.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ DEACTIVATION MECHANISMS</div>
+        <table class="ref-table">
+          <tr><th>Mechanism</th><th>Cause</th><th>Reversible?</th></tr>
+          <tr><td style="color: var(--amber)">Coking / fouling</td><td>Carbon deposits block sites</td><td>Yes (burn off)</td></tr>
+          <tr><td style="color: var(--red)">Poisoning</td><td>Impurity (S, Pb) binds sites</td><td>Often no</td></tr>
+          <tr><td style="color: var(--cyan)">Sintering</td><td>Thermal — active area shrinks</td><td>No</td></tr>
+        </table>
+        <div class="dt">▸ COPING STRATEGIES</div>
+        <pre class="code-block">Raise T over a run to hold conversion (until end-of-run)
+Continuous regeneration (FCC burns coke every cycle)
+Guard beds remove poisons upstream</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🔥 The FCC's genius is turning fast coking into an asset — burning the coke off the
+        circulating catalyst supplies the heat for cracking (see Petroleum).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: MULTIPHASE & GAS-LIQUID REACTORS ──────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🫧</span>
+    <span class="topic-name">Multiphase &amp; Gas-Liquid Reactors</span>
+    <span class="topic-badge">REACTOR TYPES</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Reactions Across Phases</div>
+      <div class="concept-title">When mass transfer and reaction compete</div>
+      <div class="concept-desc">
+        Many industrial reactions span phases — gas into liquid, over a solid catalyst. Here mass
+        transfer between phases can control the overall rate as much as the kinetics.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ COMMON MULTIPHASE REACTORS</div>
+        <table class="ref-table">
+          <tr><th>Reactor</th><th>Phases</th><th>Example</th></tr>
+          <tr><td style="color: var(--cyan)">Bubble column</td><td>Gas–liquid</td><td>Oxidations, fermentation</td></tr>
+          <tr><td style="color: var(--green)">Trickle bed</td><td>Gas–liquid–solid</td><td>Hydrotreating</td></tr>
+          <tr><td style="color: var(--amber)">Slurry reactor</td><td>Gas–liquid–fine solid</td><td>Hydrogenation, F-T</td></tr>
+        </table>
+        <div class="dt">▸ WHO CONTROLS?</div>
+        <pre class="code-block">Overall rate limited by the slowest step:
+  gas-film · liquid-film · pore diffusion · surface reaction.
+Hatta number compares reaction rate to diffusion in the film
+(fast reaction → transfer-limited, enhanced absorption).</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🔗 It's the two-film theory (Mass Transfer) plus catalysis (Thiele modulus) in one unit —
+        design targets whichever resistance dominates.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: POLYMERIZATION KINETICS ───────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧵</span>
+    <span class="topic-name">Polymerization Kinetics</span>
+    <span class="topic-badge">MACROMOLECULES</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Building Chains, Kinetically</div>
+      <div class="concept-title">Chain vs step growth set the product</div>
+      <div class="concept-desc">
+        Polymer properties depend on chain length and its distribution — which are set by the
+        polymerization kinetics and reactor conditions.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ TWO MECHANISMS</div>
+        <table class="ref-table">
+          <tr><th>Type</th><th>Behavior</th><th>Example</th></tr>
+          <tr><td style="color: var(--cyan)">Chain growth</td><td>Initiate → propagate fast → terminate</td><td>Polyethylene, PVC (radical)</td></tr>
+          <tr><td style="color: var(--green)">Step growth</td><td>Any two ends react; MW builds slowly</td><td>Nylon, PET (condensation)</td></tr>
+        </table>
+        <div class="dt">▸ KEY IDEAS</div>
+        <pre class="code-block">Degree of polymerization sets molecular weight → strength/viscosity.
+Chain growth: high MW early, even at low conversion.
+Step growth: high MW only at very high conversion (need >99%).
+Exothermic → heat removal is critical (runaway risk).</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🌡️ Polymerizations are strongly exothermic and get viscous (poor mixing/cooling) — a
+        reaction-engineering and heat-transfer challenge (gel effect / runaway).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: ENZYME REACTOR DESIGN ─────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔑</span>
+    <span class="topic-name">Enzyme &amp; Biocatalytic Reactor Design</span>
+    <span class="topic-badge">BIOCATALYSIS</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Reactors Run by Enzymes</div>
+      <div class="concept-title">Michaelis–Menten meets reactor design</div>
+      <div class="concept-desc">
+        Enzymes are exquisite catalysts. Designing reactors around them combines Michaelis–Menten
+        kinetics with reactor mole balances — and the practicality of reusing the enzyme.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ IMMOBILIZED-ENZYME REACTORS</div>
+        <table class="ref-table">
+          <tr><th>Config</th><th>Feature</th></tr>
+          <tr><td style="color: var(--cyan)">Packed-bed (PFR-like)</td><td>Enzyme on a support; continuous, reusable</td></tr>
+          <tr><td style="color: var(--green)">CSTR / membrane</td><td>Retain enzyme, remove product</td></tr>
+          <tr><td style="color: var(--amber)">Batch (free enzyme)</td><td>Simple, but enzyme is lost</td></tr>
+        </table>
+        <div class="dt">▸ DESIGN NOTE</div>
+        <pre class="code-block">Combine −r = V_max[S]/(K_m+[S]) with the reactor balance.
+Immobilization adds pore-diffusion limits (Thiele modulus again!)
+and can shift the apparent K_m.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🔗 The same diffusion-reaction physics (Thiele modulus, effectiveness) from heterogeneous
+        catalysis reappears for immobilized enzymes — one idea, two worlds.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: COMBUSTION & CHAIN REACTIONS ──────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔥</span>
+    <span class="topic-name">Combustion &amp; Chain Reactions</span>
+    <span class="topic-badge">FREE RADICALS</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Reactions That Feed Themselves</div>
+      <div class="concept-title">Radicals, branching, and explosion</div>
+      <div class="concept-desc">
+        Combustion and many gas-phase reactions proceed by <strong class="text-blue">chain
+        reactions</strong> — free radicals that propagate and can branch, accelerating the rate
+        explosively.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ CHAIN-REACTION STEPS</div>
+        <pre class="code-block">Initiation:  form radicals (e.g. bond breaks by heat)
+Propagation: radical + molecule → product + new radical
+Branching:   one radical → two (accelerates → explosion)
+Termination: radicals recombine (chain ends)</pre>
+        <div class="dt">▸ EXPLOSION LIMITS</div>
+        <table class="ref-table">
+          <tr><th>Control</th><th>Effect</th></tr>
+          <tr><td style="color: var(--red)">Chain branching</td><td>Radicals multiply → thermal + chain explosion</td></tr>
+          <tr><td style="color: var(--green)">Wall termination</td><td>Radicals quench on surfaces (small vessels safer)</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🚨 Branching chains explain why some mixtures ignite explosively within specific pressure/
+        temperature "explosion limits" — key to combustion and process safety.
+      </div>
+    </div>
+  </div>
+</div>
