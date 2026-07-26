@@ -197,3 +197,40 @@ Numerical:   finite difference / finite element / finite volume
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: VECTOR CALCULUS ───────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">➡️</span>
+    <span class="topic-name">Vector Calculus &amp; the Transport Operators</span>
+    <span class="topic-badge">FIELDS</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">The Language of Fields</div>
+      <div class="concept-title">grad, div &amp; curl run the equations of change</div>
+      <div class="concept-desc">
+        Transport phenomena are written in vector calculus. Three operators — gradient,
+        divergence, curl — encode how scalar and vector fields vary in space.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE THREE OPERATORS</div>
+        <table class="ref-table">
+          <tr><th>Operator</th><th>Acts on → gives</th><th>Meaning</th></tr>
+          <tr><td style="color: var(--cyan)">Gradient ∇φ</td><td>scalar → vector</td><td>Direction of steepest increase (drives flux)</td></tr>
+          <tr><td style="color: var(--green)">Divergence ∇·v</td><td>vector → scalar</td><td>Net outflow per volume (source/sink)</td></tr>
+          <tr><td style="color: var(--amber)">Curl ∇×v</td><td>vector → vector</td><td>Local rotation (vorticity)</td></tr>
+        </table>
+        <div class="dt">▸ WHERE THEY APPEAR</div>
+        <pre class="code-block">Fourier / Fick:  flux = −k∇T ,  −D∇C   (gradient drives transport)
+Continuity:      ∂ρ/∂t + ∇·(ρv) = 0   (divergence = accumulation)
+Laplacian ∇²:    steady diffusion/conduction (∇²φ = 0)</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🔬 Every "equation of change" in Transport Phenomena is a balance written with these
+        operators — recognizing them turns intimidating PDEs into familiar ideas.
+      </div>
+    </div>
+  </div>
+</div>

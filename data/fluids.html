@@ -226,3 +226,40 @@ Below this ratio → the nozzle/relief is choked.</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: NON-NEWTONIAN FLUIDS ──────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🍯</span>
+    <span class="topic-name">Non-Newtonian Fluids &amp; Rheology</span>
+    <span class="topic-badge">RHEOLOGY</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">When Viscosity Isn't Constant</div>
+      <div class="concept-title">Polymers, slurries, foods &amp; blood</div>
+      <div class="concept-desc">
+        Many industrial fluids don't obey Newton's law — their apparent viscosity changes with
+        shear rate. Handling them needs <strong class="text-blue">rheology</strong>.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ FLUID CLASSES</div>
+        <table class="ref-table">
+          <tr><th>Type</th><th>Behavior</th><th>Example</th></tr>
+          <tr><td style="color: var(--green)">Newtonian</td><td>μ constant</td><td>Water, air, oils</td></tr>
+          <tr><td style="color: var(--cyan)">Shear-thinning</td><td>μ drops with shear</td><td>Paint, blood, polymers</td></tr>
+          <tr><td style="color: var(--amber)">Shear-thickening</td><td>μ rises with shear</td><td>Cornstarch slurry</td></tr>
+          <tr><td style="color: var(--red)">Bingham plastic</td><td>Yield stress, then flows</td><td>Toothpaste, drilling mud</td></tr>
+        </table>
+        <div class="dt">▸ POWER-LAW MODEL</div>
+        <pre class="code-block">τ = K (dv/dy)^n
+  n < 1 shear-thinning · n = 1 Newtonian · n > 1 shear-thickening</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🎨 Shear-thinning is exploited on purpose: paint flows under the brush (high shear) then
+        stops dripping at rest (low shear).
+      </div>
+    </div>
+  </div>
+</div>

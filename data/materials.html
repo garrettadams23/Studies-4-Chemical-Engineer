@@ -191,3 +191,42 @@ Fast past the "nose" → martensite; slow → pearlite/ferrite.</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: COMPOSITES & MATERIALS SELECTION ──────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧩</span>
+    <span class="topic-name">Composites &amp; Materials Selection</span>
+    <span class="topic-badge">DESIGN CHOICE</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">The Right Material for the Job</div>
+      <div class="concept-title">Combining phases; choosing by performance index</div>
+      <div class="concept-desc">
+        Composites blend a strong fiber with a binding matrix to beat either alone. Selecting any
+        material trades off strength, weight, corrosion, temperature and cost.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ RULE OF MIXTURES (stiffness)</div>
+        <pre class="code-block">E_composite = V_f·E_fiber + V_m·E_matrix   (loaded along fibers)
+
+Fibers carry load; the matrix transfers stress &amp; protects them.
+Examples: carbon-fiber/epoxy, fiberglass, reinforced concrete.</pre>
+        <div class="dt">▸ SELECTION DRIVERS (Ashby thinking)</div>
+        <table class="ref-table">
+          <tr><th>Requirement</th><th>Maximize / minimize</th></tr>
+          <tr><td style="color: var(--cyan)">Light &amp; stiff</td><td>Specific modulus E/ρ</td></tr>
+          <tr><td style="color: var(--green)">Light &amp; strong</td><td>Specific strength σ_y/ρ</td></tr>
+          <tr><td style="color: var(--amber)">Corrosive service</td><td>Alloy/lining vs. environment</td></tr>
+          <tr><td style="color: var(--red)">Cost-limited</td><td>Performance per dollar</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        📐 An Ashby chart plots one property against another (e.g. strength vs density) so a
+        performance index picks the best material family at a glance.
+      </div>
+    </div>
+  </div>
+</div>

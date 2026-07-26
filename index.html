@@ -984,6 +984,42 @@ orifices — central to relief-system sizing (see Process Safety).
 </div>
 </div>
 </div>
+<!-- ── TOPIC: NON-NEWTONIAN FLUIDS ──────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🍯</span>
+<span class="topic-name">Non-Newtonian Fluids &amp; Rheology</span>
+<span class="topic-badge">RHEOLOGY</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">When Viscosity Isn't Constant</div>
+<div class="concept-title">Polymers, slurries, foods &amp; blood</div>
+<div class="concept-desc">
+Many industrial fluids don't obey Newton's law — their apparent viscosity changes with
+shear rate. Handling them needs <strong class="text-blue">rheology</strong>.
+</div>
+<div class="dw">
+<div class="dt">▸ FLUID CLASSES</div>
+<table class="ref-table">
+<tr><th>Type</th><th>Behavior</th><th>Example</th></tr>
+<tr><td style="color: var(--green)">Newtonian</td><td>μ constant</td><td>Water, air, oils</td></tr>
+<tr><td style="color: var(--cyan)">Shear-thinning</td><td>μ drops with shear</td><td>Paint, blood, polymers</td></tr>
+<tr><td style="color: var(--amber)">Shear-thickening</td><td>μ rises with shear</td><td>Cornstarch slurry</td></tr>
+<tr><td style="color: var(--red)">Bingham plastic</td><td>Yield stress, then flows</td><td>Toothpaste, drilling mud</td></tr>
+</table>
+<div class="dt">▸ POWER-LAW MODEL</div>
+<pre class="code-block">τ = K (dv/dy)^n
+  n < 1 shear-thinning · n = 1 Newtonian · n > 1 shear-thickening</pre>
+</div>
+<div class="info-bar ib-muted">
+🎨 Shear-thinning is exploited on purpose: paint flows under the brush (high shear) then
+stops dripping at rest (low shear).
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-heat" data-domain="heat">
@@ -1184,6 +1220,44 @@ View-factor rules:  reciprocity  A₁F₁₂ = A₂F₂₁
 <div class="info-bar ib-muted">
 🔥 A radiation shield (low-ε foil) between two surfaces can cut radiant transfer
 dramatically — the principle behind multilayer insulation.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: BOILING & CONDENSATION ────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🫧</span>
+<span class="topic-name">Boiling &amp; Condensation</span>
+<span class="topic-badge">PHASE CHANGE</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Heat Transfer with Phase Change</div>
+<div class="concept-title">Huge coefficients — and a dangerous limit</div>
+<div class="concept-desc">
+Boiling and condensation move enormous heat fluxes at small ΔT because latent heat is
+large. But the boiling curve hides a peak beyond which performance collapses.
+</div>
+<div class="dw">
+<div class="dt">▸ THE POOL-BOILING CURVE</div>
+<pre class="code-block">ΔT_excess → q":
+  Natural convection → NUCLEATE boiling (efficient, bubbles)
+  → CRITICAL HEAT FLUX (peak) → TRANSITION → FILM boiling
+
+Past CHF a vapor blanket insulates the surface — q" drops and
+the surface temperature can spike (burnout).</pre>
+<div class="dt">▸ CONDENSATION MODES</div>
+<table class="ref-table">
+<tr><th>Mode</th><th>Behavior</th></tr>
+<tr><td style="color: var(--cyan)">Film (Nusselt)</td><td>Continuous liquid film — the usual design case</td></tr>
+<tr><td style="color: var(--green)">Dropwise</td><td>Droplets shed — much higher h, hard to sustain</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🔥 Reboilers and steam heaters are designed to stay in the nucleate-boiling region —
+crossing the critical heat flux risks tube burnout.
 </div>
 </div>
 </div>
@@ -1427,6 +1501,42 @@ Everything else distributes around them.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: ADSORPTION — ISOTHERMS & BREAKTHROUGH ─────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧽</span>
+<span class="topic-name">Adsorption — Isotherms &amp; Breakthrough</span>
+<span class="topic-badge">SORPTION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Capturing on a Surface</div>
+<div class="concept-title">Equilibrium isotherms and the moving front</div>
+<div class="concept-desc">
+Adsorption binds molecules onto a solid surface (activated carbon, zeolite, silica gel).
+An <strong class="text-blue">isotherm</strong> sets capacity; a
+<strong class="text-purple">breakthrough curve</strong> sets bed life.
+</div>
+<div class="dw">
+<div class="dt">▸ EQUILIBRIUM ISOTHERMS</div>
+<pre class="code-block">Langmuir:   q = q_max·K·C / (1 + K·C)   (monolayer, saturates)
+Freundlich: q = K·C^(1/n)               (empirical, heterogeneous)</pre>
+<div class="dt">▸ FIXED-BED OPERATION</div>
+<table class="ref-table">
+<tr><th>Concept</th><th>Meaning</th></tr>
+<tr><td style="color: var(--cyan)">Mass-transfer zone</td><td>The moving band where adsorption happens</td></tr>
+<tr><td style="color: var(--amber)">Breakthrough</td><td>Outlet conc. rises → bed nearly spent</td></tr>
+<tr><td style="color: var(--green)">Regeneration</td><td>Heat (TSA) or pressure (PSA) swing to reuse</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🌀 Pressure-swing adsorption (PSA) makes on-site N₂ and O₂ and purifies H₂ — cyclic beds
+adsorbing at high P and regenerating at low P.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-kinetics" data-domain="kinetics">
@@ -1663,6 +1773,41 @@ actually works.
 <div class="info-bar ib-muted">
 🔬 Strong pore-diffusion limitation halves the apparent activation energy and makes
 rate scale with sqrt(k) — a classic diagnostic of internal diffusion control.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: ANALYZING RATE DATA ───────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">📊</span>
+<span class="topic-name">Analyzing Rate Data — Integral &amp; Differential Methods</span>
+<span class="topic-badge">LAB → RATE LAW</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">From Measurements to Kinetics</div>
+<div class="concept-title">Extracting order and rate constant from data</div>
+<div class="concept-desc">
+Rate laws are found, not assumed. Two classic methods turn concentration-vs-time (or rate)
+data into an order and a rate constant.
+</div>
+<div class="dw">
+<div class="dt">▸ THE TWO METHODS</div>
+<table class="ref-table">
+<tr><th>Method</th><th>Idea</th></tr>
+<tr><td style="color: var(--cyan)">Integral</td><td>Guess order → plot the linearized form → check for a straight line</td></tr>
+<tr><td style="color: var(--green)">Differential</td><td>Get −r_A = −dC_A/dt (slopes), then ln(−r_A) vs ln C_A → order = slope</td></tr>
+</table>
+<div class="dt">▸ LINEARIZED INTEGRAL PLOTS</div>
+<pre class="code-block">Zero order:  C_A      vs t   → straight
+First order: ln C_A   vs t   → straight (slope −k)
+Second:      1/C_A    vs t   → straight (slope k)</pre>
+</div>
+<div class="info-bar ib-muted">
+📈 The order whose plot is straightest wins. The method of initial rates (differential at
+t=0) avoids interference from products.
 </div>
 </div>
 </div>
@@ -2166,6 +2311,45 @@ k_d rises steeply with T (Arrhenius) → hotter, shorter is better.</pre>
 <div class="info-bar ib-muted">
 🔥 Because death is faster-accelerating with T than nutrient destruction, HTST
 (high-temperature short-time) sterilizes with less damage to the medium.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: METABOLIC ENGINEERING & FLUX ──────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🕸️</span>
+<span class="topic-name">Metabolic Engineering &amp; Flux Balance</span>
+<span class="topic-badge">CELL FACTORIES</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Rewiring Metabolism</div>
+<div class="concept-title">Redirecting cellular fluxes toward a product</div>
+<div class="concept-desc">
+Metabolic engineering redesigns a cell's reaction network to overproduce a target — and
+<strong class="text-blue">flux balance analysis</strong> is the material balance that
+predicts what's possible.
+</div>
+<div class="dw">
+<div class="dt">▸ FLUX BALANCE ANALYSIS (FBA)</div>
+<pre class="code-block">At steady state, every internal metabolite balances:
+  S · v = 0     (S = stoichiometric matrix, v = flux vector)
+
+Underdetermined → optimize an objective (usually growth or product)
+subject to flux bounds → linear program (see Eng Math optimization).</pre>
+<div class="dt">▸ ENGINEERING LEVERS</div>
+<table class="ref-table">
+<tr><th>Lever</th><th>Action</th></tr>
+<tr><td style="color: var(--green)">Overexpress</td><td>Boost a rate-limiting enzyme</td></tr>
+<tr><td style="color: var(--red)">Knock out</td><td>Delete competing pathways</td></tr>
+<tr><td style="color: var(--cyan)">Introduce</td><td>Add a heterologous pathway (new product)</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🧬 FBA is a material balance on a metabolic network solved as an LP — chemical-engineering
+tools (balances + optimization) applied inside the cell.
 </div>
 </div>
 </div>
@@ -3031,6 +3215,44 @@ and crack, which is why post-weld heat treatment (PWHT) is often required.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: COMPOSITES & MATERIALS SELECTION ──────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧩</span>
+<span class="topic-name">Composites &amp; Materials Selection</span>
+<span class="topic-badge">DESIGN CHOICE</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">The Right Material for the Job</div>
+<div class="concept-title">Combining phases; choosing by performance index</div>
+<div class="concept-desc">
+Composites blend a strong fiber with a binding matrix to beat either alone. Selecting any
+material trades off strength, weight, corrosion, temperature and cost.
+</div>
+<div class="dw">
+<div class="dt">▸ RULE OF MIXTURES (stiffness)</div>
+<pre class="code-block">E_composite = V_f·E_fiber + V_m·E_matrix   (loaded along fibers)
+
+Fibers carry load; the matrix transfers stress &amp; protects them.
+Examples: carbon-fiber/epoxy, fiberglass, reinforced concrete.</pre>
+<div class="dt">▸ SELECTION DRIVERS (Ashby thinking)</div>
+<table class="ref-table">
+<tr><th>Requirement</th><th>Maximize / minimize</th></tr>
+<tr><td style="color: var(--cyan)">Light &amp; stiff</td><td>Specific modulus E/ρ</td></tr>
+<tr><td style="color: var(--green)">Light &amp; strong</td><td>Specific strength σ_y/ρ</td></tr>
+<tr><td style="color: var(--amber)">Corrosive service</td><td>Alloy/lining vs. environment</td></tr>
+<tr><td style="color: var(--red)">Cost-limited</td><td>Performance per dollar</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+📐 An Ashby chart plots one property against another (e.g. strength vs density) so a
+performance index picks the best material family at a glance.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-chem" data-domain="chem">
@@ -3234,6 +3456,47 @@ n = electrons transferred    F = 96 485 C/mol</pre>
 <div class="info-bar ib-muted">
 ⚡ Faraday's law ties charge to moles: mass deposited ∝ current × time / (nF) — the
 basis of electroplating and electrowinning calculations.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: SOLUBILITY & PRECIPITATION ────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧂</span>
+<span class="topic-name">Solubility, Ksp &amp; Precipitation</span>
+<span class="topic-badge">EQUILIBRIA</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Will It Dissolve or Drop Out?</div>
+<div class="concept-title">The solubility product governs precipitation</div>
+<div class="concept-desc">
+Whether a salt stays dissolved or precipitates — fouling a heat exchanger, forming a
+product crystal, or scaling a pipe — is set by the <strong class="text-blue">solubility
+product Ksp</strong>.
+</div>
+<div class="dw">
+<div class="dt">▸ THE SOLUBILITY PRODUCT</div>
+<pre class="code-block">For  A_xB_y(s) ⇌ xA + yB :
+  Ksp = [A]^x [B]^y
+
+Ion product Q vs Ksp:
+  Q < Ksp → unsaturated (dissolves)
+  Q = Ksp → saturated (equilibrium)
+  Q > Ksp → supersaturated (precipitates)</pre>
+<div class="dt">▸ WHAT SHIFTS IT</div>
+<table class="ref-table">
+<tr><th>Factor</th><th>Effect on solubility</th></tr>
+<tr><td style="color: var(--red)">Common ion</td><td>Decreases (adds a product ion)</td></tr>
+<tr><td style="color: var(--cyan)">Temperature</td><td>Usually increases (most salts)</td></tr>
+<tr><td style="color: var(--amber)">pH</td><td>Matters for weak-acid/base salts</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+❄️ Controlled supersaturation is exactly how crystallization (Unit Ops) grows product
+crystals — too fast and you nucleate fines instead of large crystals.
 </div>
 </div>
 </div>
@@ -3647,6 +3910,42 @@ Numerical:   finite difference / finite element / finite volume
 <div class="info-bar ib-muted">
 🔬 The unsteady diffusion/heat equation ∂u/∂t = α ∂²u/∂x² recurs across the whole
 curriculum — transient conduction, drug release, and Fick's second law are all the same PDE.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: VECTOR CALCULUS ───────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">➡️</span>
+<span class="topic-name">Vector Calculus &amp; the Transport Operators</span>
+<span class="topic-badge">FIELDS</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">The Language of Fields</div>
+<div class="concept-title">grad, div &amp; curl run the equations of change</div>
+<div class="concept-desc">
+Transport phenomena are written in vector calculus. Three operators — gradient,
+divergence, curl — encode how scalar and vector fields vary in space.
+</div>
+<div class="dw">
+<div class="dt">▸ THE THREE OPERATORS</div>
+<table class="ref-table">
+<tr><th>Operator</th><th>Acts on → gives</th><th>Meaning</th></tr>
+<tr><td style="color: var(--cyan)">Gradient ∇φ</td><td>scalar → vector</td><td>Direction of steepest increase (drives flux)</td></tr>
+<tr><td style="color: var(--green)">Divergence ∇·v</td><td>vector → scalar</td><td>Net outflow per volume (source/sink)</td></tr>
+<tr><td style="color: var(--amber)">Curl ∇×v</td><td>vector → vector</td><td>Local rotation (vorticity)</td></tr>
+</table>
+<div class="dt">▸ WHERE THEY APPEAR</div>
+<pre class="code-block">Fourier / Fick:  flux = −k∇T ,  −D∇C   (gradient drives transport)
+Continuity:      ∂ρ/∂t + ∇·(ρv) = 0   (divergence = accumulation)
+Laplacian ∇²:    steady diffusion/conduction (∇²φ = 0)</pre>
+</div>
+<div class="info-bar ib-muted">
+🔬 Every "equation of change" in Transport Phenomena is a balance written with these
+operators — recognizing them turns intimidating PDEs into familiar ideas.
 </div>
 </div>
 </div>

@@ -256,3 +256,43 @@ k_d rises steeply with T (Arrhenius) → hotter, shorter is better.</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: METABOLIC ENGINEERING & FLUX ──────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🕸️</span>
+    <span class="topic-name">Metabolic Engineering &amp; Flux Balance</span>
+    <span class="topic-badge">CELL FACTORIES</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Rewiring Metabolism</div>
+      <div class="concept-title">Redirecting cellular fluxes toward a product</div>
+      <div class="concept-desc">
+        Metabolic engineering redesigns a cell's reaction network to overproduce a target — and
+        <strong class="text-blue">flux balance analysis</strong> is the material balance that
+        predicts what's possible.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ FLUX BALANCE ANALYSIS (FBA)</div>
+        <pre class="code-block">At steady state, every internal metabolite balances:
+  S · v = 0     (S = stoichiometric matrix, v = flux vector)
+
+Underdetermined → optimize an objective (usually growth or product)
+subject to flux bounds → linear program (see Eng Math optimization).</pre>
+        <div class="dt">▸ ENGINEERING LEVERS</div>
+        <table class="ref-table">
+          <tr><th>Lever</th><th>Action</th></tr>
+          <tr><td style="color: var(--green)">Overexpress</td><td>Boost a rate-limiting enzyme</td></tr>
+          <tr><td style="color: var(--red)">Knock out</td><td>Delete competing pathways</td></tr>
+          <tr><td style="color: var(--cyan)">Introduce</td><td>Add a heterologous pathway (new product)</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🧬 FBA is a material balance on a metabolic network solved as an LP — chemical-engineering
+        tools (balances + optimization) applied inside the cell.
+      </div>
+    </div>
+  </div>
+</div>
