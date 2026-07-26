@@ -272,3 +272,39 @@ Randomize &amp; replicate to separate signal from noise.</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: ERROR & UNCERTAINTY ───────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📏</span>
+    <span class="topic-name">Error Analysis &amp; Propagation of Uncertainty</span>
+    <span class="topic-badge">MEASUREMENT</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Every Number Has Error Bars</div>
+      <div class="concept-title">How input uncertainty flows to results</div>
+      <div class="concept-desc">
+        No measurement is exact. Propagation of uncertainty tells you how errors in inputs combine
+        into the error of a calculated result — essential for honest engineering conclusions.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ PROPAGATION FORMULAS</div>
+        <pre class="code-block">Add/subtract:  σ_R² = σ_A² + σ_B²        (absolute errors add in quadrature)
+Multiply/divide: (σ_R/R)² = (σ_A/A)² + (σ_B/B)²  (relative errors)
+General: σ_R² = Σ (∂R/∂x_i)² σ_{x_i}²   (Taylor / delta method)</pre>
+        <div class="dt">▸ ERROR TYPES</div>
+        <table class="ref-table">
+          <tr><th>Type</th><th>Character</th></tr>
+          <tr><td style="color: var(--cyan)">Random</td><td>Scatter — reduced by averaging</td></tr>
+          <tr><td style="color: var(--red)">Systematic</td><td>Bias — not reduced by averaging (calibrate it out)</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🎯 The least-precise input usually dominates the result's error — improving it is where
+        measurement effort pays off (identify it via the propagation terms).
+      </div>
+    </div>
+  </div>
+</div>

@@ -158,3 +158,40 @@ Domain knowledge beats brute force.</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: PREDICTIVE MAINTENANCE ────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔧</span>
+    <span class="topic-name">Predictive Maintenance &amp; Anomaly Detection</span>
+    <span class="topic-badge">RELIABILITY</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Fix It Just Before It Breaks</div>
+      <div class="concept-title">Data catching failures early</div>
+      <div class="concept-desc">
+        Unplanned equipment failure is costly and dangerous. Sensor data plus models predict
+        failures before they happen — shifting from reactive to condition-based maintenance.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ MAINTENANCE STRATEGIES</div>
+        <table class="ref-table">
+          <tr><th>Strategy</th><th>Trigger</th></tr>
+          <tr><td style="color: var(--red)">Reactive</td><td>Run to failure (worst for critical kit)</td></tr>
+          <tr><td style="color: var(--amber)">Preventive</td><td>Fixed schedule (may over- or under-maintain)</td></tr>
+          <tr><td style="color: var(--green)">Predictive</td><td>Condition-based, data-driven (optimal)</td></tr>
+        </table>
+        <div class="dt">▸ HOW ANOMALIES ARE FOUND</div>
+        <pre class="code-block">Baseline "healthy" behavior (PCA, autoencoder, control limits)
+→ flag deviations (vibration, temperature, current signatures)
+→ estimate remaining useful life → schedule the fix.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🎛️ Predictive maintenance is statistical process control (see the SPC topic) applied to
+        equipment health instead of product quality.
+      </div>
+    </div>
+  </div>
+</div>

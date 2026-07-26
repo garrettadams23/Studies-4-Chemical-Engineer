@@ -136,3 +136,38 @@ Higher R → steeper toward the y=x line → fewer stages, more energy.</pre>
     </div>
   </div>
 </div>
+
+<!-- ── WORKED: PUMP HEAD & BERNOULLI ────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📝</span>
+    <span class="topic-name">Worked: Pump Head from an Energy Balance</span>
+    <span class="topic-badge">SOLVED</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Step-by-Step</div>
+      <div class="concept-title">Sizing pump work with the mechanical-energy balance</div>
+      <div class="concept-desc">A worked application of the extended Bernoulli equation from Fluid Mechanics.</div>
+      <div class="dw">
+        <div class="dt">▸ PROBLEM &amp; SOLUTION</div>
+        <pre class="code-block">Q: Pump water (ρ=1000 kg/m³) from an open tank up 20 m to a second
+   open tank; friction loss h_f = 15 J/kg; velocities negligible. Find
+   the pump work per kg and the head.
+
+1. Mechanical energy balance (both surfaces at atmospheric, v≈0):
+   w_pump = g·Δz + h_f
+2. w_pump = 9.81 × 20 + 15 = 196.2 + 15 = 211.2 J/kg
+3. Head H = w_pump / g = 211.2 / 9.81 = 21.5 m
+4. Power (at 10 kg/s): P = ṁ·w = 10 × 211.2 = 2112 W ≈ 2.1 kW (ideal)
+
+Divide by pump efficiency for shaft power.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        ⚙️ Elevation dominates here; friction adds ~7%. Always add the friction and any velocity
+        change — and divide by efficiency for the real motor size.
+      </div>
+    </div>
+  </div>
+</div>

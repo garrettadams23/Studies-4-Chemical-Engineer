@@ -110,3 +110,40 @@ Rate ∝ (interface humidity − bulk humidity) — a mass-transfer problem.</pr
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: HVAC LOADS & VENTILATION ──────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🏢</span>
+    <span class="topic-name">HVAC Loads &amp; Ventilation</span>
+    <span class="topic-badge">BUILDINGS &amp; PLANTS</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Heating, Cooling &amp; Fresh Air</div>
+      <div class="concept-title">Sensible + latent loads set the equipment</div>
+      <div class="concept-desc">
+        Conditioning a space is an energy and mass balance on air. The load splits into sensible
+        (temperature) and latent (moisture) parts, plus fresh-air and safety ventilation.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE LOAD SPLIT</div>
+        <pre class="code-block">Sensible load  Q_s = ṁ_air · c_p · ΔT
+Latent load    Q_L = ṁ_air · ΔH_ratio · λ (moisture removal)
+Total = sensible + latent; the ratio sizes the coil &amp; reheat.</pre>
+        <div class="dt">▸ VENTILATION DRIVERS</div>
+        <table class="ref-table">
+          <tr><th>Need</th><th>Reason</th></tr>
+          <tr><td style="color: var(--cyan)">Fresh air</td><td>CO₂ &amp; air quality for occupants</td></tr>
+          <tr><td style="color: var(--red)">Hazard dilution</td><td>Keep flammable/toxic vapors below limits</td></tr>
+          <tr><td style="color: var(--green)">Pressurization</td><td>Clean/hazard zones — control flow direction</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🦺 In a plant, ventilation is a safety system — diluting leaks below the LFL and keeping
+        control rooms at positive pressure (see Process Safety).
+      </div>
+    </div>
+  </div>
+</div>
