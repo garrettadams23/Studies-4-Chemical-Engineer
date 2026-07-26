@@ -276,3 +276,38 @@ Dew point = T at which p_w = p_w^sat (condensation begins)</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: UNSTEADY-STATE BALANCES ───────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">⏳</span>
+    <span class="topic-name">Unsteady-State (Dynamic) Balances</span>
+    <span class="topic-badge">TRANSIENT</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">When Accumulation Isn't Zero</div>
+      <div class="concept-title">Balances that change with time → ODEs</div>
+      <div class="concept-desc">
+        Startups, shutdowns, batch operations and control all involve accumulation. Keeping the
+        accumulation term makes the balance a differential equation in time.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE DYNAMIC BALANCE</div>
+        <pre class="code-block">dM/dt = ṁ_in − ṁ_out + generation − consumption
+
+Well-mixed tank draining/filling → first-order ODE
+Solution often exponential: approaches steady state with τ = V/Q.</pre>
+        <div class="dt">▸ CLASSIC EXAMPLE — MIXING TANK</div>
+        <pre class="code-block">V dC/dt = Q(C_in − C)   →   C(t) = C_in + (C_0 − C_in)e^(−t/τ)
+
+τ = V/Q = residence time = time constant of the response.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🎛️ This ODE is the bridge to Process Control — the same first-order response, now written
+        as a transfer function K/(τs+1).
+      </div>
+    </div>
+  </div>
+</div>

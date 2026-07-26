@@ -263,3 +263,41 @@ Below this ratio → the nozzle/relief is choked.</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: PACKED BEDS — ERGUN ───────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🫘</span>
+    <span class="topic-name">Flow Through Packed Beds — Ergun</span>
+    <span class="topic-badge">POROUS FLOW</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Pressure Drop Through Packing</div>
+      <div class="concept-title">The Ergun equation spans laminar to turbulent</div>
+      <div class="concept-desc">
+        Catalyst beds, adsorbers and filters are packed with particles. The
+        <strong class="text-blue">Ergun equation</strong> predicts the pressure drop across them,
+        combining viscous and inertial terms.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE ERGUN EQUATION</div>
+        <pre class="code-block">ΔP/L = 150 μ(1−ε)² v /(ε³ d²)  +  1.75 ρ(1−ε) v² /(ε³ d)
+        └── viscous (Blake-Kozeny) ──┘  └── inertial (Burke-Plummer) ──┘
+
+ε = void fraction   d = particle diameter   v = superficial velocity</pre>
+        <div class="dt">▸ LIMITING FORMS</div>
+        <table class="ref-table">
+          <tr><th>Regime</th><th>Dominant term</th></tr>
+          <tr><td style="color: var(--cyan)">Low Re (laminar)</td><td>Viscous (∝ v)</td></tr>
+          <tr><td style="color: var(--amber)">High Re (turbulent)</td><td>Inertial (∝ v²)</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🌀 Set ΔP (bed weight) equal to the Ergun drop and you get the minimum fluidization
+        velocity — the link to fluidized beds (Unit Ops).
+      </div>
+    </div>
+  </div>
+</div>

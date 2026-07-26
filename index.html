@@ -458,6 +458,40 @@ added or removed.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: UNSTEADY-STATE BALANCES ───────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">⏳</span>
+<span class="topic-name">Unsteady-State (Dynamic) Balances</span>
+<span class="topic-badge">TRANSIENT</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">When Accumulation Isn't Zero</div>
+<div class="concept-title">Balances that change with time → ODEs</div>
+<div class="concept-desc">
+Startups, shutdowns, batch operations and control all involve accumulation. Keeping the
+accumulation term makes the balance a differential equation in time.
+</div>
+<div class="dw">
+<div class="dt">▸ THE DYNAMIC BALANCE</div>
+<pre class="code-block">dM/dt = ṁ_in − ṁ_out + generation − consumption
+
+Well-mixed tank draining/filling → first-order ODE
+Solution often exponential: approaches steady state with τ = V/Q.</pre>
+<div class="dt">▸ CLASSIC EXAMPLE — MIXING TANK</div>
+<pre class="code-block">V dC/dt = Q(C_in − C)   →   C(t) = C_in + (C_0 − C_in)e^(−t/τ)
+
+τ = V/Q = residence time = time constant of the response.</pre>
+</div>
+<div class="info-bar ib-muted">
+🎛️ This ODE is the bridge to Process Control — the same first-order response, now written
+as a transfer function K/(τs+1).
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-thermo" data-domain="thermo">
@@ -1058,6 +1092,43 @@ stops dripping at rest (low shear).
 </div>
 </div>
 </div>
+<!-- ── TOPIC: PACKED BEDS — ERGUN ───────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🫘</span>
+<span class="topic-name">Flow Through Packed Beds — Ergun</span>
+<span class="topic-badge">POROUS FLOW</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Pressure Drop Through Packing</div>
+<div class="concept-title">The Ergun equation spans laminar to turbulent</div>
+<div class="concept-desc">
+Catalyst beds, adsorbers and filters are packed with particles. The
+<strong class="text-blue">Ergun equation</strong> predicts the pressure drop across them,
+combining viscous and inertial terms.
+</div>
+<div class="dw">
+<div class="dt">▸ THE ERGUN EQUATION</div>
+<pre class="code-block">ΔP/L = 150 μ(1−ε)² v /(ε³ d²)  +  1.75 ρ(1−ε) v² /(ε³ d)
+        └── viscous (Blake-Kozeny) ──┘  └── inertial (Burke-Plummer) ──┘
+
+ε = void fraction   d = particle diameter   v = superficial velocity</pre>
+<div class="dt">▸ LIMITING FORMS</div>
+<table class="ref-table">
+<tr><th>Regime</th><th>Dominant term</th></tr>
+<tr><td style="color: var(--cyan)">Low Re (laminar)</td><td>Viscous (∝ v)</td></tr>
+<tr><td style="color: var(--amber)">High Re (turbulent)</td><td>Inertial (∝ v²)</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🌀 Set ΔP (bed weight) equal to the Ergun drop and you get the minimum fluidization
+velocity — the link to fluidized beds (Unit Ops).
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-heat" data-domain="heat">
@@ -1611,6 +1682,43 @@ adsorbing at high P and regenerating at low P.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: LEACHING & SOLID-LIQUID EXTRACTION ────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🫙</span>
+<span class="topic-name">Leaching &amp; Solid-Liquid Extraction</span>
+<span class="topic-badge">SEPARATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Dissolving Out the Valuable Part</div>
+<div class="concept-title">A solvent pulls solute from a solid</div>
+<div class="concept-desc">
+Leaching contacts a solid with a solvent to dissolve a target — extracting metals from
+ore, oil from seeds, or caffeine from beans. It's mass transfer from within a particle.
+</div>
+<div class="dw">
+<div class="dt">▸ RATE-CONTROLLING STEPS</div>
+<pre class="code-block">1. Solvent diffuses into the solid pores
+2. Solute dissolves
+3. Solute diffuses back out to the bulk
+
+Fine grinding &amp; agitation speed steps 1 &amp; 3 (shorter diffusion path).</pre>
+<div class="dt">▸ CONTACTING SCHEMES</div>
+<table class="ref-table">
+<tr><th>Scheme</th><th>Feature</th></tr>
+<tr><td style="color: var(--green)">Counter-current stages</td><td>High yield, low solvent use</td></tr>
+<tr><td style="color: var(--cyan)">Percolation / heap</td><td>Solvent trickles through a bed (ore heaps)</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+⛏️ Heap leaching recovers copper and gold from low-grade ore — then electrowinning
+(Electrochemical) finishes the metal.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-kinetics" data-domain="kinetics">
@@ -1882,6 +1990,42 @@ Second:      1/C_A    vs t   → straight (slope k)</pre>
 <div class="info-bar ib-muted">
 📈 The order whose plot is straightest wins. The method of initial rates (differential at
 t=0) avoids interference from products.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: CATALYST DEACTIVATION ─────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🪫</span>
+<span class="topic-name">Catalyst Deactivation &amp; Regeneration</span>
+<span class="topic-badge">CATALYST LIFE</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Catalysts Wear Out</div>
+<div class="concept-title">Activity fades — design must plan for it</div>
+<div class="concept-desc">
+Real catalysts lose activity over time. Understanding the mechanism sets the reactor type,
+operating strategy and regeneration schedule.
+</div>
+<div class="dw">
+<div class="dt">▸ DEACTIVATION MECHANISMS</div>
+<table class="ref-table">
+<tr><th>Mechanism</th><th>Cause</th><th>Reversible?</th></tr>
+<tr><td style="color: var(--amber)">Coking / fouling</td><td>Carbon deposits block sites</td><td>Yes (burn off)</td></tr>
+<tr><td style="color: var(--red)">Poisoning</td><td>Impurity (S, Pb) binds sites</td><td>Often no</td></tr>
+<tr><td style="color: var(--cyan)">Sintering</td><td>Thermal — active area shrinks</td><td>No</td></tr>
+</table>
+<div class="dt">▸ COPING STRATEGIES</div>
+<pre class="code-block">Raise T over a run to hold conversion (until end-of-run)
+Continuous regeneration (FCC burns coke every cycle)
+Guard beds remove poisons upstream</pre>
+</div>
+<div class="info-bar ib-muted">
+🔥 The FCC's genius is turning fast coking into an asset — burning the coke off the
+circulating catalyst supplies the heat for cracking (see Petroleum).
 </div>
 </div>
 </div>
@@ -2462,6 +2606,44 @@ subject to flux bounds → linear program (see Eng Math optimization).</pre>
 <div class="info-bar ib-muted">
 🧬 FBA is a material balance on a metabolic network solved as an LP — chemical-engineering
 tools (balances + optimization) applied inside the cell.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: BIOLOGICS — ANTIBODIES & VACCINES ─────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">💉</span>
+<span class="topic-name">Biologics — Antibodies &amp; Vaccines</span>
+<span class="topic-badge">THERAPEUTICS</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Medicine Made by Cells</div>
+<div class="concept-title">Large molecules that fight disease</div>
+<div class="concept-desc">
+Biologics — monoclonal antibodies, vaccines, gene therapies — are large, complex molecules
+made in living cells. Producing them is bioprocess engineering at its most demanding.
+</div>
+<div class="dw">
+<div class="dt">▸ ANTIBODY (mAb) MANUFACTURING</div>
+<pre class="code-block">CHO/mammalian cell culture (bioreactor, weeks)
+→ harvest &amp; clarify → Protein-A affinity capture
+→ polish (ion-exchange) → viral clearance → formulate
+
+Purity, glycosylation &amp; viral safety are paramount.</pre>
+<div class="dt">▸ VACCINE PLATFORMS</div>
+<table class="ref-table">
+<tr><th>Platform</th><th>Basis</th></tr>
+<tr><td style="color: var(--cyan)">Protein subunit</td><td>Recombinant antigen protein</td></tr>
+<tr><td style="color: var(--green)">mRNA</td><td>Lipid-nanoparticle-delivered mRNA</td></tr>
+<tr><td style="color: var(--amber)">Viral vector</td><td>Engineered harmless virus</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🧬 mRNA vaccines pair molecular biology (the Central Dogma) with lipid-nanoparticle
+formulation — bioprocess + particle engineering delivering at global scale.
 </div>
 </div>
 </div>
@@ -3230,6 +3412,43 @@ Cooling (linear in T) eventually can't match generation
 <div class="info-bar ib-muted">
 🚨 Ties to Reaction Engineering (multiple steady states): exothermic reactors must have
 enough cooling AND a stable operating point — Seveso and T2 Labs were runaways.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: STATIC ELECTRICITY & GROUNDING ────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">⚡</span>
+<span class="topic-name">Static Electricity, Bonding &amp; Grounding</span>
+<span class="topic-badge">IGNITION CONTROL</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">An Invisible Ignition Source</div>
+<div class="concept-title">Charge builds, then sparks</div>
+<div class="concept-desc">
+Flowing liquids and powders generate static charge. If it accumulates and discharges near
+a flammable atmosphere, it becomes an ignition source — a subtle but real hazard.
+</div>
+<div class="dw">
+<div class="dt">▸ HOW STATIC IGNITES</div>
+<pre class="code-block">Charge generation (flow, splashing, powder transfer)
+→ accumulation on an ungrounded conductor
+→ spark discharge → ignition (if in the flammable range)</pre>
+<div class="dt">▸ CONTROLS</div>
+<table class="ref-table">
+<tr><th>Control</th><th>Effect</th></tr>
+<tr><td style="color: var(--green)">Bonding</td><td>Connect objects so no voltage difference builds</td></tr>
+<tr><td style="color: var(--cyan)">Grounding</td><td>Drain charge safely to earth</td></tr>
+<tr><td style="color: var(--amber)">Slow filling / dip pipes</td><td>Reduce splashing &amp; charge generation</td></tr>
+<tr><td style="color: var(--red)">Inerting</td><td>Remove the oxidizer (below LOC)</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🔌 Bonding + grounding is one of the cheapest, most effective safeguards — removing the
+ignition leg of the fire triangle (see Flammability).
 </div>
 </div>
 </div>
@@ -5205,6 +5424,39 @@ Storage &amp; transport, not production, is often the bottleneck.</pre>
 </div>
 </div>
 </div>
+<!-- ── TOPIC: AIR POLLUTION CONTROL ─────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🏭</span>
+<span class="topic-name">Air Pollution Control</span>
+<span class="topic-badge">EMISSIONS</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Cleaning the Stack</div>
+<div class="concept-title">Capturing particulates and gases before they escape</div>
+<div class="concept-desc">
+Plants must control what leaves the stack. Control devices — many are familiar unit
+operations — remove particulates, acid gases and NOₓ from flue gas.
+</div>
+<div class="dw">
+<div class="dt">▸ CONTROL DEVICES</div>
+<table class="ref-table">
+<tr><th>Pollutant</th><th>Device</th><th>Principle</th></tr>
+<tr><td style="color: var(--cyan)">Particulates</td><td>Cyclone, baghouse, ESP</td><td>Inertia, filtration, electrostatic</td></tr>
+<tr><td style="color: var(--amber)">SOₓ</td><td>Wet/dry scrubber (FGD)</td><td>Absorption in lime slurry</td></tr>
+<tr><td style="color: var(--red)">NOₓ</td><td>SCR / SNCR</td><td>Catalytic reduction with NH₃</td></tr>
+<tr><td style="color: var(--green)">VOCs</td><td>Thermal/catalytic oxidizer, adsorption</td><td>Combustion / capture</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+♻️ Every control device is a unit operation you already know — cyclones (Particles),
+scrubbers (Mass Transfer), catalytic reduction (Reaction Eng) — aimed at the atmosphere.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-petro" data-domain="petro">
@@ -6309,6 +6561,42 @@ just renders.)
 <div class="info-bar ib-muted">
 🔒 The honeypot field and Netlify's spam filtering keep the inbox clean without a CAPTCHA
 or any external request.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: TECHNICAL COMMUNICATION ───────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">✍️</span>
+<span class="topic-name">Technical Communication &amp; Documentation</span>
+<span class="topic-badge">PROFESSIONAL</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">An Unshared Result Is a Wasted One</div>
+<div class="concept-title">Turning analysis into decisions</div>
+<div class="concept-desc">
+Engineers are judged as much on communication as calculation. Clear reports, drawings and
+recommendations turn technical work into action — and protect you and the public.
+</div>
+<div class="dw">
+<div class="dt">▸ COMMUNICATION ESSENTIALS</div>
+<table class="ref-table">
+<tr><th>Form</th><th>Key rule</th></tr>
+<tr><td style="color: var(--cyan)">Report / memo</td><td>Lead with the conclusion &amp; recommendation</td></tr>
+<tr><td style="color: var(--green)">Data &amp; charts</td><td>Show uncertainty; label units &amp; axes</td></tr>
+<tr><td style="color: var(--amber)">P&amp;IDs / drawings</td><td>Standard symbols; single source of truth</td></tr>
+<tr><td style="color: var(--red)">Safety docs</td><td>Precise, unambiguous, auditable</td></tr>
+</table>
+<div class="dt">▸ WHY IT MATTERS</div>
+<pre class="code-block">Decisions are made by people who won't read your derivation.
+Document assumptions &amp; basis — the next engineer (or an audit) needs them.</pre>
+</div>
+<div class="info-bar ib-muted">
+🗣️ "Bottom line up front": a decision-maker should get your recommendation in the first
+sentence, with the analysis available to back it up.
 </div>
 </div>
 </div>
