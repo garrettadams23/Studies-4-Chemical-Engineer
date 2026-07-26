@@ -1059,3 +1059,11 @@ Key chemical-engineering terms now carry inline, keyboard-accessible definitions
 - Runtime-only: `index.html` is unchanged, so the deterministic build/CI stays
   green. Verified headless: 13 terms wrapped, tooltip opacity → 1 on hover and
   focus, zero console errors.
+
+### 2026-07-26 — Phase 6.2 (cont.): more SVG diagrams
+Three more inline, theme-aware diagrams (now 6 total across the site):
+- Pipe velocity profiles — laminar parabola vs blunt turbulent (Fluid Mechanics).
+- Reaction energy diagram — activation barrier with a lowered catalyzed path
+  (Reaction Engineering & Kinetics, catalysis topic).
+- Two-film theory concentration profile across a gas/liquid interface (Mass
+  Transfer & Separations). Verified headless: all 6 render, visible and sized.

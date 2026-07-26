@@ -1075,6 +1075,18 @@ forces and sets the whole character of the flow — and thus the pressure drop.
 Re < 2100      → laminar   (f = 64/Re)
 2100–4000      → transition
 Re > 4000      → turbulent (Colebrook / Moody chart)</pre>
+<div class="dt">▸ VELOCITY PROFILES IN A PIPE</div>
+<svg class="svg-diagram" viewBox="0 0 400 170" role="img" aria-label="Pipe velocity profiles: laminar flow is a sharp parabola with a high centerline peak, while turbulent flow is a much flatter, blunter profile from strong radial mixing.">
+<line x1="30" y1="20" x2="30" y2="150" class="stroke-fg" stroke-width="1" />
+<line x1="30" y1="85" x2="380" y2="85" style="stroke: var(--muted)" stroke-width="1" stroke-dasharray="3 3" />
+<path d="M30 20 Q170 85 30 150" fill="none" style="stroke: var(--cyan)" stroke-width="3" />
+<path d="M30 40 Q120 45 130 85 Q120 125 30 130" fill="none" style="stroke: var(--amber)" stroke-width="3" />
+<text x="150" y="40" style="fill: var(--cyan)">laminar (parabolic)</text>
+<text x="150" y="130" style="fill: var(--amber)">turbulent (flat)</text>
+<text x="34" y="16" class="lbl-muted">wall</text>
+<text x="34" y="165" class="lbl-muted">wall</text>
+<text x="300" y="80" class="lbl-muted">centerline</text>
+</svg>
 <div class="dt">▸ PRESSURE DROP (DARCY–WEISBACH)</div>
 <pre class="code-block">ΔP = f · (L/D) · (ρ v² / 2)
 
@@ -2008,6 +2020,22 @@ giving an overall coefficient — the mass-transfer analog of the U-value.
 1/K_x = 1/(m·k_y) + 1/k_x    (liquid-phase overall)
 
 m = slope of the equilibrium line (Henry's constant form).</pre>
+<div class="dt">▸ TWO-FILM THEORY AT THE INTERFACE</div>
+<svg class="svg-diagram" viewBox="0 0 400 170" role="img" aria-label="Two-film theory: a gas film and a liquid film sit on either side of the phase interface. The solute concentration falls steeply across each stagnant film, and equilibrium is assumed exactly at the interface.">
+<line x1="200" y1="15" x2="200" y2="150" class="stroke-fg" stroke-width="1.5" />
+<line x1="140" y1="15" x2="140" y2="150" style="stroke: var(--muted)" stroke-width="1" stroke-dasharray="3 3" />
+<line x1="260" y1="15" x2="260" y2="150" style="stroke: var(--muted)" stroke-width="1" stroke-dasharray="3 3" />
+<line x1="40" y1="35" x2="140" y2="40" style="stroke: var(--cyan)" stroke-width="2.5" />
+<line x1="140" y1="40" x2="200" y2="80" style="stroke: var(--cyan)" stroke-width="3" />
+<line x1="200" y1="90" x2="260" y2="120" style="stroke: var(--green)" stroke-width="3" />
+<line x1="260" y1="120" x2="370" y2="128" style="stroke: var(--green)" stroke-width="2.5" />
+<text x="55" y="28" style="fill: var(--cyan)">gas bulk</text>
+<text x="290" y="145" style="fill: var(--green)">liquid bulk</text>
+<text x="150" y="28" class="lbl-muted">gas film</text>
+<text x="205" y="28" class="lbl-muted">liquid film</text>
+<text x="150" y="165" class="lbl-muted">interface (equilibrium)</text>
+<text x="8" y="80" class="lbl-muted">C</text>
+</svg>
 <div class="dt">▸ WHICH FILM CONTROLS?</div>
 <table class="ref-table">
 <tr><th>Condition</th><th>Controlling resistance</th></tr>
@@ -2401,6 +2429,21 @@ Yield        = (desired formed)/(A fed)</pre>
 <tr><td style="color: var(--green)">Heterogeneous</td><td>Solid catalyst, gas/liquid reactant (Haber, catalytic cracking)</td></tr>
 <tr><td style="color: var(--purple)">Enzymatic</td><td>Biological catalysts — see Enzyme Kinetics (Bio domain)</td></tr>
 </table>
+<div class="dt">▸ REACTION ENERGY DIAGRAM</div>
+<svg class="svg-diagram" viewBox="0 0 400 180" role="img" aria-label="Reaction energy diagram: reactants pass over an activation-energy barrier to reach products. A catalyst lowers the barrier, shown as a smaller amber hump, without changing the reactant or product energy levels.">
+<line x1="30" y1="15" x2="30" y2="155" class="stroke-fg" stroke-width="1" />
+<line x1="30" y1="155" x2="382" y2="155" class="stroke-fg" stroke-width="1" />
+<path d="M40 110 Q140 5 210 60 Q280 115 360 130" fill="none" style="stroke: var(--red)" stroke-width="3" />
+<path d="M40 110 Q140 60 210 85 Q280 115 360 130" fill="none" style="stroke: var(--amber)" stroke-width="2.5" stroke-dasharray="5 4" />
+<line x1="40" y1="110" x2="30" y2="110" style="stroke: var(--muted)" stroke-width="1" stroke-dasharray="3 3" />
+<line x1="360" y1="130" x2="30" y2="130" style="stroke: var(--muted)" stroke-width="1" stroke-dasharray="3 3" />
+<text x="44" y="104" style="fill: var(--cyan)">reactants</text>
+<text x="300" y="148" style="fill: var(--green)">products</text>
+<text x="150" y="20" style="fill: var(--red)">Eₐ (uncatalyzed)</text>
+<text x="150" y="78" style="fill: var(--amber)">Eₐ (catalyzed)</text>
+<text x="4" y="90" class="lbl-muted">E</text>
+<text x="290" y="170" class="lbl-muted">reaction progress →</text>
+</svg>
 </div>
 <div class="info-bar ib-muted">
 ⚗️ A catalyst speeds both forward and reverse rates equally — it changes the

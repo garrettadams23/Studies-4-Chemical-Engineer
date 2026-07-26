@@ -61,6 +61,18 @@ Ideal (no pump, no friction):
 Re < 2100      → laminar   (f = 64/Re)
 2100–4000      → transition
 Re > 4000      → turbulent (Colebrook / Moody chart)</pre>
+        <div class="dt">▸ VELOCITY PROFILES IN A PIPE</div>
+        <svg class="svg-diagram" viewBox="0 0 400 170" role="img" aria-label="Pipe velocity profiles: laminar flow is a sharp parabola with a high centerline peak, while turbulent flow is a much flatter, blunter profile from strong radial mixing.">
+          <line x1="30" y1="20" x2="30" y2="150" class="stroke-fg" stroke-width="1" />
+          <line x1="30" y1="85" x2="380" y2="85" style="stroke: var(--muted)" stroke-width="1" stroke-dasharray="3 3" />
+          <path d="M30 20 Q170 85 30 150" fill="none" style="stroke: var(--cyan)" stroke-width="3" />
+          <path d="M30 40 Q120 45 130 85 Q120 125 30 130" fill="none" style="stroke: var(--amber)" stroke-width="3" />
+          <text x="150" y="40" style="fill: var(--cyan)">laminar (parabolic)</text>
+          <text x="150" y="130" style="fill: var(--amber)">turbulent (flat)</text>
+          <text x="34" y="16" class="lbl-muted">wall</text>
+          <text x="34" y="165" class="lbl-muted">wall</text>
+          <text x="300" y="80" class="lbl-muted">centerline</text>
+        </svg>
         <div class="dt">▸ PRESSURE DROP (DARCY–WEISBACH)</div>
         <pre class="code-block">ΔP = f · (L/D) · (ρ v² / 2)
 
