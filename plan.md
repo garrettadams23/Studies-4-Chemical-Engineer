@@ -1067,3 +1067,24 @@ Three more inline, theme-aware diagrams (now 6 total across the site):
   (Reaction Engineering & Kinetics, catalysis topic).
 - Two-film theory concentration profile across a gas/liquid interface (Mass
   Transfer & Separations). Verified headless: all 6 render, visible and sized.
+
+### 2026-07-26 — Phase 6.4: WCAG AA audit (axe-core) → 0 violations
+Ran axe-core (wcag2a/2aa + wcag21a/21aa) against the fully-expanded page in
+**both** themes and fixed every finding:
+- **Nested-interactive (251×)**: the accordion header was `role="button"` yet
+  contained the review/permalink tool buttons. Replaced it with a single
+  invisible overlay `<button class="hdr-toggle">` per header that carries
+  `aria-expanded` + an `aria-label` naming the topic/section; tool buttons and
+  chevron sit above it via `z-index`. Keyboard activation is now native (no
+  custom keydown), and `setHeaderExpanded()` centralises state syncing.
+- **Form labels / select-name (24×)**: `associateCalcLabels()` links every
+  calculator `<label>` to its control (`for` + `aria-label`).
+- **Colour contrast (dark)**: bumped `--muted` #5a6e8a → #7185a3 (3.6→5.0:1) and
+  `--purple` for the muted info bars.
+- **Colour contrast (light, ~1430 nodes)**: the neon accents were only ~2–4:1 on
+  light backgrounds. Darkened the light `--cyan/green/amber/red/purple`, added
+  same-hue AA-compliant `--accent`/chip overrides for all 30 domains, and a
+  light `.text-blue`. All computed to clear 4.5:1 on the darkest light surface.
+- **Result: 0 axe violations in light and dark.** Accordion, tools, keyboard
+  nav, expand-all and the glossary all re-verified headless with zero console
+  errors; build stays deterministic at 251 topics.

@@ -14,7 +14,8 @@
   --red: #ff4d6d;
   --purple: #a855f7;
   --text: #cdd9f0;
-  --muted: #5a6e8a;
+  --muted: #7185a3;
+  --purple: #b57bf7;
   --mono: "Share Tech Mono", monospace;
   --sans: "Outfit", sans-serif;
 }
@@ -25,11 +26,14 @@
   --border: #c5d0de;
   --text: #0f172a;
   --muted: #475569;
-  --cyan: #0284c7;
-  --green: #059669;
-  --amber: #b45309;
-  --red: #dc2626;
-  --purple: #7c3aed;
+  /* Darkened so accent text clears WCAG AA (4.5:1) on the light card/page
+     backgrounds (#fff / #f0f4f8 / #e8edf4) — the brighter dark-mode neons
+     were only ~3.4–4.1:1 here. */
+  --cyan: #075985;
+  --green: #046b4e;
+  --amber: #92400e;
+  --red: #b91c1c;
+  --purple: #6d28d9;
 }
 
 /* ── 2. BASE & RESET ────────────────────────────────────────────────────── */
@@ -512,6 +516,7 @@ header p {
   padding: 14px 24px;
   cursor: pointer;
   transition: background 0.15s;
+  position: relative;
 }
 .topic-header:hover {
   background: rgba(255, 255, 255, 0.025);
@@ -1485,6 +1490,9 @@ header p {
 .text-blue {
   color: #38bdf8;
 }
+[data-theme="light"] .text-blue {
+  color: #0369a1; /* darkened for WCAG AA on light backgrounds */
+}
 
 /* Domain accent colours */
 .domain-net {
@@ -1974,7 +1982,7 @@ mark.sh {
   transition: opacity 0.15s;
 }
 .topic-header:hover .topic-tools,
-.topic-header:focus-visible .topic-tools,
+.topic-header:focus-within .topic-tools,
 .topic.reviewed .topic-tools { opacity: 1; }
 .topic-review,
 .topic-permalink {
@@ -2554,6 +2562,45 @@ mark.sh {
 .svg-diagram .lbl-muted { fill: var(--muted); }
 .svg-diagram .stroke-fg { stroke: var(--text); }
 
+/* ── Accordion disclosure control (invisible full-header toggle button) ─────── */
+/* One real <button> per header carries the aria-expanded semantics without
+   nesting the tool buttons inside a role="button" (a WCAG nested-interactive
+   failure). It overlays the whole header; tools/chevron sit above it. */
+.hdr-toggle {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  color: inherit;
+}
+.hdr-toggle:focus-visible {
+  outline: 2px solid var(--accent, var(--cyan));
+  outline-offset: -2px;
+  border-radius: 4px;
+}
+/* Lift the interactive tool cluster and chevron above the overlay button. */
+.topic-tools,
+.topic-chev,
+.domain-chev,
+.topic-badge {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Light-theme chip contrast fix (white-on-near-white was ~1.1:1) ─────────── */
+[data-theme="light"] .chip.c-all.active,
+[data-theme="light"] .chip.c-all:hover {
+  color: var(--text);
+  border-color: var(--text);
+  background: rgba(0, 0, 0, 0.06);
+}
+
 /* ── Glossary tooltips (auto-wrapped key terms, keyboard-accessible) ────────── */
 .gloss {
   border-bottom: 1px dotted var(--accent, var(--cyan));
@@ -2595,3 +2642,67 @@ mark.sh {
   outline-offset: 2px;
   border-radius: 2px;
 }
+
+/* ── Light-theme domain accents & chips — darkened for WCAG AA (4.5:1). ──
+   Dark-mode neon accents sit at ~2–4:1 on light backgrounds; these same-hue
+   values clear 4.5:1 even on the darkest light surface (#e8edf4). */
+[data-theme="light"] .domain-bio { --accent: #137838; }
+[data-theme="light"] .domain-career { --accent: #077282; }
+[data-theme="light"] .domain-chem { --accent: #177653; }
+[data-theme="light"] .domain-control { --accent: #007289; }
+[data-theme="light"] .domain-cryo { --accent: #027382; }
+[data-theme="light"] .domain-data { --accent: #4152f9; }
+[data-theme="light"] .domain-design { --accent: #0263da; }
+[data-theme="light"] .domain-electro { --accent: #4b730b; }
+[data-theme="light"] .domain-enviro { --accent: #127737; }
+[data-theme="light"] .domain-exam { --accent: #763cf9; }
+[data-theme="light"] .domain-examples { --accent: #0a7569; }
+[data-theme="light"] .domain-fluids { --accent: #077282; }
+[data-theme="light"] .domain-formulas { --accent: #157468; }
+[data-theme="light"] .domain-heat { --accent: #aa4d00; }
+[data-theme="light"] .domain-kinetics { --accent: #ca0b6f; }
+[data-theme="light"] .domain-mass { --accent: #9021fa; }
+[data-theme="light"] .domain-materials { --accent: #4e6a8c; }
+[data-theme="light"] .domain-math { --accent: #8e1dff; }
+[data-theme="light"] .domain-nano { --accent: #b00cc9; }
+[data-theme="light"] .domain-particles { --accent: #8b5e20; }
+[data-theme="light"] .domain-petro { --accent: #9f5601; }
+[data-theme="light"] .domain-pharma { --accent: #c8106b; }
+[data-theme="light"] .domain-psychro { --accent: #055ded; }
+[data-theme="light"] .domain-quiz { --accent: #886200; }
+[data-theme="light"] .domain-safety { --accent: #915c02; }
+[data-theme="light"] .domain-stoich { --accent: #026f9f; }
+[data-theme="light"] .domain-thermo { --accent: #d20026; }
+[data-theme="light"] .domain-tools { --accent: #d00729; }
+[data-theme="light"] .domain-transport { --accent: #b204cd; }
+[data-theme="light"] .domain-unitops { --accent: #7e6500; }
+[data-theme="light"] .chip.c-bio { color: #137838; }
+[data-theme="light"] .chip.c-career { color: #077282; }
+[data-theme="light"] .chip.c-chem { color: #177653; }
+[data-theme="light"] .chip.c-control { color: #007289; }
+[data-theme="light"] .chip.c-cryo { color: #027382; }
+[data-theme="light"] .chip.c-data { color: #4152f9; }
+[data-theme="light"] .chip.c-design { color: #0263da; }
+[data-theme="light"] .chip.c-electro { color: #4b730b; }
+[data-theme="light"] .chip.c-enviro { color: #127737; }
+[data-theme="light"] .chip.c-exam { color: #763cf9; }
+[data-theme="light"] .chip.c-examples { color: #0a7569; }
+[data-theme="light"] .chip.c-fluids { color: #077282; }
+[data-theme="light"] .chip.c-formulas { color: #157468; }
+[data-theme="light"] .chip.c-heat { color: #aa4d00; }
+[data-theme="light"] .chip.c-kinetics { color: #ca0b6f; }
+[data-theme="light"] .chip.c-mass { color: #9021fa; }
+[data-theme="light"] .chip.c-materials { color: #4e6a8c; }
+[data-theme="light"] .chip.c-math { color: #8e1dff; }
+[data-theme="light"] .chip.c-nano { color: #b00cc9; }
+[data-theme="light"] .chip.c-particles { color: #8b5e20; }
+[data-theme="light"] .chip.c-petro { color: #9f5601; }
+[data-theme="light"] .chip.c-pharma { color: #c8106b; }
+[data-theme="light"] .chip.c-psychro { color: #055ded; }
+[data-theme="light"] .chip.c-quiz { color: #886200; }
+[data-theme="light"] .chip.c-safety { color: #915c02; }
+[data-theme="light"] .chip.c-stoich { color: #026f9f; }
+[data-theme="light"] .chip.c-thermo { color: #d20026; }
+[data-theme="light"] .chip.c-tools { color: #d00729; }
+[data-theme="light"] .chip.c-transport { color: #b204cd; }
+[data-theme="light"] .chip.c-unitops { color: #7e6500; }

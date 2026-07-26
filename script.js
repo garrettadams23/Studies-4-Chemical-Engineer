@@ -32,17 +32,24 @@ const QUOTES = [
 ];
 
 // ── ACCORDION ──────────────────────────────────────────────────────────────
+// Sync the disclosure state onto the header's toggle button (the accessible
+// control), falling back to the header itself for safety.
+function setHeaderExpanded(h, open) {
+  const btn = h.querySelector(":scope > .hdr-toggle");
+  (btn || h).setAttribute("aria-expanded", open ? "true" : "false");
+}
+
 function toggleDomain(h) {
   const b = h.nextElementSibling;
   const open = b.classList.toggle("open");
   h.classList.toggle("open", open);
-  h.setAttribute("aria-expanded", open ? "true" : "false");
+  setHeaderExpanded(h, open);
 }
 
 function toggleTopic(h) {
   const open = h.classList.toggle("open");
   h.nextElementSibling.classList.toggle("open", open);
-  h.setAttribute("aria-expanded", open ? "true" : "false");
+  setHeaderExpanded(h, open);
   if (open) updateTopicHash(h.parentElement);
 }
 
@@ -64,7 +71,7 @@ function toggleAll() {
   allExpanded = !allExpanded;
   document.querySelectorAll(".domain-header, .topic-header").forEach(h => {
     h.classList.toggle("open", allExpanded);
-    if (h.hasAttribute("aria-expanded")) h.setAttribute("aria-expanded", allExpanded ? "true" : "false");
+    setHeaderExpanded(h, allExpanded);
   });
   document.querySelectorAll(".domain-body, .topic-body").forEach(b => b.classList.toggle("open", allExpanded));
   const hdrBtn = document.getElementById("hdr-expand-btn");
@@ -130,14 +137,9 @@ document.addEventListener("DOMContentLoaded", () => {
     if (th) toggleTopic(th);
   });
 
-  // Accordion — keyboard support (Enter / Space on focused headers)
-  container?.addEventListener("keydown", e => {
-    if (e.key !== "Enter" && e.key !== " ") return;
-    const header = e.target.closest(".domain-header, .topic-header");
-    if (!header || e.target.closest(".topic-review, .topic-permalink")) return;
-    e.preventDefault();
-    header.classList.contains("domain-header") ? toggleDomain(header) : toggleTopic(header);
-  });
+  // Note: keyboard activation of a header is handled natively by its
+  // .hdr-toggle <button> (Enter/Space fire a click, which the delegated
+  // click handler above turns into a toggle) — no separate keydown needed.
 
   // Header control buttons
   document.getElementById("hdr-theme-btn")?.addEventListener("click", toggleTheme);
@@ -304,11 +306,21 @@ function slugify(s) {
  * permalink + "mark reviewed" tools. Runs once at load.
  */
 function initAccessibilityAndTools() {
-  // Make every accordion header focusable and announce its state
+  // Give every accordion header a single real <button> as the disclosure
+  // control. We deliberately do NOT put role="button" on the header itself,
+  // because the header also holds the review/permalink tool buttons — a
+  // focusable control inside a role="button" is a nested-interactive WCAG
+  // failure. The toggle is an invisible overlay spanning the whole header, so
+  // the entire bar stays clickable while exposing one clean control to AT.
   document.querySelectorAll(".domain-header, .topic-header").forEach(h => {
-    h.setAttribute("tabindex", "0");
-    h.setAttribute("role", "button");
-    h.setAttribute("aria-expanded", h.classList.contains("open") ? "true" : "false");
+    if (h.querySelector(":scope > .hdr-toggle")) return;
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "hdr-toggle";
+    btn.setAttribute("aria-expanded", h.classList.contains("open") ? "true" : "false");
+    const name = (h.textContent || "").replace(/\s+/g, " ").trim().slice(0, 90);
+    btn.setAttribute("aria-label", (h.classList.contains("topic-header") ? "Toggle topic: " : "Toggle section: ") + name);
+    h.insertBefore(btn, h.firstChild);
   });
 
   const usedIds = new Set();
@@ -416,12 +428,13 @@ function openHashTarget() {
   const topic = document.getElementById(id);
   if (!topic || !topic.classList.contains("topic")) return;
   const domain = topic.closest(".domain-section");
-  domain?.querySelector(".domain-header")?.classList.add("open");
+  const dh = domain?.querySelector(".domain-header");
+  dh?.classList.add("open");
   domain?.querySelector(".domain-body")?.classList.add("open");
-  domain?.querySelector(".domain-header")?.setAttribute("aria-expanded", "true");
+  if (dh) setHeaderExpanded(dh, true);
   const th = topic.querySelector(".topic-header");
   th?.classList.add("open");
-  th?.setAttribute("aria-expanded", "true");
+  if (th) setHeaderExpanded(th, true);
   topic.querySelector(".topic-body")?.classList.add("open");
   topic.scrollIntoView({ behavior: "smooth", block: "start" });
 }
@@ -1161,7 +1174,22 @@ function initFriction() {
   calc();
 }
 
+// Associate each calculator <label> with its control so screen readers
+// announce a name (the markup uses adjacent <label> + <input>/<select> without
+// a `for`/id link). Belt-and-suspenders: set both `for` and `aria-label`.
+function associateCalcLabels() {
+  document.querySelectorAll(".calc-field").forEach(field => {
+    const label = field.querySelector("label");
+    const ctrl = field.querySelector("input, select, textarea");
+    if (!label || !ctrl) return;
+    const text = label.textContent.replace(/\s+/g, " ").trim();
+    if (ctrl.id) label.setAttribute("for", ctrl.id);
+    if (!ctrl.hasAttribute("aria-label") && text) ctrl.setAttribute("aria-label", text);
+  });
+}
+
 function initCalculators() {
+  associateCalcLabels();
   initUnitConverter();
   initReynolds();
   initIdealGas();
