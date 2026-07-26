@@ -30,7 +30,7 @@ chemical-engineering curriculum, the FE/PE exams, and day-to-day plant practice.
 
 **Success metrics:**
 
-- 🚧 30 domains live · **171 topics** · 8 tools + quiz + flashcards (Phase 4 done; 5–6 advanced) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
+- 🚧 30 domains live · **179 topics** · 8 tools + quiz + flashcards (Phase 4 done; 5–6 advanced) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
 - 🚧 Interactive tools — 7 calculators + steam-table lookup + quiz + flashcards.
 - 🚧 Embedded reference data — steam table, Antoine coefficients, physical-property table live.
 - ✅ Self-test quiz engine — 18 questions, instant feedback, best score saved (localStorage).
@@ -960,3 +960,9 @@ Unsteady-State Balances (Material Balances); Packed Beds/Ergun (Fluids); Catalys
 Deactivation (Kinetics); Leaching & Solid-Liquid Extraction (Mass); Biologics —
 Antibodies & Vaccines (Biochemical); Static Electricity & Grounding (Safety); Air
 Pollution Control (Sustainability); Technical Communication (Career).
+
+### 2026-07-25 — Phase 3 depth pass H (171 → 179)
+Thermal Insulation & Heat Loss (Heat); Batch & Discrete Control PLC/DCS (Control);
+Diffusion with Reaction (Transport); Column Internals — Trays & Packing (Unit Ops);
+Welding & Fabrication (Materials); Organic Reaction Mechanisms (Chemistry); Batch
+Design & Scheduling (Design); Regulatory Landscape FDA/ICH (Pharma).

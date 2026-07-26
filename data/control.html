@@ -264,3 +264,40 @@ Size for ~20–80% opening at normal flow (room to move both ways).</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: BATCH & DISCRETE CONTROL ──────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔢</span>
+    <span class="topic-name">Batch &amp; Discrete Control (PLC / DCS)</span>
+    <span class="topic-badge">AUTOMATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Sequencing, Not Just Regulating</div>
+      <div class="concept-title">Recipes, steps and interlocks</div>
+      <div class="concept-desc">
+        Continuous control holds setpoints; batch and discrete control run <em>sequences</em> —
+        charge, heat, react, discharge — enforced by logic and interlocks on PLCs and DCSs.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ CONTROL SYSTEMS</div>
+        <table class="ref-table">
+          <tr><th>System</th><th>Strength</th></tr>
+          <tr><td style="color: var(--cyan)">DCS</td><td>Large continuous plants, many analog loops</td></tr>
+          <tr><td style="color: var(--green)">PLC</td><td>Fast discrete logic, interlocks, machines</td></tr>
+          <tr><td style="color: var(--amber)">SCADA</td><td>Supervisory monitoring over wide areas</td></tr>
+        </table>
+        <div class="dt">▸ BATCH STRUCTURE (ISA-88)</div>
+        <pre class="code-block">Recipe → unit procedures → operations → phases
+Interlocks &amp; permissives enforce safe sequencing
+Safety Instrumented System (SIS) is separate &amp; independent.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🦺 Keep the Safety Instrumented System independent of the control system — a shared
+        failure shouldn't take out both control and protection (see Process Safety, SIL).
+      </div>
+    </div>
+  </div>
+</div>

@@ -228,3 +228,42 @@ Then  h = Nu·k/L  and  k_c = Sh·D/L.</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: DIFFUSION WITH REACTION ───────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧬</span>
+    <span class="topic-name">Diffusion with Chemical Reaction</span>
+    <span class="topic-badge">COUPLED</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Transport and Reaction Together</div>
+      <div class="concept-title">When molecules react as they diffuse</div>
+      <div class="concept-desc">
+        In catalyst pellets, gas absorption with reaction, and living tissue, diffusion and
+        reaction happen simultaneously. A shell balance now carries a reaction term.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE GOVERNING BALANCE</div>
+        <pre class="code-block">Steady 1-D:  D d²C/dx² − k·C = 0   (diffusion − consumption = 0)
+
+Solution involves the Thiele modulus  φ = L√(k/D):
+  φ small → reaction-limited (uniform C)
+  φ large → diffusion-limited (C drops sharply near the surface)</pre>
+        <div class="dt">▸ WHERE IT SHOWS UP</div>
+        <table class="ref-table">
+          <tr><th>System</th><th>Coupling</th></tr>
+          <tr><td style="color: var(--cyan)">Catalyst pellet</td><td>Pore diffusion + surface reaction (effectiveness factor)</td></tr>
+          <tr><td style="color: var(--green)">Gas absorption + reaction</td><td>Enhancement of mass transfer</td></tr>
+          <tr><td style="color: var(--amber)">Biofilm / tissue</td><td>Nutrient diffuses in as cells consume it</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🔬 The same math (φ, effectiveness factor) reappears in Reaction Engineering and
+        Biochemical — a unifying idea across the curriculum.
+      </div>
+    </div>
+  </div>
+</div>

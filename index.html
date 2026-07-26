@@ -1407,6 +1407,43 @@ and can rupture; firing is trimmed to protect tube metallurgy.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: THERMAL INSULATION & HEAT LOSS ────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧥</span>
+<span class="topic-name">Thermal Insulation &amp; Heat Loss</span>
+<span class="topic-badge">ENERGY</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Keeping Heat Where You Want It</div>
+<div class="concept-title">Adding resistance to save energy — and skin</div>
+<div class="concept-desc">
+Insulation adds conductive resistance to cut heat loss (or gain), save energy, and keep
+surfaces safe to touch. Its economics balance insulation cost against energy saved.
+</div>
+<div class="dw">
+<div class="dt">▸ THE RESISTANCE ADDED</div>
+<pre class="code-block">Q = ΔT / (R_wall + R_insulation + R_film)
+R_insulation = thickness / (k·A)   (low-k material = high R)
+
+Economic thickness: minimize (insulation cost + energy cost).</pre>
+<div class="dt">▸ SPECIAL CASES</div>
+<table class="ref-table">
+<tr><th>Case</th><th>Note</th></tr>
+<tr><td style="color: var(--amber)">Personnel protection</td><td>Keep outer surface below ~60 °C</td></tr>
+<tr><td style="color: var(--cyan)">Critical radius (pipes)</td><td>Thin insulation on small pipes can increase loss</td></tr>
+<tr><td style="color: var(--red)">CUI</td><td>Corrosion under insulation — a hidden integrity risk</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+⚠️ Corrosion under insulation (CUI) is a notorious mechanical-integrity problem — trapped
+moisture attacks the pipe out of sight (see Materials &amp; Process Safety).
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-mass" data-domain="mass">
@@ -2304,6 +2341,42 @@ drives the valve to the safe position (e.g. fuel valve fails closed).
 </div>
 </div>
 </div>
+<!-- ── TOPIC: BATCH & DISCRETE CONTROL ──────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔢</span>
+<span class="topic-name">Batch &amp; Discrete Control (PLC / DCS)</span>
+<span class="topic-badge">AUTOMATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Sequencing, Not Just Regulating</div>
+<div class="concept-title">Recipes, steps and interlocks</div>
+<div class="concept-desc">
+Continuous control holds setpoints; batch and discrete control run <em>sequences</em> —
+charge, heat, react, discharge — enforced by logic and interlocks on PLCs and DCSs.
+</div>
+<div class="dw">
+<div class="dt">▸ CONTROL SYSTEMS</div>
+<table class="ref-table">
+<tr><th>System</th><th>Strength</th></tr>
+<tr><td style="color: var(--cyan)">DCS</td><td>Large continuous plants, many analog loops</td></tr>
+<tr><td style="color: var(--green)">PLC</td><td>Fast discrete logic, interlocks, machines</td></tr>
+<tr><td style="color: var(--amber)">SCADA</td><td>Supervisory monitoring over wide areas</td></tr>
+</table>
+<div class="dt">▸ BATCH STRUCTURE (ISA-88)</div>
+<pre class="code-block">Recipe → unit procedures → operations → phases
+Interlocks &amp; permissives enforce safe sequencing
+Safety Instrumented System (SIS) is separate &amp; independent.</pre>
+</div>
+<div class="info-bar ib-muted">
+🦺 Keep the Safety Instrumented System independent of the control system — a shared
+failure shouldn't take out both control and protection (see Process Safety, SIL).
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-bio" data-domain="bio">
@@ -2886,6 +2959,44 @@ transfer just by swapping Pr → Sc.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: DIFFUSION WITH REACTION ───────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧬</span>
+<span class="topic-name">Diffusion with Chemical Reaction</span>
+<span class="topic-badge">COUPLED</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Transport and Reaction Together</div>
+<div class="concept-title">When molecules react as they diffuse</div>
+<div class="concept-desc">
+In catalyst pellets, gas absorption with reaction, and living tissue, diffusion and
+reaction happen simultaneously. A shell balance now carries a reaction term.
+</div>
+<div class="dw">
+<div class="dt">▸ THE GOVERNING BALANCE</div>
+<pre class="code-block">Steady 1-D:  D d²C/dx² − k·C = 0   (diffusion − consumption = 0)
+
+Solution involves the Thiele modulus  φ = L√(k/D):
+  φ small → reaction-limited (uniform C)
+  φ large → diffusion-limited (C drops sharply near the surface)</pre>
+<div class="dt">▸ WHERE IT SHOWS UP</div>
+<table class="ref-table">
+<tr><th>System</th><th>Coupling</th></tr>
+<tr><td style="color: var(--cyan)">Catalyst pellet</td><td>Pore diffusion + surface reaction (effectiveness factor)</td></tr>
+<tr><td style="color: var(--green)">Gas absorption + reaction</td><td>Enhancement of mass transfer</td></tr>
+<tr><td style="color: var(--amber)">Biofilm / tissue</td><td>Nutrient diffuses in as cells consume it</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🔬 The same math (φ, effectiveness factor) reappears in Reaction Engineering and
+Biochemical — a unifying idea across the curriculum.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-unitops" data-domain="unitops">
@@ -3121,6 +3232,42 @@ Centrifuge: replace g with ω²r → separation factor = ω²r/g
 <div class="info-bar ib-muted">
 🧫 Centrifugation is the first step of most bioseparations — spinning cells out of broth
 (see Downstream Processing in Biochemical).
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: COLUMN INTERNALS ──────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🏛️</span>
+<span class="topic-name">Column Internals — Trays &amp; Packing</span>
+<span class="topic-badge">EQUIPMENT</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Where the Contacting Happens</div>
+<div class="concept-title">Trays vs packing — the column's working guts</div>
+<div class="concept-desc">
+Distillation and absorption columns need intimate vapor-liquid contact. Two families of
+internals provide it — discrete trays or continuous packing — each with a niche.
+</div>
+<div class="dw">
+<div class="dt">▸ TRAYS vs PACKING</div>
+<table class="ref-table">
+<tr><th>Internal</th><th>Best for</th></tr>
+<tr><td style="color: var(--cyan)">Sieve / valve trays</td><td>Large columns, fouling service, wide turndown</td></tr>
+<tr><td style="color: var(--green)">Random packing</td><td>Low pressure drop, corrosive service</td></tr>
+<tr><td style="color: var(--amber)">Structured packing</td><td>High efficiency, vacuum, low ΔP (HETP small)</td></tr>
+</table>
+<div class="dt">▸ HYDRAULIC LIMITS</div>
+<pre class="code-block">Too much vapor → flooding (liquid carried up)
+Too little → weeping / dumping (liquid falls through)
+Design between these at ~70–85% of flood.</pre>
+</div>
+<div class="info-bar ib-muted">
+🗼 Structured packing gives many stages in a short height at low pressure drop — ideal for
+vacuum distillation of heat-sensitive materials.
 </div>
 </div>
 </div>
@@ -3729,6 +3876,43 @@ like the refractory lining of a fired heater or an FCC regenerator.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: WELDING & FABRICATION ─────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔩</span>
+<span class="topic-name">Welding &amp; Fabrication</span>
+<span class="topic-badge">CONSTRUCTION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Joining Metal Reliably</div>
+<div class="concept-title">A local heat treatment with big consequences</div>
+<div class="concept-desc">
+Vessels and piping are welded, and a weld is a small, uncontrolled casting-plus-heat-
+treatment. Its quality decides whether a pressure boundary holds.
+</div>
+<div class="dw">
+<div class="dt">▸ THE HEAT-AFFECTED ZONE (HAZ)</div>
+<pre class="code-block">Weld metal (melted) | HAZ (altered microstructure) | base metal
+
+The HAZ can harden &amp; embrittle → cracking.
+Post-weld heat treatment (PWHT) relieves stress &amp; softens the HAZ.</pre>
+<div class="dt">▸ INTEGRITY &amp; INSPECTION</div>
+<table class="ref-table">
+<tr><th>Concern</th><th>Handling</th></tr>
+<tr><td style="color: var(--red)">Weld defects</td><td>NDT: radiography, ultrasonic, dye penetrant</td></tr>
+<tr><td style="color: var(--amber)">Sensitization</td><td>Stainless welds → intergranular corrosion (use L grades)</td></tr>
+<tr><td style="color: var(--cyan)">Codes</td><td>ASME BPVC / B31.3 govern qualification</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🦺 Welds are the usual failure point of pressure equipment — inspection and PWHT are
+mechanical-integrity essentials (see Process Safety, PSM).
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-chem" data-domain="chem">
@@ -4010,6 +4194,39 @@ single most consequential chemical process ever industrialized.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: ORGANIC REACTION MECHANISMS ───────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔀</span>
+<span class="topic-name">Organic Reaction Mechanisms</span>
+<span class="topic-badge">HOW REACTIONS GO</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Following the Electrons</div>
+<div class="concept-title">Substitution, addition &amp; elimination</div>
+<div class="concept-desc">
+Organic synthesis (and much of the chemical industry) runs on a few reaction archetypes.
+Knowing the mechanism predicts products, rates and selectivity.
+</div>
+<div class="dw">
+<div class="dt">▸ THE MAJOR MECHANISMS</div>
+<table class="ref-table">
+<tr><th>Type</th><th>What happens</th><th>Example</th></tr>
+<tr><td style="color: var(--cyan)">Substitution</td><td>One group replaces another (SN1/SN2)</td><td>Alkyl halide + OH⁻</td></tr>
+<tr><td style="color: var(--green)">Addition</td><td>Add across a double bond</td><td>Alkene + H₂ / HBr</td></tr>
+<tr><td style="color: var(--amber)">Elimination</td><td>Remove groups, form a double bond (E1/E2)</td><td>Dehydration of alcohol</td></tr>
+<tr><td style="color: var(--purple)">Oxidation / reduction</td><td>Change oxidation state</td><td>Alcohol ⇄ aldehyde/acid</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+⚗️ Mechanism drives selectivity: SN2 vs SN1, Markovnikov vs anti-Markovnikov addition —
+the difference between the product you want and the one you don't.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-design" data-domain="design">
@@ -4285,6 +4502,44 @@ Better control of fast/exothermic reactions (microreactors)</pre>
 <div class="info-bar ib-muted">
 🦺 Intensification is also inherent safety: a microreactor holds grams, not tonnes, so a
 runaway can't become a catastrophe (see Process Safety).
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: BATCH DESIGN & SCHEDULING ─────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">📅</span>
+<span class="topic-name">Batch Process Design &amp; Scheduling</span>
+<span class="topic-badge">FLEXIBLE PLANTS</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Many Products, Shared Equipment</div>
+<div class="concept-title">When to run what, on which unit</div>
+<div class="concept-desc">
+Specialty, pharma and food plants run in batches, often making many products on shared
+equipment. Design shifts from steady sizing to <strong class="text-blue">scheduling</strong>
+and bottleneck management.
+</div>
+<div class="dw">
+<div class="dt">▸ KEY CONCEPTS</div>
+<table class="ref-table">
+<tr><th>Concept</th><th>Meaning</th></tr>
+<tr><td style="color: var(--cyan)">Cycle time</td><td>Time to complete one batch through all steps</td></tr>
+<tr><td style="color: var(--red)">Bottleneck</td><td>The slowest step sets throughput</td></tr>
+<tr><td style="color: var(--green)">Campaigning</td><td>Group same-product batches to cut changeovers</td></tr>
+<tr><td style="color: var(--amber)">Gantt chart</td><td>Visualize unit occupancy over time</td></tr>
+</table>
+<div class="dt">▸ BATCH vs CONTINUOUS</div>
+<pre class="code-block">Batch: flexible, low volume, high value, easy validation
+Continuous: efficient, high volume, steady quality
+Choice driven by volume, product variety &amp; changeover cost.</pre>
+</div>
+<div class="info-bar ib-muted">
+⏱️ Debottlenecking a batch plant is often just resequencing or adding parallel capacity at
+one step — cheap throughput gains without a full redesign.
 </div>
 </div>
 </div>
@@ -5826,6 +6081,39 @@ HEPA-filtered laminar flow · gowning · environmental monitoring</pre>
 <div class="info-bar ib-muted">
 🔬 Sterilization kinetics are first-order thermal death (see Biochemical) — the same Del
 factor governs autoclaving vials and media.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: REGULATORY LANDSCAPE ──────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">📜</span>
+<span class="topic-name">Regulatory Landscape — FDA &amp; ICH</span>
+<span class="topic-badge">COMPLIANCE</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">The Rules of the Game</div>
+<div class="concept-title">Who approves drugs, and by what standards</div>
+<div class="concept-desc">
+Pharmaceutical engineering operates inside a strict regulatory framework. Understanding it
+is as essential as the unit operations themselves.
+</div>
+<div class="dw">
+<div class="dt">▸ KEY BODIES &amp; GUIDELINES</div>
+<table class="ref-table">
+<tr><th>Body / guide</th><th>Role</th></tr>
+<tr><td style="color: var(--cyan)">FDA / EMA</td><td>Approve drugs; enforce GMP</td></tr>
+<tr><td style="color: var(--green)">ICH Q8–Q12</td><td>QbD, risk, quality systems, lifecycle</td></tr>
+<tr><td style="color: var(--amber)">cGMP (21 CFR 210/211)</td><td>Current Good Manufacturing Practice</td></tr>
+<tr><td style="color: var(--purple)">Data integrity (ALCOA)</td><td>Records: Attributable, Legible, Contemporaneous, Original, Accurate</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+📋 "If it isn't documented, it didn't happen" — regulatory culture makes traceable records
+and validated processes non-negotiable (ties to GMP &amp; QbD).
 </div>
 </div>
 </div>
