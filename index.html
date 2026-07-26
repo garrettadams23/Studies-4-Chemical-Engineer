@@ -1167,6 +1167,43 @@ velocity — the link to fluidized beds (Unit Ops).
 </div>
 </div>
 </div>
+<!-- ── TOPIC: COMPRESSORS & GAS MOVERS ──────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🌬️</span>
+<span class="topic-name">Compressors, Blowers &amp; Fans</span>
+<span class="topic-badge">GAS MOVERS</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Raising Gas Pressure</div>
+<div class="concept-title">From gentle fans to high-ratio compressors</div>
+<div class="concept-desc">
+Moving and compressing gas spans fans (small ΔP) to multistage compressors (high ratio).
+Because gas is compressible, the work involves the thermodynamic path.
+</div>
+<div class="dw">
+<div class="dt">▸ EQUIPMENT BY PRESSURE RISE</div>
+<table class="ref-table">
+<tr><th>Device</th><th>Pressure ratio</th></tr>
+<tr><td style="color: var(--cyan)">Fan</td><td>~1.0–1.1 (ventilation)</td></tr>
+<tr><td style="color: var(--green)">Blower</td><td>~1.1–2 (conveying, aeration)</td></tr>
+<tr><td style="color: var(--amber)">Compressor</td><td>&gt; 2, often multistage</td></tr>
+</table>
+<div class="dt">▸ COMPRESSION WORK</div>
+<pre class="code-block">Isentropic (ideal):  w = (kRT₁/(k−1))[(P₂/P₁)^((k−1)/k) − 1]
+
+Multistage with intercooling approaches isothermal → less work.
+Watch discharge temperature (limits per stage).</pre>
+</div>
+<div class="info-bar ib-muted">
+❄️ Intercooling between stages cuts compression work and keeps temperatures safe — the
+same reason multiple-effect and heat integration save energy.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-heat" data-domain="heat">
@@ -1482,6 +1519,41 @@ moisture attacks the pipe out of sight (see Materials &amp; Process Safety).
 </div>
 </div>
 </div>
+<!-- ── TOPIC: CONDENSERS & REBOILERS ────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">♨️</span>
+<span class="topic-name">Condensers &amp; Reboilers</span>
+<span class="topic-badge">COLUMN SERVICE</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">The Column's Heat Engines</div>
+<div class="concept-title">Boiling at the bottom, condensing at the top</div>
+<div class="concept-desc">
+A distillation column needs a reboiler to generate vapor and a condenser to make reflux —
+phase-change exchangers with big duties and their own design quirks.
+</div>
+<div class="dw">
+<div class="dt">▸ THE TWO SERVICES</div>
+<table class="ref-table">
+<tr><th>Unit</th><th>Job</th><th>Type</th></tr>
+<tr><td style="color: var(--red)">Reboiler</td><td>Boil bottoms → vapor up the column</td><td>Thermosiphon / kettle</td></tr>
+<tr><td style="color: var(--cyan)">Condenser</td><td>Condense overhead → reflux + product</td><td>Total / partial</td></tr>
+</table>
+<div class="dt">▸ DESIGN NOTES</div>
+<pre class="code-block">Reboiler duty ≈ set by reflux ratio &amp; latent heat.
+Kettle reboiler: pool boiling (watch critical heat flux).
+Partial condenser gives a vapor product; total gives all liquid.</pre>
+</div>
+<div class="info-bar ib-muted">
+🔥 Reboiler and condenser duties are the column's energy cost — cutting reflux (fewer
+stages traded for energy) directly shrinks both (see Distillation).
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-mass" data-domain="mass">
@@ -1790,6 +1862,43 @@ Fine grinding &amp; agitation speed steps 1 &amp; 3 (shorter diffusion path).</p
 <div class="info-bar ib-muted">
 ⛏️ Heap leaching recovers copper and gold from low-grade ore — then electrowinning
 (Electrochemical) finishes the metal.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: SUPERCRITICAL FLUID EXTRACTION ────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🫧</span>
+<span class="topic-name">Supercritical Fluid Extraction</span>
+<span class="topic-badge">GREEN SEPARATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Neither Gas nor Liquid</div>
+<div class="concept-title">Tunable solvents above the critical point</div>
+<div class="concept-desc">
+Above its critical point a fluid (often CO₂) has gas-like diffusivity and liquid-like
+density — a tunable, benign solvent for extraction, prized where solvent residue can't be
+tolerated.
+</div>
+<div class="dw">
+<div class="dt">▸ WHY SUPERCRITICAL CO₂</div>
+<table class="ref-table">
+<tr><th>Property</th><th>Benefit</th></tr>
+<tr><td style="color: var(--green)">Tunable solvency</td><td>Change density (P,T) → change what dissolves</td></tr>
+<tr><td style="color: var(--cyan)">Clean removal</td><td>Depressurize → CO₂ leaves as gas, no residue</td></tr>
+<tr><td style="color: var(--amber)">Benign</td><td>Non-toxic, non-flammable, mild T (protects product)</td></tr>
+</table>
+<div class="dt">▸ THE PROCESS</div>
+<pre class="code-block">Compress CO₂ above Tc(31°C)/Pc(74 bar) → extract solute
+→ drop pressure → solute precipitates, CO₂ recycled.
+Uses: decaf coffee, hops, flavors, pharmaceuticals.</pre>
+</div>
+<div class="info-bar ib-muted">
+☕ Decaffeinating coffee with supercritical CO₂ leaves no solvent residue — a flagship
+green-separations success.
 </div>
 </div>
 </div>
@@ -2142,6 +2251,42 @@ design targets whichever resistance dominates.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: POLYMERIZATION KINETICS ───────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧵</span>
+<span class="topic-name">Polymerization Kinetics</span>
+<span class="topic-badge">MACROMOLECULES</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Building Chains, Kinetically</div>
+<div class="concept-title">Chain vs step growth set the product</div>
+<div class="concept-desc">
+Polymer properties depend on chain length and its distribution — which are set by the
+polymerization kinetics and reactor conditions.
+</div>
+<div class="dw">
+<div class="dt">▸ TWO MECHANISMS</div>
+<table class="ref-table">
+<tr><th>Type</th><th>Behavior</th><th>Example</th></tr>
+<tr><td style="color: var(--cyan)">Chain growth</td><td>Initiate → propagate fast → terminate</td><td>Polyethylene, PVC (radical)</td></tr>
+<tr><td style="color: var(--green)">Step growth</td><td>Any two ends react; MW builds slowly</td><td>Nylon, PET (condensation)</td></tr>
+</table>
+<div class="dt">▸ KEY IDEAS</div>
+<pre class="code-block">Degree of polymerization sets molecular weight → strength/viscosity.
+Chain growth: high MW early, even at low conversion.
+Step growth: high MW only at very high conversion (need >99%).
+Exothermic → heat removal is critical (runaway risk).</pre>
+</div>
+<div class="info-bar ib-muted">
+🌡️ Polymerizations are strongly exothermic and get viscous (poor mixing/cooling) — a
+reaction-engineering and heat-transfer challenge (gel effect / runaway).
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-control" data-domain="control">
@@ -2489,6 +2634,43 @@ true zero reading — a built-in fault check.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: LOOP TUNING IN PRACTICE ───────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔧</span>
+<span class="topic-name">Loop Tuning in Practice</span>
+<span class="topic-badge">HANDS-ON</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Getting Loops to Behave</div>
+<div class="concept-title">From twitchy to sluggish — finding the sweet spot</div>
+<div class="concept-desc">
+Textbook tuning rules are a starting point; real loops need judgment. Recognizing the
+symptoms of bad tuning gets you to a stable, responsive loop fast.
+</div>
+<div class="dw">
+<div class="dt">▸ SYMPTOMS → FIX</div>
+<table class="ref-table">
+<tr><th>Symptom</th><th>Likely cause / fix</th></tr>
+<tr><td style="color: var(--red)">Oscillating</td><td>Gain too high → reduce Kc</td></tr>
+<tr><td style="color: var(--amber)">Slow to reach setpoint</td><td>Gain too low / integral too slow</td></tr>
+<tr><td style="color: var(--cyan)">Persistent offset</td><td>Add/strengthen integral action</td></tr>
+<tr><td style="color: var(--purple)">Noisy/jumpy output</td><td>Too much derivative → reduce τ_D or filter</td></tr>
+</table>
+<div class="dt">▸ METHODS</div>
+<pre class="code-block">Ziegler-Nichols (ultimate gain) · Cohen-Coon (dead time)
+IMC / lambda tuning (model-based, gentle &amp; robust)
+Start conservative; tighten until acceptable, keep margin.</pre>
+</div>
+<div class="info-bar ib-muted">
+🎛️ Most industrial loops are detuned on purpose for robustness — a slightly sluggish loop
+that never oscillates beats an aggressive one that rings when conditions change.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-bio" data-domain="bio">
@@ -2829,6 +3011,42 @@ Purity, glycosylation &amp; viral safety are paramount.</pre>
 <div class="info-bar ib-muted">
 🧬 mRNA vaccines pair molecular biology (the Central Dogma) with lipid-nanoparticle
 formulation — bioprocess + particle engineering delivering at global scale.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: TISSUE ENGINEERING ────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🫀</span>
+<span class="topic-name">Tissue Engineering &amp; Regenerative Medicine</span>
+<span class="topic-badge">FRONTIER</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Growing Living Tissue</div>
+<div class="concept-title">Cells + scaffold + signals + transport</div>
+<div class="concept-desc">
+Tissue engineering builds living replacements for damaged tissue. Getting nutrients and
+oxygen into growing 3-D tissue is a classic transport problem at the cell scale.
+</div>
+<div class="dw">
+<div class="dt">▸ THE THREE INGREDIENTS</div>
+<table class="ref-table">
+<tr><th>Element</th><th>Role</th></tr>
+<tr><td style="color: var(--cyan)">Cells</td><td>Build the tissue (often stem cells)</td></tr>
+<tr><td style="color: var(--green)">Scaffold</td><td>3-D template &amp; mechanical support</td></tr>
+<tr><td style="color: var(--amber)">Signals / bioreactor</td><td>Growth factors + controlled environment</td></tr>
+</table>
+<div class="dt">▸ THE TRANSPORT LIMIT</div>
+<pre class="code-block">O₂ diffuses only ~100–200 µm into tissue before cells starve.
+Thick tissue needs vascularization or perfusion bioreactors
+— a diffusion-with-consumption problem (Transport + Reaction).</pre>
+</div>
+<div class="info-bar ib-muted">
+🔬 The oxygen-diffusion limit is the same shell-balance physics as a catalyst pellet — a
+striking cross-over between Transport Phenomena and biology.
 </div>
 </div>
 </div>
@@ -4141,6 +4359,43 @@ mechanical-integrity essentials (see Process Safety, PSM).
 </div>
 </div>
 </div>
+<!-- ── TOPIC: POLYMER PROCESSING ────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧵</span>
+<span class="topic-name">Polymer Processing — Extrusion &amp; Molding</span>
+<span class="topic-badge">SHAPING</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">From Pellets to Parts</div>
+<div class="concept-title">Melt, shape, solidify</div>
+<div class="concept-desc">
+Making a polymer is only half the story — shaping it into film, fiber or a part is a
+heat-transfer and non-Newtonian-flow problem at the heart of the plastics industry.
+</div>
+<div class="dw">
+<div class="dt">▸ MAJOR PROCESSES</div>
+<table class="ref-table">
+<tr><th>Process</th><th>Makes</th></tr>
+<tr><td style="color: var(--cyan)">Extrusion</td><td>Continuous shapes: pipe, film, sheet, fiber</td></tr>
+<tr><td style="color: var(--green)">Injection molding</td><td>Complex discrete parts</td></tr>
+<tr><td style="color: var(--amber)">Blow molding</td><td>Hollow parts: bottles</td></tr>
+<tr><td style="color: var(--purple)">Thermoforming</td><td>Sheet → trays, packaging</td></tr>
+</table>
+<div class="dt">▸ THE PHYSICS</div>
+<pre class="code-block">Melt is shear-thinning (non-Newtonian) — viscosity drops under shear.
+Cooling rate sets crystallinity → part properties &amp; shrinkage.
+Residence time &amp; temperature must avoid thermal degradation.</pre>
+</div>
+<div class="info-bar ib-muted">
+🍯 Polymer melts are strongly shear-thinning (see Non-Newtonian Fluids) — the reason they
+flow through a die under pressure yet hold shape once out.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-chem" data-domain="chem">
@@ -4768,6 +5023,43 @@ Choice driven by volume, product variety &amp; changeover cost.</pre>
 <div class="info-bar ib-muted">
 ⏱️ Debottlenecking a batch plant is often just resequencing or adding parallel capacity at
 one step — cheap throughput gains without a full redesign.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: DEBOTTLENECKING & REVAMPS ─────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔓</span>
+<span class="topic-name">Debottlenecking &amp; Revamps</span>
+<span class="topic-badge">EXISTING PLANTS</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">More from What You Have</div>
+<div class="concept-title">Cheap capacity by relieving the limiting unit</div>
+<div class="concept-desc">
+Most engineering isn't greenfield — it's squeezing more from existing plants.
+Debottlenecking finds and relieves the single unit that caps throughput.
+</div>
+<div class="dw">
+<div class="dt">▸ THE DEBOTTLENECKING LOOP</div>
+<pre class="code-block">1. Find the bottleneck (the maxed-out unit)
+2. Relieve it (upgrade internals, add parallel capacity, better control)
+3. The bottleneck moves — find the next one
+4. Repeat until the economics stop justifying it.</pre>
+<div class="dt">▸ COMMON RELIEFS</div>
+<table class="ref-table">
+<tr><th>Bottleneck</th><th>Typical fix</th></tr>
+<tr><td style="color: var(--cyan)">Column flooding</td><td>Higher-capacity trays / packing</td></tr>
+<tr><td style="color: var(--red)">Exchanger duty</td><td>Add area, clean fouling, series/parallel</td></tr>
+<tr><td style="color: var(--amber)">Pump/compressor</td><td>Re-wheel, add stages, parallel unit</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+💰 Debottlenecking delivers the cheapest capacity in the industry — often a few percent
+more throughput for a fraction of new-build cost.
 </div>
 </div>
 </div>

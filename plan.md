@@ -30,7 +30,7 @@ chemical-engineering curriculum, the FE/PE exams, and day-to-day plant practice.
 
 **Success metrics:**
 
-- 🚧 30 domains live · **209 topics** · 9 calculators + steam table + quiz + flashcards (Phase 4 done) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
+- 🚧 30 domains live · **217 topics** · 9 calculators + steam table + quiz + flashcards (Phase 4 done) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
 - 🚧 Interactive tools — 9 calculators (incl. friction factor) + steam-table lookup + quiz + flashcards.
 - 🚧 Embedded reference data — steam table, Antoine coefficients, physical-property table live.
 - ✅ Self-test quiz engine — 18 questions, instant feedback, best score saved (localStorage).
@@ -991,3 +991,9 @@ Reaction Equilibrium & K (Thermo); Interpolation & Curve Fitting (Eng Math);
 Bioprocess quick reference (Formula Sheet); Worked bubble-point (Examples);
 Engineering Economics on the Exam (Exam); Solid Dosage Manufacturing (Pharma);
 Process Historians & Data Infrastructure (Data); Carbon Nanomaterials (Nano).
+
+### 2026-07-25 — Phase 3 depth pass M (209 → 217)
+Compressors/Blowers/Fans (Fluids); Condensers & Reboilers (Heat); Supercritical
+Fluid Extraction (Mass); Polymerization Kinetics (Kinetics); Loop Tuning in
+Practice (Control); Polymer Processing (Materials); Tissue Engineering
+(Biochemical); Debottlenecking & Revamps (Design).

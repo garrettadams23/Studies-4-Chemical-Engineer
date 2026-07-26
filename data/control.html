@@ -339,3 +339,41 @@ Calibration &amp; range set accuracy; drift needs periodic checks.</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: LOOP TUNING IN PRACTICE ───────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔧</span>
+    <span class="topic-name">Loop Tuning in Practice</span>
+    <span class="topic-badge">HANDS-ON</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Getting Loops to Behave</div>
+      <div class="concept-title">From twitchy to sluggish — finding the sweet spot</div>
+      <div class="concept-desc">
+        Textbook tuning rules are a starting point; real loops need judgment. Recognizing the
+        symptoms of bad tuning gets you to a stable, responsive loop fast.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ SYMPTOMS → FIX</div>
+        <table class="ref-table">
+          <tr><th>Symptom</th><th>Likely cause / fix</th></tr>
+          <tr><td style="color: var(--red)">Oscillating</td><td>Gain too high → reduce Kc</td></tr>
+          <tr><td style="color: var(--amber)">Slow to reach setpoint</td><td>Gain too low / integral too slow</td></tr>
+          <tr><td style="color: var(--cyan)">Persistent offset</td><td>Add/strengthen integral action</td></tr>
+          <tr><td style="color: var(--purple)">Noisy/jumpy output</td><td>Too much derivative → reduce τ_D or filter</td></tr>
+        </table>
+        <div class="dt">▸ METHODS</div>
+        <pre class="code-block">Ziegler-Nichols (ultimate gain) · Cohen-Coon (dead time)
+IMC / lambda tuning (model-based, gentle &amp; robust)
+Start conservative; tighten until acceptable, keep margin.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🎛️ Most industrial loops are detuned on purpose for robustness — a slightly sluggish loop
+        that never oscillates beats an aggressive one that rings when conditions change.
+      </div>
+    </div>
+  </div>
+</div>
