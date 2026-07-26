@@ -78,3 +78,44 @@ Python stack: pandas, scikit-learn, NumPy — plus domain physics
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: REAL-TIME OPTIMIZATION ────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🎯</span>
+    <span class="topic-name">Real-Time Optimization &amp; Advanced Control</span>
+    <span class="topic-badge">OPERATIONS</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Squeezing Out the Last Percent</div>
+      <div class="concept-title">Models that steer the plant to its economic optimum</div>
+      <div class="concept-desc">
+        Beyond keeping variables at setpoint, modern plants continuously push toward the most
+        profitable operating point using layered optimization and model-predictive control.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE AUTOMATION PYRAMID</div>
+        <pre class="code-block">Planning &amp; scheduling (days)
+  ↑
+Real-Time Optimization — RTO (hours): economic optimum
+  ↑
+Model Predictive Control — MPC (minutes): multivariable, constrained
+  ↑
+Regulatory (PID) control (seconds): hold setpoints</pre>
+        <div class="dt">▸ WHY MPC WINS</div>
+        <table class="ref-table">
+          <tr><th>Feature</th><th>Benefit</th></tr>
+          <tr><td style="color: var(--cyan)">Handles interactions</td><td>Coordinates many coupled loops</td></tr>
+          <tr><td style="color: var(--green)">Respects constraints</td><td>Pushes against limits safely</td></tr>
+          <tr><td style="color: var(--amber)">Uses a model</td><td>Predicts &amp; acts before deviations grow</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        💰 Operating closer to constraints is where the money is — MPC safely runs a plant nearer
+        its true limits than a human or plain PID could.
+      </div>
+    </div>
+  </div>
+</div>

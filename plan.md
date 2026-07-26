@@ -30,7 +30,7 @@ chemical-engineering curriculum, the FE/PE exams, and day-to-day plant practice.
 
 **Success metrics:**
 
-- 🚧 30 domains live · **127 topics** · 8 tools + quiz + flashcards (Phase 4 done; 5–6 advanced) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
+- 🚧 30 domains live · **131 topics** · 8 tools + quiz + flashcards (Phase 4 done; 5–6 advanced) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
 - 🚧 Interactive tools — 7 calculators + steam-table lookup + quiz + flashcards.
 - 🚧 Embedded reference data — steam table, Antoine coefficients, physical-property table live.
 - ✅ Self-test quiz engine — 18 questions, instant feedback, best score saved (localStorage).
@@ -925,3 +925,8 @@ This closes the §4 new-domain list. The reference now spans 30 domains.
 - **Depth topics**: Turbulence & Eddy Transport (Transport); Evaporation &
   Multiple-Effect (Unit Ops); Utilities, Steam Levels & Cooling Water (Design).
 - **Accessibility (Phase 6)**: a keyboard/screen-reader skip-to-content link.
+
+### 2026-07-25 — Depth pass on newer domains (127 → 131)
+Continuous Manufacturing & PAT (Pharma); Real-Time Optimization & MPC (Data
+Science); Catalytic Reforming & Octane (Petroleum); The Hydrogen Economy
+(Sustainability). Opened Testing branch + PR #4 for the test-URL deploy.
