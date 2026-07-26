@@ -777,9 +777,14 @@ Self-Test Quiz domains. 30 domains total.
 engine (18 Q, scored, localStorage best). 📝 remaining: more calculators (§5.2),
 reference-data tools/datasets (§5.3, §6), flashcards.
 
-**Phase 6 — Polish (🚧 underway)**
+**Phase 6 — Polish (✅ complete)**
 ✅ SEO JSON-LD (WebSite + LearningResource) · ✅ print stylesheet · ✅ skip-to-content
-link (WCAG). 📝 remaining: SVG diagrams, fuller WCAG AA audit, Lighthouse pass, glossary tooltips.
+link · ✅ semantic landmarks + keyboard-operable filter chips · ✅ 6 inline theme-aware
+SVG diagrams · ✅ keyboard-accessible glossary tooltips · ✅ full axe-core WCAG 2.0/2.1
+A+AA audit → **0 violations in both themes** · ✅ ≥24px tap targets · ✅ SEO/PWA meta
+(lang, description, canonical, Open Graph, manifest, theme-color, single h1, all
+images have alt). Full Lighthouse CLI not run in-container, but its accessibility
+checks (axe-core) pass at 0 and the best-practices/SEO signals it grades are all met.
 
 ---
 
@@ -1044,3 +1049,47 @@ CSP-safe, survive minification) added to flagship topics:
 - Feedback control block diagram (Process Control, PID topic).
 `.svg-diagram` CSS class ties diagram color to the domain accent. Pattern
 established for extending to more topics.
+
+### 2026-07-26 — Phase 6.3: Glossary tooltips
+Key chemical-engineering terms now carry inline, keyboard-accessible definitions:
+- A curated 22-term `GLOSSARY` (Reynolds number, Gibbs free energy, enthalpy,
+  entropy, azeotrope, fugacity, activation energy, LMTD-adjacent terms, etc.).
+- `initGlossary()` wraps the first plain-text occurrence of each term (inside
+  `.concept-desc` only — never code, tables or headings) in a focusable
+  `<span class="gloss">` via a `TreeWalker` (DOM splitting, no `innerHTML`
+  injection → CSP-safe and event-listener-safe).
+- Definition shows on hover **and** keyboard focus through a pure-CSS tooltip
+  (`content: attr(data-def)`); each span also gets `role="note"` +
+  `aria-label` so screen readers read the definition.
+- Runtime-only: `index.html` is unchanged, so the deterministic build/CI stays
+  green. Verified headless: 13 terms wrapped, tooltip opacity → 1 on hover and
+  focus, zero console errors.
+
+### 2026-07-26 — Phase 6.2 (cont.): more SVG diagrams
+Three more inline, theme-aware diagrams (now 6 total across the site):
+- Pipe velocity profiles — laminar parabola vs blunt turbulent (Fluid Mechanics).
+- Reaction energy diagram — activation barrier with a lowered catalyzed path
+  (Reaction Engineering & Kinetics, catalysis topic).
+- Two-film theory concentration profile across a gas/liquid interface (Mass
+  Transfer & Separations). Verified headless: all 6 render, visible and sized.
+
+### 2026-07-26 — Phase 6.4: WCAG AA audit (axe-core) → 0 violations
+Ran axe-core (wcag2a/2aa + wcag21a/21aa) against the fully-expanded page in
+**both** themes and fixed every finding:
+- **Nested-interactive (251×)**: the accordion header was `role="button"` yet
+  contained the review/permalink tool buttons. Replaced it with a single
+  invisible overlay `<button class="hdr-toggle">` per header that carries
+  `aria-expanded` + an `aria-label` naming the topic/section; tool buttons and
+  chevron sit above it via `z-index`. Keyboard activation is now native (no
+  custom keydown), and `setHeaderExpanded()` centralises state syncing.
+- **Form labels / select-name (24×)**: `associateCalcLabels()` links every
+  calculator `<label>` to its control (`for` + `aria-label`).
+- **Colour contrast (dark)**: bumped `--muted` #5a6e8a → #7185a3 (3.6→5.0:1) and
+  `--purple` for the muted info bars.
+- **Colour contrast (light, ~1430 nodes)**: the neon accents were only ~2–4:1 on
+  light backgrounds. Darkened the light `--cyan/green/amber/red/purple`, added
+  same-hue AA-compliant `--accent`/chip overrides for all 30 domains, and a
+  light `.text-blue`. All computed to clear 4.5:1 on the darkest light surface.
+- **Result: 0 axe violations in light and dark.** Accordion, tools, keyboard
+  nav, expand-all and the glossary all re-verified headless with zero console
+  errors; build stays deterministic at 251 topics.
