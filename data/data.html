@@ -119,3 +119,42 @@ Regulatory (PID) control (seconds): hold setpoints</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: DATA CLEANING & FEATURES ──────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧹</span>
+    <span class="topic-name">Data Cleaning &amp; Feature Engineering</span>
+    <span class="topic-badge">FOUNDATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">80% of the Work</div>
+      <div class="concept-title">Good models need good data first</div>
+      <div class="concept-desc">
+        Plant historian data is messy — noise, outliers, gaps, drift. Cleaning and engineering
+        features is where most of a data project's effort (and value) lives.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ COMMON DATA PROBLEMS</div>
+        <table class="ref-table">
+          <tr><th>Issue</th><th>Handling</th></tr>
+          <tr><td style="color: var(--red)">Outliers / spikes</td><td>Filter, robust stats, sanity limits</td></tr>
+          <tr><td style="color: var(--amber)">Missing values</td><td>Interpolate, forward-fill, or drop</td></tr>
+          <tr><td style="color: var(--cyan)">Time alignment</td><td>Resample sensors to a common clock; account for lag</td></tr>
+          <tr><td style="color: var(--green)">Steady-state ID</td><td>Model on steady data, exclude transients</td></tr>
+        </table>
+        <div class="dt">▸ FEATURE ENGINEERING</div>
+        <pre class="code-block">Derive physically meaningful features:
+  ratios, dimensionless groups, rolling averages, lags,
+  first principles (e.g. compute a driving force, not raw T's).
+Domain knowledge beats brute force.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🧠 Engineering a feature from first principles (a known dimensionless group) usually
+        outperforms letting a model rediscover physics from noisy raw signals.
+      </div>
+    </div>
+  </div>
+</div>
