@@ -301,3 +301,41 @@ Safety Instrumented System (SIS) is separate &amp; independent.</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: SENSORS & TRANSMITTERS ────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📡</span>
+    <span class="topic-name">Sensors &amp; Transmitters</span>
+    <span class="topic-badge">MEASUREMENT</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">You Can't Control What You Can't Measure</div>
+      <div class="concept-title">Turning a physical quantity into a signal</div>
+      <div class="concept-desc">
+        Every control loop starts with a measurement. Sensors convert temperature, pressure, flow
+        and level into signals a controller can act on.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ COMMON MEASUREMENTS</div>
+        <table class="ref-table">
+          <tr><th>Variable</th><th>Typical sensor</th></tr>
+          <tr><td style="color: var(--red)">Temperature</td><td>Thermocouple, RTD</td></tr>
+          <tr><td style="color: var(--cyan)">Pressure</td><td>Diaphragm / strain-gauge transmitter</td></tr>
+          <tr><td style="color: var(--green)">Flow</td><td>Orifice ΔP, Coriolis, magnetic, vortex</td></tr>
+          <tr><td style="color: var(--amber)">Level</td><td>DP cell, radar, ultrasonic</td></tr>
+        </table>
+        <div class="dt">▸ SIGNAL BASICS</div>
+        <pre class="code-block">Analog standard: 4–20 mA current loop (noise-immune, live-zero)
+Digital: fieldbus / HART overlay for diagnostics
+Calibration &amp; range set accuracy; drift needs periodic checks.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🔌 4–20 mA uses a "live zero" (4 mA = 0%) so a broken wire (0 mA) is distinguishable from a
+        true zero reading — a built-in fault check.
+      </div>
+    </div>
+  </div>
+</div>

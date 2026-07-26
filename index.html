@@ -2377,6 +2377,43 @@ failure shouldn't take out both control and protection (see Process Safety, SIL)
 </div>
 </div>
 </div>
+<!-- ── TOPIC: SENSORS & TRANSMITTERS ────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">📡</span>
+<span class="topic-name">Sensors &amp; Transmitters</span>
+<span class="topic-badge">MEASUREMENT</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">You Can't Control What You Can't Measure</div>
+<div class="concept-title">Turning a physical quantity into a signal</div>
+<div class="concept-desc">
+Every control loop starts with a measurement. Sensors convert temperature, pressure, flow
+and level into signals a controller can act on.
+</div>
+<div class="dw">
+<div class="dt">▸ COMMON MEASUREMENTS</div>
+<table class="ref-table">
+<tr><th>Variable</th><th>Typical sensor</th></tr>
+<tr><td style="color: var(--red)">Temperature</td><td>Thermocouple, RTD</td></tr>
+<tr><td style="color: var(--cyan)">Pressure</td><td>Diaphragm / strain-gauge transmitter</td></tr>
+<tr><td style="color: var(--green)">Flow</td><td>Orifice ΔP, Coriolis, magnetic, vortex</td></tr>
+<tr><td style="color: var(--amber)">Level</td><td>DP cell, radar, ultrasonic</td></tr>
+</table>
+<div class="dt">▸ SIGNAL BASICS</div>
+<pre class="code-block">Analog standard: 4–20 mA current loop (noise-immune, live-zero)
+Digital: fieldbus / HART overlay for diagnostics
+Calibration &amp; range set accuracy; drift needs periodic checks.</pre>
+</div>
+<div class="info-bar ib-muted">
+🔌 4–20 mA uses a "live zero" (4 mA = 0%) so a broken wire (0 mA) is distinguishable from a
+true zero reading — a built-in fault check.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-bio" data-domain="bio">
@@ -5287,6 +5324,44 @@ Valve: Q = Cv·sqrt(ΔP/SG)</pre>
 </div>
 </div>
 </div>
+<!-- ── TOPIC: SAFETY & ENVIRONMENTAL QUICK REFERENCE ────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🦺</span>
+<span class="topic-name">Safety &amp; Environmental — Quick Reference</span>
+<span class="topic-badge">REFERENCE</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">The Numbers That Keep People Safe</div>
+<div class="concept-title">Flammability, exposure &amp; risk at a glance</div>
+<div class="concept-desc">
+Key definitions and relations from Process Safety and Sustainability, collected for fast
+recall.
+</div>
+<div class="dw">
+<div class="dt">▸ FLAMMABILITY &amp; RELIEF</div>
+<pre class="code-block">Flammable range: LFL ─── [ burns ] ─── UFL
+Flash point: lowest T giving an ignitable vapor
+LOC: limiting oxygen concentration (inert below it)
+Choked relief: P*/P₀ = (2/(k+1))^(k/(k−1)) ≈ 0.528 (air)</pre>
+<div class="dt">▸ EXPOSURE &amp; RISK</div>
+<table class="ref-table">
+<tr><th>Term</th><th>Meaning</th></tr>
+<tr><td style="color: var(--green)">TLV / PEL</td><td>Safe 8-h average exposure</td></tr>
+<tr><td style="color: var(--red)">IDLH</td><td>Immediately dangerous to life &amp; health</td></tr>
+<tr><td style="color: var(--cyan)">Risk</td><td>= likelihood × consequence</td></tr>
+<tr><td style="color: var(--amber)">LOPA</td><td>Independent layers multiply risk reduction</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🔗 Full treatment lives in the Process Safety and Sustainability domains — this is the
+exam-day / field cheat sheet.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-tools" data-domain="tools">
@@ -5743,6 +5818,39 @@ operations — remove particulates, acid gases and NOₓ from flue gas.
 <div class="info-bar ib-muted">
 ♻️ Every control device is a unit operation you already know — cyclones (Particles),
 scrubbers (Mass Transfer), catalytic reduction (Reaction Eng) — aimed at the atmosphere.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: RENEWABLE ENERGY SYSTEMS ──────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">☀️</span>
+<span class="topic-name">Renewable Energy Systems</span>
+<span class="topic-badge">ENERGY TRANSITION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Engineering the Energy Shift</div>
+<div class="concept-title">Where chemical engineers add value</div>
+<div class="concept-desc">
+Renewables are increasingly a chemical-engineering domain — biofuels, energy storage,
+solar-grade materials and the systems that firm intermittent supply.
+</div>
+<div class="dw">
+<div class="dt">▸ CHEM-E'S ROLE ACROSS RENEWABLES</div>
+<table class="ref-table">
+<tr><th>Source</th><th>ChemE contribution</th></tr>
+<tr><td style="color: var(--green)">Biomass / biofuels</td><td>Fermentation, pyrolysis, transesterification</td></tr>
+<tr><td style="color: var(--cyan)">Solar</td><td>Silicon purification, PV materials, thin films</td></tr>
+<tr><td style="color: var(--amber)">Storage</td><td>Batteries, flow cells, hydrogen (see Electrochemical)</td></tr>
+<tr><td style="color: var(--purple)">Firming</td><td>Thermal storage, power-to-X, CCUS on backup gas</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🔗 Intermittency is the grand challenge — storage and power-to-X (H₂, e-fuels) are where
+chemical engineering turns variable power into dispatchable energy.
 </div>
 </div>
 </div>
@@ -6398,6 +6506,43 @@ equipment health instead of product quality.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: PHYSICS-INFORMED & HYBRID MODELS ──────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔬</span>
+<span class="topic-name">Physics-Informed &amp; Hybrid Models</span>
+<span class="topic-badge">BEST OF BOTH</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Data + First Principles</div>
+<div class="concept-title">Models that respect physics and learn from data</div>
+<div class="concept-desc">
+Pure data models extrapolate badly; pure first-principles models miss messy reality.
+<strong class="text-blue">Hybrid models</strong> combine them — the sweet spot for process
+engineering.
+</div>
+<div class="dw">
+<div class="dt">▸ MODELING SPECTRUM</div>
+<table class="ref-table">
+<tr><th>Approach</th><th>Trade-off</th></tr>
+<tr><td style="color: var(--cyan)">White-box (first principles)</td><td>Extrapolates well; needs full mechanism</td></tr>
+<tr><td style="color: var(--amber)">Black-box (ML)</td><td>Flexible; poor outside training data</td></tr>
+<tr><td style="color: var(--green)">Grey-box (hybrid)</td><td>Physics backbone + ML for the unknown parts</td></tr>
+</table>
+<div class="dt">▸ HOW HYBRIDS WORK</div>
+<pre class="code-block">Use known balances (mass/energy) as hard constraints,
+let ML learn only the uncertain terms (e.g. a reaction rate).
+→ physically consistent, data-efficient, trustworthy extrapolation.</pre>
+</div>
+<div class="info-bar ib-muted">
+🧠 Embedding conservation laws means the model can't violate a mass balance — exactly the
+guardrail a plant model needs.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-particles" data-domain="particles">
@@ -6554,6 +6699,41 @@ Attrition &amp; segregation degrade fragile or mixed powders.</pre>
 <div class="info-bar ib-muted">
 ⚠️ Moving powders generates static and dust — a dust-explosion and grounding concern
 (see Process Safety); inert-gas conveying is used for reactive solids.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: SCREENING & CLASSIFICATION ────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🪤</span>
+<span class="topic-name">Screening &amp; Classification</span>
+<span class="topic-badge">SIZE SORTING</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Sorting Particles by Size</div>
+<div class="concept-title">Screens do it mechanically; classifiers use a fluid</div>
+<div class="concept-desc">
+Many processes need a narrow size range. Screening separates by physical aperture;
+classification uses differences in settling velocity in a fluid.
+</div>
+<div class="dw">
+<div class="dt">▸ TWO METHODS</div>
+<table class="ref-table">
+<tr><th>Method</th><th>Basis</th><th>Range</th></tr>
+<tr><td style="color: var(--cyan)">Screening</td><td>Aperture size (mesh)</td><td>Coarse → medium</td></tr>
+<tr><td style="color: var(--green)">Classification</td><td>Settling velocity (size + density)</td><td>Fine particles</td></tr>
+</table>
+<div class="dt">▸ EFFICIENCY MEASURES</div>
+<pre class="code-block">Screen efficiency: fraction correctly sent to each stream
+Cut size (d50): the size split 50/50 between over &amp; under
+Sharpness: how cleanly the cut separates near d50.</pre>
+</div>
+<div class="info-bar ib-muted">
+🌀 A hydrocyclone classifies by centrifugal settling — the same Stokes physics as
+sedimentation (Unit Ops), just spun up.
 </div>
 </div>
 </div>
@@ -6740,6 +6920,38 @@ change — and divide by efficiency for the real motor size.
 </div>
 </div>
 </div>
+<!-- ── WORKED: COMBUSTION AIR & FLUE GAS ────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">📝</span>
+<span class="topic-name">Worked: Combustion Air &amp; Excess Air</span>
+<span class="topic-badge">SOLVED</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Step-by-Step</div>
+<div class="concept-title">Theoretical and excess air for methane</div>
+<div class="concept-desc">A worked combustion balance from the Material Balances domain.</div>
+<div class="dw">
+<div class="dt">▸ PROBLEM &amp; SOLUTION</div>
+<pre class="code-block">Q: Burn 1 mol CH₄ with 20% excess air. How much air is supplied?
+
+1. Reaction:  CH₄ + 2 O₂ → CO₂ + 2 H₂O
+2. Theoretical O₂ = 2 mol per mol CH₄
+3. Excess air → O₂ supplied = 2 × 1.20 = 2.4 mol
+4. Air is 21% O₂ / 79% N₂:
+   Air = 2.4 / 0.21 = 11.43 mol
+   N₂ carried = 2.4 × (79/21) = 9.03 mol
+5. Flue gas: 1 CO₂ + 2 H₂O + 0.4 O₂ (excess) + 9.03 N₂</pre>
+</div>
+<div class="info-bar ib-muted">
+🔥 Excess air guarantees complete combustion but the extra N₂ + O₂ leave hot up the stack
+— too much excess air wastes fuel (efficiency trade-off).
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-exam" data-domain="exam">
@@ -6898,6 +7110,40 @@ Math, statistics, engineering economics — mirrors this site's Formula Sheet.</
 <div class="info-bar ib-muted">
 📄 The site's Formula Sheet and Constants domains mirror the handbook's high-yield pages —
 drill them so the real thing feels familiar.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: PRACTICE-QUESTION WALKTHROUGH ─────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">✏️</span>
+<span class="topic-name">Practice-Question Walkthrough</span>
+<span class="topic-badge">PRACTICE</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Think Like the Exam</div>
+<div class="concept-title">A worked multiple-choice example</div>
+<div class="concept-desc">
+Exam questions reward a fast, unit-careful method. Here's the mindset on a typical item —
+and try the interactive Self-Test quiz for more.
+</div>
+<div class="dw">
+<div class="dt">▸ SAMPLE &amp; METHOD</div>
+<pre class="code-block">Q: Water (μ=0.001 Pa·s, ρ=1000) flows at 1 m/s in a 0.1 m pipe.
+   Is the flow laminar or turbulent?
+
+1. Re = ρvD/μ = 1000·1·0.1 / 0.001 = 100,000
+2. Re ≫ 4000 → TURBULENT.
+3. Decoy answers give 100 or 1e8 (unit slips) — check magnitude!
+
+Verify with the Reynolds calculator in the Tools domain.</pre>
+</div>
+<div class="info-bar ib-muted">
+🎯 Recognize the concept (regime → Reynolds), plug in with consistent units, and sanity-
+check the exponent. Most wrong options are unit-error decoys.
 </div>
 </div>
 </div>
@@ -7064,6 +7310,42 @@ Document assumptions &amp; basis — the next engineer (or an audit) needs them.
 <div class="info-bar ib-muted">
 🗣️ "Bottom line up front": a decision-maker should get your recommendation in the first
 sentence, with the analysis available to back it up.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: PROJECT MANAGEMENT & EXECUTION ────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">📊</span>
+<span class="topic-name">Project Management &amp; Execution</span>
+<span class="topic-badge">DELIVERY</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Getting It Built, On Time &amp; Budget</div>
+<div class="concept-title">Stage-gates, scope, schedule &amp; cost</div>
+<div class="concept-desc">
+Turning a design into an operating plant is a project. Engineers increasingly manage
+scope, schedule, cost and risk through a staged (front-end loading) process.
+</div>
+<div class="dw">
+<div class="dt">▸ STAGE-GATE (FEL) PROCESS</div>
+<pre class="code-block">FEL-1 Appraise → FEL-2 Select → FEL-3 Define → Execute → Operate
+Each gate: is it still worth funding? (kill bad projects early)
+Cost-estimate accuracy tightens at each stage.</pre>
+<div class="dt">▸ THE PROJECT TRIANGLE</div>
+<table class="ref-table">
+<tr><th>Constraint</th><th>Reality</th></tr>
+<tr><td style="color: var(--cyan)">Scope</td><td>What's delivered — guard against creep</td></tr>
+<tr><td style="color: var(--amber)">Schedule</td><td>Critical path sets the finish date</td></tr>
+<tr><td style="color: var(--green)">Cost</td><td>Budget + contingency for risk</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🎯 Most cost overruns trace to poor early definition — front-end loading (getting FEL
+right) is the cheapest insurance against a runaway project.
 </div>
 </div>
 </div>

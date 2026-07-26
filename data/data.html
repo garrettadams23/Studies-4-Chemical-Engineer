@@ -195,3 +195,41 @@ Domain knowledge beats brute force.</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: PHYSICS-INFORMED & HYBRID MODELS ──────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔬</span>
+    <span class="topic-name">Physics-Informed &amp; Hybrid Models</span>
+    <span class="topic-badge">BEST OF BOTH</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Data + First Principles</div>
+      <div class="concept-title">Models that respect physics and learn from data</div>
+      <div class="concept-desc">
+        Pure data models extrapolate badly; pure first-principles models miss messy reality.
+        <strong class="text-blue">Hybrid models</strong> combine them — the sweet spot for process
+        engineering.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ MODELING SPECTRUM</div>
+        <table class="ref-table">
+          <tr><th>Approach</th><th>Trade-off</th></tr>
+          <tr><td style="color: var(--cyan)">White-box (first principles)</td><td>Extrapolates well; needs full mechanism</td></tr>
+          <tr><td style="color: var(--amber)">Black-box (ML)</td><td>Flexible; poor outside training data</td></tr>
+          <tr><td style="color: var(--green)">Grey-box (hybrid)</td><td>Physics backbone + ML for the unknown parts</td></tr>
+        </table>
+        <div class="dt">▸ HOW HYBRIDS WORK</div>
+        <pre class="code-block">Use known balances (mass/energy) as hard constraints,
+let ML learn only the uncertain terms (e.g. a reaction rate).
+→ physically consistent, data-efficient, trustworthy extrapolation.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🧠 Embedding conservation laws means the model can't violate a mass balance — exactly the
+        guardrail a plant model needs.
+      </div>
+    </div>
+  </div>
+</div>

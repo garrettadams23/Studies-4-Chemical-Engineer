@@ -30,7 +30,7 @@ chemical-engineering curriculum, the FE/PE exams, and day-to-day plant practice.
 
 **Success metrics:**
 
-- 🚧 30 domains live · **187 topics** · 8 tools + quiz + flashcards (Phase 4 done; 5–6 advanced) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
+- 🚧 30 domains live · **195 topics** · 8 tools + quiz + flashcards (Phase 4 done; 5–6 advanced) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
 - 🚧 Interactive tools — 7 calculators + steam-table lookup + quiz + flashcards.
 - 🚧 Embedded reference data — steam table, Antoine coefficients, physical-property table live.
 - ✅ Self-test quiz engine — 18 questions, instant feedback, best score saved (localStorage).
@@ -972,3 +972,9 @@ Error & Uncertainty Propagation (Eng Math); Predictive Maintenance (Data);
 Nanomaterials in Energy & Medicine (Nano); HVAC Loads & Ventilation (Psychro);
 Cryogenics in Science & Medicine (Cryo); Worked pump-head example (Examples); The
 NCEES Reference Handbook (Exam Prep); Refinery Economics & Configuration (Petroleum).
+
+### 2026-07-25 — Phase 3 depth pass J (187 → 195)
+Physics-Informed & Hybrid Models (Data); Screening & Classification (Particles);
+Worked combustion air/flue-gas (Examples); Practice-Question Walkthrough (Exam);
+Safety & Environmental quick reference (Formula Sheet); Renewable Energy Systems
+(Sustainability); Project Management & Execution (Career); Sensors & Transmitters (Control).
