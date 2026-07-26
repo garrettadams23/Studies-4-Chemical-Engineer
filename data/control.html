@@ -225,3 +225,42 @@ Phase margin = 180° + phase at gain crossover (want > ~30–45°)</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: CONTROL VALVES & FINAL ELEMENTS ───────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🚰</span>
+    <span class="topic-name">Control Valves &amp; Final Control Elements</span>
+    <span class="topic-badge">HARDWARE</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Where Control Meets the Process</div>
+      <div class="concept-title">The valve that actually moves the flow</div>
+      <div class="concept-desc">
+        A controller's output is useless without a final element — usually a
+        <strong class="text-blue">control valve</strong>. Sizing and characteristic selection make
+        or break loop performance.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ VALVE SIZING (Cv)</div>
+        <pre class="code-block">Q = Cv · sqrt(ΔP / SG)      (liquid, turbulent)
+
+Cv = flow coefficient (valve capacity)
+Size for ~20–80% opening at normal flow (room to move both ways).</pre>
+        <div class="dt">▸ INHERENT CHARACTERISTICS</div>
+        <table class="ref-table">
+          <tr><th>Characteristic</th><th>Best when</th></tr>
+          <tr><td style="color: var(--cyan)">Linear</td><td>Most ΔP is across the valve</td></tr>
+          <tr><td style="color: var(--green)">Equal-percentage</td><td>Valve ΔP varies with flow (common)</td></tr>
+          <tr><td style="color: var(--amber)">Quick-opening</td><td>On/off, relief</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        ⚠️ Fail-safe action matters: choose air-to-open vs air-to-close so a signal or air loss
+        drives the valve to the safe position (e.g. fuel valve fails closed).
+      </div>
+    </div>
+  </div>
+</div>

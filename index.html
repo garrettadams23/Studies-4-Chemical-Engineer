@@ -747,6 +747,44 @@ case for ethanol-water.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: EXERGY & SECOND-LAW EFFICIENCY ────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">♻️</span>
+<span class="topic-name">Exergy &amp; Second-Law Efficiency</span>
+<span class="topic-badge">AVAILABLE WORK</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Not All Energy Is Equal</div>
+<div class="concept-title">Exergy measures the useful work potential</div>
+<div class="concept-desc">
+The first law counts energy; the second law counts its <em>quality</em>.
+<strong class="text-blue">Exergy</strong> is the maximum work extractable relative to the
+environment — and it is destroyed by every irreversibility.
+</div>
+<div class="dw">
+<div class="dt">▸ EXERGY &amp; ITS DESTRUCTION</div>
+<pre class="code-block">Flow exergy  ψ = (h − h₀) − T₀(s − s₀)     (relative to dead state 0)
+
+Exergy destroyed  = T₀ · S_generated  (Gouy–Stodola)
+Second-law efficiency  η_II = exergy out / exergy in</pre>
+<div class="dt">▸ WHERE EXERGY IS LOST</div>
+<table class="ref-table">
+<tr><th>Source</th><th>Why</th></tr>
+<tr><td style="color: var(--red)">Large ΔT heat transfer</td><td>Big temperature gap = big loss</td></tr>
+<tr><td style="color: var(--amber)">Throttling / mixing</td><td>Irreversible, entropy-generating</td></tr>
+<tr><td style="color: var(--cyan)">Combustion</td><td>Huge exergy loss converting fuel to heat</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🔥 Exergy analysis finds where useful work is really wasted — often heat exchange across
+big ΔT — pointing to the highest-value efficiency improvements (ties to pinch analysis).
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-fluids" data-domain="fluids">
@@ -2048,6 +2086,44 @@ feedback trim loop that mops up the residual.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: CONTROL VALVES & FINAL ELEMENTS ───────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🚰</span>
+<span class="topic-name">Control Valves &amp; Final Control Elements</span>
+<span class="topic-badge">HARDWARE</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Where Control Meets the Process</div>
+<div class="concept-title">The valve that actually moves the flow</div>
+<div class="concept-desc">
+A controller's output is useless without a final element — usually a
+<strong class="text-blue">control valve</strong>. Sizing and characteristic selection make
+or break loop performance.
+</div>
+<div class="dw">
+<div class="dt">▸ VALVE SIZING (Cv)</div>
+<pre class="code-block">Q = Cv · sqrt(ΔP / SG)      (liquid, turbulent)
+
+Cv = flow coefficient (valve capacity)
+Size for ~20–80% opening at normal flow (room to move both ways).</pre>
+<div class="dt">▸ INHERENT CHARACTERISTICS</div>
+<table class="ref-table">
+<tr><th>Characteristic</th><th>Best when</th></tr>
+<tr><td style="color: var(--cyan)">Linear</td><td>Most ΔP is across the valve</td></tr>
+<tr><td style="color: var(--green)">Equal-percentage</td><td>Valve ΔP varies with flow (common)</td></tr>
+<tr><td style="color: var(--amber)">Quick-opening</td><td>On/off, relief</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+⚠️ Fail-safe action matters: choose air-to-open vs air-to-close so a signal or air loss
+drives the valve to the safe position (e.g. fuel valve fails closed).
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-bio" data-domain="bio">
@@ -2558,6 +2634,40 @@ molecular ones by orders of magnitude. It's also the "closure problem" CFD must 
 </div>
 </div>
 </div>
+<!-- ── TOPIC: CONVECTIVE CORRELATIONS ───────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">📐</span>
+<span class="topic-name">Convective Transport Correlations</span>
+<span class="topic-badge">DESIGN TOOLS</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Turning Groups into Coefficients</div>
+<div class="concept-title">Nu = f(Re, Pr) and its mass-transfer twin</div>
+<div class="concept-desc">
+Design needs actual h and k_c values. Empirical correlations in dimensionless groups
+deliver them — the practical payoff of transport analysis.
+</div>
+<div class="dw">
+<div class="dt">▸ WORKHORSE CORRELATIONS</div>
+<pre class="code-block">Turbulent pipe (heat):  Nu = 0.023 Re^0.8 Pr^0.4   (Dittus-Boelter)
+Mass-transfer analog:   Sh = 0.023 Re^0.8 Sc^(1/3)
+Flat plate (laminar):   Nu = 0.332 Re^0.5 Pr^(1/3)
+
+Then  h = Nu·k/L  and  k_c = Sh·D/L.</pre>
+<div class="dt">▸ THE CHILTON–COLBURN ANALOGY</div>
+<pre class="code-block">j_H = j_D = f/2   (heat & mass transfer factors ≈ friction/2)
+→ measure one transport, infer the others.</pre>
+</div>
+<div class="info-bar ib-muted">
+🔗 The analogy is why a correlation measured for heat transfer can be reused for mass
+transfer just by swapping Pr → Sc.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-unitops" data-domain="unitops">
@@ -2756,6 +2866,43 @@ effect i can boil the liquid in effect i+1.</pre>
 <div class="info-bar ib-muted">
 ♻️ Multiple-effect evaporation is the same reuse-the-energy principle as pinch analysis —
 each effect's condensing vapor is the next one's heat source.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: CENTRIFUGATION & SEDIMENTATION ────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">💫</span>
+<span class="topic-name">Centrifugation &amp; Sedimentation</span>
+<span class="topic-badge">SEPARATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Separating by Density</div>
+<div class="concept-title">Let gravity — or many g's — do the work</div>
+<div class="concept-desc">
+Solids or immiscible liquids separate by density difference. Sedimentation uses gravity;
+centrifugation multiplies it thousands of times for fine or slow-settling particles.
+</div>
+<div class="dw">
+<div class="dt">▸ TERMINAL (STOKES) SETTLING</div>
+<pre class="code-block">v_t = d²(ρ_p − ρ_f) g / (18 μ)     (Stokes, small Re)
+
+Centrifuge: replace g with ω²r → separation factor = ω²r/g
+(often thousands — settles what gravity never could).</pre>
+<div class="dt">▸ EQUIPMENT</div>
+<table class="ref-table">
+<tr><th>Device</th><th>Use</th></tr>
+<tr><td style="color: var(--cyan)">Thickener / clarifier</td><td>Gravity settling, large flows</td></tr>
+<tr><td style="color: var(--green)">Disc-stack centrifuge</td><td>Fine solids, liquid-liquid</td></tr>
+<tr><td style="color: var(--amber)">Decanter</td><td>High-solids slurries</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🧫 Centrifugation is the first step of most bioseparations — spinning cells out of broth
+(see Downstream Processing in Biochemical).
 </div>
 </div>
 </div>
@@ -3009,6 +3156,44 @@ Top-event frequency built up from component failure rates.</pre>
 <div class="info-bar ib-muted">
 🔗 Redundancy (AND logic) multiplies small probabilities — two independent safeguards
 at 0.01 each give a 0.0001 combined failure, the mathematics behind layers of protection.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: REACTIVE CHEMICALS & RUNAWAY ──────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🌡️</span>
+<span class="topic-name">Reactive Chemicals &amp; Runaway Reactions</span>
+<span class="topic-badge">THERMAL HAZARD</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">When Chemistry Gets Away From You</div>
+<div class="concept-title">Self-accelerating heat release</div>
+<div class="concept-desc">
+A <strong class="text-red">runaway reaction</strong> occurs when heat generation outpaces
+removal: temperature rises, which speeds the reaction (Arrhenius), which generates more
+heat — a vicious loop. Calorimetry quantifies the danger.
+</div>
+<div class="dw">
+<div class="dt">▸ THE RUNAWAY LOOP</div>
+<pre class="code-block">↑T → ↑ rate (Arrhenius) → ↑ heat release → ↑T …
+
+Cooling (linear in T) eventually can't match generation
+(exponential in T) → thermal runaway, pressure rise, possible explosion.</pre>
+<div class="dt">▸ CALORIMETRY &amp; DEFENSES</div>
+<table class="ref-table">
+<tr><th>Tool / defense</th><th>Role</th></tr>
+<tr><td style="color: var(--cyan)">DSC / ARC</td><td>Measure onset T &amp; heat of reaction</td></tr>
+<tr><td style="color: var(--green)">Adiabatic ΔT_max</td><td>Worst-case temperature rise</td></tr>
+<tr><td style="color: var(--amber)">Defenses</td><td>Dumping, quench, emergency cooling, relief, inhibitor</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🚨 Ties to Reaction Engineering (multiple steady states): exothermic reactors must have
+enough cooling AND a stable operating point — Seveso and T2 Labs were runaways.
 </div>
 </div>
 </div>
@@ -3706,6 +3891,43 @@ water, so designs avoid low temperatures unless the separation truly needs them.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: PLANT LAYOUT & SAFETY IN DESIGN ───────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🗺️</span>
+<span class="topic-name">Plant Layout &amp; Safety in Design</span>
+<span class="topic-badge">DETAILED DESIGN</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Where Things Go, and How Far Apart</div>
+<div class="concept-title">Layout is a safety decision, not just a map</div>
+<div class="concept-desc">
+How equipment is arranged affects safety, operability, maintenance and cost. Spacing and
+siting bake hazard control into the plant before it's built.
+</div>
+<div class="dw">
+<div class="dt">▸ LAYOUT DRIVERS</div>
+<table class="ref-table">
+<tr><th>Driver</th><th>Implication</th></tr>
+<tr><td style="color: var(--red)">Hazard spacing</td><td>Separate ignition sources from flammables; fire breaks</td></tr>
+<tr><td style="color: var(--cyan)">Gravity &amp; flow</td><td>Elevation for drainage, NPSH, columns</td></tr>
+<tr><td style="color: var(--green)">Maintenance access</td><td>Crane/laydown space, tube-pull room</td></tr>
+<tr><td style="color: var(--amber)">Prevailing wind</td><td>Site control rooms &amp; flares upwind/away</td></tr>
+</table>
+<div class="dt">▸ INHERENTLY SAFER LAYOUT</div>
+<pre class="code-block">Minimize inventory near people · locate high-hazard units at the edge
+Provide escape routes &amp; blast-resistant control rooms
+Slope &amp; dike to contain spills (see Process Safety)</pre>
+</div>
+<div class="info-bar ib-muted">
+🦺 Layout is the cheapest safety layer — decisions made on the plot plan are nearly free
+early and enormously expensive to change after construction.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-math" data-domain="math">
@@ -4076,6 +4298,46 @@ Energy: Faraday's law → mass ∝ (current × time)/(nF)</pre>
 <div class="info-bar ib-muted">
 🌱 Electrolyzer types mirror fuel cells (PEM, alkaline, solid-oxide) — the same
 hardware run in reverse. CO₂ electroreduction extends the idea to fuels and chemicals.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: ELECTROPLATING & ELECTROWINNING ───────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🥇</span>
+<span class="topic-name">Electroplating &amp; Electrowinning</span>
+<span class="topic-badge">APPLIED</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Depositing Metal with Electrons</div>
+<div class="concept-title">Faraday's law sets how much metal you get</div>
+<div class="concept-desc">
+Passing current through a metal-salt solution deposits metal on the cathode — for coatings
+(<strong class="text-blue">electroplating</strong>) or to recover metal from solution
+(<strong class="text-green">electrowinning</strong>).
+</div>
+<div class="dw">
+<div class="dt">▸ FARADAY'S LAW OF ELECTROLYSIS</div>
+<pre class="code-block">m = (Q · M) / (n · F) = (I · t · M) / (n · F)
+
+m = mass deposited   Q = charge = I·t   M = molar mass
+n = electrons/ion    F = 96 485 C/mol
+
+Current efficiency < 100% (side reactions, e.g. H₂ evolution).</pre>
+<div class="dt">▸ USES</div>
+<table class="ref-table">
+<tr><th>Process</th><th>Purpose</th></tr>
+<tr><td style="color: var(--cyan)">Electroplating</td><td>Corrosion/wear coatings, decorative finish</td></tr>
+<tr><td style="color: var(--green)">Electrowinning</td><td>Recover Cu, Zn, Ni, Au from leach solutions</td></tr>
+<tr><td style="color: var(--amber)">Electrorefining</td><td>Purify metals to high grade</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+⚡ Same Faraday relation as the electrolysis topic — charge in, moles of metal out. It's
+how most of the world's copper is finished.
 </div>
 </div>
 </div>
@@ -5208,6 +5470,43 @@ Geldart groups (A/B/C/D) predict fluidization quality by size &amp; density.</pr
 <div class="info-bar ib-muted">
 🏭 A well-designed steep, smooth hopper gives mass flow; the wrong wall angle causes
 arching and erratic feed — a classic, costly design miss.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: GRANULATION & AGGLOMERATION ───────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧱</span>
+<span class="topic-name">Granulation &amp; Agglomeration</span>
+<span class="topic-badge">SIZE ENLARGEMENT</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Making Bigger Particles on Purpose</div>
+<div class="concept-title">Turning fine powders into flowable granules</div>
+<div class="concept-desc">
+Fine powders dust, don't flow and segregate. <strong class="text-blue">Granulation</strong>
+binds them into larger granules that flow, dose and compress well — vital in pharma and
+fertilizers.
+</div>
+<div class="dw">
+<div class="dt">▸ WHY ENLARGE SIZE</div>
+<table class="ref-table">
+<tr><th>Benefit</th><th>Reason</th></tr>
+<tr><td style="color: var(--green)">Better flow</td><td>Larger particles are less cohesive</td></tr>
+<tr><td style="color: var(--cyan)">Less dust</td><td>Safety &amp; yield (dust explosions!)</td></tr>
+<tr><td style="color: var(--amber)">Uniform blend</td><td>Prevents segregation of a mix</td></tr>
+</table>
+<div class="dt">▸ METHODS</div>
+<pre class="code-block">Wet granulation:  binder liquid + mixing → dry (fluid bed)
+Dry granulation:  roller compaction → mill to granules
+Spray drying:     atomize solution → dry droplets into particles</pre>
+</div>
+<div class="info-bar ib-muted">
+💊 Tablet manufacturing is granulation → compression; granule quality controls tablet
+hardness, dissolution and content uniformity (see Pharma/GMP).
 </div>
 </div>
 </div>

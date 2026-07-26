@@ -193,3 +193,38 @@ Total flux = molecular + turbulent (eddy) contribution.</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: CONVECTIVE CORRELATIONS ───────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📐</span>
+    <span class="topic-name">Convective Transport Correlations</span>
+    <span class="topic-badge">DESIGN TOOLS</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Turning Groups into Coefficients</div>
+      <div class="concept-title">Nu = f(Re, Pr) and its mass-transfer twin</div>
+      <div class="concept-desc">
+        Design needs actual h and k_c values. Empirical correlations in dimensionless groups
+        deliver them — the practical payoff of transport analysis.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ WORKHORSE CORRELATIONS</div>
+        <pre class="code-block">Turbulent pipe (heat):  Nu = 0.023 Re^0.8 Pr^0.4   (Dittus-Boelter)
+Mass-transfer analog:   Sh = 0.023 Re^0.8 Sc^(1/3)
+Flat plate (laminar):   Nu = 0.332 Re^0.5 Pr^(1/3)
+
+Then  h = Nu·k/L  and  k_c = Sh·D/L.</pre>
+        <div class="dt">▸ THE CHILTON–COLBURN ANALOGY</div>
+        <pre class="code-block">j_H = j_D = f/2   (heat & mass transfer factors ≈ friction/2)
+→ measure one transport, infer the others.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🔗 The analogy is why a correlation measured for heat transfer can be reused for mass
+        transfer just by swapping Pr → Sc.
+      </div>
+    </div>
+  </div>
+</div>

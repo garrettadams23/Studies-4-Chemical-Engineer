@@ -279,3 +279,42 @@ Liquid: f_i^L = x_i γ_i f_i^pure     (γ = activity coefficient)
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: EXERGY & SECOND-LAW EFFICIENCY ────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">♻️</span>
+    <span class="topic-name">Exergy &amp; Second-Law Efficiency</span>
+    <span class="topic-badge">AVAILABLE WORK</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Not All Energy Is Equal</div>
+      <div class="concept-title">Exergy measures the useful work potential</div>
+      <div class="concept-desc">
+        The first law counts energy; the second law counts its <em>quality</em>.
+        <strong class="text-blue">Exergy</strong> is the maximum work extractable relative to the
+        environment — and it is destroyed by every irreversibility.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ EXERGY &amp; ITS DESTRUCTION</div>
+        <pre class="code-block">Flow exergy  ψ = (h − h₀) − T₀(s − s₀)     (relative to dead state 0)
+
+Exergy destroyed  = T₀ · S_generated  (Gouy–Stodola)
+Second-law efficiency  η_II = exergy out / exergy in</pre>
+        <div class="dt">▸ WHERE EXERGY IS LOST</div>
+        <table class="ref-table">
+          <tr><th>Source</th><th>Why</th></tr>
+          <tr><td style="color: var(--red)">Large ΔT heat transfer</td><td>Big temperature gap = big loss</td></tr>
+          <tr><td style="color: var(--amber)">Throttling / mixing</td><td>Irreversible, entropy-generating</td></tr>
+          <tr><td style="color: var(--cyan)">Combustion</td><td>Huge exergy loss converting fuel to heat</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🔥 Exergy analysis finds where useful work is really wasted — often heat exchange across
+        big ΔT — pointing to the highest-value efficiency improvements (ties to pinch analysis).
+      </div>
+    </div>
+  </div>
+</div>
