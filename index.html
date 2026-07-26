@@ -1495,6 +1495,21 @@ methods size it: <strong class="text-blue">LMTD</strong> when outlet temps are k
 
 U = overall heat-transfer coefficient
 F = correction factor (1.0 for true counter-current)</pre>
+<div class="dt">▸ COUNTER-CURRENT TEMPERATURE PROFILE</div>
+<svg class="svg-diagram" viewBox="0 0 400 170" role="img" aria-label="Counter-current heat-exchanger temperature profile: the hot fluid cools from left to right, the cold fluid warms, and the terminal temperature differences delta-T-1 and delta-T-2 stay relatively uniform.">
+<line x1="40" y1="15" x2="40" y2="150" class="stroke-fg" stroke-width="1" />
+<line x1="40" y1="150" x2="382" y2="150" class="stroke-fg" stroke-width="1" />
+<line x1="40" y1="30" x2="360" y2="72" style="stroke: var(--red)" stroke-width="3" />
+<line x1="40" y1="92" x2="360" y2="120" style="stroke: var(--cyan)" stroke-width="3" />
+<line x1="40" y1="30" x2="40" y2="92" style="stroke: var(--muted)" stroke-width="1" stroke-dasharray="3 3" />
+<line x1="360" y1="72" x2="360" y2="120" style="stroke: var(--muted)" stroke-width="1" stroke-dasharray="3 3" />
+<text x="48" y="28" style="fill: var(--red)">hot fluid</text>
+<text x="300" y="114" style="fill: var(--cyan)">cold fluid</text>
+<text x="8" y="66" class="lbl-muted">ΔT₁</text>
+<text x="366" y="100" class="lbl-muted">ΔT₂</text>
+<text x="30" y="12" class="lbl-muted">T</text>
+<text x="300" y="165" class="lbl-muted">position →</text>
+</svg>
 <div class="dt">▸ FLOW ARRANGEMENTS</div>
 <table class="ref-table">
 <tr><th>Arrangement</th><th>Characteristic</th></tr>
@@ -2798,6 +2813,35 @@ three actions. It runs the overwhelming majority of industrial loops.
 <pre class="code-block">u(t) = Kc [ e + (1/τ_I) ∫e dt + τ_D de/dt ]
 
 e = setpoint − measured value</pre>
+<div class="dt">▸ THE FEEDBACK LOOP</div>
+<svg class="svg-diagram" viewBox="0 0 470 150" role="img" aria-label="Feedback control loop: the setpoint enters a summing junction, then the controller, valve and process act in series; the measured output is fed back through a sensor to the junction.">
+<defs>
+<marker id="fbarw" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+<path d="M0,0 L6,3 L0,6 Z" style="fill: var(--text)" />
+</marker>
+</defs>
+<text x="2" y="44" class="lbl-muted">SP</text>
+<line x1="22" y1="40" x2="46" y2="40" class="stroke-fg" stroke-width="1.5" marker-end="url(#fbarw)" />
+<circle cx="60" cy="40" r="11" fill="none" class="stroke-fg" stroke-width="1.5" />
+<text x="60" y="44" text-anchor="middle">Σ</text>
+<line x1="71" y1="40" x2="91" y2="40" class="stroke-fg" stroke-width="1.5" marker-end="url(#fbarw)" />
+<rect x="93" y="25" width="80" height="30" rx="4" fill="none" style="stroke: var(--accent, var(--cyan))" stroke-width="1.5" />
+<text x="133" y="44" text-anchor="middle">Controller</text>
+<line x1="173" y1="40" x2="194" y2="40" class="stroke-fg" stroke-width="1.5" marker-end="url(#fbarw)" />
+<rect x="196" y="25" width="56" height="30" rx="4" fill="none" style="stroke: var(--accent, var(--cyan))" stroke-width="1.5" />
+<text x="224" y="44" text-anchor="middle">Valve</text>
+<line x1="252" y1="40" x2="273" y2="40" class="stroke-fg" stroke-width="1.5" marker-end="url(#fbarw)" />
+<rect x="277" y="25" width="86" height="30" rx="4" fill="none" style="stroke: var(--accent, var(--cyan))" stroke-width="1.5" />
+<text x="320" y="44" text-anchor="middle">Process</text>
+<line x1="363" y1="40" x2="410" y2="40" class="stroke-fg" stroke-width="1.5" marker-end="url(#fbarw)" />
+<text x="416" y="44" class="lbl-muted">PV</text>
+<line x1="390" y1="40" x2="390" y2="110" class="stroke-fg" stroke-width="1.5" />
+<line x1="390" y1="110" x2="282" y2="110" class="stroke-fg" stroke-width="1.5" />
+<rect x="212" y="95" width="70" height="30" rx="4" fill="none" style="stroke: var(--green)" stroke-width="1.5" />
+<text x="247" y="114" text-anchor="middle">Sensor</text>
+<line x1="212" y1="110" x2="60" y2="110" class="stroke-fg" stroke-width="1.5" />
+<line x1="60" y1="110" x2="60" y2="52" class="stroke-fg" stroke-width="1.5" marker-end="url(#fbarw)" />
+</svg>
 <div class="dt">▸ WHAT EACH TERM DOES</div>
 <table class="ref-table">
 <tr><th>Term</th><th>Effect</th><th>Downside</th></tr>
@@ -3219,6 +3263,21 @@ fermentation, recombinant-protein production and biofuels. The
 <tr><td style="color: var(--amber)">Base pairing</td><td>A=T (2 H-bonds) · G≡C (3 H-bonds)</td></tr>
 <tr><td style="color: var(--purple)">Geometry</td><td>Antiparallel strands, ~10.5 bp per turn (Watson–Crick, 1953)</td></tr>
 </table>
+<div class="dt">▸ THE DOUBLE HELIX (schematic)</div>
+<svg class="svg-diagram" viewBox="0 0 460 120" role="img" aria-label="Schematic of the DNA double helix: two antiparallel sugar-phosphate backbones connected by base-pair rungs.">
+<line x1="30" y1="30" x2="30" y2="90" style="stroke: var(--amber)" stroke-width="4" />
+<line x1="90" y1="30" x2="90" y2="90" style="stroke: var(--green)" stroke-width="4" />
+<line x1="150" y1="30" x2="150" y2="90" style="stroke: var(--amber)" stroke-width="4" />
+<line x1="210" y1="30" x2="210" y2="90" style="stroke: var(--green)" stroke-width="4" />
+<line x1="270" y1="30" x2="270" y2="90" style="stroke: var(--amber)" stroke-width="4" />
+<line x1="330" y1="30" x2="330" y2="90" style="stroke: var(--green)" stroke-width="4" />
+<line x1="390" y1="30" x2="390" y2="90" style="stroke: var(--amber)" stroke-width="4" />
+<line x1="450" y1="30" x2="450" y2="90" style="stroke: var(--green)" stroke-width="4" />
+<polyline fill="none" style="stroke: var(--cyan)" stroke-width="3" stroke-linejoin="round" points="0,60 15,81 30,90 45,81 60,60 75,39 90,30 105,39 120,60 135,81 150,90 165,81 180,60 195,39 210,30 225,39 240,60 255,81 270,90 285,81 300,60 315,39 330,30 345,39 360,60 375,81 390,90 405,81 420,60 435,39 450,30" />
+<polyline fill="none" style="stroke: var(--purple)" stroke-width="3" stroke-linejoin="round" points="0,60 15,39 30,30 45,39 60,60 75,81 90,90 105,81 120,60 135,39 150,30 165,39 180,60 195,81 210,90 225,81 240,60 255,39 270,30 285,39 300,60 315,81 330,90 345,81 360,60 375,39 390,30 405,39 420,60 435,81 450,90" />
+<text x="2" y="112" class="lbl-muted">5′</text>
+<text x="440" y="16" class="lbl-muted">3′</text>
+</svg>
 <div class="dt">▸ THE CENTRAL DOGMA</div>
 <pre class="code-block">        replication
    DNA ───────────► DNA        (cell division)

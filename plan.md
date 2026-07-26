@@ -1035,3 +1035,12 @@ glossary tooltips) and the custom-domain step (user action in Netlify).
   `tabindex="0"`, Enter/Space activation, and `aria-pressed` state. Verified via headless keyboard nav.
 - Focus-visible outlines on chips, search, notepad and calculator inputs.
 - `@media (prefers-reduced-motion: reduce)` disables transitions/animations for motion-sensitive users.
+
+### 2026-07-25 — Phase 6.2: SVG diagrams (first set)
+Inline, theme-aware, offline SVG diagrams (styled with CSS vars via inline style,
+CSP-safe, survive minification) added to flagship topics:
+- DNA double helix (Biochemical) — two backbones + base-pair rungs.
+- Counter-current temperature profile (Heat Transfer, LMTD topic).
+- Feedback control block diagram (Process Control, PID topic).
+`.svg-diagram` CSS class ties diagram color to the domain accent. Pattern
+established for extending to more topics.

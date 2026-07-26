@@ -2540,3 +2540,16 @@ mark.sh {
     scroll-behavior: auto !important;
   }
 }
+
+/* ── SVG diagrams (inline, theme-aware, offline) ───────────────────────────── */
+.svg-diagram {
+  display: block;
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+  margin: 4px 0 16px;
+  color: var(--accent, var(--cyan));
+}
+.svg-diagram text { font-family: var(--mono); font-size: 11px; fill: var(--text); }
+.svg-diagram .lbl-muted { fill: var(--muted); }
+.svg-diagram .stroke-fg { stroke: var(--text); }
