@@ -413,3 +413,39 @@ to minimize loop interaction (pick pairings with RGA ≈ 1).</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: ALARM MANAGEMENT & HUMAN FACTORS ──────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔔</span>
+    <span class="topic-name">Alarm Management &amp; Human Factors</span>
+    <span class="topic-badge">OPERATIONS</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">The Human in the Loop</div>
+      <div class="concept-title">Too many alarms is as bad as none</div>
+      <div class="concept-desc">
+        Control systems alert operators to problems — but poorly designed alarms overwhelm them.
+        Good alarm management and human-factors design are safety-critical.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ ALARM PRINCIPLES (EEMUA / ISA-18.2)</div>
+        <table class="ref-table">
+          <tr><th>Principle</th><th>Meaning</th></tr>
+          <tr><td style="color: var(--red)">Every alarm needs a response</td><td>No "nuisance" or duplicate alarms</td></tr>
+          <tr><td style="color: var(--amber)">Prioritize</td><td>Operator must know what to do first</td></tr>
+          <tr><td style="color: var(--cyan)">Manage floods</td><td>An upset shouldn't trigger 100s of alarms</td></tr>
+        </table>
+        <div class="dt">▸ WHY IT MATTERS</div>
+        <pre class="code-block">Alarm floods contributed to major incidents (e.g. Texas City, Milford Haven).
+Design for the stressed operator, not the ideal one.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🚨 An overwhelmed operator can miss the one alarm that matters — alarm rationalization is a
+        genuine process-safety layer, not just a UI nicety.
+      </div>
+    </div>
+  </div>
+</div>

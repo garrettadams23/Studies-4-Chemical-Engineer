@@ -1383,6 +1383,41 @@ pound piping and separators; designers avoid the slug regime.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: CAVITATION & WATER HAMMER ─────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">💥</span>
+<span class="topic-name">Cavitation &amp; Water Hammer</span>
+<span class="topic-badge">TRANSIENTS</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">When Liquids Turn Violent</div>
+<div class="concept-title">Vapor collapse and pressure surges</div>
+<div class="concept-desc">
+Two liquid phenomena damage equipment: cavitation (vapor bubbles forming and collapsing)
+and water hammer (a pressure surge when flow is stopped suddenly).
+</div>
+<div class="dw">
+<div class="dt">▸ THE TWO PHENOMENA</div>
+<table class="ref-table">
+<tr><th>Effect</th><th>Cause</th><th>Damage</th></tr>
+<tr><td style="color: var(--red)">Cavitation</td><td>Local P drops below P_vapor → bubbles collapse</td><td>Pits pumps, valves, impellers</td></tr>
+<tr><td style="color: var(--amber)">Water hammer</td><td>Rapid valve closure → momentum shock</td><td>Bursts pipes, breaks supports</td></tr>
+</table>
+<div class="dt">▸ JOUKOWSKY SURGE</div>
+<pre class="code-block">Sudden stop pressure rise:  ΔP = ρ·a·Δv
+  a = pressure-wave speed (~1000+ m/s in water)
+→ even modest Δv gives a huge ΔP. Close valves slowly!</pre>
+</div>
+<div class="info-bar ib-muted">
+⚠️ Prevent cavitation with adequate NPSH (see Pumps); prevent water hammer with slow valve
+closure, surge tanks or air chambers.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-heat" data-domain="heat">
@@ -1767,6 +1802,44 @@ Thermal penetration depth ~ √(αt) — how far heat has reached.</pre>
 <div class="info-bar ib-muted">
 🔥 The √(αt) penetration depth tells you how deep a quench or a fire has heated a wall — a
 quick estimate before reaching for charts.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: HEAT PIPES & THERMOSIPHONS ────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🌡️</span>
+<span class="topic-name">Heat Pipes &amp; Thermosiphons</span>
+<span class="topic-badge">PASSIVE TRANSFER</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Moving Heat with Phase Change</div>
+<div class="concept-title">Enormous effective conductivity, no moving parts</div>
+<div class="concept-desc">
+A heat pipe evaporates a working fluid at the hot end and condenses it at the cold end,
+carrying latent heat passively — an effective conductivity thousands of times that of
+copper.
+</div>
+<div class="dw">
+<div class="dt">▸ THE CYCLE</div>
+<pre class="code-block">Hot end: fluid evaporates (absorbs latent heat)
+→ vapor flows to the cold end (tiny ΔP)
+→ condenses (releases heat)
+→ liquid returns via wick (capillary) or gravity (thermosiphon).</pre>
+<div class="dt">▸ WHERE USED</div>
+<table class="ref-table">
+<tr><th>Application</th><th>Why</th></tr>
+<tr><td style="color: var(--cyan)">Electronics cooling</td><td>Compact, passive, reliable</td></tr>
+<tr><td style="color: var(--green)">Heat recovery</td><td>Flue-gas / air-to-air exchangers</td></tr>
+<tr><td style="color: var(--amber)">Permafrost / solar</td><td>Passive seasonal heat transport</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+♨️ Latent heat + small vapor ΔP is why a thin heat pipe moves heat almost isothermally —
+the same phase-change leverage as reboilers and condensers.
 </div>
 </div>
 </div>
@@ -2614,6 +2687,43 @@ catalysis reappears for immobilized enzymes — one idea, two worlds.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: COMBUSTION & CHAIN REACTIONS ──────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔥</span>
+<span class="topic-name">Combustion &amp; Chain Reactions</span>
+<span class="topic-badge">FREE RADICALS</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Reactions That Feed Themselves</div>
+<div class="concept-title">Radicals, branching, and explosion</div>
+<div class="concept-desc">
+Combustion and many gas-phase reactions proceed by <strong class="text-blue">chain
+reactions</strong> — free radicals that propagate and can branch, accelerating the rate
+explosively.
+</div>
+<div class="dw">
+<div class="dt">▸ CHAIN-REACTION STEPS</div>
+<pre class="code-block">Initiation:  form radicals (e.g. bond breaks by heat)
+Propagation: radical + molecule → product + new radical
+Branching:   one radical → two (accelerates → explosion)
+Termination: radicals recombine (chain ends)</pre>
+<div class="dt">▸ EXPLOSION LIMITS</div>
+<table class="ref-table">
+<tr><th>Control</th><th>Effect</th></tr>
+<tr><td style="color: var(--red)">Chain branching</td><td>Radicals multiply → thermal + chain explosion</td></tr>
+<tr><td style="color: var(--green)">Wall termination</td><td>Radicals quench on surfaces (small vessels safer)</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🚨 Branching chains explain why some mixtures ignite explosively within specific pressure/
+temperature "explosion limits" — key to combustion and process safety.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-control" data-domain="control">
@@ -3029,6 +3139,41 @@ to minimize loop interaction (pick pairings with RGA ≈ 1).</pre>
 <div class="info-bar ib-muted">
 ❄️ The "snowball effect": a small feed change, amplified around a recycle, causes huge
 swings — fix a flow in the recycle loop to tame it.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: ALARM MANAGEMENT & HUMAN FACTORS ──────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔔</span>
+<span class="topic-name">Alarm Management &amp; Human Factors</span>
+<span class="topic-badge">OPERATIONS</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">The Human in the Loop</div>
+<div class="concept-title">Too many alarms is as bad as none</div>
+<div class="concept-desc">
+Control systems alert operators to problems — but poorly designed alarms overwhelm them.
+Good alarm management and human-factors design are safety-critical.
+</div>
+<div class="dw">
+<div class="dt">▸ ALARM PRINCIPLES (EEMUA / ISA-18.2)</div>
+<table class="ref-table">
+<tr><th>Principle</th><th>Meaning</th></tr>
+<tr><td style="color: var(--red)">Every alarm needs a response</td><td>No "nuisance" or duplicate alarms</td></tr>
+<tr><td style="color: var(--amber)">Prioritize</td><td>Operator must know what to do first</td></tr>
+<tr><td style="color: var(--cyan)">Manage floods</td><td>An upset shouldn't trigger 100s of alarms</td></tr>
+</table>
+<div class="dt">▸ WHY IT MATTERS</div>
+<pre class="code-block">Alarm floods contributed to major incidents (e.g. Texas City, Milford Haven).
+Design for the stressed operator, not the ideal one.</pre>
+</div>
+<div class="info-bar ib-muted">
+🚨 An overwhelmed operator can miss the one alarm that matters — alarm rationalization is a
+genuine process-safety layer, not just a UI nicety.
 </div>
 </div>
 </div>
@@ -3802,6 +3947,42 @@ becomes significant heat (ties to Non-Newtonian Fluids &amp; Polymer Processing)
 </div>
 </div>
 </div>
+<!-- ── TOPIC: NATURAL CONVECTION ────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🎈</span>
+<span class="topic-name">Natural Convection &amp; Buoyancy-Driven Flow</span>
+<span class="topic-badge">FREE CONVECTION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Flow Without a Pump</div>
+<div class="concept-title">Density differences do the moving</div>
+<div class="concept-desc">
+When fluid near a hot surface expands, becomes lighter and rises, buoyancy drives the flow
+with no pump or fan. Natural convection sets losses from vessels, electronics and buildings.
+</div>
+<div class="dw">
+<div class="dt">▸ THE GOVERNING GROUPS</div>
+<pre class="code-block">Grashof  Gr = gβΔT L³/ν²   (buoyancy / viscous)
+Rayleigh Ra = Gr·Pr        (drives the correlation)
+Nu = C·Ra^n   (n ≈ 1/4 laminar, 1/3 turbulent)</pre>
+<div class="dt">▸ FORCED vs FREE</div>
+<table class="ref-table">
+<tr><th>Compare</th><th>Regime</th></tr>
+<tr><td style="color: var(--cyan)">Gr/Re² ≪ 1</td><td>Forced convection dominates</td></tr>
+<tr><td style="color: var(--amber)">Gr/Re² ≈ 1</td><td>Mixed — both matter</td></tr>
+<tr><td style="color: var(--green)">Gr/Re² ≫ 1</td><td>Free convection dominates</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🔥 Natural-convection coefficients are small — which is exactly why still air is a good
+insulator and why fins are added to boost the low-h side (see Heat Transfer).
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-unitops" data-domain="unitops">
@@ -4183,6 +4364,42 @@ Higher cross-flow velocity reduces the polarization layer.</pre>
 <div class="info-bar ib-muted">
 💧 Concentration polarization (Mass Transfer) is the real flux limit in RO/UF — which is
 why cross-flow velocity and module design matter so much.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: SOLIDS MIXING & BLENDING ──────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🥣</span>
+<span class="topic-name">Solids Mixing &amp; Blending</span>
+<span class="topic-badge">POWDERS</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Uniform Powders Are Hard</div>
+<div class="concept-title">Mixing solids — and keeping them mixed</div>
+<div class="concept-desc">
+Unlike liquids, powders don't stay mixed — they segregate by size and density. Achieving
+and holding a uniform blend is critical for pharma tablets, food and catalysts.
+</div>
+<div class="dw">
+<div class="dt">▸ MIXING MECHANISMS</div>
+<table class="ref-table">
+<tr><th>Mechanism</th><th>Action</th></tr>
+<tr><td style="color: var(--cyan)">Convective</td><td>Bulk movement (ribbon, paddle)</td></tr>
+<tr><td style="color: var(--green)">Diffusive</td><td>Particle-scale rearrangement (tumbling)</td></tr>
+<tr><td style="color: var(--amber)">Shear</td><td>Slip planes break up agglomerates</td></tr>
+</table>
+<div class="dt">▸ THE SEGREGATION PROBLEM</div>
+<pre class="code-block">Vibration &amp; handling re-separate mixed powders by size/density.
+Fixes: similar particle sizes, granulation (bind them),
+minimize free-fall &amp; vibration downstream of the blender.</pre>
+</div>
+<div class="info-bar ib-muted">
+💊 Blend uniformity directly sets tablet dose consistency — segregation after mixing is a
+patient-safety failure mode (see Pharma &amp; Particle Technology).
 </div>
 </div>
 </div>
@@ -4624,6 +4841,44 @@ every credible scenario and size for the largest relief load (API 520/521).
 </div>
 </div>
 </div>
+<!-- ── TOPIC: DUST EXPLOSIONS ───────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">💨</span>
+<span class="topic-name">Combustible Dust &amp; Dust Explosions</span>
+<span class="topic-badge">HIDDEN HAZARD</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Ordinary Powders Can Explode</div>
+<div class="concept-title">Flour, sugar, metal and plastic dust</div>
+<div class="concept-desc">
+Many everyday solids — flour, sugar, coal, metals, plastics — form explosive clouds when
+finely divided and suspended in air. Dust explosions are a widely underestimated hazard.
+</div>
+<div class="dw">
+<div class="dt">▸ THE DUST-EXPLOSION PENTAGON</div>
+<pre class="code-block">Fire triangle (fuel + oxidizer + ignition)
+  PLUS: dispersion (cloud) + confinement (pressure builds)
+Remove any leg to prevent it.
+
+Secondary explosions (settled dust lofted by the first) are the killers.</pre>
+<div class="dt">▸ CONTROLS</div>
+<table class="ref-table">
+<tr><th>Control</th><th>Action</th></tr>
+<tr><td style="color: var(--green)">Housekeeping</td><td>No settled dust layers to loft</td></tr>
+<tr><td style="color: var(--cyan)">Inerting</td><td>Reduce oxygen below the limit</td></tr>
+<tr><td style="color: var(--amber)">Explosion venting / suppression</td><td>Relieve or quench the deflagration</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🚨 The deadly pattern is the secondary explosion: a small primary blast lofts settled dust,
+which then detonates plant-wide (e.g. Imperial Sugar, 2008). Housekeeping saves lives.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-materials" data-domain="materials">
@@ -5010,6 +5265,42 @@ repair or replace before a loss of containment (see Process Safety).
 </div>
 </div>
 </div>
+<!-- ── TOPIC: ADDITIVE MANUFACTURING ────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🖨️</span>
+<span class="topic-name">Additive Manufacturing &amp; Advanced Fabrication</span>
+<span class="topic-badge">MODERN</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Building Parts Layer by Layer</div>
+<div class="concept-title">3-D printing metal, polymer &amp; ceramic</div>
+<div class="concept-desc">
+Additive manufacturing builds parts layer by layer, enabling geometries impossible to
+machine — including process equipment like custom mixers, catalysts and heat exchangers.
+</div>
+<div class="dw">
+<div class="dt">▸ MAJOR TECHNOLOGIES</div>
+<table class="ref-table">
+<tr><th>Method</th><th>Material</th></tr>
+<tr><td style="color: var(--cyan)">FDM</td><td>Thermoplastic filament</td></tr>
+<tr><td style="color: var(--green)">SLA / DLP</td><td>Photopolymer resin (light-cured)</td></tr>
+<tr><td style="color: var(--amber)">SLS / DMLS</td><td>Powder bed — polymer / metal (laser-fused)</td></tr>
+</table>
+<div class="dt">▸ WHY IT MATTERS FOR CHEM-E</div>
+<pre class="code-block">Complex internal channels → intensified reactors &amp; exchangers
+Structured catalysts &amp; static mixers with optimized geometry
+On-demand spares → less downtime.</pre>
+</div>
+<div class="info-bar ib-muted">
+🎛️ Printed micro/milli-reactors and structured catalysts tie directly to Process
+Intensification — geometries that boost transport without extra equipment.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-chem" data-domain="chem">
@@ -5357,6 +5648,42 @@ More dissolved particles → bigger colligative effect.</pre>
 <div class="info-bar ib-muted">
 💧 Osmotic pressure sets the energy floor for reverse-osmosis desalination — you must beat
 Π to push pure water through the membrane (see Mass Transfer).
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: ANALYTICAL METHOD VALIDATION ──────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧾</span>
+<span class="topic-name">Analytical Method Validation &amp; QC</span>
+<span class="topic-badge">QUALITY</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Can You Trust the Number?</div>
+<div class="concept-title">Proving a measurement is fit for purpose</div>
+<div class="concept-desc">
+Process and product decisions rest on lab measurements. Method validation proves an
+analytical method is accurate, precise and reliable — essential in pharma, food and QC labs.
+</div>
+<div class="dw">
+<div class="dt">▸ VALIDATION PARAMETERS</div>
+<table class="ref-table">
+<tr><th>Parameter</th><th>Question</th></tr>
+<tr><td style="color: var(--green)">Accuracy</td><td>Close to the true value?</td></tr>
+<tr><td style="color: var(--cyan)">Precision</td><td>Repeatable (low scatter)?</td></tr>
+<tr><td style="color: var(--amber)">Linearity / range</td><td>Proportional over the working range?</td></tr>
+<tr><td style="color: var(--red)">LOD / LOQ</td><td>Smallest detectable / quantifiable amount?</td></tr>
+</table>
+<div class="dt">▸ CALIBRATION</div>
+<pre class="code-block">Calibration curve: signal vs known concentration (Beer's law, etc.)
+Check with standards &amp; blanks; monitor drift with control charts (SPC).</pre>
+</div>
+<div class="info-bar ib-muted">
+📏 Accuracy is closeness to truth; precision is repeatability — you can be precisely wrong.
+Both are validated before a method controls a process.
 </div>
 </div>
 </div>
@@ -5750,6 +6077,45 @@ processes and emerging tech.
 <div class="info-bar ib-muted">
 🌱 TEA + LCA together decide whether a green technology (e.g. green hydrogen, CCUS) is
 both profitable and genuinely low-carbon — the modern feasibility test.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: RELIABILITY & MAINTENANCE ─────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🛠️</span>
+<span class="topic-name">Reliability, Availability &amp; Maintenance (RAM)</span>
+<span class="topic-badge">OPERATIONS</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">A Plant That Runs Doesn't Just Get Built</div>
+<div class="concept-title">Designing for uptime, not just capacity</div>
+<div class="concept-desc">
+A beautifully designed plant that trips constantly makes no money. RAM engineering designs
+for uptime — sparing, redundancy and maintainability — as a core economic driver.
+</div>
+<div class="dw">
+<div class="dt">▸ KEY METRICS</div>
+<pre class="code-block">MTBF = mean time between failures (reliability)
+MTTR = mean time to repair (maintainability)
+Availability = MTBF / (MTBF + MTTR)
+
+Series units multiply (each cuts availability);
+redundancy (spares/parallel) restores it.</pre>
+<div class="dt">▸ DESIGN LEVERS</div>
+<table class="ref-table">
+<tr><th>Lever</th><th>Effect</th></tr>
+<tr><td style="color: var(--green)">Installed spare (N+1)</td><td>Keep running during maintenance</td></tr>
+<tr><td style="color: var(--cyan)">Maintainability</td><td>Access, isolation, quick tube-pull</td></tr>
+<tr><td style="color: var(--amber)">Predictive maintenance</td><td>Fix before failure (see Data domain)</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+💰 A 95% vs 99% availability difference is weeks of lost production a year — sparing a
+critical pump often pays back almost immediately.
 </div>
 </div>
 </div>

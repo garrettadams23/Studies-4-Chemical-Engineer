@@ -345,3 +345,40 @@ Uses pairwise D_ij; reduces to Fick for a dilute binary.</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: NATURAL CONVECTION ────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🎈</span>
+    <span class="topic-name">Natural Convection &amp; Buoyancy-Driven Flow</span>
+    <span class="topic-badge">FREE CONVECTION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Flow Without a Pump</div>
+      <div class="concept-title">Density differences do the moving</div>
+      <div class="concept-desc">
+        When fluid near a hot surface expands, becomes lighter and rises, buoyancy drives the flow
+        with no pump or fan. Natural convection sets losses from vessels, electronics and buildings.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE GOVERNING GROUPS</div>
+        <pre class="code-block">Grashof  Gr = gβΔT L³/ν²   (buoyancy / viscous)
+Rayleigh Ra = Gr·Pr        (drives the correlation)
+Nu = C·Ra^n   (n ≈ 1/4 laminar, 1/3 turbulent)</pre>
+        <div class="dt">▸ FORCED vs FREE</div>
+        <table class="ref-table">
+          <tr><th>Compare</th><th>Regime</th></tr>
+          <tr><td style="color: var(--cyan)">Gr/Re² ≪ 1</td><td>Forced convection dominates</td></tr>
+          <tr><td style="color: var(--amber)">Gr/Re² ≈ 1</td><td>Mixed — both matter</td></tr>
+          <tr><td style="color: var(--green)">Gr/Re² ≫ 1</td><td>Free convection dominates</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🔥 Natural-convection coefficients are small — which is exactly why still air is a good
+        insulator and why fins are added to boost the low-h side (see Heat Transfer).
+      </div>
+    </div>
+  </div>
+</div>

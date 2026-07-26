@@ -30,7 +30,7 @@ chemical-engineering curriculum, the FE/PE exams, and day-to-day plant practice.
 
 **Success metrics:**
 
-- 🚧 30 domains live · **241 topics** · 9 calculators + steam table + quiz + flashcards (Phase 4 done) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
+- ✅ 30 domains · **251 topics** (250+ target MET) · 9 calculators + steam table + quiz + flashcards · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
 - 🚧 Interactive tools — 9 calculators (incl. friction factor) + steam-table lookup + quiz + flashcards.
 - 🚧 Embedded reference data — steam table, Antoine coefficients, physical-property table live.
 - ✅ Self-test quiz engine — 18 questions, instant feedback, best score saved (localStorage).
@@ -1015,3 +1015,15 @@ Worked recycle/purge (Balances); Departure Functions (Thermo); Batch Distillatio
 Rayleigh (Mass); Cross-Flow Membrane Filtration (Unit Ops); Worked relief scenario
 (Safety); Solutions & Colligative Properties (Chemistry); Hydrogen & Sulfur
 Recovery (Petroleum); Worked adiabatic temperature rise (Examples).
+
+### 2026-07-25 — 🎯 250+ TOPIC TARGET REACHED (241 → 251)
+Batch Q closed the gap: Natural Convection (Transport); Heat Pipes & Thermosiphons
+(Heat); Cavitation & Water Hammer (Fluids); Combustion & Chain Reactions (Kinetics);
+Alarm Management & Human Factors (Control); Additive Manufacturing (Materials);
+Reliability & Maintenance / RAM (Design); Combustible Dust Explosions (Safety);
+Analytical Method Validation (Chemistry); Solids Mixing & Blending (Unit Ops).
+
+**Milestone: the plan's headline content target is met — 30 domains, 251 topics,
+9 calculators + steam table + quiz + flashcards, full deploy/PWA/CSP/SEO stack.**
+Remaining plan items are polish (Phase 6: SVG diagrams, fuller WCAG/Lighthouse,
+glossary tooltips) and the custom-domain step (user action in Netlify).
