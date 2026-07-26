@@ -2553,3 +2553,45 @@ mark.sh {
 .svg-diagram text { font-family: var(--mono); font-size: 11px; fill: var(--text); }
 .svg-diagram .lbl-muted { fill: var(--muted); }
 .svg-diagram .stroke-fg { stroke: var(--text); }
+
+/* ── Glossary tooltips (auto-wrapped key terms, keyboard-accessible) ────────── */
+.gloss {
+  border-bottom: 1px dotted var(--accent, var(--cyan));
+  cursor: help;
+  position: relative;
+  color: inherit;
+}
+.gloss::after {
+  content: attr(data-def);
+  position: absolute;
+  left: 0;
+  bottom: 130%;
+  z-index: 60;
+  width: max-content;
+  max-width: 280px;
+  padding: 8px 10px;
+  background: var(--bg3, #10141d);
+  color: var(--text);
+  border: 1px solid var(--accent, var(--border));
+  border-radius: 6px;
+  font-size: 12px;
+  line-height: 1.45;
+  font-family: var(--sans);
+  white-space: normal;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  opacity: 0;
+  transform: translateY(4px);
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.gloss:hover::after,
+.gloss:focus::after,
+.gloss:focus-visible::after {
+  opacity: 1;
+  transform: translateY(0);
+}
+.gloss:focus-visible {
+  outline: 2px solid var(--accent, var(--cyan));
+  outline-offset: 2px;
+  border-radius: 2px;
+}

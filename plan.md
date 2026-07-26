@@ -1044,3 +1044,18 @@ CSP-safe, survive minification) added to flagship topics:
 - Feedback control block diagram (Process Control, PID topic).
 `.svg-diagram` CSS class ties diagram color to the domain accent. Pattern
 established for extending to more topics.
+
+### 2026-07-26 — Phase 6.3: Glossary tooltips
+Key chemical-engineering terms now carry inline, keyboard-accessible definitions:
+- A curated 22-term `GLOSSARY` (Reynolds number, Gibbs free energy, enthalpy,
+  entropy, azeotrope, fugacity, activation energy, LMTD-adjacent terms, etc.).
+- `initGlossary()` wraps the first plain-text occurrence of each term (inside
+  `.concept-desc` only — never code, tables or headings) in a focusable
+  `<span class="gloss">` via a `TreeWalker` (DOM splitting, no `innerHTML`
+  injection → CSP-safe and event-listener-safe).
+- Definition shows on hover **and** keyboard focus through a pure-CSS tooltip
+  (`content: attr(data-def)`); each span also gets `role="note"` +
+  `aria-label` so screen readers read the definition.
+- Runtime-only: `index.html` is unchanged, so the deterministic build/CI stays
+  green. Verified headless: 13 terms wrapped, tooltip opacity → 1 on hover and
+  focus, zero console errors.

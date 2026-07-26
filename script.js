@@ -152,7 +152,77 @@ document.addEventListener("DOMContentLoaded", () => {
   initBackToTop();
   initCalculators();
   initQuiz();
+  initGlossary();
 });
+
+// ── GLOSSARY TOOLTIPS ────────────────────────────────────────────────────────
+// Curated chemical-engineering terms. The first plain-text occurrence of each
+// (inside concept descriptions only — never code/tables/headings) is wrapped in
+// a keyboard-focusable <span class="gloss"> whose definition shows on hover/focus
+// via a pure-CSS tooltip (CSP-safe: no inline handlers, no innerHTML injection).
+const GLOSSARY = {
+  "Reynolds number": "Dimensionless ratio of inertial to viscous forces (Re = ρvD/μ); Re < 2100 is laminar, > 4000 turbulent.",
+  "activation energy": "The minimum energy barrier reactants must overcome to react (Arrhenius Eₐ).",
+  "Gibbs free energy": "G = H − TS; a process is spontaneous at constant T and P when ΔG < 0.",
+  "vapor pressure": "The pressure of a vapor in equilibrium with its own liquid at a given temperature.",
+  "residence time": "Average time a fluid element spends in a reactor or vessel (τ = V/Q).",
+  "mass transfer": "Net movement of a species from high to low concentration, driven by a gradient.",
+  "steady state": "A condition where properties at each point stay constant in time (accumulation = 0).",
+  "heat flux": "Rate of heat transfer per unit area (W/m²).",
+  "enthalpy": "Heat content of a system at constant pressure (H = U + PV).",
+  "entropy": "A measure of energy dispersal / disorder (S); the second law says it never decreases for an isolated system.",
+  "azeotrope": "A mixture whose vapor and liquid share the same composition, so simple distillation cannot separate it further.",
+  "fugacity": "An 'effective pressure' that corrects for non-ideal behavior in phase and reaction equilibria.",
+  "stoichiometry": "The quantitative mole ratios between reactants and products in a balanced reaction.",
+  "catalyst": "A substance that speeds a reaction by lowering its activation energy without being consumed.",
+  "viscosity": "A fluid's resistance to shear or flow (μ).",
+  "laminar": "Smooth, orderly flow in parallel layers (low Reynolds number).",
+  "turbulent": "Chaotic, eddying flow with strong mixing (high Reynolds number).",
+  "adiabatic": "A process that exchanges no heat with its surroundings (Q = 0).",
+  "isothermal": "A process held at constant temperature.",
+  "distillation": "Separation of components by differences in volatility (boiling point).",
+  "reflux": "The portion of condensed overhead liquid returned to a column to sharpen a separation.",
+  "sublimation": "A direct solid-to-vapor phase change without passing through the liquid state."
+};
+
+function initGlossary() {
+  const descs = document.querySelectorAll(".concept-desc");
+  if (!descs.length) return;
+  // Longest phrases first so multi-word terms win over their sub-words.
+  const terms = Object.keys(GLOSSARY).sort((a, b) => b.length - a.length);
+  const remaining = new Set(terms); // wrap only the first global occurrence of each
+
+  for (const el of descs) {
+    if (!remaining.size) break;
+    for (const term of terms) {
+      if (!remaining.has(term)) continue;
+      const re = new RegExp("\\b" + term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&") + "\\b", "i");
+      const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, {
+        acceptNode(node) {
+          if (!node.nodeValue || !re.test(node.nodeValue)) return NodeFilter.FILTER_SKIP;
+          // Skip anything already inside a gloss/code/anchor.
+          if (node.parentElement.closest(".gloss, code, pre, a, .code-block")) return NodeFilter.FILTER_SKIP;
+          return NodeFilter.FILTER_ACCEPT;
+        }
+      });
+      const textNode = walker.nextNode();
+      if (!textNode) continue;
+      const m = re.exec(textNode.nodeValue);
+      if (!m) continue;
+      const after = textNode.splitText(m.index);
+      after.nodeValue = after.nodeValue.slice(m[0].length);
+      const span = document.createElement("span");
+      span.className = "gloss";
+      span.textContent = m[0];
+      span.setAttribute("data-def", GLOSSARY[term]);
+      span.setAttribute("tabindex", "0");
+      span.setAttribute("role", "note");
+      span.setAttribute("aria-label", m[0] + ": " + GLOSSARY[term]);
+      after.parentNode.insertBefore(span, after);
+      remaining.delete(term);
+    }
+  }
+}
 
 // ── SERVICE WORKER (offline PWA; https only — never over file://) ────────────
 if ("serviceWorker" in navigator && location.protocol.startsWith("http")) {
