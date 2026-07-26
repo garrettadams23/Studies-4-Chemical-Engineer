@@ -396,3 +396,41 @@ The Calculators domain's steam-table tool returns h_f, h_g, h_fg.</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: DEPARTURE FUNCTIONS ───────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📐</span>
+    <span class="topic-name">Departure Functions &amp; Residual Properties</span>
+    <span class="topic-badge">REAL FLUIDS</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Correcting Ideal to Real</div>
+      <div class="concept-title">How far real properties depart from ideal</div>
+      <div class="concept-desc">
+        Real enthalpy and entropy differ from ideal-gas values. A
+        <strong class="text-blue">departure (residual) function</strong> is that difference,
+        computed from an equation of state — the practical route to real-fluid ΔH and ΔS.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE IDEA</div>
+        <pre class="code-block">Real property = ideal-gas value + departure (residual)
+  H = H^ig + H^R      S = S^ig + S^R
+
+Compute the departure from an EOS (e.g. Peng-Robinson):
+  ideal part from Cp(T); departure from the P-V-T behavior.</pre>
+        <div class="dt">▸ THE THREE-STEP PATH</div>
+        <pre class="code-block">1. Real → ideal gas at state 1 (departure)
+2. Ideal-gas ΔH, ΔS from T change (easy, Cp)
+3. Ideal gas → real at state 2 (departure)
+State function ⇒ path-independent total.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🧩 This three-step construction (real→ideal→ideal→real) is how process simulators compute
+        every real-fluid enthalpy and entropy change.
+      </div>
+    </div>
+  </div>
+</div>
