@@ -154,3 +154,42 @@ Mixed integer → MILP/MINLP (equipment on/off decisions)</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: UTILITIES & STEAM SYSTEMS ─────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔧</span>
+    <span class="topic-name">Utilities, Steam Levels &amp; Cooling Water</span>
+    <span class="topic-badge">SITE SYSTEMS</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">The Plant's Support Systems</div>
+      <div class="concept-title">Heat and cooling delivered as utilities</div>
+      <div class="concept-desc">
+        Processes rarely make their own heating and cooling — a central utility system supplies
+        steam at several pressure levels, cooling water, refrigeration, power and inert gas.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ STEAM PRESSURE LEVELS</div>
+        <table class="ref-table">
+          <tr><th>Level</th><th>Typical use</th></tr>
+          <tr><td style="color: var(--red)">HP steam</td><td>Drives turbines; highest-temperature heating</td></tr>
+          <tr><td style="color: var(--amber)">MP steam</td><td>Reboilers, general process heating</td></tr>
+          <tr><td style="color: var(--cyan)">LP steam</td><td>Low-temperature heating, stripping, tracing</td></tr>
+        </table>
+        <div class="dt">▸ COOLING &amp; SELECTION</div>
+        <pre class="code-block">Cooling water   ~30 °C supply (cooling-tower limited)
+Chilled water   ~5–10 °C (refrigeration, energy-costly)
+Air cooling     when water is scarce
+
+Pick the cheapest utility that meets the ΔT the duty needs.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        💰 Utility choice is an economics decision — refrigeration is far pricier than cooling
+        water, so designs avoid low temperatures unless the separation truly needs them.
+      </div>
+    </div>
+  </div>
+</div>

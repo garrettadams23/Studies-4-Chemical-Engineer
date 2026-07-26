@@ -2302,6 +2302,7 @@ mark.sh {
   color: var(--muted);
 }
 .calc-field input,
+.calc-field textarea,
 .calc-field select {
   background: var(--bg3);
   border: 1px solid var(--border);
@@ -2393,3 +2394,123 @@ mark.sh {
 .domain-examples { --accent: #14b8a6; }
 .domain-exam     { --accent: #8b5cf6; }
 .domain-career   { --accent: #22d3ee; }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SELF-TEST QUIZ WIDGET
+   ═══════════════════════════════════════════════════════════════════════════ */
+.quiz { display: flex; flex-direction: column; gap: 14px; margin-top: 8px; }
+.quiz-meta {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--mono);
+  font-size: 11px;
+  color: var(--muted);
+  letter-spacing: 0.03em;
+}
+.quiz-q { font-size: 16px; font-weight: 600; line-height: 1.4; }
+.quiz-opts { display: flex; flex-direction: column; gap: 8px; }
+.quiz-opt {
+  text-align: left;
+  padding: 10px 14px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg3);
+  color: var(--text);
+  font-family: var(--sans);
+  font-size: 14px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+.quiz-opt:hover:not(:disabled) { border-color: var(--accent, var(--cyan)); }
+.quiz-opt:disabled { cursor: default; }
+.quiz-opt.correct { border-color: var(--green); background: rgba(0, 255, 153, 0.12); color: var(--green); }
+.quiz-opt.wrong { border-color: var(--red); background: rgba(255, 77, 109, 0.12); color: var(--red); }
+.quiz-exp {
+  font-size: 13px;
+  color: var(--muted);
+  border-left: 3px solid var(--accent, var(--cyan));
+  padding: 8px 12px;
+  background: var(--bg2);
+  border-radius: 6px;
+  line-height: 1.55;
+}
+.quiz-btn {
+  align-self: flex-start;
+  padding: 9px 18px;
+  border: 1px solid var(--accent, var(--cyan));
+  border-radius: 8px;
+  background: transparent;
+  color: var(--accent, var(--cyan));
+  font-family: var(--mono);
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.quiz-btn:hover { background: color-mix(in srgb, var(--accent, var(--cyan)) 12%, transparent); }
+.quiz-score { font-family: var(--mono); font-size: 20px; font-weight: 700; color: var(--accent, var(--cyan)); }
+
+/* ── Domain: Self-Test Quiz ────────────────────────────────────────────────── */
+.chip.c-quiz { color: #fbbf24; border-color: rgba(251, 191, 36, 0.3); }
+.chip.c-quiz.active, .chip.c-quiz:hover { background: rgba(251, 191, 36, 0.12); }
+.domain-quiz { --accent: #fbbf24; }
+
+.calc-field textarea { resize: vertical; min-height: 64px; font-family: var(--sans); }
+
+/* ── Final Phase-4 domains: Nanotech, Psychrometrics, Cryogenics ───────────── */
+.chip.c-nano    { color: #c026d3; border-color: rgba(192, 38, 211, 0.3); }
+.chip.c-nano.active,    .chip.c-nano:hover    { background: rgba(192, 38, 211, 0.12); }
+.chip.c-psychro { color: #3b82f6; border-color: rgba(59, 130, 246, 0.3); }
+.chip.c-psychro.active, .chip.c-psychro:hover { background: rgba(59, 130, 246, 0.12); }
+.chip.c-cryo    { color: #67e8f9; border-color: rgba(103, 232, 249, 0.3); }
+.chip.c-cryo.active,    .chip.c-cryo:hover    { background: rgba(103, 232, 249, 0.12); }
+
+.domain-nano    { --accent: #d946ef; }
+.domain-psychro { --accent: #3b82f6; }
+.domain-cryo    { --accent: #67e8f9; }
+
+/* ── Flashcards ────────────────────────────────────────────────────────────── */
+.flash { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
+.flash-card {
+  min-height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 22px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg2);
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 600;
+  line-height: 1.5;
+  transition: border-color 0.15s;
+}
+.flash-card:hover { border-color: var(--accent, var(--cyan)); }
+.flash-card.back {
+  border-left: 3px solid var(--accent, var(--cyan));
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  justify-content: flex-start;
+}
+.flash-controls { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+.flash-meta { font-family: var(--mono); font-size: 11px; color: var(--muted); margin-left: auto; }
+
+/* ── Accessibility: skip-to-content link (visible only on keyboard focus) ───── */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 200;
+  padding: 10px 16px;
+  background: var(--cyan);
+  color: #000;
+  font-family: var(--mono);
+  font-size: 13px;
+  border-radius: 0 0 8px 0;
+  text-decoration: none;
+}
+.skip-link:focus { left: 0; }

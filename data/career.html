@@ -69,3 +69,51 @@ Communication &gt; cleverness: an unexplained result is a useless one.</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: FEEDBACK / SUGGEST A TOPIC ────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📮</span>
+    <span class="topic-name">Send Feedback / Suggest a Topic</span>
+    <span class="topic-badge">CONTACT</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Help Improve This Reference</div>
+      <div class="concept-title">Spotted an error? Want a topic added?</div>
+      <div class="concept-desc">
+        This form is handled by Netlify Forms — no third-party scripts, no tracking. Submissions
+        appear in the site's Netlify dashboard. (Works on the deployed site; over a local file it
+        just renders.)
+      </div>
+      <form name="feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="calc">
+        <input type="hidden" name="form-name" value="feedback" />
+        <p hidden><label>Leave blank: <input name="bot-field" /></label></p>
+        <div class="calc-grid">
+          <div class="calc-field">
+            <label>Your email (optional)</label>
+            <input type="email" name="email" placeholder="you@example.com" />
+          </div>
+          <div class="calc-field">
+            <label>Type</label>
+            <select name="type">
+              <option>Correction / error</option>
+              <option>Suggest a topic</option>
+              <option>General feedback</option>
+            </select>
+          </div>
+        </div>
+        <div class="calc-field">
+          <label>Message</label>
+          <textarea name="message" rows="3" required placeholder="What should we fix or add?"></textarea>
+        </div>
+        <button type="submit" class="quiz-btn">Send feedback ▶</button>
+      </form>
+      <div class="info-bar ib-muted">
+        🔒 The honeypot field and Netlify's spam filtering keep the inbox clean without a CAPTCHA
+        or any external request.
+      </div>
+    </div>
+  </div>
+</div>

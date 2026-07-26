@@ -148,3 +148,105 @@
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: ANTOINE VAPOR PRESSURE ────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🫧</span>
+    <span class="topic-name">Antoine Vapor-Pressure Calculator</span>
+    <span class="topic-badge">LIVE TOOL</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Saturation Pressure</div>
+      <div class="concept-title">log₁₀P = A − B/(C + T)</div>
+      <div class="concept-desc">
+        Pick a compound and temperature (°C); the Antoine equation returns the saturation vapor
+        pressure. Built-in coefficients for common solvents (valid roughly 0–100 °C).
+      </div>
+      <div class="calc" id="calc-antoine">
+        <div class="calc-grid">
+          <div class="calc-field"><label>Compound</label><select id="an-comp"></select></div>
+          <div class="calc-field"><label>Temperature (°C)</label><input id="an-T" type="number" value="25" step="any" /></div>
+        </div>
+        <div class="calc-out">
+          <span class="calc-out-label">P<sub>sat</sub></span>
+          <span class="calc-out-val" id="an-out">—</span>
+        </div>
+      </div>
+      <div class="info-bar ib-muted">
+        🌡️ At 100 °C water reads ≈ 760 mmHg (1 atm) — its normal boiling point, a good sanity
+        check. Feeds Raoult's law in the Thermodynamics domain.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: pH / BUFFER ───────────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧪</span>
+    <span class="topic-name">Buffer pH Calculator</span>
+    <span class="topic-badge">LIVE TOOL</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Henderson–Hasselbalch</div>
+      <div class="concept-title">pH = pKa + log([A⁻]/[HA])</div>
+      <div class="concept-desc">
+        Enter the acid's pKa and the concentrations of conjugate base [A⁻] and weak acid [HA] to
+        get the buffer pH. Essential for fermentation and bioprocessing.
+      </div>
+      <div class="calc" id="calc-ph">
+        <div class="calc-grid">
+          <div class="calc-field"><label>pKa</label><input id="ph-pka" type="number" value="4.76" step="any" /></div>
+          <div class="calc-field"><label>[A⁻] (base)</label><input id="ph-a" type="number" value="0.1" step="any" /></div>
+          <div class="calc-field"><label>[HA] (acid)</label><input id="ph-ha" type="number" value="0.1" step="any" /></div>
+        </div>
+        <div class="calc-out">
+          <span class="calc-out-label">pH</span>
+          <span class="calc-out-val" id="ph-out">—</span>
+        </div>
+      </div>
+      <div class="info-bar ib-muted">
+        ⚗️ Equal [A⁻] and [HA] → pH = pKa (defaults use acetic acid, pKa 4.76 → pH 4.76), the
+        point of maximum buffering capacity.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: STEAM TABLE ───────────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">♨️</span>
+    <span class="topic-name">Saturated Steam Table Lookup</span>
+    <span class="topic-badge">LIVE TOOL</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Embedded Dataset</div>
+      <div class="concept-title">Saturation pressure &amp; enthalpies by temperature</div>
+      <div class="concept-desc">
+        Enter a temperature (0–250 °C); the tool interpolates an embedded saturated-water table
+        for saturation pressure and the liquid/vapor enthalpies. No lookup by hand.
+      </div>
+      <div class="calc" id="calc-steam">
+        <div class="calc-grid">
+          <div class="calc-field"><label>Temperature (°C)</label><input id="st-T" type="number" value="100" step="any" /></div>
+        </div>
+        <div class="calc-out">
+          <span class="calc-out-label">Saturated</span>
+          <span class="calc-out-val" id="st-out" style="font-size: 14px">—</span>
+        </div>
+      </div>
+      <div class="info-bar ib-muted">
+        🔥 At 100 °C: P_sat ≈ 101.35 kPa and h_fg ≈ 2257 kJ/kg — the latent heat that drives
+        evaporation and distillation reboilers.
+      </div>
+    </div>
+  </div>
+</div>

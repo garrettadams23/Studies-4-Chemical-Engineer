@@ -1,0 +1,76 @@
+<!-- ── TOPIC: THE PSYCHROMETRIC CHART ───────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">💨</span>
+    <span class="topic-name">The Psychrometric Chart</span>
+    <span class="topic-badge">FOUNDATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Air + Water in One Diagram</div>
+      <div class="concept-title">Every drying, cooling &amp; HVAC process lives here</div>
+      <div class="concept-desc">
+        The psychrometric chart plots the state of moist air. Reading it turns humidity balances
+        (from the Material Balances domain) into quick graphical answers.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ CHART AXES &amp; LINES</div>
+        <table class="ref-table">
+          <tr><th>Property</th><th>On the chart</th></tr>
+          <tr><td style="color: var(--cyan)">Dry-bulb T</td><td>Horizontal axis</td></tr>
+          <tr><td style="color: var(--green)">Humidity ratio</td><td>Vertical axis</td></tr>
+          <tr><td style="color: var(--amber)">Relative humidity</td><td>Curved lines (100% = saturation)</td></tr>
+          <tr><td style="color: var(--purple)">Wet-bulb / enthalpy</td><td>Diagonal lines</td></tr>
+        </table>
+        <div class="dt">▸ PROCESSES AS PATHS</div>
+        <pre class="code-block">Heating:        move right (constant humidity ratio)
+Cooling+dehumid: down-left, following saturation then along it
+Adiabatic sat:  along a constant wet-bulb line (evaporative cooling)</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🌡️ Evaporative ("swamp") coolers ride a constant wet-bulb line — they cool by evaporating
+        water, adding humidity as the temperature drops.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: COOLING TOWERS & AIR CONDITIONING ─────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🏭</span>
+    <span class="topic-name">Cooling Towers &amp; Air Conditioning</span>
+    <span class="topic-badge">APPLIED</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Rejecting Heat with Air &amp; Water</div>
+      <div class="concept-title">Simultaneous heat and mass transfer</div>
+      <div class="concept-desc">
+        Cooling towers and air conditioners are simultaneous heat-and-mass-transfer devices —
+        combining the Heat Transfer and Mass Transfer domains in one unit.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ COOLING-TOWER LIMITS</div>
+        <pre class="code-block">Water is cooled by evaporation into air.
+Theoretical limit = the air's wet-bulb temperature.
+
+Approach = T_water,out − T_wet-bulb   (smaller = bigger tower)
+Range    = T_water,in − T_water,out</pre>
+        <div class="dt">▸ KEY IDEAS</div>
+        <table class="ref-table">
+          <tr><th>Term</th><th>Meaning</th></tr>
+          <tr><td style="color: var(--cyan)">Makeup water</td><td>Replaces evaporation + drift + blowdown</td></tr>
+          <tr><td style="color: var(--amber)">Blowdown</td><td>Purge to limit dissolved-solids buildup</td></tr>
+          <tr><td style="color: var(--green)">Latent load</td><td>Dehumidification — the big AC energy cost</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        💧 A cooling tower is a purge problem too — evaporation concentrates salts, so blowdown
+        controls cycles of concentration (echoing recycle/purge in Material Balances).
+      </div>
+    </div>
+  </div>
+</div>

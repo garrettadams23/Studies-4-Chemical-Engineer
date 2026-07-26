@@ -31,6 +31,30 @@ name="twitter:description"
 content="Interactive, offline-first study reference spanning the entire chemical-engineering curriculum and the FE/PE exams."
 />
 <meta name="twitter:image" content="https://garrettstudies4chemicalengineer.netlify.app/Img/Studying-Tips.png" />
+<!-- Structured data (JSON-LD is a data block, not executed script — CSP-safe) -->
+<script type="application/ld+json">
+{
+"@context": "https://schema.org",
+"@graph": [
+{
+"@type": "WebSite",
+"name": "Chemical Engineering Reference",
+"url": "https://garrettstudies4chemicalengineer.netlify.app/",
+"description": "A free, offline-first, interactive chemical-engineering reference spanning the curriculum and the FE/PE exams.",
+"inLanguage": "en"
+},
+{
+"@type": "LearningResource",
+"name": "Chemical Engineering Reference — 2026 Edition",
+"url": "https://garrettstudies4chemicalengineer.netlify.app/",
+"learningResourceType": "Reference, interactive study guide, self-test quiz, calculators",
+"educationalLevel": "Undergraduate to professional (FE/PE)",
+"about": ["Chemical Engineering", "Thermodynamics", "Fluid Mechanics", "Heat Transfer", "Mass Transfer", "Reaction Engineering", "Process Control", "Biochemical Engineering", "Process Safety"],
+"isAccessibleForFree": true
+}
+]
+}
+</script>
 <!-- Self-hosted fonts (works offline / over file://; no third-party calls) -->
 <link rel="stylesheet" href="Img/fonts.css" />
 <link rel="stylesheet" href="style.css" />
@@ -40,6 +64,7 @@ content="Interactive, offline-first study reference spanning the entire chemical
 <link rel="manifest" href="Img/favicon/site.webmanifest" />
 </head>
 <body>
+<a href="#domain-container" class="skip-link">Skip to content</a>
 <header>
 <div class="header-inner">
 <div class="header-content">
@@ -124,6 +149,10 @@ alt="Optimized Study Routine: 4 Pillars for Success infographic."
 <div class="chip c-examples"       data-domain="examples">📝 WORKED EXAMPLES</div>
 <div class="chip c-exam"           data-domain="exam">🎓 EXAM PREP</div>
 <div class="chip c-career"         data-domain="career">💼 CAREER</div>
+<div class="chip c-nano"           data-domain="nano">🔬 NANOTECH</div>
+<div class="chip c-psychro"        data-domain="psychro">💨 PSYCHROMETRICS</div>
+<div class="chip c-cryo"           data-domain="cryo">❄️ CRYOGENICS</div>
+<div class="chip c-quiz"           data-domain="quiz">🧠 SELF-TEST</div>
 </div>
 </div>
 <!-- SEARCH BAR ──────────────────────────────────────────────────────── -->
@@ -2306,6 +2335,45 @@ structural reason the heat/mass-transfer analogies work.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: TURBULENCE & EDDY TRANSPORT ───────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🌪️</span>
+<span class="topic-name">Turbulence &amp; Eddy Transport</span>
+<span class="topic-badge">ADVANCED</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Chaos That Mixes</div>
+<div class="concept-title">Eddies transport far faster than molecules</div>
+<div class="concept-desc">
+Above the critical Reynolds number, flow becomes turbulent — chaotic eddies dramatically
+enhance momentum, heat and mass transport beyond molecular diffusion.
+</div>
+<div class="dw">
+<div class="dt">▸ REYNOLDS AVERAGING</div>
+<pre class="code-block">Split each quantity into mean + fluctuation:  v = v̄ + v'
+
+Averaging the Navier-Stokes eqns leaves a new term — the
+Reynolds stress −ρ⟨v'v'⟩ — modeled with an eddy viscosity.
+
+Total flux = molecular + turbulent (eddy) contribution.</pre>
+<div class="dt">▸ EDDY DIFFUSIVITIES</div>
+<table class="ref-table">
+<tr><th>Transport</th><th>Effective diffusivity</th></tr>
+<tr><td style="color: var(--cyan)">Momentum</td><td>ν + ε_M (eddy)</td></tr>
+<tr><td style="color: var(--red)">Heat</td><td>α + ε_H</td></tr>
+<tr><td style="color: var(--green)">Mass</td><td>D + ε_D</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🌀 Turbulence is why stirring speeds mixing so much — eddy diffusivities can dwarf
+molecular ones by orders of magnitude. It's also the "closure problem" CFD must model.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-unitops" data-domain="unitops">
@@ -2465,6 +2533,45 @@ Laminar (Re < 10):    N_p ∝ 1/Re     → P ∝ μ N² D³</pre>
 <div class="info-bar ib-muted">
 📐 You can't hold everything constant on scale-up — equal power/volume, equal tip speed,
 and equal mixing time are competing criteria. Pick the one that matters for your duty.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: EVAPORATION & MULTIPLE EFFECT ─────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">💨</span>
+<span class="topic-name">Evaporation &amp; Multiple-Effect Evaporators</span>
+<span class="topic-badge">CONCENTRATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Boiling Off Solvent</div>
+<div class="concept-title">Reusing steam across stages for efficiency</div>
+<div class="concept-desc">
+Evaporation concentrates a solution by boiling off solvent (usually water). Multiple-effect
+arrangements reuse the vapor from one effect as the heating steam for the next — a
+heat-integration classic.
+</div>
+<div class="dw">
+<div class="dt">▸ THE STEAM ECONOMY IDEA</div>
+<pre class="code-block">Single effect: ~1 kg steam evaporates ~1 kg water
+N effects in series: ~1 kg steam evaporates ~N kg water
+
+Each effect runs at lower P (and lower T) so vapor from
+effect i can boil the liquid in effect i+1.</pre>
+<div class="dt">▸ KEY EFFECTS</div>
+<table class="ref-table">
+<tr><th>Factor</th><th>Impact</th></tr>
+<tr><td style="color: var(--amber)">Boiling-point rise</td><td>Dissolved solids raise the boiling T (less ΔT available)</td></tr>
+<tr><td style="color: var(--cyan)">Feed arrangement</td><td>Forward / backward / mixed feed trades economy vs viscosity</td></tr>
+<tr><td style="color: var(--green)">Vapor recompression</td><td>MVR/TVR boosts economy further</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+♻️ Multiple-effect evaporation is the same reuse-the-energy principle as pinch analysis —
+each effect's condensing vapor is the next one's heat source.
 </div>
 </div>
 </div>
@@ -3298,6 +3405,44 @@ selectivity beat end-of-pipe treatment every time.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: UTILITIES & STEAM SYSTEMS ─────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔧</span>
+<span class="topic-name">Utilities, Steam Levels &amp; Cooling Water</span>
+<span class="topic-badge">SITE SYSTEMS</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">The Plant's Support Systems</div>
+<div class="concept-title">Heat and cooling delivered as utilities</div>
+<div class="concept-desc">
+Processes rarely make their own heating and cooling — a central utility system supplies
+steam at several pressure levels, cooling water, refrigeration, power and inert gas.
+</div>
+<div class="dw">
+<div class="dt">▸ STEAM PRESSURE LEVELS</div>
+<table class="ref-table">
+<tr><th>Level</th><th>Typical use</th></tr>
+<tr><td style="color: var(--red)">HP steam</td><td>Drives turbines; highest-temperature heating</td></tr>
+<tr><td style="color: var(--amber)">MP steam</td><td>Reboilers, general process heating</td></tr>
+<tr><td style="color: var(--cyan)">LP steam</td><td>Low-temperature heating, stripping, tracing</td></tr>
+</table>
+<div class="dt">▸ COOLING &amp; SELECTION</div>
+<pre class="code-block">Cooling water   ~30 °C supply (cooling-tower limited)
+Chilled water   ~5–10 °C (refrigeration, energy-costly)
+Air cooling     when water is scarce
+
+Pick the cheapest utility that meets the ΔT the duty needs.</pre>
+</div>
+<div class="info-bar ib-muted">
+💰 Utility choice is an economics decision — refrigeration is far pricier than cooling
+water, so designs avoid low temperatures unless the separation truly needs them.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-math" data-domain="math">
@@ -3781,6 +3926,45 @@ avoid an order-of-magnitude error.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: PHYSICAL PROPERTIES TABLE ─────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧪</span>
+<span class="topic-name">Physical Properties of Common Compounds</span>
+<span class="topic-badge">DATASET</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Critical Properties &amp; More</div>
+<div class="concept-title">MW, Tc, Pc, acentric factor &amp; boiling point</div>
+<div class="concept-desc">
+The property data most needed for equation-of-state and VLE work, for a set of common
+compounds. Feeds the compressibility-factor and cubic-EOS methods in Thermodynamics.
+</div>
+<div class="dw">
+<div class="dt">▸ REFERENCE TABLE</div>
+<table class="ref-table">
+<tr><th>Compound</th><th>MW (g/mol)</th><th>Tc (K)</th><th>Pc (bar)</th><th>ω</th><th>T_b (°C)</th></tr>
+<tr><td style="color: var(--cyan)">Water</td><td>18.02</td><td>647.1</td><td>220.6</td><td>0.345</td><td>100.0</td></tr>
+<tr><td>Methane</td><td>16.04</td><td>190.6</td><td>46.0</td><td>0.011</td><td>−161.5</td></tr>
+<tr><td>Ethane</td><td>30.07</td><td>305.3</td><td>48.7</td><td>0.099</td><td>−88.6</td></tr>
+<tr><td style="color: var(--amber)">Benzene</td><td>78.11</td><td>562.2</td><td>48.9</td><td>0.212</td><td>80.1</td></tr>
+<tr><td style="color: var(--amber)">Toluene</td><td>92.14</td><td>591.8</td><td>41.0</td><td>0.263</td><td>110.6</td></tr>
+<tr><td style="color: var(--green)">Ethanol</td><td>46.07</td><td>513.9</td><td>61.4</td><td>0.644</td><td>78.4</td></tr>
+<tr><td>Ammonia</td><td>17.03</td><td>405.5</td><td>113.5</td><td>0.250</td><td>−33.3</td></tr>
+<tr><td>CO₂</td><td>44.01</td><td>304.2</td><td>73.8</td><td>0.224</td><td>−78.5 (subl.)</td></tr>
+<tr><td style="color: var(--purple)">Nitrogen</td><td>28.01</td><td>126.2</td><td>34.0</td><td>0.038</td><td>−195.8</td></tr>
+<tr><td style="color: var(--purple)">Oxygen</td><td>32.00</td><td>154.6</td><td>50.4</td><td>0.022</td><td>−183.0</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+📌 Reduced properties Tr = T/Tc and Pr = P/Pc plus ω feed the generalized charts and
+Peng-Robinson/SRK equations of state.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-tools" data-domain="tools">
@@ -3937,6 +4121,105 @@ the equal-ΔT limit (where LMTD = ΔT) automatically.
 <div class="info-bar ib-muted">
 🔥 LMTD = (ΔT₁ − ΔT₂) / ln(ΔT₁/ΔT₂). Feed it into Q = U·A·F·ΔT_lm to size an exchanger
 (see Heat Transfer).
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: ANTOINE VAPOR PRESSURE ────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🫧</span>
+<span class="topic-name">Antoine Vapor-Pressure Calculator</span>
+<span class="topic-badge">LIVE TOOL</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Saturation Pressure</div>
+<div class="concept-title">log₁₀P = A − B/(C + T)</div>
+<div class="concept-desc">
+Pick a compound and temperature (°C); the Antoine equation returns the saturation vapor
+pressure. Built-in coefficients for common solvents (valid roughly 0–100 °C).
+</div>
+<div class="calc" id="calc-antoine">
+<div class="calc-grid">
+<div class="calc-field"><label>Compound</label><select id="an-comp"></select></div>
+<div class="calc-field"><label>Temperature (°C)</label><input id="an-T" type="number" value="25" step="any" /></div>
+</div>
+<div class="calc-out">
+<span class="calc-out-label">P<sub>sat</sub></span>
+<span class="calc-out-val" id="an-out">—</span>
+</div>
+</div>
+<div class="info-bar ib-muted">
+🌡️ At 100 °C water reads ≈ 760 mmHg (1 atm) — its normal boiling point, a good sanity
+check. Feeds Raoult's law in the Thermodynamics domain.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: pH / BUFFER ───────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧪</span>
+<span class="topic-name">Buffer pH Calculator</span>
+<span class="topic-badge">LIVE TOOL</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Henderson–Hasselbalch</div>
+<div class="concept-title">pH = pKa + log([A⁻]/[HA])</div>
+<div class="concept-desc">
+Enter the acid's pKa and the concentrations of conjugate base [A⁻] and weak acid [HA] to
+get the buffer pH. Essential for fermentation and bioprocessing.
+</div>
+<div class="calc" id="calc-ph">
+<div class="calc-grid">
+<div class="calc-field"><label>pKa</label><input id="ph-pka" type="number" value="4.76" step="any" /></div>
+<div class="calc-field"><label>[A⁻] (base)</label><input id="ph-a" type="number" value="0.1" step="any" /></div>
+<div class="calc-field"><label>[HA] (acid)</label><input id="ph-ha" type="number" value="0.1" step="any" /></div>
+</div>
+<div class="calc-out">
+<span class="calc-out-label">pH</span>
+<span class="calc-out-val" id="ph-out">—</span>
+</div>
+</div>
+<div class="info-bar ib-muted">
+⚗️ Equal [A⁻] and [HA] → pH = pKa (defaults use acetic acid, pKa 4.76 → pH 4.76), the
+point of maximum buffering capacity.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: STEAM TABLE ───────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">♨️</span>
+<span class="topic-name">Saturated Steam Table Lookup</span>
+<span class="topic-badge">LIVE TOOL</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Embedded Dataset</div>
+<div class="concept-title">Saturation pressure &amp; enthalpies by temperature</div>
+<div class="concept-desc">
+Enter a temperature (0–250 °C); the tool interpolates an embedded saturated-water table
+for saturation pressure and the liquid/vapor enthalpies. No lookup by hand.
+</div>
+<div class="calc" id="calc-steam">
+<div class="calc-grid">
+<div class="calc-field"><label>Temperature (°C)</label><input id="st-T" type="number" value="100" step="any" /></div>
+</div>
+<div class="calc-out">
+<span class="calc-out-label">Saturated</span>
+<span class="calc-out-val" id="st-out" style="font-size: 14px">—</span>
+</div>
+</div>
+<div class="info-bar ib-muted">
+🔥 At 100 °C: P_sat ≈ 101.35 kPa and h_fg ≈ 2257 kJ/kg — the latent heat that drives
+evaporation and distillation reboilers.
 </div>
 </div>
 </div>
@@ -4760,6 +5043,381 @@ Communication &gt; cleverness: an unexplained result is a useless one.</pre>
 <div class="info-bar ib-muted">
 🗣️ The best engineers translate: turning messy data and equations into a clear
 recommendation a decision-maker can act on.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: FEEDBACK / SUGGEST A TOPIC ────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">📮</span>
+<span class="topic-name">Send Feedback / Suggest a Topic</span>
+<span class="topic-badge">CONTACT</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Help Improve This Reference</div>
+<div class="concept-title">Spotted an error? Want a topic added?</div>
+<div class="concept-desc">
+This form is handled by Netlify Forms — no third-party scripts, no tracking. Submissions
+appear in the site's Netlify dashboard. (Works on the deployed site; over a local file it
+just renders.)
+</div>
+<form name="feedback" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="calc">
+<input type="hidden" name="form-name" value="feedback" />
+<p hidden><label>Leave blank: <input name="bot-field" /></label></p>
+<div class="calc-grid">
+<div class="calc-field">
+<label>Your email (optional)</label>
+<input type="email" name="email" placeholder="you@example.com" />
+</div>
+<div class="calc-field">
+<label>Type</label>
+<select name="type">
+<option>Correction / error</option>
+<option>Suggest a topic</option>
+<option>General feedback</option>
+</select>
+</div>
+</div>
+<div class="calc-field">
+<label>Message</label>
+<textarea name="message" rows="3" required placeholder="What should we fix or add?"></textarea>
+</div>
+<button type="submit" class="quiz-btn">Send feedback ▶</button>
+</form>
+<div class="info-bar ib-muted">
+🔒 The honeypot field and Netlify's spam filtering keep the inbox clean without a CAPTCHA
+or any external request.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="domain-section domain-nano" data-domain="nano">
+<div class="domain-header">
+<span class="domain-icon">🔬</span>
+<span class="domain-title">Nanotechnology &amp; Advanced Materials</span>
+<div class="cert-tags">
+<span class="ctag ctag-adv">ADV</span>
+</div>
+<span class="domain-sub">Nanoscale Phenomena · Synthesis · SEM/TEM/XRD · Quantum Dots · Applications</span>
+<span class="chevron">▾</span>
+</div>
+<div class="domain-body">
+<!-- ── TOPIC: NANOSCALE PHENOMENA & SYNTHESIS ───────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔬</span>
+<span class="topic-name">Nanoscale Phenomena &amp; Synthesis</span>
+<span class="topic-badge">FOUNDATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Small Is Different</div>
+<div class="concept-title">At the nanoscale, surface beats bulk</div>
+<div class="concept-desc">
+Below ~100 nm, the surface-to-volume ratio explodes and quantum effects appear —
+materials gain properties their bulk form never had. Chemical engineers make and process
+these materials at scale.
+</div>
+<div class="dw">
+<div class="dt">▸ WHY NANO IS DIFFERENT</div>
+<table class="ref-table">
+<tr><th>Effect</th><th>Consequence</th></tr>
+<tr><td style="color: var(--cyan)">Huge surface area</td><td>Catalysis, adsorption, reactivity soar</td></tr>
+<tr><td style="color: var(--green)">Quantum confinement</td><td>Tunable optical/electronic properties (quantum dots)</td></tr>
+<tr><td style="color: var(--amber)">Dominant surface energy</td><td>Lower melting points, self-assembly</td></tr>
+</table>
+<div class="dt">▸ SYNTHESIS ROUTES</div>
+<pre class="code-block">Bottom-up:  sol-gel · CVD · self-assembly · precipitation
+Top-down:   milling · lithography
+
+Bottom-up gives finer control; top-down scales more easily.</pre>
+</div>
+<div class="info-bar ib-muted">
+⚗️ Nanoparticle catalysis links straight back to the Reaction Engineering domain — more
+surface per gram means more active sites.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: CHARACTERIZATION & APPLICATIONS ───────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧿</span>
+<span class="topic-name">Nano Characterization &amp; Applications</span>
+<span class="topic-badge">APPLIED</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Seeing &amp; Using the Nanoscale</div>
+<div class="concept-title">From electron microscopes to drug delivery</div>
+<div class="concept-desc">
+Nanomaterials are characterized by specialized microscopy and scattering, and applied
+across catalysis, medicine, energy and electronics.
+</div>
+<div class="dw">
+<div class="dt">▸ CHARACTERIZATION TOOLS</div>
+<table class="ref-table">
+<tr><th>Tool</th><th>Reveals</th></tr>
+<tr><td style="color: var(--cyan)">SEM / TEM</td><td>Size, shape, structure (electron imaging)</td></tr>
+<tr><td style="color: var(--green)">XRD</td><td>Crystal structure &amp; grain size</td></tr>
+<tr><td style="color: var(--amber)">AFM</td><td>Surface topography atom-by-atom</td></tr>
+<tr><td style="color: var(--purple)">BET</td><td>Specific surface area (gas adsorption)</td></tr>
+</table>
+<div class="dt">▸ APPLICATIONS</div>
+<pre class="code-block">Catalysis (Pt nanoparticles) · membranes · quantum dots
+Targeted drug delivery · nanocomposites · batteries &amp; solar</pre>
+</div>
+<div class="info-bar ib-muted">
+⚠️ Nanomaterial safety (inhalation, environmental fate) is an active concern — process
+safety and toxicology extend to the nanoscale.
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="domain-section domain-psychro" data-domain="psychro">
+<div class="domain-header">
+<span class="domain-icon">💨</span>
+<span class="domain-title">Psychrometrics &amp; HVAC</span>
+<div class="cert-tags">
+<span class="ctag ctag-core">CORE</span>
+</div>
+<span class="domain-sub">Humidity Ratio · Psychrometric Chart · Wet-Bulb · Cooling Towers · Air Conditioning</span>
+<span class="chevron">▾</span>
+</div>
+<div class="domain-body">
+<!-- ── TOPIC: THE PSYCHROMETRIC CHART ───────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">💨</span>
+<span class="topic-name">The Psychrometric Chart</span>
+<span class="topic-badge">FOUNDATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Air + Water in One Diagram</div>
+<div class="concept-title">Every drying, cooling &amp; HVAC process lives here</div>
+<div class="concept-desc">
+The psychrometric chart plots the state of moist air. Reading it turns humidity balances
+(from the Material Balances domain) into quick graphical answers.
+</div>
+<div class="dw">
+<div class="dt">▸ CHART AXES &amp; LINES</div>
+<table class="ref-table">
+<tr><th>Property</th><th>On the chart</th></tr>
+<tr><td style="color: var(--cyan)">Dry-bulb T</td><td>Horizontal axis</td></tr>
+<tr><td style="color: var(--green)">Humidity ratio</td><td>Vertical axis</td></tr>
+<tr><td style="color: var(--amber)">Relative humidity</td><td>Curved lines (100% = saturation)</td></tr>
+<tr><td style="color: var(--purple)">Wet-bulb / enthalpy</td><td>Diagonal lines</td></tr>
+</table>
+<div class="dt">▸ PROCESSES AS PATHS</div>
+<pre class="code-block">Heating:        move right (constant humidity ratio)
+Cooling+dehumid: down-left, following saturation then along it
+Adiabatic sat:  along a constant wet-bulb line (evaporative cooling)</pre>
+</div>
+<div class="info-bar ib-muted">
+🌡️ Evaporative ("swamp") coolers ride a constant wet-bulb line — they cool by evaporating
+water, adding humidity as the temperature drops.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: COOLING TOWERS & AIR CONDITIONING ─────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🏭</span>
+<span class="topic-name">Cooling Towers &amp; Air Conditioning</span>
+<span class="topic-badge">APPLIED</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Rejecting Heat with Air &amp; Water</div>
+<div class="concept-title">Simultaneous heat and mass transfer</div>
+<div class="concept-desc">
+Cooling towers and air conditioners are simultaneous heat-and-mass-transfer devices —
+combining the Heat Transfer and Mass Transfer domains in one unit.
+</div>
+<div class="dw">
+<div class="dt">▸ COOLING-TOWER LIMITS</div>
+<pre class="code-block">Water is cooled by evaporation into air.
+Theoretical limit = the air's wet-bulb temperature.
+
+Approach = T_water,out − T_wet-bulb   (smaller = bigger tower)
+Range    = T_water,in − T_water,out</pre>
+<div class="dt">▸ KEY IDEAS</div>
+<table class="ref-table">
+<tr><th>Term</th><th>Meaning</th></tr>
+<tr><td style="color: var(--cyan)">Makeup water</td><td>Replaces evaporation + drift + blowdown</td></tr>
+<tr><td style="color: var(--amber)">Blowdown</td><td>Purge to limit dissolved-solids buildup</td></tr>
+<tr><td style="color: var(--green)">Latent load</td><td>Dehumidification — the big AC energy cost</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+💧 A cooling tower is a purge problem too — evaporation concentrates salts, so blowdown
+controls cycles of concentration (echoing recycle/purge in Material Balances).
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="domain-section domain-cryo" data-domain="cryo">
+<div class="domain-header">
+<span class="domain-icon">❄️</span>
+<span class="domain-title">Cryogenics &amp; Low-Temperature</span>
+<div class="cert-tags">
+<span class="ctag ctag-adv">ADV</span>
+</div>
+<span class="domain-sub">Liquefaction · Joule-Thomson · Linde &amp; Claude Cycles · Air Separation · Cryo Storage</span>
+<span class="chevron">▾</span>
+</div>
+<div class="domain-body">
+<!-- ── TOPIC: GAS LIQUEFACTION ──────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">❄️</span>
+<span class="topic-name">Gas Liquefaction Cycles</span>
+<span class="topic-badge">FOUNDATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Reaching Very Low Temperatures</div>
+<div class="concept-title">Cooling gases until they turn to liquid</div>
+<div class="concept-desc">
+Cryogenics (below ~−150 °C) liquefies air, natural gas and hydrogen. It leans on the
+Joule–Thomson effect and clever heat integration from the Thermodynamics domain.
+</div>
+<div class="dw">
+<div class="dt">▸ THE CORE CYCLES</div>
+<table class="ref-table">
+<tr><th>Cycle</th><th>Idea</th></tr>
+<tr><td style="color: var(--cyan)">Linde–Hampson</td><td>Compress → cool → Joule–Thomson throttle → partial liquefy</td></tr>
+<tr><td style="color: var(--green)">Claude</td><td>Adds an expander (does work) — more efficient</td></tr>
+</table>
+<div class="dt">▸ THE JOULE–THOMSON KEY</div>
+<pre class="code-block">Throttling cools a gas only below its inversion temperature.
+
+H₂ and He must be pre-cooled first (their inversion T is very low)
+— otherwise throttling warms them.</pre>
+</div>
+<div class="info-bar ib-muted">
+🌡️ Regenerative heat exchange (cold product cools incoming feed) is essential — without
+it, liquefaction would be hopelessly energy-intensive.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: AIR SEPARATION & STORAGE ──────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧊</span>
+<span class="topic-name">Air Separation &amp; Cryogenic Storage</span>
+<span class="topic-badge">APPLIED</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Distilling the Atmosphere</div>
+<div class="concept-title">Making O₂, N₂ and Ar from air</div>
+<div class="concept-desc">
+Cryogenic <strong class="text-blue">air separation units (ASUs)</strong> liquefy air and
+distill it into oxygen, nitrogen and argon — distillation (Mass Transfer) at −190 °C.
+</div>
+<div class="dw">
+<div class="dt">▸ THE ASU IN BRIEF</div>
+<pre class="code-block">Filter &amp; compress air → remove H₂O &amp; CO₂ (they'd freeze)
+→ cool to near-liquefaction (regenerative HX)
+→ cryogenic distillation columns:
+   N₂ (bp −196 °C) overhead · O₂ (bp −183 °C) bottoms · Ar side-draw</pre>
+<div class="dt">▸ STORAGE &amp; SAFETY</div>
+<table class="ref-table">
+<tr><th>Concern</th><th>Handling</th></tr>
+<tr><td style="color: var(--cyan)">Insulation</td><td>Vacuum-jacketed / multilayer (Dewar)</td></tr>
+<tr><td style="color: var(--red)">Material choice</td><td>Austenitic steels stay tough at cryo T</td></tr>
+<tr><td style="color: var(--amber)">Hazards</td><td>Cold burns, O₂ enrichment, asphyxiation</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🔩 Ordinary carbon steel turns brittle in the cold — cryogenic service demands
+austenitic stainless or aluminium (see the Materials domain).
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="domain-section domain-quiz" data-domain="quiz">
+<div class="domain-header">
+<span class="domain-icon">🧠</span>
+<span class="domain-title">Self-Test Quiz</span>
+<div class="cert-tags">
+<span class="ctag ctag-tools">QUIZ</span>
+</div>
+<span class="domain-sub">18 questions across the curriculum · instant feedback · best score saved in your browser</span>
+<span class="chevron">▾</span>
+</div>
+<div class="domain-body">
+<!-- ── TOPIC: SELF-TEST QUIZ ────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧠</span>
+<span class="topic-name">Self-Test Quiz — Test Your ChemE Knowledge</span>
+<span class="topic-badge">INTERACTIVE</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Check Your Understanding</div>
+<div class="concept-title">18 questions across the whole curriculum</div>
+<div class="concept-desc">
+Multiple-choice questions spanning balances, thermodynamics, transport, reaction
+engineering, safety, biochemical and more. You get instant feedback with a short
+explanation, and your best score is saved in this browser. Runs fully offline.
+</div>
+<div id="quiz-root">
+<div class="quiz"><div class="quiz-meta">Loading quiz…</div></div>
+</div>
+<div class="info-bar ib-muted">
+🎯 Aim for 80%+ to feel exam-ready. Missed one? The domain that covers it is a chip away
+in the filter bar above.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: FLASHCARDS ────────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🃏</span>
+<span class="topic-name">Flashcards — Key Equations &amp; Concepts</span>
+<span class="topic-badge">INTERACTIVE</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Spaced Repetition</div>
+<div class="concept-title">Flip, learn, and retire the ones you know</div>
+<div class="concept-desc">
+Click a card to flip between the term and its definition. Hit <em>★ Got it</em> to retire
+a card from the rotation (saved in this browser); reset any time. Great for drilling the
+core equations before an exam.
+</div>
+<div id="flash-root">
+<div class="flash"><div class="flash-meta">Loading flashcards…</div></div>
+</div>
+<div class="info-bar ib-muted">
+🃏 18 cards spanning transport, thermo, kinetics, separations and biochemical — the same
+relations collected in the Formula Sheet domain.
 </div>
 </div>
 </div>

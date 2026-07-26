@@ -136,6 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initAccessibilityAndTools();
   initBackToTop();
   initCalculators();
+  initQuiz();
 });
 
 // ── SERVICE WORKER (offline PWA; https only — never over file://) ────────────
@@ -920,9 +921,267 @@ function initLMTD() {
   calc();
 }
 
+// Antoine coefficients for log10(P[mmHg]) = A − B/(C + T[°C]).
+const ANTOINE = {
+  Water:   { A: 8.07131, B: 1730.63, C: 233.426 },
+  Ethanol: { A: 8.20417, B: 1642.89, C: 230.300 },
+  Benzene: { A: 6.90565, B: 1211.033, C: 220.790 },
+  Toluene: { A: 6.95464, B: 1344.800, C: 219.482 },
+  Acetone: { A: 7.02447, B: 1161.000, C: 224.000 },
+};
+
+function initAntoine() {
+  const sel = document.getElementById("an-comp");
+  const T = document.getElementById("an-T");
+  const out = document.getElementById("an-out");
+  if (!sel || !T || !out) return;
+  calcFillSelect(sel, Object.keys(ANTOINE), 0);
+  function calc() {
+    const c = ANTOINE[sel.value];
+    const t = parseFloat(T.value);
+    if (!c || isNaN(t)) { out.textContent = "—"; return; }
+    const mmHg = Math.pow(10, c.A - c.B / (c.C + t));
+    out.textContent = calcFmt(mmHg) + " mmHg  (" + calcFmt(mmHg * 0.133322) + " kPa)";
+  }
+  sel.addEventListener("change", calc);
+  T.addEventListener("input", calc);
+  calc();
+}
+
+function initPH() {
+  const pKa = document.getElementById("ph-pka");
+  const A = document.getElementById("ph-a");
+  const HA = document.getElementById("ph-ha");
+  const out = document.getElementById("ph-out");
+  if (!pKa || !A || !HA || !out) return;
+  function calc() {
+    const k = parseFloat(pKa.value), a = parseFloat(A.value), ha = parseFloat(HA.value);
+    if ([k, a, ha].some(isNaN) || ha <= 0 || a <= 0) { out.textContent = "—"; return; }
+    out.textContent = calcFmt(k + Math.log10(a / ha));
+  }
+  [pKa, A, HA].forEach(e => e.addEventListener("input", calc));
+  calc();
+}
+
+// Saturated water/steam table: [T °C, P kPa, hf kJ/kg, hg kJ/kg].
+const STEAM = [
+  [0.01, 0.6113, 0.0, 2501.3], [10, 1.2276, 42.0, 2519.8], [20, 2.339, 83.9, 2538.1],
+  [30, 4.246, 125.7, 2556.3], [40, 7.384, 167.5, 2574.3], [50, 12.35, 209.3, 2592.1],
+  [60, 19.94, 251.1, 2609.6], [70, 31.19, 293.0, 2626.8], [80, 47.39, 334.9, 2643.7],
+  [90, 70.14, 376.9, 2660.1], [100, 101.35, 419.0, 2676.1], [120, 198.53, 503.7, 2706.3],
+  [140, 361.3, 589.1, 2733.9], [160, 617.8, 675.5, 2758.1], [180, 1002.1, 763.2, 2778.2],
+  [200, 1554.9, 852.4, 2793.2], [220, 2318, 943.6, 2802.1], [250, 3973, 1085.4, 2801.5],
+];
+
+function initSteamTable() {
+  const T = document.getElementById("st-T");
+  const out = document.getElementById("st-out");
+  if (!T || !out) return;
+  function interp(t) {
+    const d = STEAM;
+    if (t <= d[0][0]) return d[0];
+    if (t >= d[d.length - 1][0]) return d[d.length - 1];
+    for (let i = 0; i < d.length - 1; i++) {
+      if (t >= d[i][0] && t <= d[i + 1][0]) {
+        const f = (t - d[i][0]) / (d[i + 1][0] - d[i][0]);
+        return d[i].map((v, k) => v + f * (d[i + 1][k] - v));
+      }
+    }
+    return d[d.length - 1];
+  }
+  function calc() {
+    const t = parseFloat(T.value);
+    if (isNaN(t)) { out.textContent = "—"; return; }
+    const [, P, hf, hg] = interp(t);
+    out.textContent = `P_sat ${calcFmt(P)} kPa · h_f ${calcFmt(hf)} · h_g ${calcFmt(hg)} · h_fg ${calcFmt(hg - hf)} kJ/kg`;
+  }
+  T.addEventListener("input", calc);
+  calc();
+}
+
+const FLASHCARDS = [
+  { front: "Reynolds number", back: "Re = ρvD/μ — inertial vs viscous; <2100 laminar, >4000 turbulent" },
+  { front: "Bernoulli equation", back: "P/ρ + v²/2 + gz = constant (frictionless mechanical-energy balance)" },
+  { front: "First law (open, steady)", back: "Q̇ − Ẇs = Σṁ(h + v²/2 + gz)_out − _in" },
+  { front: "Gibbs free energy", back: "G = H − TS; ΔG<0 spontaneous; ΔG° = −RT·ln K" },
+  { front: "Arrhenius equation", back: "k = A·exp(−Ea/RT); rate roughly doubles per +10 °C" },
+  { front: "CSTR design equation", back: "V = F_A0·X / (−r_A)" },
+  { front: "PFR design equation", back: "V = F_A0·∫ dX/(−r_A)" },
+  { front: "LMTD", back: "(ΔT₁−ΔT₂)/ln(ΔT₁/ΔT₂); Q = U·A·F·ΔT_lm" },
+  { front: "Fick's first law", back: "J = −D·dC/dz (diffusion down a concentration gradient)" },
+  { front: "Relative volatility α", back: "(y_A/x_A)/(y_B/x_B); α=1 → azeotrope (no ordinary distillation)" },
+  { front: "Raoult's law", back: "y_i·P = x_i·P_i^sat (ideal vapor-liquid equilibrium)" },
+  { front: "Thiele modulus", back: "φ = L·√(k/D_eff); φ≫1 → pore-diffusion limited (η ≈ 1/φ)" },
+  { front: "NPSH rule", back: "NPSH_available > NPSH_required to avoid pump cavitation" },
+  { front: "Biot number", back: "Bi = hL/k; <0.1 → lumped-capacitance model valid" },
+  { front: "Henderson–Hasselbalch", back: "pH = pKa + log([A⁻]/[HA])" },
+  { front: "DNA base pairing", back: "A=T (2 H-bonds), G≡C (3 H-bonds); antiparallel double helix" },
+  { front: "Damköhler number", back: "Da = reaction rate / transport rate" },
+  { front: "Green-chemistry E-factor", back: "kg waste / kg product — lower is greener" },
+];
+
+function initFlashcards() {
+  const root = document.getElementById("flash-root");
+  if (!root) return;
+  const KEY = "flash-known";
+  const ce = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text !== undefined) e.textContent = text; return e; };
+  const known = () => { try { return new Set(JSON.parse(localStorage.getItem(KEY) || "[]")); } catch { return new Set(); } };
+  const activeIdx = () => { const k = known(); const a = [...FLASHCARDS.keys()].filter(i => !k.has(i)); return a.length ? a : [...FLASHCARDS.keys()]; };
+  let order, cur, showBack;
+
+  function start() { order = quizShuffle(activeIdx()); cur = 0; showBack = false; render(); }
+  function render() {
+    root.textContent = "";
+    const card = FLASHCARDS[order[cur]];
+    const wrap = ce("div", "flash");
+    const c = ce("div", "flash-card" + (showBack ? " back" : ""), showBack ? card.back : card.front);
+    c.addEventListener("click", () => { showBack = !showBack; render(); });
+    const ctr = ce("div", "flash-controls");
+    const flip = ce("button", "quiz-btn", showBack ? "Show term" : "Flip ⟳"); flip.type = "button";
+    flip.addEventListener("click", () => { showBack = !showBack; render(); });
+    const next = ce("button", "quiz-btn", "Next ▶"); next.type = "button";
+    next.addEventListener("click", () => { cur = (cur + 1) % order.length; showBack = false; render(); });
+    const got = ce("button", "quiz-btn", "★ Got it"); got.type = "button";
+    got.addEventListener("click", () => { const k = known(); k.add(order[cur]); localStorage.setItem(KEY, JSON.stringify([...k])); start(); });
+    const learned = FLASHCARDS.length - activeIdx().length;
+    const meta = ce("div", "flash-meta", `Card ${cur + 1}/${order.length} · ${learned} learned`);
+    ctr.append(flip, next, got, meta);
+    wrap.append(c, ctr);
+    if (learned > 0) {
+      const reset = ce("button", "quiz-btn", "↺ Reset learned"); reset.type = "button";
+      reset.addEventListener("click", () => { localStorage.removeItem(KEY); start(); });
+      wrap.append(reset);
+    }
+    root.appendChild(wrap);
+  }
+  start();
+}
+
 function initCalculators() {
   initUnitConverter();
   initReynolds();
   initIdealGas();
   initLMTD();
+  initAntoine();
+  initPH();
+  initSteamTable();
+  initFlashcards();
+}
+
+// ─────────────────────────────────────────────────────────────────────────────
+// SELF-TEST QUIZ  (vanilla · offline · CSP-safe · localStorage best score)
+// Built with createElement/textContent only — never innerHTML of data.
+// ─────────────────────────────────────────────────────────────────────────────
+const QUIZ_BANK = [
+  { q: "For a first-order reaction, the half-life is…", opts: ["Proportional to initial concentration", "Independent of initial concentration", "Inversely proportional to k²", "Always zero"], a: 1, exp: "t½ = ln2 / k — it does not depend on C₀." },
+  { q: "The Reynolds number compares…", opts: ["Inertial to viscous forces", "Heat to mass transfer", "Pressure to temperature", "Reaction to diffusion"], a: 0, exp: "Re = ρvD/μ = inertial / viscous forces." },
+  { q: "For a given duty, LMTD is largest with…", opts: ["Co-current flow", "Counter-current flow", "Cross flow", "They are always equal"], a: 1, exp: "Counter-current keeps the largest average ΔT — most efficient." },
+  { q: "Which expression defines the Gibbs free energy?", opts: ["ΔU = Q − W", "G = H − TS", "PV = nRT", "J = −D dC/dx"], a: 1, exp: "G = H − TS; at constant T,P, ΔG < 0 ⇒ spontaneous." },
+  { q: "At equal conversion (positive-order kinetics), a CSTR vs a PFR needs…", opts: ["Less volume", "More volume", "Equal volume", "No reactant"], a: 1, exp: "A CSTR operates at the low exit concentration everywhere, so it needs more volume." },
+  { q: "In DNA, adenine (A) pairs with…", opts: ["Guanine", "Cytosine", "Thymine", "Another adenine"], a: 2, exp: "A=T (two H-bonds); G≡C (three H-bonds)." },
+  { q: "A Biot number well below 0.1 means…", opts: ["Lumped-capacitance analysis is valid", "Internal gradients dominate", "Flow is turbulent", "The nozzle is choked"], a: 0, exp: "Small Bi ⇒ uniform internal temperature; the surface film controls." },
+  { q: "A relative volatility α = 1 indicates…", opts: ["Very easy distillation", "An azeotrope — no split by ordinary distillation", "Total reflux", "Minimum stages"], a: 1, exp: "α = 1 means vapor and liquid have equal composition — an azeotrope." },
+  { q: "Le Chatelier: raising pressure shifts a gas equilibrium toward…", opts: ["More gas moles", "Fewer gas moles", "It never changes", "Higher temperature"], a: 1, exp: "The system relieves the pressure by favoring the side with fewer gas moles." },
+  { q: "The Thiele modulus compares…", opts: ["Reaction rate to diffusion rate in a pellet", "Inertia to viscosity", "Convection to conduction", "Buoyancy to viscous forces"], a: 0, exp: "φ compares intrinsic reaction rate with internal pore diffusion." },
+  { q: "Pump cavitation is avoided when…", opts: ["NPSH available > NPSH required", "The flow is turbulent", "The head is zero", "Re < 2100"], a: 0, exp: "Keep NPSH_available above NPSH_required so the liquid doesn't flash." },
+  { q: "Which separation is driven by a partition (distribution) coefficient?", opts: ["Distillation", "Liquid-liquid extraction", "Filtration", "Cyclone separation"], a: 1, exp: "Extraction exploits how a solute partitions between two liquid phases." },
+  { q: "In electrode kinetics, the exchange current density i₀ reflects…", opts: ["Electrode/catalyst activity", "Pipe roughness", "Fin efficiency", "Crystal packing factor"], a: 0, exp: "A higher i₀ means lower activation overpotential — a more active catalyst." },
+  { q: "The residence-time distribution of an ideal PFR is…", opts: ["A sharp spike at t = τ", "Exponential decay", "Perfectly uniform", "Bimodal"], a: 0, exp: "Plug flow gives every element the same residence time τ — a delta spike." },
+  { q: "For fully developed laminar pipe flow, the friction factor is…", opts: ["f = 64/Re", "f = 0.316/Re^0.25", "Independent of Re", "Exactly 1.0"], a: 0, exp: "Laminar: f = 64/Re (Darcy). Turbulent uses the Moody chart." },
+  { q: "The green-chemistry E-factor measures…", opts: ["kg waste per kg product", "Energy per mole", "Atomic radius", "Reaction rate constant"], a: 0, exp: "E-factor = kg waste / kg product — lower is greener." },
+  { q: "A Professional Engineer's paramount duty is to…", opts: ["The client", "The employer", "Public safety, health & welfare", "Shareholders"], a: 2, exp: "Codes of ethics hold public safety, health and welfare paramount." },
+  { q: "Choked (sonic) flow through a relief valve occurs at Mach…", opts: ["0.1", "0.3", "1.0", "5.0"], a: 2, exp: "Flow chokes at Ma = 1 at the throat; lowering downstream P won't raise it further." },
+];
+
+function quizShuffle(arr) {
+  const a = arr.slice();
+  for (let i = a.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+
+function initQuiz() {
+  const root = document.getElementById("quiz-root");
+  if (!root) return;
+  const N = QUIZ_BANK.length;
+  let order, cur, score;
+
+  const el = (tag, cls, text) => {
+    const e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text !== undefined) e.textContent = text;
+    return e;
+  };
+
+  function start() {
+    order = quizShuffle([...Array(N).keys()]);
+    cur = 0;
+    score = 0;
+    renderQuestion();
+  }
+
+  function renderQuestion() {
+    root.textContent = "";
+    const item = QUIZ_BANK[order[cur]];
+    const wrap = el("div", "quiz");
+    const meta = el("div", "quiz-meta");
+    meta.append(el("span", null, `Question ${cur + 1} / ${N}`), el("span", null, `Score: ${score}`));
+    const q = el("div", "quiz-q", item.q);
+    const opts = el("div", "quiz-opts");
+    const exp = el("div", "quiz-exp", item.exp || "");
+    exp.style.display = "none";
+    const next = el("button", "quiz-btn", cur + 1 < N ? "Next ▶" : "See results ▶");
+    next.type = "button";
+    next.style.display = "none";
+
+    item.opts.forEach((o, i) => {
+      const btn = el("button", "quiz-opt", o);
+      btn.type = "button";
+      btn.addEventListener("click", () => {
+        [...opts.children].forEach(c => { c.disabled = true; });
+        if (i === item.a) { btn.classList.add("correct"); score++; }
+        else { btn.classList.add("wrong"); opts.children[item.a].classList.add("correct"); }
+        meta.lastChild.textContent = `Score: ${score}`;
+        exp.style.display = "";
+        next.style.display = "";
+      });
+      opts.appendChild(btn);
+    });
+    next.addEventListener("click", () => { cur++; cur < N ? renderQuestion() : finish(); });
+
+    wrap.append(meta, q, opts, exp, next);
+    root.appendChild(wrap);
+  }
+
+  function finish() {
+    root.textContent = "";
+    const prevBest = parseInt(localStorage.getItem("quiz-best") || "0", 10);
+    const best = Math.max(score, prevBest);
+    localStorage.setItem("quiz-best", String(best));
+    const pct = Math.round((100 * score) / N);
+    const verdict = pct >= 80 ? "Excellent — exam-ready!" : pct >= 60 ? "Solid — review the ones you missed." : "Keep studying — revisit the domains above.";
+    const wrap = el("div", "quiz");
+    wrap.append(
+      el("div", "quiz-score", `You scored ${score} / ${N}  ·  ${pct}%`),
+      el("div", "quiz-exp", `Best: ${best}/${N}. ${verdict}`)
+    );
+    const again = el("button", "quiz-btn", "↻ Restart quiz");
+    again.type = "button";
+    again.addEventListener("click", start);
+    wrap.appendChild(again);
+    root.appendChild(wrap);
+  }
+
+  // Landing state
+  root.textContent = "";
+  const holder = el("div", "quiz");
+  const best = localStorage.getItem("quiz-best");
+  holder.appendChild(el("div", "quiz-meta", best ? `Best score: ${best}/${N}` : `${N} questions · instant feedback · saved to this browser`));
+  const startBtn = el("button", "quiz-btn", "▶ Start quiz");
+  startBtn.type = "button";
+  startBtn.addEventListener("click", start);
+  holder.appendChild(startBtn);
+  root.appendChild(holder);
 }

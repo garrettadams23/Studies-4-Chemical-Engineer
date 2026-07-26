@@ -30,10 +30,10 @@ chemical-engineering curriculum, the FE/PE exams, and day-to-day plant practice.
 
 **Success metrics:**
 
-- 🚧 20 domains live · **98 topics** and growing (Phases 3–5 underway) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
-- 🚧 Interactive calculators — 4 live (unit converter, Reynolds, ideal gas, LMTD); more planned.
-- 📝 Embedded reference data (steam tables, Antoine coefficients, property tables).
-- 📝 Self-test/quiz engine with per-domain progress.
+- 🚧 30 domains live · **127 topics** · 8 tools + quiz + flashcards (Phase 4 done; 5–6 advanced) · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
+- 🚧 Interactive tools — 7 calculators + steam-table lookup + quiz + flashcards.
+- 🚧 Embedded reference data — steam table, Antoine coefficients, physical-property table live.
+- ✅ Self-test quiz engine — 18 questions, instant feedback, best score saved (localStorage).
 - 📝 Deployed on Netlify with a custom domain, deploy previews, and a feedback form.
 
 ---
@@ -760,25 +760,26 @@ CI build-check · README/CONTRIBUTING.
 ✅ `netlify.toml` (build + strict CSP + cache headers) · ✅ themed `404.html` ·
 ✅ `_redirects` · ✅ `robots.txt` + `sitemap.xml` · ✅ SEO + Open-Graph/Twitter meta ·
 ✅ `sw.js` service worker (offline PWA) + registration · ✅ inline handlers removed
-(CSP `script-src 'self'`) · 📝 custom domain + HTTPS · 📝 Netlify Forms feedback panel.
+(CSP `script-src 'self'`) · ✅ Netlify Forms feedback panel · 📝 custom domain + HTTPS.
 
 **Phase 3 — Depth (📝)**
 Fill each existing domain to its full planned topic list (§3). Target 8–15
 topics/domain. This is the bulk of the writing.
 
-**Phase 4 — Breadth (🚧 started)**
-✅ Electrochemical & Energy Engineering · ✅ Formula Sheet & Quick Reference ·
-📝 remaining new domains (§4): Environment/Sustainability, Petroleum, Pharma/GMP,
-Particles, Data Science, Worked Examples, Exam Prep, Career.
+**Phase 4 — Breadth (✅ complete)**
+All planned §4 domains delivered: Electrochemical, Sustainability, Petroleum,
+Pharma/GMP, Data Science, Particles, Worked Examples, Formula Sheet, Exam Prep,
+Career, Nanotech, Psychrometrics, Cryogenics — plus interactive Calculators &
+Self-Test Quiz domains. 30 domains total.
 
-**Phase 5 — Interactivity (🚧 started)**
-✅ First 4 calculators live (unit converter, Reynolds, ideal gas, LMTD) — vanilla,
-offline, CSP-safe. 📝 remaining: more calculators (§5.2), reference tools (§5.3),
-quiz & flashcards (§5.4), embedded datasets (§6).
+**Phase 5 — Interactivity (🚧 well underway)**
+✅ 4 calculators (unit converter, Reynolds, ideal gas, LMTD) · ✅ self-test quiz
+engine (18 Q, scored, localStorage best). 📝 remaining: more calculators (§5.2),
+reference-data tools/datasets (§5.3, §6), flashcards.
 
-**Phase 6 — Polish (📝 / 💡)**
-SVG diagrams, SEO/schema, WCAG AA audit, Lighthouse 100s, print stylesheet,
-glossary tooltips.
+**Phase 6 — Polish (🚧 underway)**
+✅ SEO JSON-LD (WebSite + LearningResource) · ✅ print stylesheet · ✅ skip-to-content
+link (WCAG). 📝 remaining: SVG diagrams, fuller WCAG AA audit, Lighthouse pass, glossary tooltips.
 
 ---
 
@@ -884,3 +885,43 @@ offline, with a theme-aware `.calc` widget style. Verified: 1 atm→101.325 kPa,
 **Breadth (Phase 4):** two more domains —
 - **🌱 Energy, Sustainability & Environment** — CCUS; water/wastewater treatment; LCA & circular economy.
 - **🛢️ Petroleum Refining & Petrochemicals** — crude/atmospheric distillation; cracking & hydroprocessing; the petrochemical tree.
+
+### 2026-07-25 — Phase 5: self-test quiz + Phase 4 domains (98 → 112, 20 → 27)
+- **🧠 Self-Test Quiz** — 18 curriculum-spanning MCQs with instant feedback,
+  running score, explanations, and a best score saved to localStorage. Vanilla,
+  offline, CSP-safe (createElement/textContent, addEventListener). Verified full
+  play-through: scoring, feedback states, finish screen, best-score persistence, zero errors.
+- Plus the six Phase-4 domains landed this session (Pharma/GMP, Data Science,
+  Particles, Worked Examples, Exam Prep, Career).
+
+### 2026-07-25 — Calculators #5–6, feedback form, SEO schema (112 → 115)
+- **Two more calculators**: Antoine vapor-pressure (built-in coefficients for water,
+  ethanol, benzene, toluene, acetone) and buffer pH (Henderson–Hasselbalch).
+  Verified: water Psat(100 °C) = 760 mmHg = 1 atm; buffer pH = pKa at equal conc.
+- **Phase 2 finished**: Netlify Forms feedback panel (honeypot spam-guard, no
+  external scripts) added to the Career domain.
+- **Phase 6 started**: JSON-LD structured data (WebSite + LearningResource) in the
+  head — a data block, so it's CSP-safe and survives minification (validated).
+
+### 2026-07-25 — Phase 4 complete: Nanotech, Psychrometrics, Cryogenics (115 → 121, 27 → 30)
+- **🔬 Nanotechnology & Advanced Materials** — nanoscale phenomena/synthesis; characterization & applications.
+- **💨 Psychrometrics & HVAC** — the psychrometric chart; cooling towers & air conditioning.
+- **❄️ Cryogenics & Low-Temperature** — gas liquefaction (Linde/Claude, Joule–Thomson); air separation & storage.
+This closes the §4 new-domain list. The reference now spans 30 domains.
+
+### 2026-07-25 — Steam-table lookup + flashcards (121 → 123)
+- **Saturated steam-table lookup** (Calculators domain): interpolates an embedded
+  saturated-water table (0–250 °C) for P_sat, h_f, h_g, h_fg. Verified exact at
+  100 °C (101.35 kPa, h_fg 2257) and correct interpolation at 110 °C.
+- **Flashcards** (Self-Test domain): 18 term/definition cards, click-to-flip,
+  shuffle, and a "★ Got it" retire-from-rotation feature saved to localStorage
+  (spaced-repetition-lite). Verified flip/next/persistence; zero errors.
+- Interactive roster now: 7 calculators + steam table + quiz + flashcards, all
+  vanilla, offline and CSP-safe.
+
+### 2026-07-25 — Dataset + depth + accessibility (123 → 127)
+- **Physical-properties dataset** (Formula Sheet): MW, Tc, Pc, ω, boiling point for
+  10 common compounds — feeds the EOS/VLE methods.
+- **Depth topics**: Turbulence & Eddy Transport (Transport); Evaporation &
+  Multiple-Effect (Unit Ops); Utilities, Steam Levels & Cooling Water (Design).
+- **Accessibility (Phase 6)**: a keyboard/screen-reader skip-to-content link.

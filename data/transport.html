@@ -153,3 +153,43 @@ Thinner boundary layer ⇒ steeper gradient ⇒ higher transfer rate.</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: TURBULENCE & EDDY TRANSPORT ───────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🌪️</span>
+    <span class="topic-name">Turbulence &amp; Eddy Transport</span>
+    <span class="topic-badge">ADVANCED</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Chaos That Mixes</div>
+      <div class="concept-title">Eddies transport far faster than molecules</div>
+      <div class="concept-desc">
+        Above the critical Reynolds number, flow becomes turbulent — chaotic eddies dramatically
+        enhance momentum, heat and mass transport beyond molecular diffusion.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ REYNOLDS AVERAGING</div>
+        <pre class="code-block">Split each quantity into mean + fluctuation:  v = v̄ + v'
+
+Averaging the Navier-Stokes eqns leaves a new term — the
+Reynolds stress −ρ⟨v'v'⟩ — modeled with an eddy viscosity.
+
+Total flux = molecular + turbulent (eddy) contribution.</pre>
+        <div class="dt">▸ EDDY DIFFUSIVITIES</div>
+        <table class="ref-table">
+          <tr><th>Transport</th><th>Effective diffusivity</th></tr>
+          <tr><td style="color: var(--cyan)">Momentum</td><td>ν + ε_M (eddy)</td></tr>
+          <tr><td style="color: var(--red)">Heat</td><td>α + ε_H</td></tr>
+          <tr><td style="color: var(--green)">Mass</td><td>D + ε_D</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🌀 Turbulence is why stirring speeds mixing so much — eddy diffusivities can dwarf
+        molecular ones by orders of magnitude. It's also the "closure problem" CFD must model.
+      </div>
+    </div>
+  </div>
+</div>
