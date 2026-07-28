@@ -32,7 +32,7 @@ chemical-engineering curriculum, the FE/PE exams, and day-to-day plant practice.
 
 - ✅ 30 domains · **277 topics** (250+ target MET) · 10 calculators + steam table + quiz + flashcards · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
 - ✅ Interactive tools — 10 calculators (unit conv., Reynolds, ideal gas, LMTD, Antoine, buffer pH, steam table, friction factor, molar mass, psychrometrics) + quiz + flashcards.
-- 🚧 Embedded reference data — steam table, Antoine coefficients, physical-property table live.
+- ✅ Embedded reference data — steam table, Antoine coefficients, atomic-weight table all live in the calculators.
 - ✅ Self-test quiz engine — 18 questions, instant feedback, best score saved (localStorage).
 - 📝 Deployed on Netlify with a custom domain, deploy previews, and a feedback form.
 
@@ -126,14 +126,14 @@ publishes the result.
 - Enable **asset optimization** (CSS/JS/image compression) in Netlify build settings.
 - 💡 Lighthouse CI budget: target 100/100/100/100.
 
-### 1.7 PWA / installable (🚧 → 📝)
+### 1.7 PWA / installable (✅ done)
 
-- `Img/favicon/site.webmanifest` already exists (✅ renamed to "Chemical
-  Engineering Reference").
-- 📝 Add a **service worker** (`sw.js`) that pre-caches `index.html`, `style.css`,
-  `script.js`, fonts, and favicons → true offline install. Register it from
-  `script.js` guarded by `'serviceWorker' in navigator`. (Note: SW won't run over
-  `file://`, only on the deployed HTTPS site — the `file://` path stays SW-free.)
+- ✅ `Img/favicon/site.webmanifest` exists (named "Chemical Engineering Reference"),
+  linked from the shell with `theme-color` meta.
+- ✅ `sw.js` service worker pre-caches `index.html`, `style.css`, `script.js`, fonts
+  and favicons (cache-first, true offline install). Registered from `script.js`
+  guarded by `'serviceWorker' in navigator` and `location.protocol` http(s) only,
+  so the `file://` path stays SW-free.
 
 ---
 
