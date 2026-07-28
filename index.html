@@ -7399,6 +7399,79 @@ sanity check.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: MOLAR MASS CALCULATOR ─────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">⚗️</span>
+<span class="topic-name">Molar Mass Calculator</span>
+<span class="topic-badge">LIVE TOOL</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Formula → g/mol</div>
+<div class="concept-title">Parse any chemical formula into its molecular weight</div>
+<div class="concept-desc">
+Type a formula — parentheses and subscripts are supported, e.g. <strong class="text-cyan">C6H12O6</strong>,
+<strong class="text-cyan">H2SO4</strong>, <strong class="text-cyan">Ca(OH)2</strong> or
+<strong class="text-cyan">Al2(SO4)3</strong>. Uses IUPAC standard atomic weights and runs
+entirely offline.
+</div>
+<div class="calc" id="calc-mw">
+<div class="calc-grid">
+<div class="calc-field" style="grid-column: 1 / -1"><label>Chemical formula</label><input id="mw-formula" type="text" value="C6H12O6" autocomplete="off" spellcheck="false" /></div>
+</div>
+<div class="calc-out">
+<span class="calc-out-label">Molar mass</span>
+<span class="calc-out-val" id="mw-out">—</span>
+</div>
+<div class="info-bar ib-muted" id="mw-note" style="margin-top: 10px"></div>
+</div>
+<div class="info-bar ib-muted">
+🧪 Case matters — <strong class="text-amber">Co</strong> is cobalt, <strong class="text-amber">CO</strong>
+is carbon monoxide. Hydrate dots (·) aren't parsed; expand them, e.g. CuSO4(H2O)5.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: PSYCHROMETRIC QUICK-LOOKUP ────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">💨</span>
+<span class="topic-name">Psychrometric Quick-Lookup</span>
+<span class="topic-badge">LIVE TOOL</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Moist-Air Properties</div>
+<div class="concept-title">Humidity ratio, dew point &amp; enthalpy from T and RH</div>
+<div class="concept-desc">
+Enter dry-bulb temperature, relative humidity and total pressure. Saturation pressure uses
+the Magnus correlation; humidity ratio, dew point and enthalpy follow the ASHRAE moist-air
+relations. Handy for HVAC, drying and cooling-tower work.
+</div>
+<div class="calc" id="calc-psy">
+<div class="calc-grid">
+<div class="calc-field"><label>Dry-bulb T (°C)</label><input id="psy-t" type="number" value="25" step="any" /></div>
+<div class="calc-field"><label>Relative humidity (%)</label><input id="psy-rh" type="number" value="50" step="any" /></div>
+<div class="calc-field"><label>Total pressure (kPa)</label><input id="psy-p" type="number" value="101.325" step="any" /></div>
+</div>
+<div class="calc-out calc-out-list">
+<span class="calc-row"><span class="calc-out-label">Saturation pressure p_ws</span><span class="calc-out-val" id="psy-pws">—</span></span>
+<span class="calc-row"><span class="calc-out-label">Vapor pressure p_w</span><span class="calc-out-val" id="psy-pw">—</span></span>
+<span class="calc-row"><span class="calc-out-label">Humidity ratio W</span><span class="calc-out-val" id="psy-w">—</span></span>
+<span class="calc-row"><span class="calc-out-label">Dew point T_dp</span><span class="calc-out-val" id="psy-dp">—</span></span>
+<span class="calc-row"><span class="calc-out-label">Enthalpy h</span><span class="calc-out-val" id="psy-h">—</span></span>
+</div>
+</div>
+<div class="info-bar ib-muted">
+🌡️ Defaults (25 °C, 50 % RH, 1 atm) give W ≈ 0.0099 kg/kg, T_dp ≈ 13.9 °C and
+h ≈ 50.4 kJ/kg dry air — a standard comfort-condition check.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-enviro" data-domain="enviro">

@@ -2361,6 +2361,21 @@ mark.sh {
   font-size: 12px;
   color: var(--muted);
 }
+/* Multi-line result block (e.g. psychrometrics): stacked label→value rows. */
+.calc-out-list {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 8px;
+}
+.calc-out-list .calc-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+.calc-out-list .calc-out-val {
+  font-size: 15px;
+}
 
 /* ── New domains: Calculators, Sustainability, Petroleum ───────────────────── */
 .chip.c-tools    { color: #f43f5e; border-color: rgba(244, 63, 94, 0.3); }
