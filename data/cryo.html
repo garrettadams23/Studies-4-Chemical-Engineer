@@ -145,3 +145,155 @@ H₂ and He must be pre-cooled first (their inversion T is very low)
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: JOULE-THOMSON ─────────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🌡️</span>
+    <span class="topic-name">Joule–Thomson Effect &amp; Inversion</span>
+    <span class="topic-badge">FOUNDATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Throttling Without Work</div>
+      <div class="concept-title">Why some gases cool and others warm when expanded</div>
+      <div class="concept-desc">
+        Pushing a real gas through a valve at constant enthalpy changes its temperature. The sign
+        and size of that change is the engine behind nearly every liquefaction cycle.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE COEFFICIENT</div>
+        <pre class="code-block">μ_JT = (∂T/∂P)_H
+
+μ_JT > 0  → gas COOLS on throttling (below inversion T)
+μ_JT < 0  → gas WARMS on throttling (above inversion T)
+μ_JT = 0  → the inversion temperature itself</pre>
+        <div class="dt">▸ INVERSION TEMPERATURES (1 atm)</div>
+        <table class="ref-table">
+          <tr><th>Gas</th><th>Max inversion T</th><th>Note</th></tr>
+          <tr><td style="color: var(--cyan)">N₂</td><td>≈ 621 K</td><td>Cools at room T — easy</td></tr>
+          <tr><td style="color: var(--green)">O₂</td><td>≈ 764 K</td><td>Cools at room T</td></tr>
+          <tr><td style="color: var(--amber)">H₂</td><td>≈ 202 K</td><td>Must be pre-cooled</td></tr>
+          <tr><td style="color: var(--red)">He</td><td>≈ 43 K</td><td>Must be pre-cooled hard</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🧊 An ideal gas has μ_JT = 0 exactly — the effect is a purely real-gas phenomenon rooted in
+        intermolecular forces. It vanishes as pressure → 0.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: CRYO HEAT EXCHANGERS ──────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔁</span>
+    <span class="topic-name">Cryogenic Heat Exchangers &amp; Regeneration</span>
+    <span class="topic-badge">APPLIED</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Recovering the Cold</div>
+      <div class="concept-title">Why liquefaction is impossible without heat integration</div>
+      <div class="concept-desc">
+        The cold outgoing product stream pre-cools the warm incoming feed. Tiny temperature
+        approaches (1–3 K) demand exchangers with enormous area and near-zero losses.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ EXCHANGER TYPES</div>
+        <table class="ref-table">
+          <tr><th>Type</th><th>Where used</th></tr>
+          <tr><td style="color: var(--cyan)">Brazed aluminium plate-fin</td><td>ASUs, LNG — huge area/volume</td></tr>
+          <tr><td style="color: var(--green)">Coil-wound (spiral)</td><td>Large LNG main exchangers</td></tr>
+          <tr><td style="color: var(--amber)">Regenerators (packed beds)</td><td>Older Stirling/Gifford-McMahon coolers</td></tr>
+        </table>
+        <div class="dt">▸ WHY APPROACH TEMPERATURE MATTERS</div>
+        <pre class="code-block">Liquefaction yield ∝ how completely feed is cooled.
+A 1 K worse approach can slash yield and spike specific power.
+→ counter-current, multi-stream, minimal ΔT (see Heat Transfer / LMTD).</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        ❄️ Insulation losses that are trivial at ambient dominate at 80 K — the exchanger and cold
+        box live inside vacuum-jacketed, multi-layer-insulated enclosures.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: CRYO MATERIALS ────────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧱</span>
+    <span class="topic-name">Cryogenic Materials &amp; Insulation</span>
+    <span class="topic-badge">APPLIED</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Surviving the Cold</div>
+      <div class="concept-title">Ductile-to-brittle transition &amp; keeping heat out</div>
+      <div class="concept-desc">
+        Materials that are tough at room temperature can shatter at 77 K. Material choice and
+        insulation design are safety-critical in cryogenic plants.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ MATERIALS THAT STAY TOUGH</div>
+        <pre class="code-block">Good: austenitic stainless (304/316), aluminium alloys,
+      copper, nickel alloys, Invar (low thermal contraction)
+Bad:  plain carbon steel — brittle below its transition T
+      (a classic embrittlement failure mode)</pre>
+        <div class="dt">▸ INSULATION LADDER</div>
+        <table class="ref-table">
+          <tr><th>Method</th><th>Performance</th></tr>
+          <tr><td style="color: var(--amber)">Perlite / foam</td><td>Cheap, bulk storage</td></tr>
+          <tr><td style="color: var(--green)">Vacuum jacket</td><td>Kills gas conduction/convection</td></tr>
+          <tr><td style="color: var(--cyan)">Multi-layer (MLI, "superinsulation")</td><td>Vacuum + reflective foils — best</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        ⚠️ Thermal contraction is real: a 10 m stainless line shrinks tens of mm cooling to LNG
+        temperature — expansion loops and bellows are mandatory.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: SUPERCONDUCTIVITY & HELIUM ────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧲</span>
+    <span class="topic-name">Superconductivity &amp; Helium Cryogenics</span>
+    <span class="topic-badge">ADVANCED</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">The Coldest Engineering</div>
+      <div class="concept-title">Liquid helium, zero resistance &amp; big magnets</div>
+      <div class="concept-desc">
+        Below a critical temperature some materials lose all electrical resistance. Sustaining that
+        state needs liquid-helium cryogenics — the domain of MRI scanners and particle accelerators.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ HELIUM FACTS</div>
+        <pre class="code-block">He-4 boils at 4.2 K (1 atm); pumping gets you below 1 K.
+Below 2.17 K it becomes a SUPERFLUID (zero viscosity).
+He-3 (rarer) enables dilution refrigerators → millikelvin.</pre>
+        <div class="dt">▸ WHERE IT SHOWS UP</div>
+        <table class="ref-table">
+          <tr><th>Application</th><th>Superconductor / temp</th></tr>
+          <tr><td style="color: var(--cyan)">MRI magnets</td><td>NbTi at 4 K in liquid He</td></tr>
+          <tr><td style="color: var(--green)">LHC / fusion magnets</td><td>Nb₃Sn, superfluid He at 1.9 K</td></tr>
+          <tr><td style="color: var(--amber)">HTS power cables</td><td>YBCO, cooled by liquid N₂ (77 K)</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        💡 "High-temperature" superconductors are high only relatively — 77 K liquid-nitrogen cooling
+        is far cheaper than liquid helium, which is why HTS is such a big deal.
+      </div>
+    </div>
+  </div>
+</div>

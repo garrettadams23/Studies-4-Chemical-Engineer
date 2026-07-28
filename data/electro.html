@@ -234,3 +234,78 @@ Cycle life · cost ($/kWh) — no single tech wins all four.</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: NERNST EQUATION ───────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔋</span>
+    <span class="topic-name">Cell Potential &amp; the Nernst Equation</span>
+    <span class="topic-badge">FOUNDATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Thermodynamics of Cells</div>
+      <div class="concept-title">How concentration shifts a cell's voltage</div>
+      <div class="concept-desc">
+        The standard potential sets the baseline; the Nernst equation corrects it for real
+        concentrations and temperature — the link between electrochemistry and Thermodynamics.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE EQUATIONS</div>
+        <pre class="code-block">ΔG = −nFE          E°cell = E°cathode − E°anode
+Nernst:  E = E° − (RT/nF)·ln Q
+At 25 °C: E = E° − (0.0592/n)·log Q   [volts]</pre>
+        <div class="dt">▸ WHAT IT TELLS YOU</div>
+        <table class="ref-table">
+          <tr><th>Condition</th><th>Meaning</th></tr>
+          <tr><td style="color: var(--green)">E &gt; 0</td><td>Reaction spontaneous as written (galvanic)</td></tr>
+          <tr><td style="color: var(--red)">E &lt; 0</td><td>Needs applied voltage (electrolytic)</td></tr>
+          <tr><td style="color: var(--cyan)">E = 0</td><td>Equilibrium — a dead battery</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🧪 A pH meter is applied Nernst: the electrode voltage varies ~59 mV per pH unit at 25 °C,
+        directly from the (RT/F)·ln term.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: FARADAY'S LAWS ────────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">⚡</span>
+    <span class="topic-name">Faraday's Laws &amp; Current Efficiency</span>
+    <span class="topic-badge">CORE</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Charge → Mass</div>
+      <div class="concept-title">How much product a given current makes</div>
+      <div class="concept-desc">
+        Faraday's laws convert electric charge into moles of product — the sizing basis for any
+        electrolyzer, electroplating line or electrowinning cell.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE LAW</div>
+        <pre class="code-block">m = (Q·M)/(n·F) = (I·t·M)/(n·F)
+
+F = 96,485 C/mol e⁻     n = electrons per ion
+Current efficiency η = actual mass / theoretical mass</pre>
+        <div class="dt">▸ WHERE EFFICIENCY LEAKS</div>
+        <table class="ref-table">
+          <tr><th>Loss</th><th>Cause</th></tr>
+          <tr><td style="color: var(--red)">Side reactions</td><td>e.g. H₂/O₂ evolution stealing current</td></tr>
+          <tr><td style="color: var(--amber)">Ohmic (IR) drop</td><td>Electrolyte + cell resistance → heat</td></tr>
+          <tr><td style="color: var(--cyan)">Overpotential</td><td>Kinetic barrier (see Butler–Volmer)</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🏭 Specific energy (kWh/kg) = cell voltage ÷ (efficiency × theoretical). Green-hydrogen cost
+        lives or dies on shaving cell voltage toward the ~1.23 V thermodynamic minimum.
+      </div>
+    </div>
+  </div>
+</div>
