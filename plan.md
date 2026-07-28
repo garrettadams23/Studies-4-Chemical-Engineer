@@ -1073,6 +1073,20 @@ Three more inline, theme-aware diagrams (now 6 total across the site):
 - Two-film theory concentration profile across a gas/liquid interface (Mass
   Transfer & Separations). Verified headless: all 6 render, visible and sized.
 
+### 2026-07-27 — Feature parity+ vs sister site: two new live tools
+Compared feature-for-feature against the sister IT site (`garrettadams23/studies`).
+Result: full engine parity plus ~10 ChemE-only additions already. Closed the last
+gap (the sister's URL-encoder utility) with two chemical-engineering tools instead:
+- **Molar Mass Calculator** — a recursive formula parser (`parseFormula`) handling
+  parentheses/brackets + subscripts against IUPAC standard atomic weights; live
+  g/mol with a per-element breakdown and friendly errors. Verified: glucose 180.16,
+  H₂SO₄ 98.08, Ca(OH)₂ 74.09, Al₂(SO₄)₃ 342.15.
+- **Psychrometric Quick-Lookup** — Magnus saturation pressure + ASHRAE moist-air
+  relations → saturation/vapour pressure, humidity ratio, dew point and enthalpy.
+  Verified at 25 °C/50 %/1 atm: W≈0.0099 kg/kg, T_dp≈13.9 °C, h≈50.3 kJ/kg.
+Both wired CSP-safe (addEventListener), labelled for AT, and re-audited → still
+**0 axe violations** in both themes. Tools domain now has 10 live calculators; 253 topics.
+
 ### 2026-07-26 — Phase 6.4: WCAG AA audit (axe-core) → 0 violations
 Ran axe-core (wcag2a/2aa + wcag21a/21aa) against the fully-expanded page in
 **both** themes and fixed every finding:

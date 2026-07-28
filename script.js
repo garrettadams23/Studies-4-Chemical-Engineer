@@ -1174,6 +1174,125 @@ function initFriction() {
   calc();
 }
 
+// IUPAC standard atomic weights (g/mol) for the common elements. Enough to
+// cover essentially anything typed on a chemical-engineering site.
+const ATOMIC_WEIGHTS = {
+  H: 1.008, He: 4.0026, Li: 6.94, Be: 9.0122, B: 10.81, C: 12.011, N: 14.007,
+  O: 15.999, F: 18.998, Ne: 20.180, Na: 22.990, Mg: 24.305, Al: 26.982, Si: 28.085,
+  P: 30.974, S: 32.06, Cl: 35.45, Ar: 39.948, K: 39.098, Ca: 40.078, Sc: 44.956,
+  Ti: 47.867, V: 50.942, Cr: 51.996, Mn: 54.938, Fe: 55.845, Co: 58.933, Ni: 58.693,
+  Cu: 63.546, Zn: 65.38, Ga: 69.723, Ge: 72.630, As: 74.922, Se: 78.971, Br: 79.904,
+  Kr: 83.798, Rb: 85.468, Sr: 87.62, Y: 88.906, Zr: 91.224, Nb: 92.906, Mo: 95.95,
+  Ru: 101.07, Rh: 102.91, Pd: 106.42, Ag: 107.87, Cd: 112.41, In: 114.82, Sn: 118.71,
+  Sb: 121.76, Te: 127.60, I: 126.90, Xe: 131.29, Cs: 132.91, Ba: 137.33, La: 138.91,
+  Ce: 140.12, W: 183.84, Re: 186.21, Os: 190.23, Ir: 192.22, Pt: 195.08, Au: 196.97,
+  Hg: 200.59, Tl: 204.38, Pb: 207.2, Bi: 208.98, U: 238.03,
+};
+
+// Parse a chemical formula (with parentheses/brackets and subscripts) into an
+// element→count map, throwing a friendly error on anything malformed.
+function parseFormula(formula) {
+  let i = 0;
+  const s = formula.replace(/\s+/g, "");
+  function count() {
+    let n = "";
+    while (i < s.length && s[i] >= "0" && s[i] <= "9") { n += s[i]; i++; }
+    return n === "" ? 1 : parseInt(n, 10);
+  }
+  function group() {
+    const acc = {};
+    while (i < s.length) {
+      const ch = s[i];
+      if (ch === "(" || ch === "[") {
+        i++;
+        const inner = group();
+        if (s[i] !== ")" && s[i] !== "]") throw new Error("unbalanced parentheses");
+        i++;
+        const m = count();
+        for (const el in inner) acc[el] = (acc[el] || 0) + inner[el] * m;
+      } else if (ch === ")" || ch === "]") {
+        break;
+      } else if (ch >= "A" && ch <= "Z") {
+        let sym = ch; i++;
+        if (i < s.length && s[i] >= "a" && s[i] <= "z") { sym += s[i]; i++; }
+        if (!(sym in ATOMIC_WEIGHTS)) throw new Error("unknown element “" + sym + "”");
+        const n = count();
+        acc[sym] = (acc[sym] || 0) + n;
+      } else {
+        throw new Error("unexpected character “" + ch + "”");
+      }
+    }
+    return acc;
+  }
+  if (!s) throw new Error("empty formula");
+  const counts = group();
+  if (i < s.length) throw new Error("unbalanced parentheses");
+  return counts;
+}
+
+function initMolarMass() {
+  const inp = document.getElementById("mw-formula");
+  const out = document.getElementById("mw-out");
+  const note = document.getElementById("mw-note");
+  if (!inp || !out) return;
+  function calc() {
+    const raw = inp.value.trim();
+    if (!raw) { out.textContent = "—"; if (note) note.textContent = ""; return; }
+    try {
+      const counts = parseFormula(raw);
+      let mass = 0;
+      const parts = [];
+      for (const el in counts) {
+        const contrib = ATOMIC_WEIGHTS[el] * counts[el];
+        mass += contrib;
+        parts.push(el + (counts[el] > 1 ? counts[el] : "") + " " + calcFmt(contrib) + " g/mol");
+      }
+      out.textContent = calcFmt(mass) + " g/mol";
+      if (note) note.textContent = "🧮 " + parts.join("  ·  ");
+    } catch (e) {
+      out.textContent = "—";
+      if (note) note.textContent = "⚠️ " + e.message;
+    }
+  }
+  inp.addEventListener("input", calc);
+  calc();
+}
+
+function initPsychrometrics() {
+  const t = document.getElementById("psy-t");
+  const rh = document.getElementById("psy-rh");
+  const pT = document.getElementById("psy-p");
+  const oPws = document.getElementById("psy-pws");
+  const oPw = document.getElementById("psy-pw");
+  const oW = document.getElementById("psy-w");
+  const oDp = document.getElementById("psy-dp");
+  const oH = document.getElementById("psy-h");
+  if (!t || !rh || !pT || !oPws) return;
+  // Magnus saturation vapour pressure over water (kPa), T in °C.
+  const pSat = T => 0.61094 * Math.exp((17.625 * T) / (T + 243.04));
+  function calc() {
+    const T = parseFloat(t.value), RH = parseFloat(rh.value), P = parseFloat(pT.value);
+    const set = (el, v) => { if (el) el.textContent = v; };
+    if ([T, RH, P].some(isNaN) || P <= 0 || RH < 0) {
+      [oPws, oPw, oW, oDp, oH].forEach(e => set(e, "—")); return;
+    }
+    const pws = pSat(T);
+    const pw = (RH / 100) * pws;
+    const W = pw < P ? 0.62198 * (pw / (P - pw)) : NaN;      // kg water / kg dry air
+    const enth = 1.006 * T + W * (2501 + 1.86 * T);          // kJ / kg dry air
+    // Inverse Magnus for dew point (°C).
+    let dp = NaN;
+    if (pw > 0) { const a = Math.log(pw / 0.61094); dp = (243.04 * a) / (17.625 - a); }
+    set(oPws, calcFmt(pws) + " kPa");
+    set(oPw, calcFmt(pw) + " kPa");
+    set(oW, isFinite(W) ? calcFmt(W) + " kg/kg" : "—");
+    set(oDp, isFinite(dp) ? calcFmt(dp) + " °C" : "—");
+    set(oH, isFinite(enth) ? calcFmt(enth) + " kJ/kg" : "—");
+  }
+  [t, rh, pT].forEach(e => e.addEventListener("input", calc));
+  calc();
+}
+
 // Associate each calculator <label> with its control so screen readers
 // announce a name (the markup uses adjacent <label> + <input>/<select> without
 // a `for`/id link). Belt-and-suspenders: set both `for` and `aria-label`.
@@ -1198,6 +1317,8 @@ function initCalculators() {
   initPH();
   initSteamTable();
   initFriction();
+  initMolarMass();
+  initPsychrometrics();
   initFlashcards();
 }
 
