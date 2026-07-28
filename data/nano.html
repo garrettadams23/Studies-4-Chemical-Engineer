@@ -182,3 +182,115 @@ Challenge: producing consistent quality at scale (a ChemE problem).</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: NANOFABRICATION ───────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🛠️</span>
+    <span class="topic-name">Nanofabrication — Top-Down vs Bottom-Up</span>
+    <span class="topic-badge">CORE</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Two Routes to the Nanoscale</div>
+      <div class="concept-title">Carving material down vs building it up atom-by-atom</div>
+      <div class="concept-desc">
+        Nanostructures are made either by removing material from a larger piece or by assembling them
+        from atoms and molecules. The choice sets cost, throughput and achievable feature size.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE TWO PHILOSOPHIES</div>
+        <table class="ref-table">
+          <tr><th>Top-down</th><th>Bottom-up</th></tr>
+          <tr><td style="color: var(--cyan)">Lithography, etching, milling</td><td style="color: var(--green)">Self-assembly, CVD, sol-gel</td></tr>
+          <tr><td style="color: var(--cyan)">Precise placement, low throughput</td><td style="color: var(--green)">Cheap, massively parallel</td></tr>
+          <tr><td style="color: var(--cyan)">Limited by tool resolution</td><td style="color: var(--green)">Limited by control of chemistry</td></tr>
+        </table>
+        <div class="dt">▸ KEY TECHNIQUES</div>
+        <pre class="code-block">Photolithography → chips (top-down, the semiconductor workhorse)
+CVD / ALD        → graphene, thin films (bottom-up, monolayer control)
+Sol-gel          → nanoporous oxides, aerogels
+Self-assembly    → block copolymers, colloidal crystals</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        ⚙️ Atomic-layer deposition (ALD) grows films one atomic layer per cycle — the ultimate in
+        bottom-up thickness control, now standard in advanced chip manufacturing.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: QUANTUM DOTS ──────────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🔴</span>
+    <span class="topic-name">Quantum Dots &amp; Nanoparticles</span>
+    <span class="topic-badge">APPLIED</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Size-Tunable Matter</div>
+      <div class="concept-title">When properties depend on how big the particle is</div>
+      <div class="concept-desc">
+        At the nanoscale, confining electrons changes a material's optical and electronic behaviour.
+        A quantum dot's colour is set by its diameter — chemistry you can literally see.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ QUANTUM CONFINEMENT</div>
+        <pre class="code-block">Smaller dot → larger band gap → bluer emission
+Larger dot  → smaller band gap → redder emission
+(same material, e.g. CdSe or InP, just different size)</pre>
+        <div class="dt">▸ USES</div>
+        <table class="ref-table">
+          <tr><th>Application</th><th>Why nanoparticles</th></tr>
+          <tr><td style="color: var(--cyan)">QLED displays</td><td>Pure, tunable colour</td></tr>
+          <tr><td style="color: var(--green)">Bio-imaging tags</td><td>Bright, photostable fluorescence</td></tr>
+          <tr><td style="color: var(--amber)">Catalysis</td><td>Huge surface-area-to-volume ratio</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        📈 Surface-area-to-volume scales as 1/d — halve the particle size and you roughly double the
+        fraction of atoms sitting on the (reactive) surface.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: NANOFLUIDS ────────────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🌊</span>
+    <span class="topic-name">Nanofluids &amp; Enhanced Transport</span>
+    <span class="topic-badge">ADVANCED</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Better Heat &amp; Mass Transfer</div>
+      <div class="concept-title">Suspending nanoparticles to boost fluid properties</div>
+      <div class="concept-desc">
+        Adding a few percent of nanoparticles to a coolant can measurably raise its thermal
+        conductivity — a nanoscale trick applied to a classic Heat Transfer problem.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE APPEAL &amp; THE CATCH</div>
+        <table class="ref-table">
+          <tr><th>Benefit</th><th>Challenge</th></tr>
+          <tr><td style="color: var(--green)">Higher thermal conductivity</td><td style="color: var(--red)">Agglomeration / settling</td></tr>
+          <tr><td style="color: var(--green)">Better critical heat flux</td><td style="color: var(--red)">Erosion &amp; pumping cost (viscosity ↑)</td></tr>
+          <tr><td style="color: var(--green)">Compact exchangers</td><td style="color: var(--red)">Long-term stability, cost</td></tr>
+        </table>
+        <div class="dt">▸ TYPICAL SYSTEMS</div>
+        <pre class="code-block">Base fluid: water, ethylene glycol, oil
+Particles:  Al₂O₃, CuO, TiO₂, carbon nanotubes (1–5 vol%)
+Targets:    electronics cooling, solar collectors, engine coolant</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🔬 Reported conductivity gains vary widely between labs — surfactant, particle shape and
+        aggregation all matter, so reproducibility remains an active research issue.
+      </div>
+    </div>
+  </div>
+</div>

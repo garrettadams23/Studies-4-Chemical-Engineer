@@ -227,3 +227,78 @@ dissolution (how fast the drug releases).</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: CLEANROOMS ────────────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧼</span>
+    <span class="topic-name">Cleanrooms &amp; Contamination Control</span>
+    <span class="topic-badge">CORE</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Engineering Clean Air</div>
+      <div class="concept-title">Classifying and controlling particulate contamination</div>
+      <div class="concept-desc">
+        Sterile drug manufacturing happens in cleanrooms where airborne particle counts are held to
+        strict limits by HEPA-filtered, pressure-cascaded air.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ CLASSIFICATION (ISO 14644)</div>
+        <table class="ref-table">
+          <tr><th>Grade</th><th>Roughly</th><th>Use</th></tr>
+          <tr><td style="color: var(--cyan)">ISO 5 (Grade A)</td><td>≤ 3,520 /m³ (≥0.5 µm)</td><td>Aseptic fill zone</td></tr>
+          <tr><td style="color: var(--green)">ISO 7 (Grade B/C)</td><td>≤ 352,000 /m³</td><td>Surrounding areas</td></tr>
+          <tr><td style="color: var(--amber)">ISO 8 (Grade D)</td><td>≤ 3.52 M /m³</td><td>Support / prep</td></tr>
+        </table>
+        <div class="dt">▸ CONTROL STRATEGY</div>
+        <pre class="code-block">HEPA filtration + laminar (unidirectional) flow
+Pressure cascade: cleaner rooms held at higher pressure
+Gowning airlocks · surface disinfection · people = #1 particle source</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🚪 Airflow direction is a design tool: positive pressure keeps dirt out of sterile areas;
+        negative pressure keeps hazardous or live agents in.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: BIOPROCESSING ─────────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧫</span>
+    <span class="topic-name">Bioprocessing &amp; Biologics</span>
+    <span class="topic-badge">APPLIED</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Making Drugs with Cells</div>
+      <div class="concept-title">Upstream fermentation &amp; downstream purification</div>
+      <div class="concept-desc">
+        Modern biologics — antibodies, vaccines, insulin — are made by living cells in bioreactors,
+        then purified through a chain of separation steps. It links Biochemical Eng. to GMP.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE TWO HALVES</div>
+        <pre class="code-block">Upstream:   cell culture / fermentation in a bioreactor
+            (control T, pH, dissolved O₂, feed)
+Downstream: harvest → centrifuge/filter → chromatography
+            → viral clearance → formulation & fill</pre>
+        <div class="dt">▸ WHY IT'S HARD</div>
+        <table class="ref-table">
+          <tr><th>Challenge</th><th>Reason</th></tr>
+          <tr><td style="color: var(--red)">Shear sensitivity</td><td>Cells damaged by aggressive mixing</td></tr>
+          <tr><td style="color: var(--amber)">Sterility</td><td>One contaminant ruins a whole batch</td></tr>
+          <tr><td style="color: var(--cyan)">Purity of complex molecules</td><td>Chromatography-heavy, costly</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🧬 Single-use (disposable) bioreactors have transformed the field — no clean-in-place, faster
+        changeover, ideal for multi-product and continuous facilities.
+      </div>
+    </div>
+  </div>
+</div>

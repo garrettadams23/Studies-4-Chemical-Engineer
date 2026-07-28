@@ -147,3 +147,151 @@ Total = sensible + latent; the ratio sizes the coil &amp; reheat.</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: HUMIDITY DEFINITIONS ──────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">💧</span>
+    <span class="topic-name">Humidity Definitions &amp; Terms</span>
+    <span class="topic-badge">FOUNDATION</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Ways to Measure Water in Air</div>
+      <div class="concept-title">Humidity ratio, relative humidity &amp; dew point</div>
+      <div class="concept-desc">
+        "Humidity" has several precise meanings. Mixing them up is a classic source of psychrometric
+        errors — each one answers a different question.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE KEY QUANTITIES</div>
+        <pre class="code-block">Humidity ratio   W = 0.622·p_w /(P − p_w)   [kg water / kg dry air]
+Relative humidity RH = p_w / p_ws × 100%     [how "full" the air is]
+Dew point        T_dp: cool at constant P until RH = 100%
+Specific humidity q = m_water /(m_water + m_dry air)</pre>
+        <div class="dt">▸ WHY W (NOT RH) FOR BALANCES</div>
+        <table class="ref-table">
+          <tr><th>Quantity</th><th>Best for</th></tr>
+          <tr><td style="color: var(--cyan)">Humidity ratio W</td><td>Mass balances — dry-air basis is conserved</td></tr>
+          <tr><td style="color: var(--green)">Relative humidity</td><td>Comfort, condensation risk</td></tr>
+          <tr><td style="color: var(--amber)">Dew point</td><td>When will it condense? (constant-P cooling)</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🧮 Try the <strong class="text-cyan">Psychrometric Quick-Lookup</strong> in the Tools domain —
+        it converts T + RH into W, dew point and enthalpy instantly.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: WET-BULB ──────────────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🌡️</span>
+    <span class="topic-name">Wet-Bulb &amp; Adiabatic Saturation</span>
+    <span class="topic-badge">CORE</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Cooling by Evaporation</div>
+      <div class="concept-title">The temperature a wetted thermometer settles at</div>
+      <div class="concept-desc">
+        Blow unsaturated air past a wet wick and evaporation cools it to the wet-bulb temperature.
+        The wet-bulb depression is a direct read on how dry the air is.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE THREE TEMPERATURES</div>
+        <pre class="code-block">Dry-bulb  T:     ordinary air temperature
+Wet-bulb  T_wb:  evaporatively cooled (T_wb ≤ T)
+Dew point T_dp:  T_dp ≤ T_wb ≤ T   (equal only at saturation)</pre>
+        <div class="dt">▸ LEWIS RELATION (air–water)</div>
+        <pre class="code-block">For the air–water system, Le ≈ 1, so the adiabatic-saturation
+temperature ≈ the thermodynamic wet-bulb temperature.
+This lucky coincidence is why the psychrometric chart works so cleanly.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🥵 Human survivability tracks wet-bulb, not dry-bulb: a sustained T_wb above ~35 °C defeats
+        sweat-based cooling regardless of shade or wind.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: PSYCHROMETRIC PROCESSES ───────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">↔️</span>
+    <span class="topic-name">Air Mixing &amp; Psychrometric Processes</span>
+    <span class="topic-badge">APPLIED</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Moving Around the Chart</div>
+      <div class="concept-title">Heating, cooling, humidifying &amp; mixing as vectors</div>
+      <div class="concept-desc">
+        Every HVAC process is a path on the psychrometric chart. Recognising the direction each unit
+        operation moves the air state makes system design intuitive.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ PROCESS DIRECTIONS</div>
+        <table class="ref-table">
+          <tr><th>Process</th><th>On the chart</th></tr>
+          <tr><td style="color: var(--red)">Sensible heating</td><td>Move right, W constant, RH falls</td></tr>
+          <tr><td style="color: var(--cyan)">Sensible cooling</td><td>Move left, W constant, RH rises</td></tr>
+          <tr><td style="color: var(--green)">Cooling + dehumidify</td><td>Down-left below dew point (coil condenses water)</td></tr>
+          <tr><td style="color: var(--amber)">Evaporative cooling</td><td>Up-left along a constant-wet-bulb line</td></tr>
+        </table>
+        <div class="dt">▸ ADIABATIC MIXING</div>
+        <pre class="code-block">Mix two air streams → state lands on the straight line
+between them, split by mass ratio (lever rule on W and h).</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🧭 The "lever rule" for mixing is the same tie-line idea used for phase envelopes in
+        Thermodynamics — geometry beats formulas here.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: DRYING OF SOLIDS ──────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🍃</span>
+    <span class="topic-name">Drying of Solids</span>
+    <span class="topic-badge">APPLIED</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Psychrometrics Meets Unit Ops</div>
+      <div class="concept-title">Constant-rate and falling-rate drying periods</div>
+      <div class="concept-desc">
+        Industrial drying — of pharmaceuticals, food, polymers — is a coupled heat- and mass-transfer
+        problem set by the humidity of the drying air.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE DRYING CURVE</div>
+        <pre class="code-block">Constant-rate period: free surface moisture; rate set by
+   air (wet-bulb T at the surface) — evaporation-limited.
+Falling-rate period:  internal diffusion controls; rate
+   drops toward the equilibrium moisture content.</pre>
+        <div class="dt">▸ DRYER TYPES</div>
+        <table class="ref-table">
+          <tr><th>Dryer</th><th>Best for</th></tr>
+          <tr><td style="color: var(--cyan)">Tray / batch</td><td>Small lots, fragile solids</td></tr>
+          <tr><td style="color: var(--green)">Fluidized-bed</td><td>Free-flowing granules, fast</td></tr>
+          <tr><td style="color: var(--amber)">Spray dryer</td><td>Slurries → powder (milk, detergents)</td></tr>
+          <tr><td style="color: var(--purple)">Freeze dryer (lyophilization)</td><td>Heat-sensitive biologics</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        💊 Equilibrium moisture content depends on the air's RH — you can never dry a solid below what
+        the surrounding humidity allows.
+      </div>
+    </div>
+  </div>
+</div>

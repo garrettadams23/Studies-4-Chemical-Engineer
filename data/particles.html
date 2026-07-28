@@ -183,3 +183,116 @@ Sharpness: how cleanly the cut separates near d50.</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: COMMINUTION ───────────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🪨</span>
+    <span class="topic-name">Comminution — Crushing &amp; Grinding</span>
+    <span class="topic-badge">CORE</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Making Things Smaller</div>
+      <div class="concept-title">Size reduction and the energy it costs</div>
+      <div class="concept-desc">
+        Crushing and grinding create surface area for reaction, dissolution or separation — and they
+        are notoriously energy-hungry, often the biggest power draw in a solids plant.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ ENERGY LAWS</div>
+        <pre class="code-block">Bond's law:      E = W_i (10/√P₈₀ − 10/√F₈₀)
+Kick's law:      coarse crushing (E ∝ ln(F/P))
+Rittinger's law: fine grinding (E ∝ new surface area)</pre>
+        <div class="dt">▸ EQUIPMENT BY DUTY</div>
+        <table class="ref-table">
+          <tr><th>Stage</th><th>Equipment</th></tr>
+          <tr><td style="color: var(--cyan)">Coarse crush</td><td>Jaw, gyratory crushers</td></tr>
+          <tr><td style="color: var(--green)">Intermediate</td><td>Cone, roll crushers, hammer mills</td></tr>
+          <tr><td style="color: var(--amber)">Fine grind</td><td>Ball, rod &amp; jet mills</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        ⚡ Comminution efficiency is dismal — a large fraction of input energy becomes heat and noise,
+        not new surface. Small efficiency gains have huge industrial value.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: CYCLONES ──────────────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🌪️</span>
+    <span class="topic-name">Cyclone Separation &amp; Gas Cleaning</span>
+    <span class="topic-badge">APPLIED</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Spinning Out the Solids</div>
+      <div class="concept-title">Using inertia to pull particles from a gas</div>
+      <div class="concept-desc">
+        A cyclone swirls dusty gas so centrifugal force flings particles to the wall, where they fall
+        out — no moving parts, cheap, and everywhere in solids processing.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ HOW IT WORKS</div>
+        <pre class="code-block">Tangential inlet → vortex → particles hit wall &amp; spiral down
+Cut size d₅₀: particle size collected with 50% efficiency
+Smaller cyclones → higher spin → finer cut, but more ΔP.</pre>
+        <div class="dt">▸ GAS-CLEANING LADDER</div>
+        <table class="ref-table">
+          <tr><th>Device</th><th>Catches down to</th></tr>
+          <tr><td style="color: var(--amber)">Cyclone</td><td>~5–10 µm (coarse)</td></tr>
+          <tr><td style="color: var(--green)">Baghouse (fabric filter)</td><td>~1 µm, very high efficiency</td></tr>
+          <tr><td style="color: var(--cyan)">Electrostatic precipitator</td><td>&lt; 1 µm, huge gas volumes</td></tr>
+          <tr><td style="color: var(--purple)">Wet scrubber</td><td>Fine dust + soluble gases</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🏭 Cyclones are often a first stage — cheap bulk removal — ahead of a baghouse or ESP that
+        polishes the gas to emission limits.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── TOPIC: FILTRATION ────────────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧽</span>
+    <span class="topic-name">Filtration &amp; Cake Formation</span>
+    <span class="topic-badge">CORE</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Solid–Liquid Separation</div>
+      <div class="concept-title">Building and washing a filter cake</div>
+      <div class="concept-desc">
+        Push a slurry through a medium; solids build a cake while filtrate passes. The growing cake
+        is itself the main resistance, so filtration slows as it proceeds.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ THE GOVERNING EQUATION</div>
+        <pre class="code-block">dV/dt = (A·ΔP) / [ μ (α·c·V/A + R_m) ]
+
+α   = specific cake resistance   c = solids per volume filtrate
+R_m = medium resistance          incompressible cake → α constant</pre>
+        <div class="dt">▸ EQUIPMENT</div>
+        <table class="ref-table">
+          <tr><th>Filter</th><th>Mode</th></tr>
+          <tr><td style="color: var(--cyan)">Plate-and-frame</td><td>Batch, high pressure</td></tr>
+          <tr><td style="color: var(--green)">Rotary vacuum drum</td><td>Continuous, high volume</td></tr>
+          <tr><td style="color: var(--amber)">Leaf / candle</td><td>Polishing, clarification</td></tr>
+        </table>
+      </div>
+      <div class="info-bar ib-muted">
+        🧪 Compressible cakes (many biological solids) collapse under pressure — pushing harder can
+        actually lower throughput. A filter aid keeps the cake open.
+      </div>
+    </div>
+  </div>
+</div>

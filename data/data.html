@@ -271,3 +271,40 @@ Contextualize with events (batches, shutdowns) to make sense of trends.</pre>
     </div>
   </div>
 </div>
+
+<!-- ── TOPIC: DESIGN OF EXPERIMENTS ─────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">🧪</span>
+    <span class="topic-name">Design of Experiments (DOE)</span>
+    <span class="topic-badge">CORE</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Learning More From Fewer Runs</div>
+      <div class="concept-title">Structured experimentation vs one-factor-at-a-time</div>
+      <div class="concept-desc">
+        DOE varies several factors together to their statistical effects — including interactions —
+        with far fewer runs than changing one variable at a time. It underpins process optimization.
+      </div>
+      <div class="dw">
+        <div class="dt">▸ COMMON DESIGNS</div>
+        <table class="ref-table">
+          <tr><th>Design</th><th>Purpose</th></tr>
+          <tr><td style="color: var(--cyan)">Full factorial (2ᵏ)</td><td>All effects + interactions</td></tr>
+          <tr><td style="color: var(--green)">Fractional factorial</td><td>Screen many factors cheaply</td></tr>
+          <tr><td style="color: var(--amber)">Response surface (CCD/Box–Behnken)</td><td>Find an optimum (curvature)</td></tr>
+        </table>
+        <div class="dt">▸ WHY IT BEATS OFAT</div>
+        <pre class="code-block">One-factor-at-a-time misses INTERACTIONS and wastes runs.
+DOE gives orthogonal estimates + a model:  y = β₀ + Σβᵢxᵢ + Σβᵢⱼxᵢxⱼ …
+→ then optimize on the response surface.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🎯 DOE is the statistical engine inside Quality-by-Design (see the Pharma domain): it maps the
+        "design space" a process can operate in and stay in spec.
+      </div>
+    </div>
+  </div>
+</div>

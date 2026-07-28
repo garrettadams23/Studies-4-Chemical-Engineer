@@ -30,8 +30,8 @@ chemical-engineering curriculum, the FE/PE exams, and day-to-day plant practice.
 
 **Success metrics:**
 
-- ✅ 30 domains · **251 topics** (250+ target MET) · 9 calculators + steam table + quiz + flashcards · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
-- 🚧 Interactive tools — 9 calculators (incl. friction factor) + steam-table lookup + quiz + flashcards.
+- ✅ 30 domains · **277 topics** (250+ target MET) · 10 calculators + steam table + quiz + flashcards · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
+- ✅ Interactive tools — 10 calculators (unit conv., Reynolds, ideal gas, LMTD, Antoine, buffer pH, steam table, friction factor, molar mass, psychrometrics) + quiz + flashcards.
 - 🚧 Embedded reference data — steam table, Antoine coefficients, physical-property table live.
 - ✅ Self-test quiz engine — 18 questions, instant feedback, best score saved (localStorage).
 - 📝 Deployed on Netlify with a custom domain, deploy previews, and a feedback form.
@@ -762,9 +762,12 @@ CI build-check · README/CONTRIBUTING.
 ✅ `sw.js` service worker (offline PWA) + registration · ✅ inline handlers removed
 (CSP `script-src 'self'`) · ✅ Netlify Forms feedback panel · 📝 custom domain + HTTPS.
 
-**Phase 3 — Depth (📝)**
-Fill each existing domain to its full planned topic list (§3). Target 8–15
-topics/domain. This is the bulk of the writing.
+**Phase 3 — Depth (✅ complete)**
+Every content domain now meets the 8–15 topics/domain floor (277 topics total).
+The ten previously-thin domains — cryo, psychrometrics, nanotech, particles,
+career, electrochemical, exam, pharma, data science, environment — were each
+brought up to 8+ with substantive, cross-referenced topics. (formulas = quick-
+reference sheet and quiz = interactive self-test are intentionally exempt.)
 
 **Phase 4 — Breadth (✅ complete)**
 All planned §4 domains delivered: Electrochemical, Sustainability, Petroleum,
@@ -772,10 +775,12 @@ Pharma/GMP, Data Science, Particles, Worked Examples, Formula Sheet, Exam Prep,
 Career, Nanotech, Psychrometrics, Cryogenics — plus interactive Calculators &
 Self-Test Quiz domains. 30 domains total.
 
-**Phase 5 — Interactivity (🚧 well underway)**
-✅ 4 calculators (unit converter, Reynolds, ideal gas, LMTD) · ✅ self-test quiz
-engine (18 Q, scored, localStorage best). 📝 remaining: more calculators (§5.2),
-reference-data tools/datasets (§5.3, §6), flashcards.
+**Phase 5 — Interactivity (✅ complete)**
+✅ 10 calculators (unit converter, Reynolds, ideal gas, LMTD, Antoine vapour
+pressure, buffer pH, steam-table lookup, Darcy friction factor, molar mass,
+psychrometrics) · ✅ self-test quiz engine (18 Q, scored, localStorage best) ·
+✅ flashcards (18, flip + known-tracking) · ✅ live embedded datasets (steam
+table, Antoine coefficients, atomic weights). All CSP-safe and offline.
 
 **Phase 6 — Polish (✅ complete)**
 ✅ SEO JSON-LD (WebSite + LearningResource) · ✅ print stylesheet · ✅ skip-to-content
@@ -819,6 +824,23 @@ checks (axe-core) pass at 0 and the best-practices/SEO signals it grades are all
 ---
 
 ## 12. Changelog
+
+### 2026-07-28 — Phase 3 Depth complete: thin domains filled (+24 topics → 277)
+Brought every content domain to the 8-topic floor, closing out Phase 3:
+- **Cryogenics** +4: Joule–Thomson & inversion, cryo heat exchangers/regeneration,
+  cryogenic materials & insulation, superconductivity & helium cryogenics.
+- **Psychrometrics** +4: humidity definitions, wet-bulb & adiabatic saturation,
+  air-mixing processes, drying of solids.
+- **Nanotech** +3: nanofabrication (top-down/bottom-up), quantum dots, nanofluids.
+- **Particles** +3: comminution, cyclone separation, filtration & cake formation.
+- **Career** +2: engineering ethics, salary/negotiation/growth.
+- **Electrochemical** +2: Nernst equation & cell potential, Faraday's laws.
+- **Exam** +2: building a study plan, units & sanity checks.
+- **Pharma** +2: cleanrooms & contamination control, bioprocessing & biologics.
+- **Data science** +1: design of experiments (DOE).
+- **Environment** +1: environmental regulations & emissions reporting.
+Each topic follows the standard card/table/code-block template with cross-links.
+Verified: 277 topics render, deterministic build, **0 axe WCAG violations** both themes.
 
 ### 2026-07-25 — Deploy scaffolding + first content-depth pass
 **Phase 2 (Deploy) — mostly complete:**

@@ -6819,6 +6819,79 @@ long-duration storage that firms wind and solar.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: NERNST EQUATION ───────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔋</span>
+<span class="topic-name">Cell Potential &amp; the Nernst Equation</span>
+<span class="topic-badge">FOUNDATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Thermodynamics of Cells</div>
+<div class="concept-title">How concentration shifts a cell's voltage</div>
+<div class="concept-desc">
+The standard potential sets the baseline; the Nernst equation corrects it for real
+concentrations and temperature — the link between electrochemistry and Thermodynamics.
+</div>
+<div class="dw">
+<div class="dt">▸ THE EQUATIONS</div>
+<pre class="code-block">ΔG = −nFE          E°cell = E°cathode − E°anode
+Nernst:  E = E° − (RT/nF)·ln Q
+At 25 °C: E = E° − (0.0592/n)·log Q   [volts]</pre>
+<div class="dt">▸ WHAT IT TELLS YOU</div>
+<table class="ref-table">
+<tr><th>Condition</th><th>Meaning</th></tr>
+<tr><td style="color: var(--green)">E &gt; 0</td><td>Reaction spontaneous as written (galvanic)</td></tr>
+<tr><td style="color: var(--red)">E &lt; 0</td><td>Needs applied voltage (electrolytic)</td></tr>
+<tr><td style="color: var(--cyan)">E = 0</td><td>Equilibrium — a dead battery</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🧪 A pH meter is applied Nernst: the electrode voltage varies ~59 mV per pH unit at 25 °C,
+directly from the (RT/F)·ln term.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: FARADAY'S LAWS ────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">⚡</span>
+<span class="topic-name">Faraday's Laws &amp; Current Efficiency</span>
+<span class="topic-badge">CORE</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Charge → Mass</div>
+<div class="concept-title">How much product a given current makes</div>
+<div class="concept-desc">
+Faraday's laws convert electric charge into moles of product — the sizing basis for any
+electrolyzer, electroplating line or electrowinning cell.
+</div>
+<div class="dw">
+<div class="dt">▸ THE LAW</div>
+<pre class="code-block">m = (Q·M)/(n·F) = (I·t·M)/(n·F)
+
+F = 96,485 C/mol e⁻     n = electrons per ion
+Current efficiency η = actual mass / theoretical mass</pre>
+<div class="dt">▸ WHERE EFFICIENCY LEAKS</div>
+<table class="ref-table">
+<tr><th>Loss</th><th>Cause</th></tr>
+<tr><td style="color: var(--red)">Side reactions</td><td>e.g. H₂/O₂ evolution stealing current</td></tr>
+<tr><td style="color: var(--amber)">Ohmic (IR) drop</td><td>Electrolyte + cell resistance → heat</td></tr>
+<tr><td style="color: var(--cyan)">Overpotential</td><td>Kinetic barrier (see Butler–Volmer)</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🏭 Specific energy (kWh/kg) = cell voltage ÷ (efficiency × theoretical). Green-hydrogen cost
+lives or dies on shaving cell voltage toward the ~1.23 V thermodynamic minimum.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-formulas" data-domain="formulas">
@@ -7746,6 +7819,43 @@ the waste you never make costs nothing to treat (ties to LCA &amp; E-factor).
 </div>
 </div>
 </div>
+<!-- ── TOPIC: ENV REGULATIONS ───────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">📜</span>
+<span class="topic-name">Environmental Regulations &amp; Reporting</span>
+<span class="topic-badge">APPLIED</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">The Compliance Framework</div>
+<div class="concept-title">Permits, limits and emissions accounting</div>
+<div class="concept-desc">
+Chemical plants operate inside a web of environmental law governing what they may release to
+air, water and land — and require they measure and report it.
+</div>
+<div class="dw">
+<div class="dt">▸ MAJOR US STATUTES (analogues exist globally)</div>
+<table class="ref-table">
+<tr><th>Law</th><th>Governs</th></tr>
+<tr><td style="color: var(--cyan)">Clean Air Act</td><td>Air emissions, permits (NAAQS, NESHAP)</td></tr>
+<tr><td style="color: var(--green)">Clean Water Act</td><td>Discharges to water (NPDES permits)</td></tr>
+<tr><td style="color: var(--amber)">RCRA</td><td>Hazardous-waste cradle-to-grave</td></tr>
+<tr><td style="color: var(--red)">TSCA / REACH</td><td>Chemical registration &amp; risk</td></tr>
+</table>
+<div class="dt">▸ EMISSIONS ACCOUNTING</div>
+<pre class="code-block">Mass balance + emission factors → inventory
+Scope 1 (direct) · Scope 2 (purchased energy) · Scope 3 (value chain)
+Report: TRI, GHG inventories, permit compliance monitoring.</pre>
+</div>
+<div class="info-bar ib-muted">
+🌍 "Design for compliance" is cheapest at the start — retrofitting controls onto a built plant
+costs far more than engineering emissions out during process design.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-petro" data-domain="petro">
@@ -8297,6 +8407,79 @@ and dose uniformity — a patient-safety-critical link.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: CLEANROOMS ────────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧼</span>
+<span class="topic-name">Cleanrooms &amp; Contamination Control</span>
+<span class="topic-badge">CORE</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Engineering Clean Air</div>
+<div class="concept-title">Classifying and controlling particulate contamination</div>
+<div class="concept-desc">
+Sterile drug manufacturing happens in cleanrooms where airborne particle counts are held to
+strict limits by HEPA-filtered, pressure-cascaded air.
+</div>
+<div class="dw">
+<div class="dt">▸ CLASSIFICATION (ISO 14644)</div>
+<table class="ref-table">
+<tr><th>Grade</th><th>Roughly</th><th>Use</th></tr>
+<tr><td style="color: var(--cyan)">ISO 5 (Grade A)</td><td>≤ 3,520 /m³ (≥0.5 µm)</td><td>Aseptic fill zone</td></tr>
+<tr><td style="color: var(--green)">ISO 7 (Grade B/C)</td><td>≤ 352,000 /m³</td><td>Surrounding areas</td></tr>
+<tr><td style="color: var(--amber)">ISO 8 (Grade D)</td><td>≤ 3.52 M /m³</td><td>Support / prep</td></tr>
+</table>
+<div class="dt">▸ CONTROL STRATEGY</div>
+<pre class="code-block">HEPA filtration + laminar (unidirectional) flow
+Pressure cascade: cleaner rooms held at higher pressure
+Gowning airlocks · surface disinfection · people = #1 particle source</pre>
+</div>
+<div class="info-bar ib-muted">
+🚪 Airflow direction is a design tool: positive pressure keeps dirt out of sterile areas;
+negative pressure keeps hazardous or live agents in.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: BIOPROCESSING ─────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧫</span>
+<span class="topic-name">Bioprocessing &amp; Biologics</span>
+<span class="topic-badge">APPLIED</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Making Drugs with Cells</div>
+<div class="concept-title">Upstream fermentation &amp; downstream purification</div>
+<div class="concept-desc">
+Modern biologics — antibodies, vaccines, insulin — are made by living cells in bioreactors,
+then purified through a chain of separation steps. It links Biochemical Eng. to GMP.
+</div>
+<div class="dw">
+<div class="dt">▸ THE TWO HALVES</div>
+<pre class="code-block">Upstream:   cell culture / fermentation in a bioreactor
+            (control T, pH, dissolved O₂, feed)
+Downstream: harvest → centrifuge/filter → chromatography
+            → viral clearance → formulation & fill</pre>
+<div class="dt">▸ WHY IT'S HARD</div>
+<table class="ref-table">
+<tr><th>Challenge</th><th>Reason</th></tr>
+<tr><td style="color: var(--red)">Shear sensitivity</td><td>Cells damaged by aggressive mixing</td></tr>
+<tr><td style="color: var(--amber)">Sterility</td><td>One contaminant ruins a whole batch</td></tr>
+<tr><td style="color: var(--cyan)">Purity of complex molecules</td><td>Chromatography-heavy, costly</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🧬 Single-use (disposable) bioreactors have transformed the field — no clean-in-place, faster
+changeover, ideal for multi-product and continuous facilities.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-data" data-domain="data">
@@ -8578,6 +8761,42 @@ foundation of every data-driven improvement.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: DESIGN OF EXPERIMENTS ─────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧪</span>
+<span class="topic-name">Design of Experiments (DOE)</span>
+<span class="topic-badge">CORE</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Learning More From Fewer Runs</div>
+<div class="concept-title">Structured experimentation vs one-factor-at-a-time</div>
+<div class="concept-desc">
+DOE varies several factors together to their statistical effects — including interactions —
+with far fewer runs than changing one variable at a time. It underpins process optimization.
+</div>
+<div class="dw">
+<div class="dt">▸ COMMON DESIGNS</div>
+<table class="ref-table">
+<tr><th>Design</th><th>Purpose</th></tr>
+<tr><td style="color: var(--cyan)">Full factorial (2ᵏ)</td><td>All effects + interactions</td></tr>
+<tr><td style="color: var(--green)">Fractional factorial</td><td>Screen many factors cheaply</td></tr>
+<tr><td style="color: var(--amber)">Response surface (CCD/Box–Behnken)</td><td>Find an optimum (curvature)</td></tr>
+</table>
+<div class="dt">▸ WHY IT BEATS OFAT</div>
+<pre class="code-block">One-factor-at-a-time misses INTERACTIONS and wastes runs.
+DOE gives orthogonal estimates + a model:  y = β₀ + Σβᵢxᵢ + Σβᵢⱼxᵢxⱼ …
+→ then optimize on the response surface.</pre>
+</div>
+<div class="info-bar ib-muted">
+🎯 DOE is the statistical engine inside Quality-by-Design (see the Pharma domain): it maps the
+"design space" a process can operate in and stay in spec.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-particles" data-domain="particles">
@@ -8769,6 +8988,116 @@ Sharpness: how cleanly the cut separates near d50.</pre>
 <div class="info-bar ib-muted">
 🌀 A hydrocyclone classifies by centrifugal settling — the same Stokes physics as
 sedimentation (Unit Ops), just spun up.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: COMMINUTION ───────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🪨</span>
+<span class="topic-name">Comminution — Crushing &amp; Grinding</span>
+<span class="topic-badge">CORE</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Making Things Smaller</div>
+<div class="concept-title">Size reduction and the energy it costs</div>
+<div class="concept-desc">
+Crushing and grinding create surface area for reaction, dissolution or separation — and they
+are notoriously energy-hungry, often the biggest power draw in a solids plant.
+</div>
+<div class="dw">
+<div class="dt">▸ ENERGY LAWS</div>
+<pre class="code-block">Bond's law:      E = W_i (10/√P₈₀ − 10/√F₈₀)
+Kick's law:      coarse crushing (E ∝ ln(F/P))
+Rittinger's law: fine grinding (E ∝ new surface area)</pre>
+<div class="dt">▸ EQUIPMENT BY DUTY</div>
+<table class="ref-table">
+<tr><th>Stage</th><th>Equipment</th></tr>
+<tr><td style="color: var(--cyan)">Coarse crush</td><td>Jaw, gyratory crushers</td></tr>
+<tr><td style="color: var(--green)">Intermediate</td><td>Cone, roll crushers, hammer mills</td></tr>
+<tr><td style="color: var(--amber)">Fine grind</td><td>Ball, rod &amp; jet mills</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+⚡ Comminution efficiency is dismal — a large fraction of input energy becomes heat and noise,
+not new surface. Small efficiency gains have huge industrial value.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: CYCLONES ──────────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🌪️</span>
+<span class="topic-name">Cyclone Separation &amp; Gas Cleaning</span>
+<span class="topic-badge">APPLIED</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Spinning Out the Solids</div>
+<div class="concept-title">Using inertia to pull particles from a gas</div>
+<div class="concept-desc">
+A cyclone swirls dusty gas so centrifugal force flings particles to the wall, where they fall
+out — no moving parts, cheap, and everywhere in solids processing.
+</div>
+<div class="dw">
+<div class="dt">▸ HOW IT WORKS</div>
+<pre class="code-block">Tangential inlet → vortex → particles hit wall &amp; spiral down
+Cut size d₅₀: particle size collected with 50% efficiency
+Smaller cyclones → higher spin → finer cut, but more ΔP.</pre>
+<div class="dt">▸ GAS-CLEANING LADDER</div>
+<table class="ref-table">
+<tr><th>Device</th><th>Catches down to</th></tr>
+<tr><td style="color: var(--amber)">Cyclone</td><td>~5–10 µm (coarse)</td></tr>
+<tr><td style="color: var(--green)">Baghouse (fabric filter)</td><td>~1 µm, very high efficiency</td></tr>
+<tr><td style="color: var(--cyan)">Electrostatic precipitator</td><td>&lt; 1 µm, huge gas volumes</td></tr>
+<tr><td style="color: var(--purple)">Wet scrubber</td><td>Fine dust + soluble gases</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🏭 Cyclones are often a first stage — cheap bulk removal — ahead of a baghouse or ESP that
+polishes the gas to emission limits.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: FILTRATION ────────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧽</span>
+<span class="topic-name">Filtration &amp; Cake Formation</span>
+<span class="topic-badge">CORE</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Solid–Liquid Separation</div>
+<div class="concept-title">Building and washing a filter cake</div>
+<div class="concept-desc">
+Push a slurry through a medium; solids build a cake while filtrate passes. The growing cake
+is itself the main resistance, so filtration slows as it proceeds.
+</div>
+<div class="dw">
+<div class="dt">▸ THE GOVERNING EQUATION</div>
+<pre class="code-block">dV/dt = (A·ΔP) / [ μ (α·c·V/A + R_m) ]
+
+α   = specific cake resistance   c = solids per volume filtrate
+R_m = medium resistance          incompressible cake → α constant</pre>
+<div class="dt">▸ EQUIPMENT</div>
+<table class="ref-table">
+<tr><th>Filter</th><th>Mode</th></tr>
+<tr><td style="color: var(--cyan)">Plate-and-frame</td><td>Batch, high pressure</td></tr>
+<tr><td style="color: var(--green)">Rotary vacuum drum</td><td>Continuous, high volume</td></tr>
+<tr><td style="color: var(--amber)">Leaf / candle</td><td>Polishing, clarification</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🧪 Compressible cakes (many biological solids) collapse under pressure — pushing harder can
+actually lower throughput. A filter aid keeps the cake open.
 </div>
 </div>
 </div>
@@ -9283,6 +9612,80 @@ intuition for the factors.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: STUDY PLAN ────────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🗓️</span>
+<span class="topic-name">Building a Study Plan</span>
+<span class="topic-badge">STRATEGY</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Preparing Efficiently</div>
+<div class="concept-title">Turning months of prep into a schedule that works</div>
+<div class="concept-desc">
+The FE and PE reward consistent, spaced practice over cramming. A structured plan weighted by
+topic frequency beats re-reading textbooks cover to cover.
+</div>
+<div class="dw">
+<div class="dt">▸ A SANE TIMELINE</div>
+<pre class="code-block">Weeks 1–2 : diagnostic exam → find weak areas
+Weeks 3–8 : rotate topics; 60% practice problems, 40% review
+Weeks 9–10: full timed mock exams under real conditions
+Final days: light review, reference-handbook familiarity, rest</pre>
+<div class="dt">▸ WEIGHT BY YIELD</div>
+<table class="ref-table">
+<tr><th>Do more of</th><th>Because</th></tr>
+<tr><td style="color: var(--cyan)">Material/energy balances, thermo</td><td>Heavily weighted, foundational</td></tr>
+<tr><td style="color: var(--green)">Practice under time pressure</td><td>Pace is half the battle</td></tr>
+<tr><td style="color: var(--amber)">Handbook navigation</td><td>Finding a formula fast = free points</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🎯 Spaced repetition beats massed practice for retention — try the Flashcards &amp; Self-Test
+Quiz domains between problem sets.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: SANITY CHECKS ─────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧮</span>
+<span class="topic-name">Units &amp; Sanity Checks Under Pressure</span>
+<span class="topic-badge">STRATEGY</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Catching Errors Fast</div>
+<div class="concept-title">Dimensional analysis as an exam weapon</div>
+<div class="concept-desc">
+Under time pressure, unit errors and order-of-magnitude slips cost the most points. A few
+habits catch them before you bubble in the wrong answer.
+</div>
+<div class="dw">
+<div class="dt">▸ FAST CHECKS</div>
+<pre class="code-block">1. Carry units through every step — they must cancel to the answer's units.
+2. Estimate the magnitude first; reject answers off by 10×.
+3. Watch gauge vs absolute pressure and °C vs K.
+4. Confirm the multiple-choice distractors aren't unit-swap traps.</pre>
+<div class="dt">▸ CLASSIC TRAPS</div>
+<table class="ref-table">
+<tr><th>Trap</th><th>Guard</th></tr>
+<tr><td style="color: var(--red)">Mass vs molar basis</td><td>State the basis explicitly</td></tr>
+<tr><td style="color: var(--amber)">gc / lbf–lbm</td><td>Keep the conversion factor visible</td></tr>
+<tr><td style="color: var(--cyan)">Absolute temperature in gas laws</td><td>Always kelvin/rankine</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+⏱️ The <strong class="text-cyan">Unit Converter</strong> in the Tools domain is great drill —
+practising conversions builds the instinct you need on exam day.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-career" data-domain="career">
@@ -9521,6 +9924,80 @@ Each 10–100× scale-up is where many good ideas die
 </div>
 </div>
 </div>
+<!-- ── TOPIC: ENGINEERING ETHICS ────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">⚖️</span>
+<span class="topic-name">Engineering Ethics &amp; Responsibility</span>
+<span class="topic-badge">CORE</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Duty to the Public</div>
+<div class="concept-title">The professional obligations behind the title</div>
+<div class="concept-desc">
+Chemical engineers work with hazards that can harm people and the environment. Professional
+ethics — codified by NSPE and AIChE — put public safety above all other duties.
+</div>
+<div class="dw">
+<div class="dt">▸ THE PARAMOUNT RULE</div>
+<pre class="code-block">"Hold paramount the safety, health and welfare of the public."
+                                — NSPE Code of Ethics, Canon 1
+
+Everything else (client loyalty, cost, schedule) is subordinate.</pre>
+<div class="dt">▸ RECURRING DILEMMAS</div>
+<table class="ref-table">
+<tr><th>Situation</th><th>Ethical anchor</th></tr>
+<tr><td style="color: var(--red)">Pressure to cut a safety margin</td><td>Refuse; document; escalate</td></tr>
+<tr><td style="color: var(--amber)">Conflict of interest</td><td>Disclose fully</td></tr>
+<tr><td style="color: var(--cyan)">Competence limits</td><td>Only stamp work you're qualified for</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🕯️ Case studies — Bhopal, Flixborough, the Challenger O-rings — are taught precisely because
+the warning signs were visible and the ethical failure was organizational.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: SALARY & GROWTH ───────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">📈</span>
+<span class="topic-name">Salary, Negotiation &amp; Career Growth</span>
+<span class="topic-badge">PRACTICAL</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Managing Your Trajectory</div>
+<div class="concept-title">From new grad to technical or management tracks</div>
+<div class="concept-desc">
+A chemical-engineering career can branch into deep technical expertise, project leadership or
+management. Understanding the ladder helps you steer it deliberately.
+</div>
+<div class="dw">
+<div class="dt">▸ TYPICAL PROGRESSION</div>
+<table class="ref-table">
+<tr><th>Stage</th><th>Focus</th></tr>
+<tr><td style="color: var(--cyan)">Process/Junior engineer</td><td>Learn plant, tools, fundamentals</td></tr>
+<tr><td style="color: var(--green)">Senior / lead</td><td>Own units, mentor, drive projects</td></tr>
+<tr><td style="color: var(--amber)">Principal / Fellow</td><td>Deep technical authority (individual track)</td></tr>
+<tr><td style="color: var(--purple)">Manager / Director</td><td>People, budgets, strategy</td></tr>
+</table>
+<div class="dt">▸ NEGOTIATION BASICS</div>
+<pre class="code-block">Know market rate (surveys, BLS, peers) · negotiate total
+comp not just base · a PE license and specialized skills
+(controls, safety, six-sigma) shift the curve upward.</pre>
+</div>
+<div class="info-bar ib-muted">
+💬 Value follows scarce, high-leverage skills — process safety leadership, advanced control,
+and cross-disciplinary fluency compound over a career.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-nano" data-domain="nano">
@@ -9714,6 +10191,115 @@ and separations challenge — exactly where chemical engineers add value.
 </div>
 </div>
 </div>
+<!-- ── TOPIC: NANOFABRICATION ───────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🛠️</span>
+<span class="topic-name">Nanofabrication — Top-Down vs Bottom-Up</span>
+<span class="topic-badge">CORE</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Two Routes to the Nanoscale</div>
+<div class="concept-title">Carving material down vs building it up atom-by-atom</div>
+<div class="concept-desc">
+Nanostructures are made either by removing material from a larger piece or by assembling them
+from atoms and molecules. The choice sets cost, throughput and achievable feature size.
+</div>
+<div class="dw">
+<div class="dt">▸ THE TWO PHILOSOPHIES</div>
+<table class="ref-table">
+<tr><th>Top-down</th><th>Bottom-up</th></tr>
+<tr><td style="color: var(--cyan)">Lithography, etching, milling</td><td style="color: var(--green)">Self-assembly, CVD, sol-gel</td></tr>
+<tr><td style="color: var(--cyan)">Precise placement, low throughput</td><td style="color: var(--green)">Cheap, massively parallel</td></tr>
+<tr><td style="color: var(--cyan)">Limited by tool resolution</td><td style="color: var(--green)">Limited by control of chemistry</td></tr>
+</table>
+<div class="dt">▸ KEY TECHNIQUES</div>
+<pre class="code-block">Photolithography → chips (top-down, the semiconductor workhorse)
+CVD / ALD        → graphene, thin films (bottom-up, monolayer control)
+Sol-gel          → nanoporous oxides, aerogels
+Self-assembly    → block copolymers, colloidal crystals</pre>
+</div>
+<div class="info-bar ib-muted">
+⚙️ Atomic-layer deposition (ALD) grows films one atomic layer per cycle — the ultimate in
+bottom-up thickness control, now standard in advanced chip manufacturing.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: QUANTUM DOTS ──────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔴</span>
+<span class="topic-name">Quantum Dots &amp; Nanoparticles</span>
+<span class="topic-badge">APPLIED</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Size-Tunable Matter</div>
+<div class="concept-title">When properties depend on how big the particle is</div>
+<div class="concept-desc">
+At the nanoscale, confining electrons changes a material's optical and electronic behaviour.
+A quantum dot's colour is set by its diameter — chemistry you can literally see.
+</div>
+<div class="dw">
+<div class="dt">▸ QUANTUM CONFINEMENT</div>
+<pre class="code-block">Smaller dot → larger band gap → bluer emission
+Larger dot  → smaller band gap → redder emission
+(same material, e.g. CdSe or InP, just different size)</pre>
+<div class="dt">▸ USES</div>
+<table class="ref-table">
+<tr><th>Application</th><th>Why nanoparticles</th></tr>
+<tr><td style="color: var(--cyan)">QLED displays</td><td>Pure, tunable colour</td></tr>
+<tr><td style="color: var(--green)">Bio-imaging tags</td><td>Bright, photostable fluorescence</td></tr>
+<tr><td style="color: var(--amber)">Catalysis</td><td>Huge surface-area-to-volume ratio</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+📈 Surface-area-to-volume scales as 1/d — halve the particle size and you roughly double the
+fraction of atoms sitting on the (reactive) surface.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: NANOFLUIDS ────────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🌊</span>
+<span class="topic-name">Nanofluids &amp; Enhanced Transport</span>
+<span class="topic-badge">ADVANCED</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Better Heat &amp; Mass Transfer</div>
+<div class="concept-title">Suspending nanoparticles to boost fluid properties</div>
+<div class="concept-desc">
+Adding a few percent of nanoparticles to a coolant can measurably raise its thermal
+conductivity — a nanoscale trick applied to a classic Heat Transfer problem.
+</div>
+<div class="dw">
+<div class="dt">▸ THE APPEAL &amp; THE CATCH</div>
+<table class="ref-table">
+<tr><th>Benefit</th><th>Challenge</th></tr>
+<tr><td style="color: var(--green)">Higher thermal conductivity</td><td style="color: var(--red)">Agglomeration / settling</td></tr>
+<tr><td style="color: var(--green)">Better critical heat flux</td><td style="color: var(--red)">Erosion &amp; pumping cost (viscosity ↑)</td></tr>
+<tr><td style="color: var(--green)">Compact exchangers</td><td style="color: var(--red)">Long-term stability, cost</td></tr>
+</table>
+<div class="dt">▸ TYPICAL SYSTEMS</div>
+<pre class="code-block">Base fluid: water, ethylene glycol, oil
+Particles:  Al₂O₃, CuO, TiO₂, carbon nanotubes (1–5 vol%)
+Targets:    electronics cooling, solar collectors, engine coolant</pre>
+</div>
+<div class="info-bar ib-muted">
+🔬 Reported conductivity gains vary widely between labs — surfactant, particle shape and
+aggregation all matter, so reproducibility remains an active research issue.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-psychro" data-domain="psychro">
@@ -9873,6 +10459,150 @@ control rooms at positive pressure (see Process Safety).
 </div>
 </div>
 </div>
+<!-- ── TOPIC: HUMIDITY DEFINITIONS ──────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">💧</span>
+<span class="topic-name">Humidity Definitions &amp; Terms</span>
+<span class="topic-badge">FOUNDATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Ways to Measure Water in Air</div>
+<div class="concept-title">Humidity ratio, relative humidity &amp; dew point</div>
+<div class="concept-desc">
+"Humidity" has several precise meanings. Mixing them up is a classic source of psychrometric
+errors — each one answers a different question.
+</div>
+<div class="dw">
+<div class="dt">▸ THE KEY QUANTITIES</div>
+<pre class="code-block">Humidity ratio   W = 0.622·p_w /(P − p_w)   [kg water / kg dry air]
+Relative humidity RH = p_w / p_ws × 100%     [how "full" the air is]
+Dew point        T_dp: cool at constant P until RH = 100%
+Specific humidity q = m_water /(m_water + m_dry air)</pre>
+<div class="dt">▸ WHY W (NOT RH) FOR BALANCES</div>
+<table class="ref-table">
+<tr><th>Quantity</th><th>Best for</th></tr>
+<tr><td style="color: var(--cyan)">Humidity ratio W</td><td>Mass balances — dry-air basis is conserved</td></tr>
+<tr><td style="color: var(--green)">Relative humidity</td><td>Comfort, condensation risk</td></tr>
+<tr><td style="color: var(--amber)">Dew point</td><td>When will it condense? (constant-P cooling)</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🧮 Try the <strong class="text-cyan">Psychrometric Quick-Lookup</strong> in the Tools domain —
+it converts T + RH into W, dew point and enthalpy instantly.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: WET-BULB ──────────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🌡️</span>
+<span class="topic-name">Wet-Bulb &amp; Adiabatic Saturation</span>
+<span class="topic-badge">CORE</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Cooling by Evaporation</div>
+<div class="concept-title">The temperature a wetted thermometer settles at</div>
+<div class="concept-desc">
+Blow unsaturated air past a wet wick and evaporation cools it to the wet-bulb temperature.
+The wet-bulb depression is a direct read on how dry the air is.
+</div>
+<div class="dw">
+<div class="dt">▸ THE THREE TEMPERATURES</div>
+<pre class="code-block">Dry-bulb  T:     ordinary air temperature
+Wet-bulb  T_wb:  evaporatively cooled (T_wb ≤ T)
+Dew point T_dp:  T_dp ≤ T_wb ≤ T   (equal only at saturation)</pre>
+<div class="dt">▸ LEWIS RELATION (air–water)</div>
+<pre class="code-block">For the air–water system, Le ≈ 1, so the adiabatic-saturation
+temperature ≈ the thermodynamic wet-bulb temperature.
+This lucky coincidence is why the psychrometric chart works so cleanly.</pre>
+</div>
+<div class="info-bar ib-muted">
+🥵 Human survivability tracks wet-bulb, not dry-bulb: a sustained T_wb above ~35 °C defeats
+sweat-based cooling regardless of shade or wind.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: PSYCHROMETRIC PROCESSES ───────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">↔️</span>
+<span class="topic-name">Air Mixing &amp; Psychrometric Processes</span>
+<span class="topic-badge">APPLIED</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Moving Around the Chart</div>
+<div class="concept-title">Heating, cooling, humidifying &amp; mixing as vectors</div>
+<div class="concept-desc">
+Every HVAC process is a path on the psychrometric chart. Recognising the direction each unit
+operation moves the air state makes system design intuitive.
+</div>
+<div class="dw">
+<div class="dt">▸ PROCESS DIRECTIONS</div>
+<table class="ref-table">
+<tr><th>Process</th><th>On the chart</th></tr>
+<tr><td style="color: var(--red)">Sensible heating</td><td>Move right, W constant, RH falls</td></tr>
+<tr><td style="color: var(--cyan)">Sensible cooling</td><td>Move left, W constant, RH rises</td></tr>
+<tr><td style="color: var(--green)">Cooling + dehumidify</td><td>Down-left below dew point (coil condenses water)</td></tr>
+<tr><td style="color: var(--amber)">Evaporative cooling</td><td>Up-left along a constant-wet-bulb line</td></tr>
+</table>
+<div class="dt">▸ ADIABATIC MIXING</div>
+<pre class="code-block">Mix two air streams → state lands on the straight line
+between them, split by mass ratio (lever rule on W and h).</pre>
+</div>
+<div class="info-bar ib-muted">
+🧭 The "lever rule" for mixing is the same tie-line idea used for phase envelopes in
+Thermodynamics — geometry beats formulas here.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: DRYING OF SOLIDS ──────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🍃</span>
+<span class="topic-name">Drying of Solids</span>
+<span class="topic-badge">APPLIED</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Psychrometrics Meets Unit Ops</div>
+<div class="concept-title">Constant-rate and falling-rate drying periods</div>
+<div class="concept-desc">
+Industrial drying — of pharmaceuticals, food, polymers — is a coupled heat- and mass-transfer
+problem set by the humidity of the drying air.
+</div>
+<div class="dw">
+<div class="dt">▸ THE DRYING CURVE</div>
+<pre class="code-block">Constant-rate period: free surface moisture; rate set by
+   air (wet-bulb T at the surface) — evaporation-limited.
+Falling-rate period:  internal diffusion controls; rate
+   drops toward the equilibrium moisture content.</pre>
+<div class="dt">▸ DRYER TYPES</div>
+<table class="ref-table">
+<tr><th>Dryer</th><th>Best for</th></tr>
+<tr><td style="color: var(--cyan)">Tray / batch</td><td>Small lots, fragile solids</td></tr>
+<tr><td style="color: var(--green)">Fluidized-bed</td><td>Free-flowing granules, fast</td></tr>
+<tr><td style="color: var(--amber)">Spray dryer</td><td>Slurries → powder (milk, detergents)</td></tr>
+<tr><td style="color: var(--purple)">Freeze dryer (lyophilization)</td><td>Heat-sensitive biologics</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+💊 Equilibrium moisture content depends on the air's RH — you can never dry a solid below what
+the surrounding humidity allows.
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="domain-section domain-cryo" data-domain="cryo">
@@ -10026,6 +10756,154 @@ biological storage — each needing reliable, ultra-low-temperature engineering.
 <div class="info-bar ib-muted">
 🧬 Cryopreservation with liquid nitrogen is how vaccines, cell lines and biobanks are
 stored — cryogenics quietly underpins modern biotech.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: JOULE-THOMSON ─────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🌡️</span>
+<span class="topic-name">Joule–Thomson Effect &amp; Inversion</span>
+<span class="topic-badge">FOUNDATION</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Throttling Without Work</div>
+<div class="concept-title">Why some gases cool and others warm when expanded</div>
+<div class="concept-desc">
+Pushing a real gas through a valve at constant enthalpy changes its temperature. The sign
+and size of that change is the engine behind nearly every liquefaction cycle.
+</div>
+<div class="dw">
+<div class="dt">▸ THE COEFFICIENT</div>
+<pre class="code-block">μ_JT = (∂T/∂P)_H
+
+μ_JT > 0  → gas COOLS on throttling (below inversion T)
+μ_JT < 0  → gas WARMS on throttling (above inversion T)
+μ_JT = 0  → the inversion temperature itself</pre>
+<div class="dt">▸ INVERSION TEMPERATURES (1 atm)</div>
+<table class="ref-table">
+<tr><th>Gas</th><th>Max inversion T</th><th>Note</th></tr>
+<tr><td style="color: var(--cyan)">N₂</td><td>≈ 621 K</td><td>Cools at room T — easy</td></tr>
+<tr><td style="color: var(--green)">O₂</td><td>≈ 764 K</td><td>Cools at room T</td></tr>
+<tr><td style="color: var(--amber)">H₂</td><td>≈ 202 K</td><td>Must be pre-cooled</td></tr>
+<tr><td style="color: var(--red)">He</td><td>≈ 43 K</td><td>Must be pre-cooled hard</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+🧊 An ideal gas has μ_JT = 0 exactly — the effect is a purely real-gas phenomenon rooted in
+intermolecular forces. It vanishes as pressure → 0.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: CRYO HEAT EXCHANGERS ──────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🔁</span>
+<span class="topic-name">Cryogenic Heat Exchangers &amp; Regeneration</span>
+<span class="topic-badge">APPLIED</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Recovering the Cold</div>
+<div class="concept-title">Why liquefaction is impossible without heat integration</div>
+<div class="concept-desc">
+The cold outgoing product stream pre-cools the warm incoming feed. Tiny temperature
+approaches (1–3 K) demand exchangers with enormous area and near-zero losses.
+</div>
+<div class="dw">
+<div class="dt">▸ EXCHANGER TYPES</div>
+<table class="ref-table">
+<tr><th>Type</th><th>Where used</th></tr>
+<tr><td style="color: var(--cyan)">Brazed aluminium plate-fin</td><td>ASUs, LNG — huge area/volume</td></tr>
+<tr><td style="color: var(--green)">Coil-wound (spiral)</td><td>Large LNG main exchangers</td></tr>
+<tr><td style="color: var(--amber)">Regenerators (packed beds)</td><td>Older Stirling/Gifford-McMahon coolers</td></tr>
+</table>
+<div class="dt">▸ WHY APPROACH TEMPERATURE MATTERS</div>
+<pre class="code-block">Liquefaction yield ∝ how completely feed is cooled.
+A 1 K worse approach can slash yield and spike specific power.
+→ counter-current, multi-stream, minimal ΔT (see Heat Transfer / LMTD).</pre>
+</div>
+<div class="info-bar ib-muted">
+❄️ Insulation losses that are trivial at ambient dominate at 80 K — the exchanger and cold
+box live inside vacuum-jacketed, multi-layer-insulated enclosures.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: CRYO MATERIALS ────────────────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧱</span>
+<span class="topic-name">Cryogenic Materials &amp; Insulation</span>
+<span class="topic-badge">APPLIED</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">Surviving the Cold</div>
+<div class="concept-title">Ductile-to-brittle transition &amp; keeping heat out</div>
+<div class="concept-desc">
+Materials that are tough at room temperature can shatter at 77 K. Material choice and
+insulation design are safety-critical in cryogenic plants.
+</div>
+<div class="dw">
+<div class="dt">▸ MATERIALS THAT STAY TOUGH</div>
+<pre class="code-block">Good: austenitic stainless (304/316), aluminium alloys,
+      copper, nickel alloys, Invar (low thermal contraction)
+Bad:  plain carbon steel — brittle below its transition T
+      (a classic embrittlement failure mode)</pre>
+<div class="dt">▸ INSULATION LADDER</div>
+<table class="ref-table">
+<tr><th>Method</th><th>Performance</th></tr>
+<tr><td style="color: var(--amber)">Perlite / foam</td><td>Cheap, bulk storage</td></tr>
+<tr><td style="color: var(--green)">Vacuum jacket</td><td>Kills gas conduction/convection</td></tr>
+<tr><td style="color: var(--cyan)">Multi-layer (MLI, "superinsulation")</td><td>Vacuum + reflective foils — best</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+⚠️ Thermal contraction is real: a 10 m stainless line shrinks tens of mm cooling to LNG
+temperature — expansion loops and bellows are mandatory.
+</div>
+</div>
+</div>
+</div>
+<!-- ── TOPIC: SUPERCONDUCTIVITY & HELIUM ────────────────────── -->
+<div class="topic">
+<div class="topic-header">
+<span class="topic-icon">🧲</span>
+<span class="topic-name">Superconductivity &amp; Helium Cryogenics</span>
+<span class="topic-badge">ADVANCED</span>
+<span class="topic-chev">▶</span>
+</div>
+<div class="topic-body">
+<div class="concept-card">
+<div class="concept-label">The Coldest Engineering</div>
+<div class="concept-title">Liquid helium, zero resistance &amp; big magnets</div>
+<div class="concept-desc">
+Below a critical temperature some materials lose all electrical resistance. Sustaining that
+state needs liquid-helium cryogenics — the domain of MRI scanners and particle accelerators.
+</div>
+<div class="dw">
+<div class="dt">▸ HELIUM FACTS</div>
+<pre class="code-block">He-4 boils at 4.2 K (1 atm); pumping gets you below 1 K.
+Below 2.17 K it becomes a SUPERFLUID (zero viscosity).
+He-3 (rarer) enables dilution refrigerators → millikelvin.</pre>
+<div class="dt">▸ WHERE IT SHOWS UP</div>
+<table class="ref-table">
+<tr><th>Application</th><th>Superconductor / temp</th></tr>
+<tr><td style="color: var(--cyan)">MRI magnets</td><td>NbTi at 4 K in liquid He</td></tr>
+<tr><td style="color: var(--green)">LHC / fusion magnets</td><td>Nb₃Sn, superfluid He at 1.9 K</td></tr>
+<tr><td style="color: var(--amber)">HTS power cables</td><td>YBCO, cooled by liquid N₂ (77 K)</td></tr>
+</table>
+</div>
+<div class="info-bar ib-muted">
+💡 "High-temperature" superconductors are high only relatively — 77 K liquid-nitrogen cooling
+is far cheaper than liquid helium, which is why HTS is such a big deal.
 </div>
 </div>
 </div>
