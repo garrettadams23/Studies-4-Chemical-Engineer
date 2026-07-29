@@ -812,9 +812,9 @@ checks (axe-core) pass at 0 and the best-practices/SEO signals it grades are all
 - Clean `public/` publish dir (adjust `build.py` to copy assets there).
 - Multi-page split if the single page grows too large (per-domain routes + shared shell).
 - i18n scaffolding (the engine is text-node based; search already handles Unicode).
-- "Random topic" / "topic of the day" surfacing.
+- ✅ "Random topic" surfacing (header 🎲 button + `r` shortcut).
 - Export a domain (or the whole site) to a single PDF study packet.
-- Keyboard shortcuts (`/` focus search, `e` expand-all, `t` theme).
+- ✅ Keyboard shortcuts (`/` focus search, `Esc` clear, `e` expand-all, `t` theme, `r` random).
 - A lightweight in-page equation renderer (KaTeX would break offline-first/CSP —
   prefer hand-set `<pre>`/SVG or a tiny custom renderer).
 - Dark-mode-aware SVG diagrams driven by CSS variables.
@@ -824,6 +824,17 @@ checks (axe-core) pass at 0 and the best-practices/SEO signals it grades are all
 ---
 
 ## 12. Changelog
+
+### 2026-07-28 — Backlog: keyboard shortcuts + random-topic surfacing
+Two §11 nice-to-haves shipped (both CSP-safe, offline, keyboard-accessible):
+- **Global keyboard shortcuts** via one `keydown` listener: `/` focuses search,
+  `Esc` clears it, `e` expand/collapse all, `t` toggle theme, `r` random topic.
+  Suppressed while typing in any input/textarea/select (Esc still clears search).
+  Discoverability hints added to the control tooltips + search placeholder.
+- **Random topic**: a header 🎲 RANDOM button (and the `r` key) opens a random
+  topic, expanding its domain and scrolling to it via the existing hash logic.
+Verified headless (every shortcut, the button, and the "don't fire while typing"
+guard) with zero console errors; still **0 axe WCAG violations** in both themes.
 
 ### 2026-07-28 — Phase 3 Depth complete: thin domains filled (+24 topics → 277)
 Brought every content domain to the 8-topic floor, closing out Phase 3:
