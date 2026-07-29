@@ -144,11 +144,15 @@ document.addEventListener("DOMContentLoaded", () => {
   // Header control buttons
   document.getElementById("hdr-theme-btn")?.addEventListener("click", toggleTheme);
   document.getElementById("hdr-expand-btn")?.addEventListener("click", toggleAll);
+  document.getElementById("hdr-random-btn")?.addEventListener("click", jumpToRandomTopic);
 
   // Search + notepad — wired here (not inline) so the CSP can stay script-src 'self'
   document.getElementById("search-input")?.addEventListener("input", e => onSearchInput(e.target.value));
   document.getElementById("search-clear")?.addEventListener("click", clearSearch);
   document.getElementById("notepad-tab")?.addEventListener("click", toggleNotepad);
+
+  // Global keyboard shortcuts (ignored while typing in a field)
+  document.addEventListener("keydown", handleGlobalKeys);
 
   initAccessibilityAndTools();
   initBackToTop();
@@ -437,6 +441,50 @@ function openHashTarget() {
   if (th) setHeaderExpanded(th, true);
   topic.querySelector(".topic-body")?.classList.add("open");
   topic.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+// ── RANDOM TOPIC ─────────────────────────────────────────────────────────────
+// Open a random topic (and its domain), update the hash, and scroll to it.
+function jumpToRandomTopic() {
+  const topics = document.querySelectorAll(".topic[id]");
+  if (!topics.length) return;
+  const topic = topics[Math.floor(Math.random() * topics.length)];
+  // Clear any active filter/search so the pick is guaranteed visible
+  if (typeof clearSearch === "function") {
+    const si = document.getElementById("search-input");
+    if (si && si.value) clearSearch();
+  }
+  location.hash = topic.id;   // openHashTarget (hashchange) expands + scrolls
+  openHashTarget();
+}
+
+// ── GLOBAL KEYBOARD SHORTCUTS ────────────────────────────────────────────────
+// "/" focus search · "e" expand/collapse all · "t" toggle theme · "r" random ·
+// Esc clears the search. Ignored while typing in a field (Esc still clears search).
+function handleGlobalKeys(e) {
+  if (e.ctrlKey || e.metaKey || e.altKey) return;
+  const t = e.target;
+  const typing = t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" ||
+    t.tagName === "SELECT" || t.isContentEditable);
+
+  if (e.key === "Escape") {
+    const si = document.getElementById("search-input");
+    if (si && si.value) { clearSearch(); si.blur(); e.preventDefault(); }
+    else if (typing && t.blur) t.blur();
+    return;
+  }
+  if (typing) return;
+
+  switch (e.key) {
+    case "/":
+      { const si = document.getElementById("search-input");
+        if (si) { e.preventDefault(); si.focus(); si.select?.(); } }
+      break;
+    case "e": case "E": e.preventDefault(); toggleAll(); break;
+    case "t": case "T": e.preventDefault(); toggleTheme(); break;
+    case "r": case "R": e.preventDefault(); jumpToRandomTopic(); break;
+    default: break;
+  }
 }
 
 // ── BACK TO TOP ─────────────────────────────────────────────────────────────
