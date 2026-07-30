@@ -825,6 +825,19 @@ checks (axe-core) pass at 0 and the best-practices/SEO signals it grades are all
 
 ## 12. Changelog
 
+### 2026-07-30 — Study menu (floating FAB) + Quick-Jump command palette
+Added a bottom-right floating 🎓 study-menu button (mirroring the sister site's
+pattern) that opens a pop-up with four actions:
+- **Quick jump** — a ⌘K / Ctrl+K command palette that fuzzy-filters all 282
+  topics by name + domain, with ↑/↓ + Enter to open (expands + scrolls + sets
+  the hash). Built with createElement only (no innerHTML of data) → CSP-safe.
+- **Flashcards** / **Quiz** — jump straight to those tools.
+- **Study list** — lists every topic the visitor has marked with the ✓ button
+  (localStorage `reviewed:*`), each a quick link; empty-state hint otherwise.
+Fully keyboard-accessible (roles, `aria-expanded`, listbox/option, focus
+restore, Esc/backdrop dismiss). Verified headless end-to-end; **0 axe WCAG
+violations** in both themes, default and palette-open.
+
 ### 2026-07-28 — More practice content: worked examples, quiz & flashcards
 Deepened the interactive/practice material:
 - **+5 worked examples** (Examples domain → 13): pipe pressure drop (Darcy),
