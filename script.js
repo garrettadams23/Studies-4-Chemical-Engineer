@@ -159,6 +159,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initCalculators();
   initQuiz();
   initGlossary();
+  initStudyMenu();
 });
 
 // ── GLOSSARY TOOLTIPS ────────────────────────────────────────────────────────
@@ -462,6 +463,12 @@ function jumpToRandomTopic() {
 // "/" focus search · "e" expand/collapse all · "t" toggle theme · "r" random ·
 // Esc clears the search. Ignored while typing in a field (Esc still clears search).
 function handleGlobalKeys(e) {
+  // Cmd/Ctrl+K opens Quick Jump from anywhere (even while typing).
+  if ((e.metaKey || e.ctrlKey) && (e.key === "k" || e.key === "K")) {
+    e.preventDefault();
+    if (typeof openQuickJump === "function") openQuickJump();
+    return;
+  }
   if (e.ctrlKey || e.metaKey || e.altKey) return;
   const t = e.target;
   const typing = t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" ||
@@ -485,6 +492,201 @@ function handleGlobalKeys(e) {
     case "r": case "R": e.preventDefault(); jumpToRandomTopic(); break;
     default: break;
   }
+}
+
+// ── STUDY MENU (FAB) + QUICK JUMP + STUDY LIST ───────────────────────────────
+// Exposed so the Cmd/Ctrl+K global shortcut can open the palette.
+let openQuickJump = null;
+
+// Open a topic element: expand its domain + itself, update the hash, scroll to it.
+function revealTopic(topic) {
+  if (!topic) return;
+  const domain = topic.closest(".domain-section");
+  const dh = domain?.querySelector(".domain-header");
+  dh?.classList.add("open");
+  domain?.querySelector(".domain-body")?.classList.add("open");
+  if (dh) setHeaderExpanded(dh, true);
+  const th = topic.querySelector(":scope > .topic-header");
+  th?.classList.add("open");
+  topic.querySelector(":scope > .topic-body")?.classList.add("open");
+  if (th) setHeaderExpanded(th, true);
+  if (topic.id) history.replaceState(null, "", "#" + topic.id);
+  topic.scrollIntoView({ behavior: "smooth", block: "start" });
+}
+
+function initStudyMenu() {
+  const fab = document.getElementById("study-fab");
+  const pop = document.getElementById("study-pop");
+  if (!fab || !pop) return;
+
+  // ── Build a search index of every topic (name + owning domain) ──
+  const index = [];
+  document.querySelectorAll(".domain-section").forEach(sec => {
+    const dtitle = (sec.querySelector(".domain-title")?.textContent || "").replace(/\s+/g, " ").trim();
+    sec.querySelectorAll(".topic").forEach(t => {
+      const name = (t.querySelector(".topic-name")?.textContent ||
+        t.querySelector(".topic-header")?.textContent || "").replace(/\s+/g, " ").trim();
+      const badge = (t.querySelector(".topic-badge")?.textContent || "").trim();
+      if (name) index.push({ name, domain: dtitle, badge, el: t, hay: (name + " " + dtitle).toLowerCase() });
+    });
+  });
+
+  // ── FAB pop-up open/close ──
+  let popOpen = false;
+  function setPop(open) {
+    popOpen = open;
+    pop.hidden = !open;
+    fab.setAttribute("aria-expanded", open ? "true" : "false");
+    if (open) pop.querySelector(".sm-item")?.focus();
+  }
+  fab.addEventListener("click", () => setPop(!popOpen));
+  document.addEventListener("click", e => {
+    if (popOpen && !e.target.closest("#study-menu")) setPop(false);
+  });
+
+  // ── Shared overlay helpers ──
+  const qjOverlay = document.getElementById("qj-overlay");
+  const qjInput = document.getElementById("qj-input");
+  const qjResults = document.getElementById("qj-results");
+  const slOverlay = document.getElementById("sl-overlay");
+  const slResults = document.getElementById("sl-results");
+  const slCount = document.getElementById("sl-count");
+  let lastFocus = null;
+
+  function closeOverlays() {
+    [qjOverlay, slOverlay].forEach(o => { if (o) o.hidden = true; });
+    if (lastFocus && lastFocus.focus) { lastFocus.focus(); lastFocus = null; }
+  }
+
+  // ── Quick Jump palette ──
+  let sel = -1, shown = [];
+  function renderQJ(q) {
+    const query = q.trim().toLowerCase();
+    shown = (query ? index.filter(it => it.hay.includes(query)) : index).slice(0, 25);
+    qjResults.textContent = "";
+    sel = shown.length ? 0 : -1;
+    if (!shown.length) {
+      const li = document.createElement("li");
+      li.className = "qj-empty";
+      li.textContent = "No matching topics";
+      qjResults.appendChild(li);
+      return;
+    }
+    shown.forEach((it, i) => {
+      const li = document.createElement("li");
+      li.className = "qj-item";
+      li.id = "qj-opt-" + i;
+      li.setAttribute("role", "option");
+      li.setAttribute("aria-selected", i === 0 ? "true" : "false");
+      const name = document.createElement("span");
+      name.className = "qj-item-name";
+      name.textContent = it.name;
+      li.appendChild(name);
+      if (it.badge) {
+        const b = document.createElement("span");
+        b.className = "qj-item-badge";
+        b.textContent = it.badge;
+        li.appendChild(b);
+      }
+      const dom = document.createElement("span");
+      dom.className = "qj-item-domain";
+      dom.textContent = it.domain;
+      li.appendChild(dom);
+      li.addEventListener("click", () => choose(i));
+      qjResults.appendChild(li);
+    });
+  }
+  function moveSel(delta) {
+    if (!shown.length) return;
+    const items = qjResults.querySelectorAll(".qj-item");
+    items[sel]?.setAttribute("aria-selected", "false");
+    sel = (sel + delta + shown.length) % shown.length;
+    const cur = items[sel];
+    cur?.setAttribute("aria-selected", "true");
+    cur?.scrollIntoView({ block: "nearest" });
+    qjInput.setAttribute("aria-activedescendant", cur ? cur.id : "");
+  }
+  function choose(i) {
+    const it = shown[i];
+    if (!it) return;
+    closeOverlays();
+    revealTopic(it.el);
+  }
+  openQuickJump = function () {
+    setPop(false);
+    lastFocus = document.activeElement;
+    slOverlay.hidden = true;
+    qjOverlay.hidden = false;
+    qjInput.value = "";
+    renderQJ("");
+    qjInput.focus();
+  };
+  qjInput.addEventListener("input", () => renderQJ(qjInput.value));
+  qjInput.addEventListener("keydown", e => {
+    if (e.key === "ArrowDown") { e.preventDefault(); moveSel(1); }
+    else if (e.key === "ArrowUp") { e.preventDefault(); moveSel(-1); }
+    else if (e.key === "Enter") { e.preventDefault(); choose(sel); }
+    else if (e.key === "Escape") { e.preventDefault(); closeOverlays(); }
+  });
+
+  // ── Study list (topics marked reviewed) ──
+  function openStudyList() {
+    setPop(false);
+    lastFocus = document.activeElement;
+    qjOverlay.hidden = true;
+    slResults.textContent = "";
+    const marked = index.filter(it => it.el.id &&
+      localStorage.getItem(REVIEWED_PREFIX + it.el.id) === "1");
+    slCount.textContent = marked.length ? marked.length + " marked" : "";
+    if (!marked.length) {
+      const li = document.createElement("li");
+      li.className = "qj-empty";
+      li.textContent = "Nothing yet — mark topics with the ✓ button to build your study list.";
+      slResults.appendChild(li);
+    } else {
+      marked.forEach(it => {
+        const li = document.createElement("li");
+        li.className = "qj-item";
+        li.setAttribute("tabindex", "0");
+        const name = document.createElement("span");
+        name.className = "qj-item-name";
+        name.textContent = it.name;
+        const dom = document.createElement("span");
+        dom.className = "qj-item-domain";
+        dom.textContent = it.domain;
+        li.append(name, dom);
+        const go = () => { closeOverlays(); revealTopic(it.el); };
+        li.addEventListener("click", go);
+        li.addEventListener("keydown", e => { if (e.key === "Enter") { e.preventDefault(); go(); } });
+        slResults.appendChild(li);
+      });
+    }
+    slOverlay.hidden = false;
+    slResults.querySelector(".qj-item")?.focus();
+  }
+
+  // ── Menu item wiring ──
+  document.getElementById("sm-quickjump")?.addEventListener("click", () => openQuickJump());
+  document.getElementById("sm-studylist")?.addEventListener("click", openStudyList);
+  document.getElementById("sm-flashcards")?.addEventListener("click", () => {
+    setPop(false);
+    revealTopic(document.getElementById("flash-root")?.closest(".topic"));
+  });
+  document.getElementById("sm-quiz")?.addEventListener("click", () => {
+    setPop(false);
+    revealTopic(document.getElementById("quiz-root")?.closest(".topic"));
+  });
+
+  // Click the backdrop (not the box) to dismiss; Esc handled per-input + here.
+  [qjOverlay, slOverlay].forEach(o => o?.addEventListener("click", e => {
+    if (e.target === o) closeOverlays();
+  }));
+  document.addEventListener("keydown", e => {
+    if (e.key === "Escape") {
+      if (!qjOverlay.hidden || !slOverlay.hidden) { e.preventDefault(); closeOverlays(); }
+      else if (popOpen) { setPop(false); fab.focus(); }
+    }
+  });
 }
 
 // ── BACK TO TOP ─────────────────────────────────────────────────────────────

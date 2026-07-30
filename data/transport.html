@@ -141,6 +141,18 @@ Max velocity at the free surface; average = (2/3) v_max.</pre>
           <tr><td style="color: var(--red)">Thermal δ_T</td><td>δ / Pr^(1/3)</td></tr>
           <tr><td style="color: var(--green)">Concentration δ_c</td><td>δ / Sc^(1/3)</td></tr>
         </table>
+        <div class="dt">▸ BOUNDARY-LAYER GROWTH</div>
+        <svg class="svg-diagram" viewBox="0 0 400 165" role="img" aria-label="Laminar boundary layer over a flat plate: the layer thickness delta grows with distance x, and the velocity profile rises from zero at the wall (no-slip) to the free-stream velocity at the edge of the layer.">
+          <line x1="30" y1="140" x2="384" y2="140" class="stroke-fg" stroke-width="2" />
+          <path d="M40 140 Q210 60 380 40" fill="none" style="stroke: var(--accent, var(--cyan))" stroke-width="2.5" stroke-dasharray="5 3" />
+          <line x1="120" y1="140" x2="120" y2="95" style="stroke: var(--muted)" stroke-width="1" />
+          <path d="M120 140 Q135 118 132 95" fill="none" style="stroke: var(--green)" stroke-width="2" />
+          <line x1="250" y1="140" x2="250" y2="70" style="stroke: var(--muted)" stroke-width="1" />
+          <path d="M250 140 Q272 108 262 70" fill="none" style="stroke: var(--green)" stroke-width="2" />
+          <text x="60" y="30" style="fill: var(--cyan)">U∞ (free stream)</text>
+          <text x="300" y="30" class="lbl-muted">δ(x)</text>
+          <text x="150" y="158" class="lbl-muted">x → (no-slip wall)</text>
+        </svg>
         <div class="dt">▸ FLAT-PLATE (BLASIUS) RESULT</div>
         <pre class="code-block">δ / x ≈ 5 / sqrt(Re_x)        (laminar boundary layer)
 
