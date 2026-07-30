@@ -30,7 +30,7 @@ chemical-engineering curriculum, the FE/PE exams, and day-to-day plant practice.
 
 **Success metrics:**
 
-- ✅ 30 domains · **277 topics** (250+ target MET) · 10 calculators + steam table + quiz + flashcards · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
+- ✅ 30 domains · **282 topics** (250+ target MET) · 10 calculators + steam table + 28-question quiz + 28 flashcards · 📝 target **25+ domains**, **250+ topics**, **1000+ reference-table rows**.
 - ✅ Interactive tools — 10 calculators (unit conv., Reynolds, ideal gas, LMTD, Antoine, buffer pH, steam table, friction factor, molar mass, psychrometrics) + quiz + flashcards.
 - ✅ Embedded reference data — steam table, Antoine coefficients, atomic-weight table all live in the calculators.
 - ✅ Self-test quiz engine — 18 questions, instant feedback, best score saved (localStorage).
@@ -824,6 +824,18 @@ checks (axe-core) pass at 0 and the best-practices/SEO signals it grades are all
 ---
 
 ## 12. Changelog
+
+### 2026-07-28 — More practice content: worked examples, quiz & flashcards
+Deepened the interactive/practice material:
+- **+5 worked examples** (Examples domain → 13): pipe pressure drop (Darcy),
+  minimum stages (Fenske), second-order batch time, net present value, and
+  moist-air humidity ratio — each fully stepped with a cross-link to the relevant
+  calculator.
+- **Quiz bank 18 → 28** and **flashcards 18 → 28**, covering the newer domains
+  (cryogenics/J–T, Fenske, psychrometrics, Nernst/Faraday, quantum dots,
+  comminution, DOE, cyclones, NPV).
+Verified headless: arrays parse (28/28), examples render (13), quiz engine still
+works, zero console errors, **0 axe WCAG violations** in both themes. 282 topics.
 
 ### 2026-07-28 — Backlog: keyboard shortcuts + random-topic surfacing
 Two §11 nice-to-haves shipped (both CSP-safe, offline, keyboard-accessible):

@@ -269,3 +269,175 @@ If ΔT_max threatens runaway/decomposition → add cooling or dilute.</pre>
     </div>
   </div>
 </div>
+
+<!-- ── WORKED: PIPE PRESSURE DROP ───────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📝</span>
+    <span class="topic-name">Worked: Pipe Pressure Drop (Darcy)</span>
+    <span class="topic-badge">SOLVED</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Step-by-Step</div>
+      <div class="concept-title">Friction loss for turbulent water flow</div>
+      <div class="concept-desc">Combining Reynolds number, the friction factor and Darcy–Weisbach from Fluid Mechanics.</div>
+      <div class="dw">
+        <div class="dt">▸ PROBLEM &amp; SOLUTION</div>
+        <pre class="code-block">Q: Water (ρ=1000 kg/m³, μ=0.001 Pa·s) flows at 2 m/s through
+   100 m of 50 mm pipe (ε/D = 0.0001). Find ΔP.
+
+1. Re = ρvD/μ = 1000·2·0.05/0.001 = 1.0×10⁵  → turbulent
+2. Haaland f: 1/√f = −1.8 log[(ε/D/3.7)^1.11 + 6.9/Re]
+   → f ≈ 0.0183
+3. Darcy–Weisbach: ΔP = f (L/D)(ρv²/2)
+   = 0.0183 (100/0.05)(1000·2²/2)
+   = 0.0183 · 2000 · 2000
+   ≈ 73,200 Pa ≈ 73 kPa</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        💧 Check it live with the <strong class="text-cyan">Reynolds</strong> and
+        <strong class="text-cyan">Friction Factor</strong> calculators in the Tools domain.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── WORKED: FENSKE MIN STAGES ────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📝</span>
+    <span class="topic-name">Worked: Minimum Stages (Fenske)</span>
+    <span class="topic-badge">SOLVED</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Step-by-Step</div>
+      <div class="concept-title">Total-reflux stage count for a binary split</div>
+      <div class="concept-desc">Applying the Fenske equation from Mass Transfer &amp; Separations.</div>
+      <div class="dw">
+        <div class="dt">▸ PROBLEM &amp; SOLUTION</div>
+        <pre class="code-block">Q: Distillation with α = 2.5. Distillate 98% light, bottoms
+   2% light. Find the minimum number of stages N_min.
+
+1. Fenske: N_min = ln[ (x_D/(1−x_D)) · ((1−x_B)/x_B) ] / ln α
+2. x_D/(1−x_D) = 0.98/0.02 = 49
+3. (1−x_B)/x_B = 0.98/0.02 = 49
+4. N_min = ln(49 · 49) / ln 2.5
+         = ln(2401) / 0.9163
+         = 7.783 / 0.9163 ≈ 8.5 stages
+
+→ ~8.5 equilibrium stages (incl. reboiler) at total reflux.</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        🌡️ N_min is the floor — real columns run above minimum reflux, so the actual stage count is
+        higher (Gilliland correlation links the two).
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── WORKED: BATCH REACTOR 2ND ORDER ──────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📝</span>
+    <span class="topic-name">Worked: Batch Time, Second-Order</span>
+    <span class="topic-badge">SOLVED</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Step-by-Step</div>
+      <div class="concept-title">Time to reach a conversion in a batch reactor</div>
+      <div class="concept-desc">Integrating the second-order rate law from Reaction Engineering &amp; Kinetics.</div>
+      <div class="dw">
+        <div class="dt">▸ PROBLEM &amp; SOLUTION</div>
+        <pre class="code-block">Q: 2A → products, −r_A = k C_A², k = 0.05 L/(mol·min),
+   C_A0 = 1 mol/L. Time for 90% conversion?
+
+1. Batch: t = C_A0 ∫₀^X dX / (−r_A)
+2. Second order: −r_A = k C_A0²(1−X)²
+3. t = (1/(k C_A0)) · X/(1−X)
+4. = (1/(0.05·1)) · 0.9/(1−0.9)
+   = 20 · 9 = 180 min
+
+(Equivalently 1/C_A − 1/C_A0 = k t.)</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        ⏱️ Second-order conversion tails off hard — going from 90% to 99% multiplies the required
+        time roughly tenfold.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── WORKED: NPV ECONOMICS ────────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📝</span>
+    <span class="topic-name">Worked: Net Present Value</span>
+    <span class="topic-badge">SOLVED</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Step-by-Step</div>
+      <div class="concept-title">Discounting project cash flows</div>
+      <div class="concept-desc">Applying time-value-of-money from Process Design &amp; Economics.</div>
+      <div class="dw">
+        <div class="dt">▸ PROBLEM &amp; SOLUTION</div>
+        <pre class="code-block">Q: Invest $100k now; it returns $40k/yr for 3 years.
+   Discount rate i = 10%. Find NPV.
+
+1. NPV = −C₀ + Σ CFₜ /(1+i)ᵗ
+2. Year 1: 40/1.10   = 36.36
+   Year 2: 40/1.21   = 33.06
+   Year 3: 40/1.331  = 30.05
+3. Σ PV of inflows = 99.47k
+4. NPV = −100 + 99.47 = −$0.53k
+
+→ Slightly negative → reject at 10% (IRR is just under 10%).</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        💰 NPV &gt; 0 → accept. The discount rate that drives NPV to zero is the IRR — here almost
+        exactly the 10% hurdle, so the project barely fails to clear it.
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── WORKED: HUMIDITY RATIO ───────────────────────────────── -->
+<div class="topic">
+  <div class="topic-header">
+    <span class="topic-icon">📝</span>
+    <span class="topic-name">Worked: Humidity Ratio of Moist Air</span>
+    <span class="topic-badge">SOLVED</span>
+    <span class="topic-chev">▶</span>
+  </div>
+  <div class="topic-body">
+    <div class="concept-card">
+      <div class="concept-label">Step-by-Step</div>
+      <div class="concept-title">From dry-bulb T and RH to humidity ratio</div>
+      <div class="concept-desc">Applying the psychrometric relations from the Psychrometrics domain.</div>
+      <div class="dw">
+        <div class="dt">▸ PROBLEM &amp; SOLUTION</div>
+        <pre class="code-block">Q: Air at 30 °C, 60% RH, 101.325 kPa. Find humidity ratio W.
+
+1. Sat. pressure (Magnus):
+   p_ws = 0.61094 exp[17.625·30/(30+243.04)]
+        ≈ 4.24 kPa
+2. Vapor pressure: p_w = 0.60 × 4.24 = 2.55 kPa
+3. Humidity ratio:
+   W = 0.622 p_w/(P − p_w)
+     = 0.622 × 2.55/(101.325 − 2.55)
+     ≈ 0.0161 kg water / kg dry air</pre>
+      </div>
+      <div class="info-bar ib-muted">
+        💨 The <strong class="text-cyan">Psychrometric Quick-Lookup</strong> in the Tools domain does
+        this instantly and adds dew point and enthalpy.
+      </div>
+    </div>
+  </div>
+</div>

@@ -1164,6 +1164,16 @@ const FLASHCARDS = [
   { front: "DNA base pairing", back: "A=T (2 H-bonds), G≡C (3 H-bonds); antiparallel double helix" },
   { front: "Damköhler number", back: "Da = reaction rate / transport rate" },
   { front: "Green-chemistry E-factor", back: "kg waste / kg product — lower is greener" },
+  { front: "Joule–Thomson coefficient", back: "μ_JT = (∂T/∂P)_H; >0 cools on throttling (below inversion T)" },
+  { front: "Fenske equation", back: "N_min = ln[(x_D/(1−x_D))((1−x_B)/x_B)] / ln α (total reflux)" },
+  { front: "Nernst equation", back: "E = E° − (RT/nF)·ln Q; ~59 mV/decade per e⁻ at 25 °C" },
+  { front: "Faraday's law", back: "m = I·t·M/(n·F); F = 96,485 C per mol e⁻" },
+  { front: "Humidity ratio", back: "W = 0.622·p_w/(P − p_w) [kg water / kg dry air]" },
+  { front: "Magnus saturation pressure", back: "p_ws = 0.61094·exp[17.625T/(T+243.04)] kPa (T in °C)" },
+  { front: "Bond's law (grinding)", back: "E = Wᵢ(10/√P₈₀ − 10/√F₈₀); ties energy to size reduction" },
+  { front: "Net Present Value", back: "NPV = −C₀ + Σ CFₜ/(1+i)ᵗ; accept if NPV > 0" },
+  { front: "Quantum confinement", back: "Smaller nanoparticle → larger band gap → bluer emission" },
+  { front: "Current efficiency", back: "η = actual product mass / theoretical (Faraday); rest lost to side reactions" },
 ];
 
 function initFlashcards() {
@@ -1393,6 +1403,16 @@ const QUIZ_BANK = [
   { q: "The green-chemistry E-factor measures…", opts: ["kg waste per kg product", "Energy per mole", "Atomic radius", "Reaction rate constant"], a: 0, exp: "E-factor = kg waste / kg product — lower is greener." },
   { q: "A Professional Engineer's paramount duty is to…", opts: ["The client", "The employer", "Public safety, health & welfare", "Shareholders"], a: 2, exp: "Codes of ethics hold public safety, health and welfare paramount." },
   { q: "Choked (sonic) flow through a relief valve occurs at Mach…", opts: ["0.1", "0.3", "1.0", "5.0"], a: 2, exp: "Flow chokes at Ma = 1 at the throat; lowering downstream P won't raise it further." },
+  { q: "The Joule–Thomson coefficient μ_JT is positive when a throttled gas…", opts: ["Warms up", "Cools down", "Stays constant", "Ionizes"], a: 1, exp: "μ_JT > 0 (below the inversion temperature) means throttling cools the gas — the basis of liquefaction." },
+  { q: "The Fenske equation gives the…", opts: ["Minimum reflux ratio", "Minimum number of stages at total reflux", "Column diameter", "Reboiler duty"], a: 1, exp: "Fenske gives N_min at total reflux from the relative volatility and end compositions." },
+  { q: "The wet-bulb temperature is always…", opts: ["Above the dry-bulb", "Below or equal to the dry-bulb", "Equal to the dew point", "Independent of humidity"], a: 1, exp: "Evaporative cooling makes T_wb ≤ T_dry, with equality only at saturation." },
+  { q: "In the Nernst equation, cell potential depends on temperature and…", opts: ["Electrode colour", "The reaction quotient Q", "Wire length", "Ambient light"], a: 1, exp: "E = E° − (RT/nF)·ln Q — potential shifts with concentrations via Q." },
+  { q: "Faraday's constant (~96,485 C/mol) converts charge to…", opts: ["Moles of electrons", "Joules", "Kelvin", "Pascals"], a: 0, exp: "F is the charge per mole of electrons; m = ItM/(nF)." },
+  { q: "A quantum dot's emission colour is set primarily by its…", opts: ["Temperature", "Size (diameter)", "Charge", "Mass"], a: 1, exp: "Quantum confinement makes a smaller dot emit bluer light — colour tracks size." },
+  { q: "Bond's law relates comminution energy to particle…", opts: ["Colour", "Size (√ of 80%-passing size)", "Density only", "Charge"], a: 1, exp: "Bond: E = Wᵢ(10/√P₈₀ − 10/√F₈₀), tying grinding energy to size reduction." },
+  { q: "In DOE, the main advantage over one-factor-at-a-time is capturing…", opts: ["Fewer factors", "Interactions between factors", "Only linear effects", "Nothing new"], a: 1, exp: "Factorial designs estimate interaction effects that OFAT completely misses." },
+  { q: "A cyclone separates particles from gas using…", opts: ["Magnetism", "Centrifugal (inertial) force", "Electrostatics", "Gravity settling only"], a: 1, exp: "Swirling flow flings particles to the wall by centrifugal force — no moving parts." },
+  { q: "Net Present Value discounts future cash flows to account for…", opts: ["Inflation only", "The time value of money", "Taxes only", "Depreciation only"], a: 1, exp: "NPV = −C₀ + Σ CFₜ/(1+i)ᵗ; money later is worth less than money now." },
 ];
 
 function quizShuffle(arr) {
