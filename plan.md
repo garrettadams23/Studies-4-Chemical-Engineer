@@ -825,6 +825,19 @@ checks (axe-core) pass at 0 and the best-practices/SEO signals it grades are all
 
 ## 12. Changelog
 
+### 2026-07-30 — Six more SVG diagrams (12 total, across more domains)
+Added inline, theme-aware, offline SVG diagrams to six more flagship topics:
+- **Thermodynamics** — Carnot cycle on a T–s diagram (isotherms + adiabats).
+- **Unit Operations** — distillation column schematic (feed, trays, condenser,
+  reflux, distillate, reboiler, bottoms).
+- **Materials** — tensile stress–strain curve (elastic → yield → UTS → fracture).
+- **Stoichiometry** — material-balance control-volume envelope.
+- **Transport Phenomena** — flat-plate boundary-layer growth + velocity profiles.
+- **Electrochemical** — water-electrolysis cell schematic (anode/cathode, O₂/H₂).
+All use the `.svg-diagram` CSS-variable styling (accent + currentColor), so they
+recolor per domain and per theme. Verified: 12 diagrams render, visible & sized,
+**0 axe WCAG violations** both themes, deterministic build.
+
 ### 2026-07-30 — Study menu (floating FAB) + Quick-Jump command palette
 Added a bottom-right floating 🎓 study-menu button (mirroring the sister site's
 pattern) that opens a pop-up with four actions:
