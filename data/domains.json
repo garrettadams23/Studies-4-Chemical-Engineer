@@ -308,15 +308,5 @@
       { "cls": "ctag-adv", "text": "ADV" }
     ],
     "sub": "Liquefaction · Joule-Thomson · Linde &amp; Claude Cycles · Air Separation · Cryo Storage"
-  },
-  {
-    "id": "quiz",
-    "colorClass": "domain-quiz",
-    "icon": "🧠",
-    "title": "Self-Test Quiz",
-    "certTags": [
-      { "cls": "ctag-tools", "text": "QUIZ" }
-    ],
-    "sub": "18 questions across the curriculum · instant feedback · best score saved in your browser"
   }
 ]

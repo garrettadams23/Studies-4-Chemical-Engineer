@@ -838,6 +838,16 @@ All use the `.svg-diagram` CSS-variable styling (accent + currentColor), so they
 recolor per domain and per theme. Verified: 12 diagrams render, visible & sized,
 **0 axe WCAG violations** both themes, deterministic build.
 
+### 2026-07-31 — Consolidate quiz/flashcards into the study-tools modal
+Matched the sister's structure exactly: removed the separate in-page **Self-Test
+Quiz** domain (its `quiz` entry, `data/quiz.html`, filter chip and the now-dead
+`QUIZ_BANK` / `FLASHCARDS` / `initQuiz` / `initFlashcards` code). Quiz and
+flashcards now live **only** in the study-tools FAB modal (topic-generated,
+scope-selectable), so there is a single quiz/flashcards experience like the
+sister site. 30 domains → 29; 282 → 280 topics. Verified: FAB + modal quiz/
+flashcards work, all 10 calculators still compute, **0 axe WCAG violations**
+both themes, deterministic build, zero console errors.
+
 ### 2026-07-31 — Study tools ported from the sister site (exact feature parity)
 Replaced the first-pass study menu with the **sister IT site's exact study-tools
 module** so the two sites match (like the back-to-top arrow and notepad tab do).
