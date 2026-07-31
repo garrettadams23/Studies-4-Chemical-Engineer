@@ -197,47 +197,6 @@
     </div>
   </div>
 
-  <!-- STUDY MENU: floating action button + pop-up -->
-  <div class="study-menu" id="study-menu">
-    <div class="study-pop" id="study-pop" role="menu" aria-label="Study menu" hidden>
-      <button class="sm-item" id="sm-quickjump" type="button" role="menuitem">
-        <span class="sm-key" aria-hidden="true">⌘K</span>
-        <span class="sm-label">Quick jump</span>
-      </button>
-      <button class="sm-item" id="sm-flashcards" type="button" role="menuitem">
-        <span class="sm-ico" aria-hidden="true">🃏</span>
-        <span class="sm-label">Flashcards</span>
-      </button>
-      <button class="sm-item" id="sm-quiz" type="button" role="menuitem">
-        <span class="sm-ico" aria-hidden="true">❓</span>
-        <span class="sm-label">Quiz</span>
-      </button>
-      <button class="sm-item" id="sm-studylist" type="button" role="menuitem">
-        <span class="sm-ico" aria-hidden="true">★</span>
-        <span class="sm-label">Study list</span>
-      </button>
-    </div>
-    <button class="study-fab" id="study-fab" type="button" aria-haspopup="true" aria-expanded="false" aria-label="Open study menu" title="Study menu">
-      <span aria-hidden="true">🎓</span>
-    </button>
-  </div>
-
-  <!-- QUICK JUMP: command palette -->
-  <div class="qj-overlay" id="qj-overlay" hidden>
-    <div class="qj-box" role="dialog" aria-modal="true" aria-label="Quick jump to a topic">
-      <input id="qj-input" class="qj-input" type="text" placeholder="Jump to a topic or domain…" autocomplete="off" spellcheck="false" role="combobox" aria-expanded="true" aria-controls="qj-results" aria-autocomplete="list" />
-      <ul class="qj-results" id="qj-results" role="listbox" aria-label="Results"></ul>
-      <div class="qj-hint" aria-hidden="true">↑↓ navigate · ↵ open · esc close</div>
-    </div>
-  </div>
-
-  <!-- STUDY LIST: reviewed-topics panel -->
-  <div class="qj-overlay" id="sl-overlay" hidden>
-    <div class="qj-box" role="dialog" aria-modal="true" aria-label="Study list">
-      <div class="sl-head"><span class="sl-title">★ Study list</span><span class="sl-count" id="sl-count"></span></div>
-      <ul class="qj-results" id="sl-results" role="list" aria-label="Marked topics"></ul>
-      <div class="qj-hint" aria-hidden="true">Mark topics with ✓ to add them here · esc close</div>
-    </div>
-  </div>
+  <!-- Study-tools FAB + modals are injected at runtime by initStudyTools() -->
 </body>
 </html>

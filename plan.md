@@ -838,18 +838,22 @@ All use the `.svg-diagram` CSS-variable styling (accent + currentColor), so they
 recolor per domain and per theme. Verified: 12 diagrams render, visible & sized,
 **0 axe WCAG violations** both themes, deterministic build.
 
-### 2026-07-30 — Study menu (floating FAB) + Quick-Jump command palette
-Added a bottom-right floating 🎓 study-menu button (mirroring the sister site's
-pattern) that opens a pop-up with four actions:
-- **Quick jump** — a ⌘K / Ctrl+K command palette that fuzzy-filters all 282
-  topics by name + domain, with ↑/↓ + Enter to open (expands + scrolls + sets
-  the hash). Built with createElement only (no innerHTML of data) → CSP-safe.
-- **Flashcards** / **Quiz** — jump straight to those tools.
-- **Study list** — lists every topic the visitor has marked with the ✓ button
-  (localStorage `reviewed:*`), each a quick link; empty-state hint otherwise.
-Fully keyboard-accessible (roles, `aria-expanded`, listbox/option, focus
-restore, Esc/backdrop dismiss). Verified headless end-to-end; **0 axe WCAG
-violations** in both themes, default and palette-open.
+### 2026-07-31 — Study tools ported from the sister site (exact feature parity)
+Replaced the first-pass study menu with the **sister IT site's exact study-tools
+module** so the two sites match (like the back-to-top arrow and notepad tab do).
+Bottom-right graduation-cap FAB opens Quick jump / Flashcards / Quiz / Study list:
+- **Quick jump** — ⌘K / Ctrl+K modal palette filtering all 282 topics (↑/↓, Enter).
+- **Flashcards** — in-modal deck generated from topics, with a scope selector
+  (All / a domain / ★ study list); flip + "Got it" (localStorage `known:`).
+- **Quiz** — auto-generated "which topic does this describe?" multiple-choice,
+  scope-selectable, scored.
+- **Study list** — topics saved via a new per-topic **★ bookmark** button
+  (localStorage `bookmark:`), grouped by domain, with "Flashcard/Quiz these".
+Ported the module + CSS verbatim, remapping the sister's `--card`/`--fg` vars to
+our `--bg2`/`--text` so it stays theme-aware. Fixed the few a11y gaps the port
+introduced (select names, scrollable-region focus, active-row contrast) to keep
+our **0-violation** standard: verified headless end-to-end, **0 axe WCAG
+violations** in both themes across every modal.
 
 ### 2026-07-28 — More practice content: worked examples, quiz & flashcards
 Deepened the interactive/practice material:
