@@ -23,6 +23,14 @@ Open `index.html` in any modern web browser — no server or build step required
   domain header shows a live `n/m` counter.
 - **Notepad** — Slide-out scratchpad backed by `localStorage`, synced live
   across your open tabs. No dependencies.
+- **Interactive Periodic Table** — All 118 elements with IUPAC atomic weights,
+  electron configurations, electronegativity, oxidation states and phase data.
+  Click an element for its properties card, or recolor the whole table by
+  category, electronegativity, melting point or state to see the trends. Open it
+  from the Chemistry domain or the study menu; arrow keys walk the grid.
+- **Molecular Structure Diagrams** — Skeletal (line-angle) formulas drawn as
+  theme-aware inline SVG by `molsvg.py`: how to read a structure, a functional-group
+  gallery, a real API, the peptide bond and a reforming reaction.
 - **Rotating Snap Quotes** — Science &amp; engineering quotes on a fade cycle.
 - **Offline-first** — Self-hosted fonts and zero third-party requests; works
   fully over `file://`. Respects `prefers-reduced-motion` and prints cleanly.
@@ -55,6 +63,8 @@ index-shell.html      Page skeleton (head, header, filter/search bar, notepad) �
 build.py              Assembles index-shell.html + data/* → index.html (minifies the output)
 reconcile_build.py    Recovery tool: syncs a hand-patched index.html back into data/*
 scaffold_domain.py    Wires a brand-new domain into domains.json, the shell, and the CSS
+molsvg.py             Draws skeletal chemical structures as inline SVG and injects
+                      them into data/*.html between <!-- mol:name --> markers
 script.js             All interactive logic (accordion, filter, search, theme,
                       notepad, permalinks, progress, back-to-top)
 style.css             Layout, themes, and component styles
@@ -81,6 +91,12 @@ All topic content lives in `data/*.html` — one file per domain. To add or upda
 
 To add a new domain, add an entry to `data/domains.json` and create the matching
 `data/{id}.html` (or use `scaffold_domain.py` to wire the chip and colors for you).
+
+To add a chemical structure, define it in `molsvg.py` (atoms, bonds and rings in
+Python — see the existing molecules), drop a `<!-- mol:name --><!-- /mol:name -->`
+marker pair where it belongs in `data/*.html`, then run `python3 molsvg.py --inject`
+followed by `python3 build.py`. Re-running is idempotent, so a structure can be
+tweaked and regenerated in place. `python3 molsvg.py <name>` prints one to stdout.
 **Never hand-edit `index.html`** — it is generated; if it ever drifts from
 `data/*`, `reconcile_build.py` can rebuild the sources from it.
 

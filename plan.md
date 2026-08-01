@@ -673,7 +673,9 @@ slide-out notepad · rotating quotes · back-to-top.
 - **Engineering-economics** calculator (NPV, IRR, payback, six-tenths scaling)
 
 ### 5.3 Reference tools (📝)
-- **Interactive periodic table** (click an element → properties card)
+- ✅ **Interactive periodic table** — all 118 elements, click for a properties
+  card, recolor by category / electronegativity / melting point / state, search
+  and arrow-key navigation. Lives in the Chemistry domain and in the study menu.
 - **Steam-table lookup** (saturated & superheated, interpolating)
 - **Physical-property database** lookup (Tc, Pc, ω, Cp, ΔHf, ΔHvap, MW)
 - **Pipe-schedule** lookup (NPS → ID/OD/wall)
@@ -689,6 +691,15 @@ slide-out notepad · rotating quotes · back-to-top.
 Replace ASCII diagrams with crisp inline **SVG** (still no external requests):
 phase diagrams, Moody chart (interactive), McCabe-Thiele, block/PFD builder,
 control block diagrams, the DNA double helix. Keep ASCII fallbacks for `file://`.
+
+✅ **Molecular structures.** `molsvg.py` renders skeletal (line-angle) formulas
+into inline SVG that follows the theme: bonds are lines, unlabelled vertices are
+carbons, hydrogens on carbon are implied, heteroatoms are labelled and colored.
+Molecules are defined in Python and injected between `<!-- mol:name -->` markers
+in `data/*.html`, so `python3 molsvg.py --inject` regenerates them in place.
+Shipped so far: how to read a skeletal formula and a twelve-group functional
+gallery (chem), an API structure and a Lipinski-annotated drug (pharma), the
+peptide bond (bio), and reforming n-heptane → toluene (petro).
 
 ---
 
@@ -706,7 +717,10 @@ tables and consumed by the calculators. No external API — everything bundled.
 - **Conversion-factor** master table
 - **Universal constants** (R in 10+ unit systems, g, N_A, k_B, F)
 - **Dimensionless-groups** master table (definition, ratio, use)
-- **Periodic-table** dataset (Z, symbol, name, mass, config, electronegativity, group)
+- ✅ **Periodic-table** dataset (Z, symbol, name, mass, config, electronegativity,
+  oxidation states, phase, melting/boiling point, density) — `PT_ELEMENTS` in
+  `script.js`; also feeds the molar-mass calculator, which now covers all 118
+  elements instead of the 68 it used to carry separately
 - **Pipe dimensions** (schedule 5–160, NPS ⅛–24")
 - **Fitting K-values / equivalent lengths**
 - **TEMA exchanger** type codes

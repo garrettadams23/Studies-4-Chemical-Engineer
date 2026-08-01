@@ -2794,6 +2794,9 @@ mark.sh {
   border: 1px solid var(--border); border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0,0,0,0.45);
 }
+/* `display: flex` above beats the [hidden] attribute's UA `display: none`,
+   so the collapsed state needs saying explicitly. */
+#study-menu[hidden] { display: none; }
 .study-mi {
   display: flex; align-items: center; gap: 10px;
   padding: 9px 12px; border: none; border-radius: 8px;
@@ -2927,4 +2930,184 @@ body.st-lock { overflow: hidden; }
   #st-modal { padding: 18px 16px 22px; max-height: 88vh; }
   #study-fab-wrap { right: 12px; bottom: 12px; }
   #st-overlay { padding-top: 4vh; }
+}
+
+/* ── PERIODIC TABLE (interactive, offline) ─────────────────────────────────── */
+/* Category / trend colors are stored as raw RGB triples so a single value can
+   drive both the flat swatch and the translucent cell fill. */
+:root {
+  --pt-c0: 255 107 107;  /* alkali metal        */
+  --pt-c1: 255 176 32;   /* alkaline earth      */
+  --pt-c2: 0 212 255;    /* transition metal    */
+  --pt-c3: 77 171 247;   /* post-transition     */
+  --pt-c4: 181 123 247;  /* metalloid           */
+  --pt-c5: 0 255 153;    /* reactive nonmetal   */
+  --pt-c6: 255 224 102;  /* halogen             */
+  --pt-c7: 247 131 172;  /* noble gas           */
+  --pt-c8: 116 192 252;  /* lanthanide          */
+  --pt-c9: 255 169 77;   /* actinide            */
+  --pt-c10: 113 133 163; /* unknown / predicted */
+  --pt-h0: 77 171 247;   /* low  ▸ heat ramp    */
+  --pt-h1: 0 212 255;
+  --pt-h2: 0 255 153;
+  --pt-h3: 255 176 32;
+  --pt-h4: 255 122 69;
+  --pt-h5: 255 77 109;   /* high                */
+}
+[data-theme="light"] {
+  --pt-c0: 190 40 60;
+  --pt-c1: 161 98 7;
+  --pt-c2: 7 89 133;
+  --pt-c3: 29 100 173;
+  --pt-c4: 109 40 217;
+  --pt-c5: 4 107 78;
+  --pt-c6: 90 124 22;
+  --pt-c7: 176 51 106;
+  --pt-c8: 30 110 190;
+  --pt-c9: 154 78 12;
+  --pt-c10: 71 85 105;
+  --pt-h0: 29 100 173;
+  --pt-h1: 7 89 133;
+  --pt-h2: 4 107 78;
+  --pt-h3: 161 98 7;
+  --pt-h4: 173 76 20;
+  --pt-h5: 185 28 28;
+}
+
+.pt-bar {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  align-items: center; justify-content: space-between; margin-bottom: 12px;
+}
+.pt-modes { display: flex; flex-wrap: wrap; gap: 6px; }
+.pt-mode {
+  font-family: var(--mono); font-size: 11px; letter-spacing: 0.04em;
+  padding: 5px 10px; border-radius: 999px; cursor: pointer;
+  border: 1px solid var(--border); background: var(--bg3); color: var(--muted);
+}
+.pt-mode:hover { color: var(--text); border-color: var(--cyan); }
+.pt-mode.active { color: var(--bg); background: var(--cyan); border-color: var(--cyan); }
+[data-theme="light"] .pt-mode.active { color: #fff; }
+.pt-mode:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; }
+
+.pt-search { display: flex; align-items: center; gap: 8px; }
+.pt-search label { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+.pt-search input {
+  font-family: var(--mono); font-size: 12px; width: 170px; max-width: 42vw;
+  padding: 5px 9px; border-radius: 8px;
+  border: 1px solid var(--border); background: var(--bg3); color: var(--text);
+}
+.pt-search input:focus-visible { outline: 2px solid var(--cyan); outline-offset: 1px; }
+
+/* The grid keeps its real proportions and scrolls sideways on small screens. */
+.pt-scroll { overflow-x: auto; padding-bottom: 6px; }
+.pt-grid {
+  display: grid;
+  grid-template-columns: 18px repeat(18, minmax(34px, 1fr));
+  grid-template-rows: 14px repeat(7, auto) 10px repeat(2, auto);
+  gap: 2px; min-width: 660px;
+}
+.pt-axis {
+  font-family: var(--mono); font-size: 9px; color: var(--muted);
+  display: flex; align-items: center; justify-content: center;
+}
+.pt-ph {
+  font-family: var(--mono); font-size: 9px; color: var(--muted);
+  display: flex; align-items: center; justify-content: center;
+  border: 1px dashed var(--border); border-radius: 4px;
+}
+
+.pt-cell {
+  position: relative; display: flex; flex-direction: column; justify-content: center;
+  aspect-ratio: 1 / 1; min-width: 0; padding: 2px 1px; cursor: pointer;
+  border: 1px solid rgb(var(--pt-cc) / 0.55); border-radius: 4px;
+  background: rgb(var(--pt-cc) / 0.14); color: var(--text);
+  font-family: var(--mono); line-height: 1.1; text-align: center;
+  transition: transform 0.08s ease, background 0.15s ease;
+}
+.pt-cell:hover { background: rgb(var(--pt-cc) / 0.32); transform: translateY(-1px); }
+.pt-cell.sel {
+  outline: 2px solid rgb(var(--pt-cc)); outline-offset: 0;
+  background: rgb(var(--pt-cc) / 0.4);
+}
+.pt-cell:focus-visible { outline: 2px solid var(--text); outline-offset: 1px; }
+.pt-cell.dim { opacity: 0.22; }
+.pt-z { font-size: 7px; color: var(--muted); }
+.pt-sym { font-size: 13px; font-weight: 700; color: var(--text); }
+.pt-nm {
+  font-size: 6px; color: var(--muted);
+  overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+
+/* One rule per bucket: set the cell's color variable, everything else follows. */
+.pt-c0 { --pt-cc: var(--pt-c0); }   .pt-c1 { --pt-cc: var(--pt-c1); }
+.pt-c2 { --pt-cc: var(--pt-c2); }   .pt-c3 { --pt-cc: var(--pt-c3); }
+.pt-c4 { --pt-cc: var(--pt-c4); }   .pt-c5 { --pt-cc: var(--pt-c5); }
+.pt-c6 { --pt-cc: var(--pt-c6); }   .pt-c7 { --pt-cc: var(--pt-c7); }
+.pt-c8 { --pt-cc: var(--pt-c8); }   .pt-c9 { --pt-cc: var(--pt-c9); }
+.pt-c10 { --pt-cc: var(--pt-c10); }
+.pt-h0 { --pt-cc: var(--pt-h0); }   .pt-h1 { --pt-cc: var(--pt-h1); }
+.pt-h2 { --pt-cc: var(--pt-h2); }   .pt-h3 { --pt-cc: var(--pt-h3); }
+.pt-h4 { --pt-cc: var(--pt-h4); }   .pt-h5 { --pt-cc: var(--pt-h5); }
+.pt-hx { --pt-cc: var(--pt-c10); }
+.pt-p0 { --pt-cc: var(--pt-c10); }  /* solid  */
+.pt-p1 { --pt-cc: var(--pt-c5); }   /* liquid */
+.pt-p2 { --pt-cc: var(--pt-c2); }   /* gas    */
+
+.pt-legend {
+  display: flex; flex-wrap: wrap; gap: 4px 14px; margin: 12px 0 4px;
+  font-family: var(--mono); font-size: 10px; color: var(--muted);
+}
+.pt-key { display: inline-flex; align-items: center; gap: 5px; }
+.pt-sw {
+  width: 10px; height: 10px; border-radius: 3px;
+  background: rgb(var(--pt-cc) / 0.45); border: 1px solid rgb(var(--pt-cc));
+}
+
+.pt-detail { margin-top: 14px; }
+.pt-card {
+  border: 1px solid var(--border); border-radius: 12px;
+  background: var(--bg3); padding: 14px 16px 16px;
+}
+.pt-card-head { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+.pt-card-sym {
+  display: flex; align-items: center; justify-content: center;
+  width: 54px; height: 54px; flex: none; border-radius: 10px;
+  font-family: var(--mono); font-size: 22px; font-weight: 700;
+  background: rgb(var(--pt-cc) / 0.22); border: 1px solid rgb(var(--pt-cc) / 0.7);
+}
+.pt-card-id { display: flex; flex-direction: column; }
+.pt-card-id strong { font-size: 17px; }
+.pt-card-sub { font-family: var(--mono); font-size: 11px; color: var(--muted); }
+.pt-props { margin: 0 0 10px; }
+.pt-props th { width: 44%; text-align: left; white-space: nowrap; }
+.pt-props td { font-family: var(--mono); }
+
+/* The table needs more room than the standard study-tools modal allows. */
+#st-modal:has(.ptable-mount) { max-width: 1060px; }
+
+@media (max-width: 640px) {
+  .pt-grid { grid-template-columns: 14px repeat(18, minmax(28px, 1fr)); min-width: 560px; }
+  .pt-sym { font-size: 11px; }
+  .pt-nm { display: none; }
+  .pt-search input { width: 130px; }
+  .pt-card-head { gap: 10px; }
+  .pt-card-sym { width: 44px; height: 44px; font-size: 18px; }
+}
+
+/* ── Molecular structure diagrams (skeletal formulas, generated by molsvg.py) ─ */
+.svg-diagram.molecule { max-width: 580px; }
+.svg-diagram.molecule .mol-bonds line {
+  stroke: var(--text); stroke-width: 1.7; stroke-linecap: round;
+}
+.svg-diagram.molecule .mol-atom {
+  font-size: 13px; font-weight: 700; dominant-baseline: central;
+}
+.svg-diagram.molecule .mol-leader {
+  stroke: var(--muted); stroke-width: 1; stroke-dasharray: 3 3;
+}
+.svg-diagram.molecule .mol-title { fill: var(--cyan); }
+.svg-diagram.molecule .mol-op { fill: var(--green); }
+.svg-diagram.molecule .mol-hilite {
+  fill: rgb(255 176 32 / 0.13); stroke: var(--amber);
+  stroke-width: 1; stroke-dasharray: 4 3;
 }

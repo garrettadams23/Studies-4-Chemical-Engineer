@@ -5,7 +5,7 @@
  * to invalidate old caches. Only runs on the deployed https:// site — the
  * file:// path never registers it (guarded in script.js).
  */
-const CACHE_VERSION = "cheref-v1";
+const CACHE_VERSION = "cheref-v2";
 
 const PRECACHE = [
   "/",
