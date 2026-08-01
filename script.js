@@ -157,6 +157,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initAccessibilityAndTools();
   initBackToTop();
   initCalculators();
+  initPeriodicTable();
   initGlossary();
   initStudyTools();
 });
@@ -1185,18 +1186,17 @@ function initFriction() {
 
 // IUPAC standard atomic weights (g/mol) for the common elements. Enough to
 // cover essentially anything typed on a chemical-engineering site.
-const ATOMIC_WEIGHTS = {
-  H: 1.008, He: 4.0026, Li: 6.94, Be: 9.0122, B: 10.81, C: 12.011, N: 14.007,
-  O: 15.999, F: 18.998, Ne: 20.180, Na: 22.990, Mg: 24.305, Al: 26.982, Si: 28.085,
-  P: 30.974, S: 32.06, Cl: 35.45, Ar: 39.948, K: 39.098, Ca: 40.078, Sc: 44.956,
-  Ti: 47.867, V: 50.942, Cr: 51.996, Mn: 54.938, Fe: 55.845, Co: 58.933, Ni: 58.693,
-  Cu: 63.546, Zn: 65.38, Ga: 69.723, Ge: 72.630, As: 74.922, Se: 78.971, Br: 79.904,
-  Kr: 83.798, Rb: 85.468, Sr: 87.62, Y: 88.906, Zr: 91.224, Nb: 92.906, Mo: 95.95,
-  Ru: 101.07, Rh: 102.91, Pd: 106.42, Ag: 107.87, Cd: 112.41, In: 114.82, Sn: 118.71,
-  Sb: 121.76, Te: 127.60, I: 126.90, Xe: 131.29, Cs: 132.91, Ba: 137.33, La: 138.91,
-  Ce: 140.12, W: 183.84, Re: 186.21, Os: 190.23, Ir: 192.22, Pt: 195.08, Au: 196.97,
-  Hg: 200.59, Tl: 204.38, Pb: 207.2, Bi: 208.98, U: 238.03,
-};
+// Standard atomic weights, derived from the periodic-table dataset further down
+// so the molar-mass calculator and the element cards can never drift apart.
+// Built on first use because PT_ELEMENTS is declared later in the file.
+let _atomicWeights = null;
+function atomicWeights() {
+  if (!_atomicWeights) {
+    _atomicWeights = {};
+    PT_ELEMENTS.forEach(r => { _atomicWeights[r[PT_SYM]] = r[PT_MASS]; });
+  }
+  return _atomicWeights;
+}
 
 // Parse a chemical formula (with parentheses/brackets and subscripts) into an
 // element→count map, throwing a friendly error on anything malformed.
@@ -1224,7 +1224,7 @@ function parseFormula(formula) {
       } else if (ch >= "A" && ch <= "Z") {
         let sym = ch; i++;
         if (i < s.length && s[i] >= "a" && s[i] <= "z") { sym += s[i]; i++; }
-        if (!(sym in ATOMIC_WEIGHTS)) throw new Error("unknown element “" + sym + "”");
+        if (!(sym in atomicWeights())) throw new Error("unknown element “" + sym + "”");
         const n = count();
         acc[sym] = (acc[sym] || 0) + n;
       } else {
@@ -1252,7 +1252,7 @@ function initMolarMass() {
       let mass = 0;
       const parts = [];
       for (const el in counts) {
-        const contrib = ATOMIC_WEIGHTS[el] * counts[el];
+        const contrib = atomicWeights()[el] * counts[el];
         mass += contrib;
         parts.push(el + (counts[el] > 1 ? counts[el] : "") + " " + calcFmt(contrib) + " g/mol");
       }
@@ -1328,6 +1328,367 @@ function initCalculators() {
   initFriction();
   initMolarMass();
   initPsychrometrics();
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// INTERACTIVE PERIODIC TABLE — click an element for a properties card.
+// Data is embedded (no network): IUPAC standard atomic weights, ground-state
+// electron configurations, Pauling electronegativities, melting/boiling points
+// and densities, plus a chemical-engineering relevance note where one applies.
+// Mounts into any .ptable-mount in the page and into the study-tools modal.
+// ═══════════════════════════════════════════════════════════════════════════
+
+// Row layout: [symbol, name, mass, category, group-x, period-y, configuration,
+// electronegativity, phase, melt K, boil K, density, oxidation states,
+// mass-is-a-mass-number flag, ChE note]. Zero means "not applicable / unknown".
+const PT_SYM = 0, PT_NAME = 1, PT_MASS = 2, PT_CAT = 3, PT_X = 4, PT_Y = 5,
+  PT_CFG = 6, PT_EN = 7, PT_PHASE = 8, PT_MELT = 9, PT_BOIL = 10, PT_DENS = 11,
+  PT_OX = 12, PT_ISNUM = 13, PT_NOTE = 14;
+
+const PT_CATS = [
+  "Alkali metal", "Alkaline earth metal", "Transition metal",
+  "Post-transition metal", "Metalloid", "Reactive nonmetal", "Halogen",
+  "Noble gas", "Lanthanide", "Actinide", "Unknown / predicted",
+];
+const PT_PHASES = ["Solid", "Liquid", "Gas"];
+
+// Bin edges for the trend overlays (value < edge[i] → bucket i).
+const PT_EN_BINS = [1.0, 1.5, 2.0, 2.5, 3.0];
+const PT_MELT_BINS = [300, 600, 1200, 2000, 3000];
+
+const PT_ELEMENTS = [
+  ["H","Hydrogen",1.008,5,1,1,"1s1",2.2,2,14,20.3,0.09,"−1, +1",0,"Hydrotreating, ammonia & methanol synthesis, refinery H2 balance; fuel-cell feed."],
+  ["He","Helium",4.0026,7,18,1,"1s2",0,2,0,4.2,0.179,"",0,"Leak testing, cryogenic coolant (1.8 K magnets), inert blanket gas."],
+  ["Li","Lithium",6.94,0,1,2,"[He] 2s1",0.98,0,453.6,1603,0.534,"+1",0,"Li-ion battery cathodes/anodes; LiBr absorption chillers."],
+  ["Be","Beryllium",9.0122,1,2,2,"[He] 2s2",1.57,0,1560,2742,1.85,"+2",0,"BeO ceramics, Cu-Be non-sparking tools; dust is a potent lung toxin."],
+  ["B","Boron",10.81,4,13,2,"[He] 2s2 2p1",2.04,0,2349,4200,2.08,"+3",0,"Borosilicate glass, neutron-absorbing control rods, boric-acid reactor shim."],
+  ["C","Carbon",12.011,5,14,2,"[He] 2s2 2p2",2.55,0,0,0,1.821,"−4, +2, +4",0,"Backbone of every organic process stream; activated carbon, graphite, CO2 capture."],
+  ["N","Nitrogen",14.007,5,15,2,"[He] 2s2 2p3",3.04,2,63.1,77.4,1.251,"−3, +3, +5",0,"Inert blanketing & purge, ammonia synthesis, cryogenic air separation."],
+  ["O","Oxygen",15.999,5,16,2,"[He] 2s2 2p4",3.44,2,54.4,90.2,1.429,"−2",0,"Combustion & oxidation reactors, ASU product, aeration in wastewater treatment."],
+  ["F","Fluorine",18.998,6,17,2,"[He] 2s2 2p5",3.98,2,53.5,85,1.696,"−1",0,"HF alkylation, fluoropolymers (PTFE) lining, UF6 enrichment."],
+  ["Ne","Neon",20.18,7,18,2,"[He] 2s2 2p6",0,2,24.6,27.1,0.9,"",0,"Cryogenic refrigerant, excimer lasers, ASU by-product."],
+  ["Na","Sodium",22.99,0,1,3,"[Ne] 3s1",0.93,0,370.9,1156.1,0.968,"+1",0,"Chlor-alkali (NaOH/NaCl), caustic scrubbing, molten-salt heat transfer."],
+  ["Mg","Magnesium",24.305,1,2,3,"[Ne] 3s2",1.31,0,923,1363,1.738,"+2",0,"Sacrificial anodes, lightweight alloys, MgO refractory brick."],
+  ["Al","Aluminum",26.982,3,13,3,"[Ne] 3s2 3p1",1.61,0,933.5,2743,2.7,"+3",0,"Heat-exchanger plate-fin cores, cryogenic vessels; Hall-Heroult smelting."],
+  ["Si","Silicon",28.085,4,14,3,"[Ne] 3s2 3p2",1.9,0,1687,3538,2.329,"+4",0,"Silica catalyst supports, silicones, semiconductor & PV feedstock."],
+  ["P","Phosphorus",30.974,5,15,3,"[Ne] 3s2 3p3",2.19,0,0,0,1.823,"−3, +3, +5",0,"Fertilizer (phosphoric acid), corrosion-inhibiting phosphate treatment."],
+  ["S","Sulfur",32.06,5,16,3,"[Ne] 3s2 3p4",2.58,0,388.4,717.8,2.07,"−2, +4, +6",0,"Contact-process H2SO4, Claus sulfur recovery, sour-gas corrosion."],
+  ["Cl","Chlorine",35.45,6,17,3,"[Ne] 3s2 3p5",3.16,2,171.6,239.1,3.2,"−1, +1, +5, +7",0,"Chlor-alkali, PVC monomer, water disinfection; severe corrosion of stainless."],
+  ["Ar","Argon",39.948,7,18,3,"[Ne] 3s2 3p6",0,2,83.8,87.3,1.784,"",0,"Inert welding shield, ASU product, blanket for reactive melts."],
+  ["K","Potassium",39.098,0,1,4,"[Ar] 4s1",0.82,0,336.7,1032,0.862,"+1",0,"KOH electrolyte, potash fertilizer, molten-salt (KNO3) thermal storage."],
+  ["Ca","Calcium",40.078,1,2,4,"[Ar] 4s2",1,0,1115,1757,1.55,"+2",0,"Lime (CaO) for flue-gas desulfurization, water softening, cement."],
+  ["Sc","Scandium",44.956,2,3,4,"[Ar] 3d1 4s2",1.36,0,1814,3109,2.985,"+3",0,""],
+  ["Ti","Titanium",47.867,2,4,4,"[Ar] 3d2 4s2",1.54,0,1941,3560,4.506,"+3, +4",0,"TiO2 pigment; Ti clad exchangers for seawater & chloride service."],
+  ["V","Vanadium",50.942,2,5,4,"[Ar] 3d3 4s2",1.63,0,2183,3680,6,"+2, +3, +4, +5",0,"V2O5 catalyst in SO2 oxidation; vanadium redox-flow batteries."],
+  ["Cr","Chromium",51.996,2,6,4,"[Ar] 3d5 4s1",1.66,0,2180,2944,7.19,"+2, +3, +6",0,"Stainless passivation (>10.5% Cr), Cr-Mo alloys for high-T hydrogen service."],
+  ["Mn","Manganese",54.938,2,7,4,"[Ar] 3d5 4s2",1.55,0,1519,2334,7.21,"+2, +4, +7",0,"Steel deoxidizer/desulfurizer, MnO2 in batteries."],
+  ["Fe","Iron",55.845,2,8,4,"[Ar] 3d6 4s2",1.83,0,1811,3134,7.874,"+2, +3",0,"Structural steel, ammonia-synthesis catalyst, Fischer-Tropsch catalyst."],
+  ["Co","Cobalt",58.933,2,9,4,"[Ar] 3d7 4s2",1.88,0,1768,3200,8.9,"+2, +3",0,"Hydrodesulfurization (CoMo) catalyst, Fischer-Tropsch, battery cathodes."],
+  ["Ni","Nickel",58.693,2,10,4,"[Ar] 3d8 4s2",1.91,0,1728,3003,8.908,"+2",0,"Hydrogenation catalyst, steam-reforming catalyst, Ni alloys (Inconel/Monel)."],
+  ["Cu","Copper",63.546,2,11,4,"[Ar] 3d10 4s1",1.9,0,1357.8,2835,8.96,"+1, +2",0,"Condenser tubes & heat exchangers, methanol-synthesis catalyst."],
+  ["Zn","Zinc",65.38,2,12,4,"[Ar] 3d10 4s2",1.65,0,692.7,1180,7.14,"+2",0,"Galvanizing, ZnO guard beds for H2S removal."],
+  ["Ga","Gallium",69.723,3,13,4,"[Ar] 3d10 4s2 4p1",1.81,0,302.9,2673,5.91,"+3",0,"GaAs/GaN semiconductors; low-melting alloy seals."],
+  ["Ge","Germanium",72.63,4,14,4,"[Ar] 3d10 4s2 4p2",2.01,0,1211.4,3106,5.323,"+4",0,"IR optics, polyester (PET) polymerization catalyst."],
+  ["As","Arsenic",74.922,4,15,4,"[Ar] 3d10 4s2 4p3",2.18,0,0,0,5.727,"−3, +3, +5",0,"Catalyst poison; regulated groundwater contaminant."],
+  ["Se","Selenium",78.971,5,16,4,"[Ar] 3d10 4s2 4p4",2.55,0,494,958,4.81,"−2, +4, +6",0,"Photoreceptors, glass decolorizing; refinery wastewater contaminant."],
+  ["Br","Bromine",79.904,6,17,4,"[Ar] 3d10 4s2 4p5",2.96,1,265.8,332,3.103,"−1, +1, +5",0,"Flame retardants, bromine-based biocides in cooling water."],
+  ["Kr","Krypton",83.798,7,18,4,"[Ar] 3d10 4s2 4p6",3,2,115.8,119.9,3.749,"+2",0,"Insulated-glazing fill; fission-product tracer in reactor off-gas."],
+  ["Rb","Rubidium",85.468,0,1,5,"[Kr] 5s1",0.82,0,312.4,961,1.532,"+1",0,""],
+  ["Sr","Strontium",87.62,1,2,5,"[Kr] 5s2",0.95,0,1050,1650,2.64,"+2",0,""],
+  ["Y","Yttrium",88.906,2,3,5,"[Kr] 4d1 5s2",1.22,0,1799,3203,4.472,"+3",0,""],
+  ["Zr","Zirconium",91.224,2,4,5,"[Kr] 4d2 5s2",1.33,0,2128,4650,6.52,"+4",0,"Zircaloy fuel cladding, corrosion-resistant vessel lining for acids."],
+  ["Nb","Niobium",92.906,2,5,5,"[Kr] 4d4 5s1",1.6,0,2750,5017,8.57,"+5",0,"Superalloy & HSLA-steel stabilizer, superconducting magnet wire (Nb-Ti)."],
+  ["Mo","Molybdenum",95.95,2,6,5,"[Kr] 4d5 5s1",2.16,0,2896,4912,10.28,"+4, +6",0,"CoMo/NiMo hydrotreating catalysts; Cr-Mo creep-resistant steels."],
+  ["Tc","Technetium",97,2,7,5,"[Kr] 4d5 5s2",1.9,0,2430,4538,11,"+7",1,""],
+  ["Ru","Ruthenium",101.07,2,8,5,"[Kr] 4d7 5s1",2.2,0,2607,4423,12.45,"+3, +4, +8",0,"Ammonia-synthesis & metathesis catalysts, DSA electrode coatings."],
+  ["Rh","Rhodium",102.91,2,9,5,"[Kr] 4d8 5s1",2.28,0,2237,3968,12.41,"+3",0,"Three-way autocatalyst (NOx), hydroformylation & carbonylation catalyst."],
+  ["Pd","Palladium",106.42,2,10,5,"[Kr] 4d10",2.2,0,1828,3236,12.023,"+2, +4",0,"Selective hydrogenation, H2-purification membranes, autocatalysts."],
+  ["Ag","Silver",107.87,2,11,5,"[Kr] 4d10 5s1",1.93,0,1234.9,2435,10.49,"+1",0,"Ethylene-oxide catalyst, formaldehyde process, brazing alloys."],
+  ["Cd","Cadmium",112.41,2,12,5,"[Kr] 4d10 5s2",1.69,0,594.2,1040,8.65,"+2",0,""],
+  ["In","Indium",114.82,3,13,5,"[Kr] 4d10 5s2 5p1",1.78,0,429.7,2345,7.31,"+3",0,""],
+  ["Sn","Tin",118.71,3,14,5,"[Kr] 4d10 5s2 5p2",1.96,0,505.1,2875,7.365,"+2, +4",0,"Solder, tinplate, float-glass bath; organotin PVC stabilizers."],
+  ["Sb","Antimony",121.76,4,15,5,"[Kr] 4d10 5s2 5p3",2.05,0,903.8,1908,6.697,"+3, +5",0,"Flame retardant synergist, PET polycondensation catalyst."],
+  ["Te","Tellurium",127.6,4,16,5,"[Kr] 4d10 5s2 5p4",2.1,0,722.7,1261,6.24,"−2, +4, +6",0,""],
+  ["I","Iodine",126.9,6,17,5,"[Kr] 4d10 5s2 5p5",2.66,0,386.9,457.4,4.933,"−1, +1, +5, +7",0,"Acetic-acid (Cativa/Monsanto) promoter, disinfectants."],
+  ["Xe","Xenon",131.29,7,18,5,"[Kr] 4d10 5s2 5p6",2.6,2,161.4,165.1,5.894,"+2, +4, +6",0,"Anesthesia, ion thrusters, neutron-poison in reactor transients."],
+  ["Cs","Cesium",132.91,0,1,6,"[Xe] 6s1",0.79,0,301.7,944,1.93,"+1",0,""],
+  ["Ba","Barium",137.33,1,2,6,"[Xe] 6s2",0.89,0,1000,2118,3.51,"+2",0,"Drilling-mud weighting (barite), BaSO4 scale in oilfield water."],
+  ["La","Lanthanum",138.91,8,3,9,"[Xe] 5d1 6s2",1.1,0,1193,3737,6.162,"+3",0,"FCC zeolite stabilizer, NiMH battery alloys."],
+  ["Ce","Cerium",140.12,8,4,9,"[Xe] 4f1 5d1 6s2",1.12,0,1068,3716,6.77,"+3, +4",0,"Automotive catalyst oxygen storage (CeO2), FCC additive."],
+  ["Pr","Praseodymium",140.91,8,5,9,"[Xe] 4f3 6s2",1.13,0,1208,3403,6.77,"+3",0,""],
+  ["Nd","Neodymium",144.24,8,6,9,"[Xe] 4f4 6s2",1.14,0,1297,3347,7.01,"+3",0,""],
+  ["Pm","Promethium",145,8,7,9,"[Xe] 4f5 6s2",1.13,0,1315,3273,7.26,"+3",1,""],
+  ["Sm","Samarium",150.36,8,8,9,"[Xe] 4f6 6s2",1.17,0,1345,2173,7.52,"+2, +3",0,""],
+  ["Eu","Europium",151.96,8,9,9,"[Xe] 4f7 6s2",1.2,0,1099,1802,5.264,"+2, +3",0,""],
+  ["Gd","Gadolinium",157.25,8,10,9,"[Xe] 4f7 5d1 6s2",1.2,0,1585,3273,7.9,"+3",0,""],
+  ["Tb","Terbium",158.93,8,11,9,"[Xe] 4f9 6s2",1.1,0,1629,3396,8.23,"+3, +4",0,""],
+  ["Dy","Dysprosium",162.5,8,12,9,"[Xe] 4f10 6s2",1.22,0,1680,2840,8.54,"+3",0,""],
+  ["Ho","Holmium",164.93,8,13,9,"[Xe] 4f11 6s2",1.23,0,1734,2873,8.79,"+3",0,""],
+  ["Er","Erbium",167.26,8,14,9,"[Xe] 4f12 6s2",1.24,0,1802,3141,9.066,"+3",0,""],
+  ["Tm","Thulium",168.93,8,15,9,"[Xe] 4f13 6s2",1.25,0,1818,2223,9.32,"+3",0,""],
+  ["Yb","Ytterbium",173.05,8,16,9,"[Xe] 4f14 6s2",1.1,0,1097,1469,6.9,"+2, +3",0,""],
+  ["Lu","Lutetium",174.97,8,17,9,"[Xe] 4f14 5d1 6s2",1.27,0,1925,3675,9.841,"+3",0,""],
+  ["Hf","Hafnium",178.49,2,4,6,"[Xe] 4f14 5d2 6s2",1.3,0,2506,4876,13.31,"+4",0,"Neutron-absorbing control rods; must be stripped from reactor-grade Zr."],
+  ["Ta","Tantalum",180.95,2,5,6,"[Xe] 4f14 5d3 6s2",1.5,0,3290,5731,16.69,"+5",0,"Corrosion-proof linings & exchangers for hot HCl/H2SO4 service."],
+  ["W","Tungsten",183.84,2,6,6,"[Xe] 4f14 5d4 6s2",2.36,0,3695,6203,19.25,"+4, +6",0,"WC tooling, high-T furnace elements, WS2 hydrotreating research."],
+  ["Re","Rhenium",186.21,2,7,6,"[Xe] 4f14 5d5 6s2",1.9,0,3459,5869,21.02,"+4, +7",0,"Bimetallic Pt-Re naphtha reforming catalyst; single-crystal superalloys."],
+  ["Os","Osmium",190.23,2,8,6,"[Xe] 4f14 5d6 6s2",2.2,0,3306,5285,22.59,"+4, +8",0,"OsO4 dihydroxylation catalyst (highly toxic, volatile)."],
+  ["Ir","Iridium",192.22,2,9,6,"[Xe] 4f14 5d7 6s2",2.2,0,2719,4403,22.56,"+3, +4",0,"Cativa acetic-acid catalyst, DSA anodes for chlor-alkali."],
+  ["Pt","Platinum",195.08,2,10,6,"[Xe] 4f14 5d9 6s1",2.28,0,2041.4,4098,21.45,"+2, +4",0,"Naphtha reforming, nitric-acid ammonia oxidation gauze, PEM fuel cells."],
+  ["Au","Gold",196.97,2,11,6,"[Xe] 4f14 5d10 6s1",2.54,0,1337.3,3243,19.3,"+1, +3",0,"Corrosion-proof contacts; Au/TiO2 low-temperature CO oxidation."],
+  ["Hg","Mercury",200.59,2,12,6,"[Xe] 4f14 5d10 6s2",2,1,234.3,629.9,13.534,"+1, +2",0,"Legacy chlor-alkali cells; catalyst poison and regulated emission."],
+  ["Tl","Thallium",204.38,3,13,6,"[Xe] 4f14 5d10 6s2 6p1",1.62,0,577,1746,11.85,"+1, +3",0,""],
+  ["Pb","Lead",207.2,3,14,6,"[Xe] 4f14 5d10 6s2 6p2",1.87,0,600.6,2022,11.34,"+2, +4",0,"Lead-acid batteries, radiation shielding; phased out of process service."],
+  ["Bi","Bismuth",208.98,3,15,6,"[Xe] 4f14 5d10 6s2 6p3",2.02,0,544.7,1837,9.78,"+3, +5",0,"Non-toxic solder & alloy replacement for lead, pharma (bismuth salts)."],
+  ["Po","Polonium",209,3,16,6,"[Xe] 4f14 5d10 6s2 6p4",2,0,527,1235,9.196,"+2, +4",1,""],
+  ["At","Astatine",210,4,17,6,"[Xe] 4f14 5d10 6s2 6p5",2.2,0,575,610,6.35,"−1, +1",1,""],
+  ["Rn","Radon",222,7,18,6,"[Xe] 4f14 5d10 6s2 6p6",2.2,2,202,211.5,9.73,"+2",1,""],
+  ["Fr","Francium",223,0,1,7,"[Rn] 7s1",0.79,0,300,950,1.87,"+1",1,""],
+  ["Ra","Radium",226,1,2,7,"[Rn] 7s2",0.9,0,1233,2010,5.5,"+2",1,"NORM scale in oilfield tubulars - a real waste-handling problem."],
+  ["Ac","Actinium",227,9,3,10,"[Rn] 6d1 7s2",1.1,0,1500,3500,10,"+3",1,""],
+  ["Th","Thorium",232.04,9,4,10,"[Rn] 6d2 7s2",1.3,0,2023,5061,11.724,"+4",0,"Fertile fuel in molten-salt reactor concepts."],
+  ["Pa","Protactinium",231.04,9,5,10,"[Rn] 5f2 6d1 7s2",1.5,0,1841,4300,15.37,"+5",0,""],
+  ["U","Uranium",238.03,9,6,10,"[Rn] 5f3 6d1 7s2",1.38,0,1405.3,4404,19.1,"+3, +4, +5, +6",0,"Nuclear fuel; UF6 enrichment is a classic separation-cascade problem."],
+  ["Np","Neptunium",237,9,7,10,"[Rn] 5f4 6d1 7s2",1.36,0,912,4447,20.45,"+5",1,""],
+  ["Pu","Plutonium",244,9,8,10,"[Rn] 5f6 7s2",1.28,0,912.5,3505,19.816,"+4",1,"MOX fuel; produced by neutron capture in U-238."],
+  ["Am","Americium",243,9,9,10,"[Rn] 5f7 7s2",1.13,0,1449,2880,12,"+3",1,""],
+  ["Cm","Curium",247,9,10,10,"[Rn] 5f7 6d1 7s2",1.28,0,1613,3383,13.51,"+3",1,""],
+  ["Bk","Berkelium",247,9,11,10,"[Rn] 5f9 7s2",1.3,0,1259,2900,14.78,"+3",1,""],
+  ["Cf","Californium",251,9,12,10,"[Rn] 5f10 7s2",1.3,0,1173,1743,15.1,"+3",1,""],
+  ["Es","Einsteinium",252,9,13,10,"[Rn] 5f11 7s2",1.3,0,1133,1269,8.84,"+3",1,""],
+  ["Fm","Fermium",257,9,14,10,"[Rn] 5f12 7s2",1.3,0,1800,0,0,"+3",1,""],
+  ["Md","Mendelevium",258,9,15,10,"[Rn] 5f13 7s2",1.3,0,1100,0,0,"+3",1,""],
+  ["No","Nobelium",259,9,16,10,"[Rn] 5f14 7s2",1.3,0,1100,0,0,"+2, +3",1,""],
+  ["Lr","Lawrencium",266,9,17,10,"[Rn] 5f14 7s2 7p1",1.3,0,1900,0,0,"+3",1,""],
+  ["Rf","Rutherfordium",267,2,4,7,"[Rn] 5f14 6d2 7s2",0,0,2400,5800,23.2,"",1,""],
+  ["Db","Dubnium",268,2,5,7,"[Rn] 5f14 6d3 7s2",0,0,0,0,29.3,"",1,""],
+  ["Sg","Seaborgium",269,2,6,7,"[Rn] 5f14 6d4 7s2",0,0,0,0,35,"",1,""],
+  ["Bh","Bohrium",270,2,7,7,"[Rn] 5f14 6d5 7s2",0,0,0,0,37.1,"",1,""],
+  ["Hs","Hassium",269,2,8,7,"[Rn] 5f14 6d6 7s2",0,0,126,0,40.7,"",1,""],
+  ["Mt","Meitnerium",278,10,9,7,"[Rn] 5f14 6d7 7s2",0,0,0,0,0,"",1,""],
+  ["Ds","Darmstadtium",281,10,10,7,"[Rn] 5f14 6d9 7s1",0,0,0,0,0,"",1,""],
+  ["Rg","Roentgenium",282,10,11,7,"[Rn] 5f14 6d10 7s1",0,0,0,0,0,"",1,""],
+  ["Cn","Copernicium",285,2,12,7,"[Rn] 5f14 6d10 7s2",0,1,0,3570,14,"",1,""],
+  ["Nh","Nihonium",286,10,13,7,"[Rn] 5f14 6d10 7s2 7p1",0,0,0,0,0,"",1,""],
+  ["Fl","Flerovium",289,3,14,7,"[Rn] 5f14 6d10 7s2 7p2",0,0,340,420,14,"",1,""],
+  ["Mc","Moscovium",290,10,15,7,"[Rn] 5f14 6d10 7s2 7p3",0,0,0,0,0,"",1,""],
+  ["Lv","Livermorium",293,10,16,7,"[Rn] 5f14 6d10 7s2 7p4",0,0,0,0,0,"",1,""],
+  ["Ts","Tennessine",294,10,17,7,"[Rn] 5f14 6d10 7s2 7p5",0,0,0,0,0,"",1,""],
+  ["Og","Oganesson",294,10,18,7,"[Rn] 5f14 6d10 7s2 7p6",0,0,0,0,0,"",1,""]
+];
+
+let _ptSeq = 0;
+
+/** Bucket a value into 0…bins.length; returns -1 when the value is unknown. */
+function ptBin(v, bins) {
+  if (!v) return -1;
+  for (let i = 0; i < bins.length; i++) if (v < bins[i]) return i;
+  return bins.length;
+}
+
+/** Block (s/p/d/f) from the element's position in the table. */
+function ptBlock(r) {
+  if (r[PT_Y] > 7) return "f";
+  const g = r[PT_X];
+  if (g >= 3 && g <= 12) return "d";
+  if (g <= 2) return r[PT_SYM] === "He" ? "p" : "s";
+  return "p";
+}
+
+function ptMassText(r) {
+  return r[PT_ISNUM] ? "[" + r[PT_MASS] + "]" : String(r[PT_MASS]);
+}
+
+function ptTempText(k) {
+  if (!k) return "—";
+  return k + " K  (" + Math.round(k - 273.15) + " °C)";
+}
+
+/** Color class for one cell under the active overlay mode. */
+function ptCellClass(r, mode) {
+  if (mode === "phase") return "pt-p" + r[PT_PHASE];
+  if (mode === "en") { const b = ptBin(r[PT_EN], PT_EN_BINS); return b < 0 ? "pt-hx" : "pt-h" + b; }
+  if (mode === "melt") { const b = ptBin(r[PT_MELT], PT_MELT_BINS); return b < 0 ? "pt-hx" : "pt-h" + b; }
+  return "pt-c" + r[PT_CAT];
+}
+
+/** Legend swatches for the active overlay mode. */
+function ptLegendHTML(mode) {
+  let items;
+  if (mode === "phase") {
+    items = PT_PHASES.map((p, i) => ["pt-p" + i, p + " at 25 °C"]);
+  } else if (mode === "en") {
+    items = [["pt-h0", "< 1.0"], ["pt-h1", "1.0–1.5"], ["pt-h2", "1.5–2.0"],
+      ["pt-h3", "2.0–2.5"], ["pt-h4", "2.5–3.0"], ["pt-h5", "≥ 3.0"], ["pt-hx", "no value"]];
+  } else if (mode === "melt") {
+    items = [["pt-h0", "< 300 K"], ["pt-h1", "300–600 K"], ["pt-h2", "600–1200 K"],
+      ["pt-h3", "1200–2000 K"], ["pt-h4", "2000–3000 K"], ["pt-h5", "≥ 3000 K"], ["pt-hx", "no value"]];
+  } else {
+    items = PT_CATS.map((c, i) => ["pt-c" + i, c]);
+  }
+  return items.map(([cls, label]) =>
+    '<span class="pt-key"><i class="pt-sw ' + cls + '"></i>' + esc(label) + "</span>").join("");
+}
+
+/** The properties card for one element (z is 1-based). */
+function ptDetailHTML(z) {
+  const r = PT_ELEMENTS[z - 1];
+  const rows = [
+    ["Atomic number", String(z)],
+    ["Atomic mass", ptMassText(r) + " g/mol"],
+    ["Category", PT_CATS[r[PT_CAT]]],
+    ["Group · Period · Block", (r[PT_Y] > 7 ? "f-block" : "Group " + r[PT_X]) +
+      " · Period " + (r[PT_Y] > 7 ? r[PT_Y] - 3 : r[PT_Y]) + " · " + ptBlock(r) + "-block"],
+    ["Electron configuration", r[PT_CFG] || "—"],
+    ["Electronegativity (Pauling)", r[PT_EN] ? String(r[PT_EN]) : "—"],
+    ["Common oxidation states", r[PT_OX] || "—"],
+    ["State at 25 °C", PT_PHASES[r[PT_PHASE]]],
+    ["Melting point", ptTempText(r[PT_MELT])],
+    ["Boiling point", ptTempText(r[PT_BOIL])],
+    ["Density", r[PT_DENS] ? r[PT_DENS] + (r[PT_PHASE] === 2 ? " g/L" : " g/cm³") : "—"],
+  ];
+  return '<div class="pt-card">' +
+    '<div class="pt-card-head">' +
+      '<span class="pt-card-sym ' + ptCellClass(r, "cat") + '">' + esc(r[PT_SYM]) + "</span>" +
+      '<span class="pt-card-id"><strong>' + esc(r[PT_NAME]) + "</strong>" +
+        '<span class="pt-card-sub">' + esc(PT_CATS[r[PT_CAT]]) + " · Z = " + z + "</span></span>" +
+    "</div>" +
+    '<table class="ref-table pt-props"><tbody>' +
+      rows.map(([k, v]) => "<tr><th>" + esc(k) + "</th><td>" + esc(v) + "</td></tr>").join("") +
+    "</tbody></table>" +
+    (r[PT_NOTE] ? '<div class="info-bar ib-cyan">⚗️ ' + esc(r[PT_NOTE]) + "</div>" : "") +
+    "</div>";
+}
+
+/** Build the grid markup: a group header row, period labels, then the cells. */
+function ptGridHTML(mode) {
+  // Group numbers, period numbers and the f-block placeholders are decoration:
+  // every cell's aria-label already carries name, symbol and atomic number.
+  let out = "";
+  for (let g = 1; g <= 18; g++) {
+    out += '<span class="pt-axis" aria-hidden="true" style="grid-column:' + (g + 1) +
+      ';grid-row:1">' + g + "</span>";
+  }
+  for (let p = 1; p <= 7; p++) {
+    out += '<span class="pt-axis" aria-hidden="true" style="grid-column:1;grid-row:' +
+      (p + 1) + '">' + p + "</span>";
+  }
+  out += '<span class="pt-ph" aria-hidden="true" style="grid-column:4;grid-row:7">57–71</span>' +
+    '<span class="pt-ph" aria-hidden="true" style="grid-column:4;grid-row:8">89–103</span>';
+
+  PT_ELEMENTS.forEach((r, i) => {
+    const z = i + 1;
+    out += '<button type="button" class="pt-cell ' + ptCellClass(r, mode) +
+      '" style="grid-column:' + (r[PT_X] + 1) + ';grid-row:' + (r[PT_Y] + 1) +
+      '" data-z="' + z + '" data-x="' + r[PT_X] + '" data-y="' + r[PT_Y] +
+      '" tabindex="-1" aria-label="' + esc(r[PT_NAME] + ", symbol " + r[PT_SYM] +
+        ", atomic number " + z) + '">' +
+      '<span class="pt-z">' + z + "</span>" +
+      '<span class="pt-sym">' + esc(r[PT_SYM]) + "</span>" +
+      '<span class="pt-nm">' + esc(r[PT_NAME]) + "</span>" +
+      "</button>";
+  });
+  return out;
+}
+
+/**
+ * Mount the table into `host`. Everything is scoped to the host element so the
+ * in-page copy and the modal copy can coexist without id collisions.
+ */
+function ptMount(host) {
+  const uid = "pt" + (++_ptSeq);
+  let mode = "cat";
+  let selected = 6;                              // carbon — a sane opening card
+
+  host.innerHTML =
+    '<div class="pt-bar">' +
+      '<div class="pt-modes" role="group" aria-label="Color the table by">' +
+        '<button type="button" class="pt-mode active" data-mode="cat">Category</button>' +
+        '<button type="button" class="pt-mode" data-mode="en">Electronegativity</button>' +
+        '<button type="button" class="pt-mode" data-mode="melt">Melting point</button>' +
+        '<button type="button" class="pt-mode" data-mode="phase">State</button>' +
+      "</div>" +
+      '<div class="pt-search"><label for="' + uid + '-q">Find</label>' +
+        '<input id="' + uid + '-q" type="search" placeholder="name, symbol or Z" ' +
+        'autocomplete="off" spellcheck="false" /></div>' +
+    "</div>" +
+    '<div class="pt-scroll"><div class="pt-grid">' + ptGridHTML(mode) + "</div></div>" +
+    '<div class="pt-legend">' + ptLegendHTML(mode) + "</div>" +
+    '<div class="pt-detail" aria-live="polite">' + ptDetailHTML(selected) + "</div>";
+
+  const grid = host.querySelector(".pt-grid");
+  const detail = host.querySelector(".pt-detail");
+  const cells = Array.from(grid.querySelectorAll(".pt-cell"));
+  const byZ = z => cells[z - 1];
+
+  function select(z, focus) {
+    selected = z;
+    cells.forEach(c => {
+      const on = +c.dataset.z === z;
+      c.classList.toggle("sel", on);
+      c.tabIndex = on ? 0 : -1;
+    });
+    detail.innerHTML = ptDetailHTML(z);
+    if (focus) byZ(z).focus();
+  }
+  select(selected, false);
+
+  function setMode(next) {
+    mode = next;
+    cells.forEach((c, i) => {
+      const r = PT_ELEMENTS[i];
+      const dim = c.classList.contains("dim");
+      c.className = "pt-cell " + ptCellClass(r, mode) +
+        (+c.dataset.z === selected ? " sel" : "") + (dim ? " dim" : "");
+    });
+    host.querySelector(".pt-legend").innerHTML = ptLegendHTML(mode);
+    host.querySelectorAll(".pt-mode").forEach(b =>
+      b.classList.toggle("active", b.dataset.mode === mode));
+  }
+
+  host.querySelector(".pt-modes").addEventListener("click", e => {
+    const b = e.target.closest(".pt-mode");
+    if (b) setMode(b.dataset.mode);
+  });
+
+  grid.addEventListener("click", e => {
+    const c = e.target.closest(".pt-cell");
+    if (c) select(+c.dataset.z, false);
+  });
+
+  // Roving tabindex: the grid is one tab stop, arrows walk it like a real grid.
+  grid.addEventListener("keydown", e => {
+    const dirs = { ArrowRight: [1, 0], ArrowLeft: [-1, 0], ArrowDown: [0, 1], ArrowUp: [0, -1] };
+    const d = dirs[e.key];
+    if (!d) return;
+    e.preventDefault();
+    const cur = PT_ELEMENTS[selected - 1];
+    let x = cur[PT_X], y = cur[PT_Y];
+    for (let step = 0; step < 20; step++) {
+      x += d[0]; y += d[1];
+      if (x < 1 || x > 18 || y < 1 || y > 10) return;      // walked off the table
+      const hit = PT_ELEMENTS.findIndex(r => r[PT_X] === x && r[PT_Y] === y);
+      if (hit >= 0) { select(hit + 1, true); return; }
+    }
+  });
+
+  host.querySelector(".pt-search").addEventListener("input", e => {
+    const q = e.target.value.trim().toLowerCase();
+    cells.forEach((c, i) => {
+      const r = PT_ELEMENTS[i];
+      const hit = !q || r[PT_SYM].toLowerCase() === q ||
+        r[PT_NAME].toLowerCase().indexOf(q) === 0 || String(i + 1) === q;
+      c.classList.toggle("dim", !!q && !hit);
+    });
+    // A single remaining match opens its card — typing "Kr" lands on krypton.
+    const hits = cells.filter(c => !c.classList.contains("dim"));
+    if (q && hits.length === 1) select(+hits[0].dataset.z, false);
+  });
+}
+
+/** Mount every in-page table (the chemistry domain carries one). */
+function initPeriodicTable() {
+  document.querySelectorAll(".ptable-mount").forEach(ptMount);
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
@@ -1635,6 +1996,16 @@ function stRefreshStudyList() {
   if (host && _stOverlay && !_stOverlay.hidden) stRenderStudyList(host);
 }
 
+// ── PERIODIC TABLE (modal copy of the in-page tool) ─────────────────────────
+function stOpenPeriodicTable() {
+  stOpen(body => {
+    body.innerHTML = '<h2 class="st-h">⚛️ Periodic table</h2>' +
+      '<div class="ptable-mount"></div>' +
+      '<p class="st-hint">Click an element for its card · ← ↑ → ↓ to walk the grid · Esc to close</p>';
+    ptMount(body.querySelector(".ptable-mount"));
+  });
+}
+
 // ── LAUNCHER (FAB + menu) + keyboard shortcut ───────────────────────────────
 function initStudyTools() {
   const fab = document.createElement("div");
@@ -1645,6 +2016,7 @@ function initStudyTools() {
       '<button class="study-mi" data-act="cards"><span>🃏</span> Flashcards</button>' +
       '<button class="study-mi" data-act="quiz"><span>❓</span> Quiz</button>' +
       '<button class="study-mi" data-act="list"><span>★</span> Study list</button>' +
+      '<button class="study-mi" data-act="ptable"><span>⚛️</span> Periodic table</button>' +
     '</div>' +
     '<button id="study-fab" title="Study tools" aria-label="Study tools" aria-haspopup="true" aria-expanded="false">' +
       '<svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">' +
@@ -1667,7 +2039,10 @@ function initStudyTools() {
   menu.addEventListener("click", e => {
     const mi = e.target.closest(".study-mi"); if (!mi) return;
     closeMenu();
-    ({ jump: stOpenJump, cards: stOpenFlashcards, quiz: stOpenQuiz, list: stOpenStudyList }[mi.dataset.act])();
+    ({
+      jump: stOpenJump, cards: stOpenFlashcards, quiz: stOpenQuiz,
+      list: stOpenStudyList, ptable: stOpenPeriodicTable,
+    }[mi.dataset.act])();
   });
   document.addEventListener("click", e => { if (!fab.contains(e.target) && !menu.hidden) closeMenu(); });
 
