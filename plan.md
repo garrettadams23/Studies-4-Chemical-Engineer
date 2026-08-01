@@ -839,6 +839,20 @@ checks (axe-core) pass at 0 and the best-practices/SEO signals it grades are all
 
 ## 12. Changelog
 
+### 2026-08-01 — Cross-site feature parity with the IT Knowledge Base
+Worked across both sister repos to bring the ChemE site and the IT Knowledge
+Base (`garrettadams23/Studies`) to shared engine + security parity:
+- Ported this site's portable engine features **to** the IT site: PWA/service
+  worker, keyboard shortcuts (`/ e t r`), random-topic button, SEO/infra files
+  (404/robots/sitemap/_redirects/netlify.toml) and JSON-LD.
+- Migrated the IT site's remaining inline handlers to `addEventListener` so it
+  could adopt the same strict `script-src 'self'` CSP as this site.
+- Fixed a shared study-menu FAB bug (`#study-menu { display:flex }` overrode the
+  `[hidden]` toggle, leaving the menu stuck open) — this site already carried the
+  `#study-menu[hidden] { display:none }` guard; added it to the IT site too.
+Content-specific features (calculators, glossary, domain SVG diagrams) stay
+ChemE-only by design. Both sites now share every portable capability.
+
 ### 2026-07-30 — Six more SVG diagrams (12 total, across more domains)
 Added inline, theme-aware, offline SVG diagrams to six more flagship topics:
 - **Thermodynamics** — Carnot cycle on a T–s diagram (isotherms + adiabats).
